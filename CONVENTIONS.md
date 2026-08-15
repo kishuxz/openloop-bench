@@ -108,3 +108,8 @@ boundaries anyway.
 | 2026-08-14 | Bucket lives in the `thread_id` prefix, not a schema field | Visible in `ls`, greppable, and unable to disagree with the filename. Rejected a `bucket` field as a second source of truth. |
 | 2026-08-14 | `split` stored per thread, not computed at run time | A split redrawn per run can be redrawn to flatter a result. |
 | 2026-08-14 | Corpus authoring goes through quoted substrings, not hand-counted offsets | Hand-counting is how a corpus ends up with spans that resolve to the wrong words. |
+| 2026-08-14 | Predictions are matched on evidence span IoU, not statement similarity | Text similarity scores paraphrasing quality, not detection. |
+| 2026-08-14 | Every eval run is scored at three IoU thresholds, not one | The threshold is a judgment call; reporting one number hides it, and a config's ranking can move between them. |
+| 2026-08-14 | The prediction format lives in `packages/eval`, not `packages/schema` | The schema is ground truth. A prediction is deliberately laxer — ungrounded spans and inconsistent fields must parse so they can be *counted* — and putting a second, laxer loop shape in the source of truth would invite the two to be confused. |
+| 2026-08-14 | Fixture predictions are generated from the corpus, not hand-written | Hand-written fixtures go stale on any thread edit and have no known-correct score. Generated ones let the eval be checked against what was injected. |
+| 2026-08-14 | `results/` and `fixtures/` are committed, and CI fails on a regeneration diff | Makes "deterministic — same inputs, same bytes out" a checked claim, and makes every number in REPORT.md traceable without re-running anything. |

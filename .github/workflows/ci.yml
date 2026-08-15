@@ -42,3 +42,17 @@ jobs:
 
       - name: Check corpus composition
         run: pnpm stats:check
+
+      # The eval is only trustworthy if its committed artifacts are the ones its
+      # code produces. Regenerate the fixtures, re-score them, re-render the
+      # report, and fail on any diff: that is what makes "deterministic — same
+      # inputs, same bytes out" a checked claim rather than a sentence in a
+      # README. It also catches a corpus edit that silently invalidates a
+      # prediction file's spans, since the hash gate refuses to score it.
+      - name: Regenerate fixtures, score, and report
+        run: pnpm fixtures:gen && pnpm eval && pnpm report
+
+      - name: Results are reproducible
+        run: |
+          git diff --exit-code -- fixtures results
+          test -z "$(git status --porcelain -- fixtures results)"

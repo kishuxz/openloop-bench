@@ -1,0 +1,2758 @@
+{
+  "format": 1,
+  "meta": {
+    "config": "fixture-dev",
+    "model_id": "fixture://reference-v1",
+    "prompt_version": "fixture-0",
+    "sampling": {
+      "temperature": 0,
+      "top_p": 1,
+      "max_output_tokens": 4096,
+      "seed": 20260814
+    },
+    "corpus_hash": "d9c347f4f5150b19",
+    "split": "dev",
+    "generated_at": "2026-08-14",
+    "notes": "Reference fixture. Moderate errors of every scored kind, spans slightly wide."
+  },
+  "predictions": [
+    {
+      "thread_id": "del-01",
+      "loops": [
+        {
+          "statement": "send Nandini the monthly cohort data",
+          "direction": "blocked_on_you",
+          "counterparty": "Nandini (LP)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 1,
+            "end": 26
+          },
+          "resolution": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 38
+          },
+          "state": "superseded",
+          "register": "en"
+        },
+        {
+          "statement": "Arjun sends Nandini the monthly cohort data",
+          "direction": "blocked_on_them",
+          "counterparty": "Arjun",
+          "deadline": {
+            "span": {
+              "msg_index": 3,
+              "start": 26,
+              "end": 31
+            },
+            "resolved": "2026-03-04",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 31
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "del-02",
+      "loops": [
+        {
+          "statement": "Tanvi writes the postmortem for the Friday outage",
+          "direction": "blocked_on_them",
+          "counterparty": "Tanvi",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 22,
+              "end": 34
+            },
+            "resolved": "2026-03-11",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 34
+          },
+          "resolution": {
+            "msg_index": 3,
+            "start": 6,
+            "end": 29
+          },
+          "state": "superseded",
+          "register": "en"
+        },
+        {
+          "statement": "write the postmortem for the Friday outage",
+          "direction": "blocked_on_you",
+          "counterparty": "Tanvi",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 12,
+            "end": 46
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "del-03",
+      "loops": [
+        {
+          "statement": "send Procurement the ISO 27001 certificate and signed NDA",
+          "direction": "blocked_on_you",
+          "counterparty": "Procurement (Client)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 2,
+            "end": 44
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "Fatima sends Procurement the ISO 27001 certificate and signed NDA",
+          "direction": "blocked_on_them",
+          "counterparty": "Fatima",
+          "deadline": {
+            "span": {
+              "msg_index": 2,
+              "start": 110,
+              "end": 121
+            },
+            "resolved": "2026-03-12",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 44,
+            "end": 128
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "del-07",
+      "loops": [
+        {
+          "statement": "call the enterprise trial account before it expires",
+          "direction": "blocked_on_you",
+          "counterparty": "Pooja",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 14,
+              "end": 19
+            },
+            "resolved": "2026-04-07",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 19
+          },
+          "resolution": {
+            "msg_index": 5,
+            "start": 0,
+            "end": 5
+          },
+          "state": "superseded",
+          "register": "en"
+        },
+        {
+          "statement": "Pooja calls the enterprise trial account before it expires",
+          "direction": "blocked_on_them",
+          "counterparty": "Pooja",
+          "deadline": {
+            "span": null,
+            "resolved": "2026-04-10",
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 43
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "del-08",
+      "loops": [
+        {
+          "statement": "Lakshmi sends the bank the stock statement each month",
+          "direction": "blocked_on_them",
+          "counterparty": "Lakshmi (audit)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 5,
+            "start": 10,
+            "end": 29
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "share the stock data with Lakshmi each month",
+          "direction": "blocked_on_them",
+          "counterparty": "Lakshmi (audit)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 53,
+            "end": 83
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "del-12",
+      "loops": [
+        {
+          "statement": "write the management response to the pen test report",
+          "direction": "blocked_on_you",
+          "counterparty": "Neha",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 12
+          },
+          "resolution": {
+            "msg_index": 3,
+            "start": 25,
+            "end": 59
+          },
+          "state": "superseded",
+          "register": "en"
+        },
+        {
+          "statement": "Neha writes the management response to the pen test report",
+          "direction": "blocked_on_them",
+          "counterparty": "Neha",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 20,
+            "end": 47
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "send Neha the management response template",
+          "direction": "blocked_on_you",
+          "counterparty": "Neha",
+          "deadline": {
+            "span": {
+              "msg_index": 4,
+              "start": 31,
+              "end": 34
+            },
+            "resolved": "2026-05-04",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 1,
+            "end": 34
+          },
+          "resolution": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 12
+          },
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "sign off Neha's management response",
+          "direction": "blocked_on_you",
+          "counterparty": "Neha",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 37,
+            "end": 59
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "follow up on \"rt needs a management response befo\"",
+          "direction": "blocked_on_you",
+          "counterparty": "Neha",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 17,
+            "end": 52
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "del-13",
+      "loops": [
+        {
+          "statement": "draft the directors' report before the board meeting",
+          "direction": "blocked_on_you",
+          "counterparty": "Lakshmi (audit)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 29
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "Lakshmi drafts the directors' report",
+          "direction": "blocked_on_them",
+          "counterparty": "Lakshmi (audit)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 14
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "Lakshmi drafts the directors' report",
+          "direction": "blocked_on_them",
+          "counterparty": "Lakshmi (audit)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 9,
+            "end": 23
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "del-17",
+      "loops": [
+        {
+          "statement": "redo the app store screenshots",
+          "direction": "blocked_on_you",
+          "counterparty": "Divya",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 14,
+              "end": 23
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": "unmappable",
+          "resolution": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 34
+          },
+          "state": "superseded",
+          "register": "en"
+        },
+        {
+          "statement": "Divya exports fresh app store screenshots",
+          "direction": "blocked_on_them",
+          "counterparty": "Divya",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 41
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "upload the new app store screenshots",
+          "direction": "blocked_on_you",
+          "counterparty": "Divya",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 5,
+            "end": 41
+          },
+          "resolution": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 12
+          },
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "del-18",
+      "loops": [
+        {
+          "statement": "update the cap table with the new ESOP grants",
+          "direction": "blocked_on_them",
+          "counterparty": "Sneha",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 37
+          },
+          "resolution": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 37
+          },
+          "state": "superseded",
+          "register": "hi-en"
+        },
+        {
+          "statement": "Sneha updates the cap table with the new ESOP grants",
+          "direction": "blocked_on_them",
+          "counterparty": "Sneha",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 40,
+            "end": 48
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "sign the ESOP grant letters",
+          "direction": "blocked_on_you",
+          "counterparty": "Sneha",
+          "deadline": {
+            "span": {
+              "msg_index": 4,
+              "start": 49,
+              "end": 59
+            },
+            "resolved": "2026-06-05",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 10,
+            "end": 59
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "del-22",
+      "loops": [
+        {
+          "statement": "connect the cousin with Dinesh for admissions guidance",
+          "direction": "blocked_on_you",
+          "counterparty": "Amma",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 32,
+            "end": 60
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "Dinesh guides the cousin on engineering admissions",
+          "direction": "blocked_on_them",
+          "counterparty": "Dinesh (professor)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 29
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "del-23",
+      "loops": [
+        {
+          "statement": "Neha answers the security questionnaire",
+          "direction": "blocked_on_them",
+          "counterparty": "Neha",
+          "deadline": {
+            "span": {
+              "msg_index": 5,
+              "start": 24,
+              "end": 35
+            },
+            "resolved": "2026-07-02",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 5,
+            "start": 2,
+            "end": 35
+          },
+          "resolution": {
+            "msg_index": 7,
+            "start": 0,
+            "end": 12
+          },
+          "state": "closed",
+          "register": "en"
+        },
+        {
+          "statement": "review the security questionnaire before it goes out",
+          "direction": "blocked_on_you",
+          "counterparty": "Neha",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 20,
+            "end": 50
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-01",
+      "loops": [
+        {
+          "statement": "send Priya the deck updated with Q1 numbers",
+          "direction": "blocked_on_you",
+          "counterparty": "Priya",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 31
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "follow up on \"a chance to update the deck wit\"",
+          "direction": "blocked_on_them",
+          "counterparty": "Priya",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 16,
+            "end": 48
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-05",
+      "loops": [
+        {
+          "statement": "send Meera the March invoices for the GST filing",
+          "direction": "blocked_on_you",
+          "counterparty": "Meera (CA)",
+          "deadline": {
+            "span": null,
+            "resolved": "2026-03-20",
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 49
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-06",
+      "loops": [
+        {
+          "statement": "user and Divya schedule 30 minutes to decide the pricing tiers",
+          "direction": "mutual",
+          "counterparty": "Divya",
+          "deadline": {
+            "span": {
+              "msg_index": 2,
+              "start": 18,
+              "end": 27
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 43
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-07",
+      "loops": [
+        {
+          "statement": "introduce Kabir to Sameer over email",
+          "direction": "blocked_on_them",
+          "counterparty": "Kabir",
+          "deadline": {
+            "span": {
+              "msg_index": 2,
+              "start": 13,
+              "end": 18
+            },
+            "resolved": "2026-03-11",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 29
+          },
+          "resolution": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 34
+          },
+          "state": "closed",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-11",
+      "loops": [
+        {
+          "statement": "Deepak reports back on the gateway settlement mismatch",
+          "direction": "blocked_on_them",
+          "counterparty": "Deepak",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 25
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "Deepak reports back on the gateway settlement mismatch",
+          "direction": "blocked_on_them",
+          "counterparty": "Deepak",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 16,
+            "end": 41
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-12",
+      "loops": [
+        {
+          "statement": "pull last quarter's churn numbers for the board",
+          "direction": "blocked_on_you",
+          "counterparty": "Anita",
+          "deadline": {
+            "span": null,
+            "resolved": "2026-04-07",
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 41,
+            "end": 70
+          },
+          "resolution": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 6
+          },
+          "state": "closed",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-13",
+      "loops": [
+        {
+          "statement": "follow up on \"es on the 30th. We need the updated empl\"",
+          "direction": "blocked_on_you",
+          "counterparty": "Sunita (insurance)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 29,
+            "end": 87
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-14",
+      "loops": [
+        {
+          "statement": "investigate the 40% month-on-month cloud bill increase",
+          "direction": "blocked_on_you",
+          "counterparty": "Rahul",
+          "deadline": {
+            "span": {
+              "msg_index": 4,
+              "start": 31,
+              "end": 38
+            },
+            "resolved": "2026-04-07",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 38
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "set up a call between Sameer and the team about the integration",
+          "direction": "blocked_on_you",
+          "counterparty": "Rahul",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": "unmappable",
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "Rahul files the trademark application",
+          "direction": "blocked_on_them",
+          "counterparty": "Rahul",
+          "deadline": {
+            "span": {
+              "msg_index": 7,
+              "start": 22,
+              "end": 31
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 7,
+            "start": 0,
+            "end": 31
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-21",
+      "loops": [
+        {
+          "statement": "Vinod posts the pricing experiment readout in the channel",
+          "direction": "blocked_on_them",
+          "counterparty": "Vinod",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 37
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-22",
+      "loops": [
+        {
+          "statement": "respond in writing to all of the auditor's draft observations",
+          "direction": "blocked_on_you",
+          "counterparty": "Gopal (auditor)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 3,
+            "end": 33
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-23",
+      "loops": [
+        {
+          "statement": "Charu shares the backend role shortlist deck",
+          "direction": "blocked_on_them",
+          "counterparty": "Charu (recruiter)",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 19,
+              "end": 31
+            },
+            "resolved": "2026-05-05",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 31
+          },
+          "resolution": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 12
+          },
+          "state": "closed",
+          "register": "en"
+        },
+        {
+          "statement": "Charu resends the correct backend shortlist deck",
+          "direction": "blocked_on_them",
+          "counterparty": "Charu (recruiter)",
+          "deadline": {
+            "span": {
+              "msg_index": 5,
+              "start": 56,
+              "end": 63
+            },
+            "resolved": "2026-05-05",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 5,
+            "start": 26,
+            "end": 63
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-24",
+      "loops": [
+        {
+          "statement": "user and Tanvi agree a single definition of MRR together",
+          "direction": "blocked_on_them",
+          "counterparty": "Tanvi",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 43
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-31",
+      "loops": [
+        {
+          "statement": "Dinesh regenerates and publishes the SDK docs",
+          "direction": "blocked_on_them",
+          "counterparty": "Dinesh",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 29,
+              "end": 41
+            },
+            "resolved": "2026-06-03",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 44,
+            "end": 52
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "follow up on \"ocs are three versi\"",
+          "direction": "blocked_on_them",
+          "counterparty": "Dinesh",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 9,
+            "end": 28
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-32",
+      "loops": [
+        {
+          "statement": "write first-draft copy for the five core website pages",
+          "direction": "blocked_on_you",
+          "counterparty": "Yasmin (agency)",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 48,
+              "end": 57
+            },
+            "resolved": "2026-06-05",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 58
+          },
+          "resolution": {
+            "msg_index": 12,
+            "start": 0,
+            "end": 44
+          },
+          "state": "closed",
+          "register": "en"
+        },
+        {
+          "statement": "fix the wrong tier names on the pricing wireframe",
+          "direction": "blocked_on_them",
+          "counterparty": "Yasmin (agency)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 5,
+            "start": 0,
+            "end": 16
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "review the remaining three wireframes",
+          "direction": "blocked_on_you",
+          "counterparty": "Yasmin (agency)",
+          "deadline": {
+            "span": {
+              "msg_index": 10,
+              "start": 10,
+              "end": 18
+            },
+            "resolved": "2026-06-05",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 10,
+            "start": 0,
+            "end": 18
+          },
+          "resolution": {
+            "msg_index": 13,
+            "start": 0,
+            "end": 12
+          },
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-33",
+      "loops": [
+        {
+          "statement": "send Kabir the hiring tracker template",
+          "direction": "blocked_on_you",
+          "counterparty": "Kabir",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 5,
+            "start": 0,
+            "end": 38
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-34",
+      "loops": [
+        {
+          "statement": "user and Tanvi decide whether the mobile app gets its own release train",
+          "direction": "mutual",
+          "counterparty": "Tanvi",
+          "deadline": {
+            "span": {
+              "msg_index": 2,
+              "start": 15,
+              "end": 23
+            },
+            "resolved": "2026-06-04",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 14
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "user and Tanvi decide whether the mobile app gets its own release train",
+          "direction": "mutual",
+          "counterparty": "Tanvi",
+          "deadline": {
+            "span": {
+              "msg_index": 2,
+              "start": 15,
+              "end": 23
+            },
+            "resolved": "2026-06-04",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 9,
+            "end": 23
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "Tanvi prepares release cadence options for the decision",
+          "direction": "blocked_on_them",
+          "counterparty": "Tanvi",
+          "deadline": {
+            "span": null,
+            "resolved": "2026-06-04",
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 60
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-41",
+      "loops": [
+        {
+          "statement": "review Ankit's sister's CV and send comments",
+          "direction": "blocked_on_you",
+          "counterparty": "Ankit",
+          "deadline": {
+            "span": {
+              "msg_index": 6,
+              "start": 18,
+              "end": 30
+            },
+            "resolved": "2026-07-05",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 6,
+            "start": 0,
+            "end": 48
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-42",
+      "loops": [
+        {
+          "statement": "take the Friday investor call in Rahul's place",
+          "direction": "blocked_on_them",
+          "counterparty": "Rahul",
+          "deadline": {
+            "span": null,
+            "resolved": "2026-07-03",
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 5,
+            "start": 0,
+            "end": 16
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-43",
+      "loops": [
+        {
+          "statement": "user and Rahul cut the roadmap together",
+          "direction": "mutual",
+          "counterparty": "Rahul",
+          "deadline": {
+            "span": {
+              "msg_index": 2,
+              "start": 46,
+              "end": 54
+            },
+            "resolved": "2026-07-02",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 54
+          },
+          "resolution": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 4
+          },
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "bring revenue attribution to the roadmap cut",
+          "direction": "blocked_on_you",
+          "counterparty": "Rahul",
+          "deadline": {
+            "span": null,
+            "resolved": "2026-07-02",
+            "certainty": "implied"
+          },
+          "evidence": "unmappable",
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "Rahul brings effort estimates to the roadmap cut",
+          "direction": "blocked_on_them",
+          "counterparty": "Rahul",
+          "deadline": {
+            "span": null,
+            "resolved": "2026-07-02",
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 31,
+            "end": 66
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "follow up on \"e to cut something from the roadmap, w\"",
+          "direction": "blocked_on_you",
+          "counterparty": "Rahul",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 19,
+            "end": 57
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "en-44",
+      "loops": [
+        {
+          "statement": "user and Aditya agree the revenue share split together",
+          "direction": "mutual",
+          "counterparty": "Aditya (partner)",
+          "deadline": {
+            "span": {
+              "msg_index": 2,
+              "start": 34,
+              "end": 43
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 4,
+            "end": 64
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "Aditya sends times for the revenue share call",
+          "direction": "blocked_on_them",
+          "counterparty": "Aditya (partner)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 64
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-01",
+      "loops": [
+        {
+          "statement": "send Priya the deck",
+          "direction": "blocked_on_you",
+          "counterparty": "Priya",
+          "deadline": {
+            "span": {
+              "msg_index": 2,
+              "start": 0,
+              "end": 7
+            },
+            "resolved": "2026-03-05",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 24
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-02",
+      "loops": [
+        {
+          "statement": "Vikram transfers the pending March payment",
+          "direction": "blocked_on_them",
+          "counterparty": "Vikram",
+          "deadline": {
+            "span": {
+              "msg_index": 2,
+              "start": 0,
+              "end": 9
+            },
+            "resolved": "2026-03-07",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 28
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-03",
+      "loops": []
+    },
+    {
+      "thread_id": "mix-04",
+      "loops": [
+        {
+          "statement": "Adv. Menon returns review comments on the SHA draft",
+          "direction": "blocked_on_them",
+          "counterparty": "Adv. Menon",
+          "deadline": {
+            "span": {
+              "msg_index": 2,
+              "start": 0,
+              "end": 11
+            },
+            "resolved": "2026-03-15",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 47
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-11",
+      "loops": [
+        {
+          "statement": "send Sneha the vendor comparison sheet",
+          "direction": "blocked_on_you",
+          "counterparty": "Sneha",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 39,
+            "end": 83
+          },
+          "resolution": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 26
+          },
+          "state": "closed",
+          "register": "hi-en"
+        },
+        {
+          "statement": "follow up on \"r comparison sheet\"",
+          "direction": "blocked_on_them",
+          "counterparty": "Sneha",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 9,
+            "end": 28
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-12",
+      "loops": [
+        {
+          "statement": "attend the warehouse stock count",
+          "direction": "blocked_on_them",
+          "counterparty": "Bala",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 10
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "ta-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-13",
+      "loops": [
+        {
+          "statement": "update the deck before tomorrow's meeting",
+          "direction": "blocked_on_you",
+          "counterparty": "Vikram",
+          "deadline": {
+            "span": {
+              "msg_index": 3,
+              "start": 34,
+              "end": 41
+            },
+            "resolved": "2026-04-08",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 2,
+            "end": 41
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "Vikram checks the NDA status with legal",
+          "direction": "blocked_on_them",
+          "counterparty": "Vikram",
+          "deadline": {
+            "span": {
+              "msg_index": 6,
+              "start": 9,
+              "end": 18
+            },
+            "resolved": "2026-04-09",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 6,
+            "start": 0,
+            "end": 22
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "Vikram checks the NDA status with legal",
+          "direction": "blocked_on_them",
+          "counterparty": "Vikram",
+          "deadline": {
+            "span": {
+              "msg_index": 6,
+              "start": 9,
+              "end": 18
+            },
+            "resolved": "2026-04-09",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 6,
+            "start": 15,
+            "end": 37
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-14",
+      "loops": [
+        {
+          "statement": "send the CA the projected revenue figure for advance tax",
+          "direction": "blocked_on_you",
+          "counterparty": "Preethi (CA)",
+          "deadline": {
+            "span": null,
+            "resolved": "2026-04-15",
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 36,
+            "end": 44
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "ta-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-21",
+      "loops": [
+        {
+          "statement": "Waseem emails the packaging quotation",
+          "direction": "blocked_on_them",
+          "counterparty": "Waseem (vendor)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 40
+          },
+          "resolution": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 12
+          },
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-22",
+      "loops": [
+        {
+          "statement": "speak to the CA about the GST input credit mismatch notice",
+          "direction": "blocked_on_you",
+          "counterparty": "Bala",
+          "deadline": {
+            "span": null,
+            "resolved": "2026-05-20",
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 1,
+            "end": 27
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "ta-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-23",
+      "loops": [
+        {
+          "statement": "Anjali sends three creative versions for the Diwali campaign",
+          "direction": "blocked_on_them",
+          "counterparty": "Anjali",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 33,
+              "end": 44
+            },
+            "resolved": "2026-05-10",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 28,
+            "end": 55
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "write the copy for the Diwali campaign",
+          "direction": "blocked_on_you",
+          "counterparty": "Sneha",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 20
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "user and Anjali agree the creative direction together before she builds versions",
+          "direction": "mutual",
+          "counterparty": "Anjali",
+          "deadline": {
+            "span": null,
+            "resolved": "2026-05-10",
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 5,
+            "start": 10,
+            "end": 40
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "follow up on \"aign ke creatives kab\"",
+          "direction": "blocked_on_you",
+          "counterparty": "Sneha",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 11,
+            "end": 33
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-24",
+      "loops": [
+        {
+          "statement": "pay the ESI and PF challan",
+          "direction": "blocked_on_you",
+          "counterparty": "Karthik",
+          "deadline": {
+            "span": {
+              "msg_index": 3,
+              "start": 5,
+              "end": 20
+            },
+            "resolved": "2026-05-08",
+            "certainty": "explicit"
+          },
+          "evidence": "unmappable",
+          "resolution": null,
+          "state": "open",
+          "register": "ta-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-32",
+      "loops": [
+        {
+          "statement": "pay the factory licence renewal fees",
+          "direction": "blocked_on_them",
+          "counterparty": "Karthik",
+          "deadline": {
+            "span": {
+              "msg_index": 3,
+              "start": 11,
+              "end": 18
+            },
+            "resolved": "2026-06-03",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 1,
+            "end": 34
+          },
+          "resolution": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 12
+          },
+          "state": "open",
+          "register": "ta-en"
+        },
+        {
+          "statement": "Karthik fills in the factory licence renewal application form",
+          "direction": "blocked_on_them",
+          "counterparty": "Karthik",
+          "deadline": {
+            "span": {
+              "msg_index": 4,
+              "start": 41,
+              "end": 48
+            },
+            "resolved": "2026-06-02",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 48
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "ta-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-33",
+      "loops": [
+        {
+          "statement": "translate the landing page into Hindi",
+          "direction": "blocked_on_you",
+          "counterparty": "Anjali",
+          "deadline": {
+            "span": {
+              "msg_index": 3,
+              "start": 33,
+              "end": 43
+            },
+            "resolved": "2026-06-05",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 5,
+            "end": 43
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "Anjali reviews the Hindi landing page translation",
+          "direction": "blocked_on_them",
+          "counterparty": "Anjali",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 31
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-34",
+      "loops": []
+    },
+    {
+      "thread_id": "mix-38",
+      "loops": [
+        {
+          "statement": "send Farhan the CA's contact number",
+          "direction": "blocked_on_you",
+          "counterparty": "Farhan",
+          "deadline": {
+            "span": {
+              "msg_index": 5,
+              "start": 37,
+              "end": 40
+            },
+            "resolved": "2026-06-12",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 5,
+            "start": 0,
+            "end": 40
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-41",
+      "loops": [
+        {
+          "statement": "send Farhan the photographer's contact number",
+          "direction": "blocked_on_you",
+          "counterparty": "Farhan",
+          "deadline": {
+            "span": {
+              "msg_index": 6,
+              "start": 0,
+              "end": 3
+            },
+            "resolved": "2026-07-02",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 6,
+            "start": 0,
+            "end": 24
+          },
+          "resolution": {
+            "msg_index": 8,
+            "start": 0,
+            "end": 29
+          },
+          "state": "closed",
+          "register": "hi-en"
+        },
+        {
+          "statement": "follow up on \"ka card bhej raha hu, de\"",
+          "direction": "blocked_on_them",
+          "counterparty": "Farhan",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 12,
+            "end": 36
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-42",
+      "loops": [
+        {
+          "statement": "call the cousin about his engineering admission",
+          "direction": "blocked_on_you",
+          "counterparty": "Amma",
+          "deadline": {
+            "span": {
+              "msg_index": 3,
+              "start": 5,
+              "end": 14
+            },
+            "resolved": "2026-07-05",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 34
+          },
+          "resolution": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 12
+          },
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "Amma tells the family the call is happening",
+          "direction": "blocked_on_them",
+          "counterparty": "Amma",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 6,
+            "end": 19
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "Amma tells the family the call is happening",
+          "direction": "blocked_on_them",
+          "counterparty": "Amma",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 15,
+            "end": 28
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-43",
+      "loops": [
+        {
+          "statement": "run a mock interview for Raghav",
+          "direction": "blocked_on_you",
+          "counterparty": "Raghav",
+          "deadline": {
+            "span": {
+              "msg_index": 5,
+              "start": 0,
+              "end": 12
+            },
+            "resolved": "2026-07-12",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 5,
+            "end": 54
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "ta-en"
+        },
+        {
+          "statement": "put the mock interview in the calendar",
+          "direction": "blocked_on_you",
+          "counterparty": "Raghav",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 5,
+            "start": 18,
+            "end": 49
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "ta-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "mix-44",
+      "loops": [
+        {
+          "statement": "both directors attend the bank together for joint signing",
+          "direction": "blocked_on_them",
+          "counterparty": "Vikram",
+          "deadline": {
+            "span": {
+              "msg_index": 3,
+              "start": 45,
+              "end": 55
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 6,
+            "end": 50
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "Vikram books the bank slot once a date is chosen",
+          "direction": "blocked_on_them",
+          "counterparty": "Vikram",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 49
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "neg-01",
+      "loops": []
+    },
+    {
+      "thread_id": "neg-02",
+      "loops": []
+    },
+    {
+      "thread_id": "neg-03",
+      "loops": [
+        {
+          "statement": "follow up on \"isa chal raha\"",
+          "direction": "blocked_on_you",
+          "counterparty": "Farhan",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 7,
+            "end": 21
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "neg-07",
+      "loops": []
+    },
+    {
+      "thread_id": "neg-09",
+      "loops": []
+    },
+    {
+      "thread_id": "neg-10",
+      "loops": []
+    },
+    {
+      "thread_id": "neg-13",
+      "loops": []
+    },
+    {
+      "thread_id": "neg-16",
+      "loops": []
+    },
+    {
+      "thread_id": "neg-21",
+      "loops": [
+        {
+          "statement": "follow up on \"w why the invoice PDF has the o\"",
+          "direction": "blocked_on_them",
+          "counterparty": "Tanvi",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 15,
+            "end": 46
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "neg-27",
+      "loops": []
+    },
+    {
+      "thread_id": "neg-29",
+      "loops": []
+    },
+    {
+      "thread_id": "neg-32",
+      "loops": []
+    },
+    {
+      "thread_id": "neg-33",
+      "loops": []
+    },
+    {
+      "thread_id": "neg-34",
+      "loops": []
+    },
+    {
+      "thread_id": "neg-35",
+      "loops": [
+        {
+          "statement": "follow up on \"friday incident is published, link i\"",
+          "direction": "blocked_on_you",
+          "counterparty": "Harsha",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 18,
+            "end": 55
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "sup-01",
+      "loops": []
+    },
+    {
+      "thread_id": "sup-02",
+      "loops": [
+        {
+          "statement": "add exponential backoff to the webhook retries",
+          "direction": "blocked_on_you",
+          "counterparty": "Tanvi",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 29,
+              "end": 34
+            },
+            "resolved": "2026-03-10",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 34
+          },
+          "resolution": {
+            "msg_index": 5,
+            "start": 0,
+            "end": 12
+          },
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "email the vendor's ops team about the retry warning",
+          "direction": "blocked_on_you",
+          "counterparty": "Tanvi",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 5,
+            "start": 37,
+            "end": 45
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "sup-07",
+      "loops": [
+        {
+          "statement": "send the journalist a high-resolution founder photo",
+          "direction": "blocked_on_you",
+          "counterparty": "Manoj (press)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 23
+          },
+          "resolution": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 32
+          },
+          "state": "superseded",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "sup-08",
+      "loops": [
+        {
+          "statement": "swap the old logo asset in the onboarding email template",
+          "direction": "blocked_on_you",
+          "counterparty": "Tejas",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 35,
+              "end": 40
+            },
+            "resolved": "2026-04-07",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 40
+          },
+          "resolution": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 60
+          },
+          "state": "superseded",
+          "register": "en"
+        },
+        {
+          "statement": "move all six onboarding email templates onto a shared header block",
+          "direction": "blocked_on_you",
+          "counterparty": "Tejas",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": "unmappable",
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "sup-09",
+      "loops": [
+        {
+          "statement": "find a moderator for tomorrow's panel",
+          "direction": "blocked_on_you",
+          "counterparty": "Aarti",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 20,
+              "end": 32
+            },
+            "resolved": "2026-04-08",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 10,
+            "end": 54
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "sup-14",
+      "loops": [
+        {
+          "statement": "scope the custom SSO integration and give the customer a timeline",
+          "direction": "blocked_on_you",
+          "counterparty": "Pooja",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 13,
+              "end": 22
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 47
+          },
+          "resolution": {
+            "msg_index": 2,
+            "start": 16,
+            "end": 58
+          },
+          "state": "superseded",
+          "register": "en"
+        },
+        {
+          "statement": "follow up on \"a custom SSO integration be\"",
+          "direction": "blocked_on_them",
+          "counterparty": "Pooja",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 14,
+            "end": 42
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "sup-15",
+      "loops": [
+        {
+          "statement": "tell finance to release 50k sponsorship for Meghna's event",
+          "direction": "blocked_on_you",
+          "counterparty": "Meghna",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 47,
+              "end": 50
+            },
+            "resolved": "2026-05-06",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 14,
+            "end": 50
+          },
+          "resolution": {
+            "msg_index": 5,
+            "start": 0,
+            "end": 12
+          },
+          "state": "superseded",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "sup-16",
+      "loops": []
+    },
+    {
+      "thread_id": "sup-21",
+      "loops": [
+        {
+          "statement": "confirm whether to book the trade show booth",
+          "direction": "blocked_on_you",
+          "counterparty": "Pooja",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 31
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "sup-22",
+      "loops": [
+        {
+          "statement": "choose one of the three Diwali gift quotes",
+          "direction": "blocked_on_you",
+          "counterparty": "Suresh (office)",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 5,
+              "end": 17
+            },
+            "resolved": "2026-06-02",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 45
+          },
+          "resolution": {
+            "msg_index": 2,
+            "start": 27,
+            "end": 56
+          },
+          "state": "superseded",
+          "register": "hi-en"
+        },
+        {
+          "statement": "Suresh tells the gift vendor no",
+          "direction": "blocked_on_them",
+          "counterparty": "Suresh (office)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 7,
+            "end": 23
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "Suresh tells the gift vendor no",
+          "direction": "blocked_on_them",
+          "counterparty": "Suresh (office)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 17,
+            "end": 33
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "sup-23",
+      "loops": [
+        {
+          "statement": "write a short security whitepaper for the prospect's infosec team",
+          "direction": "blocked_on_you",
+          "counterparty": "Aditya (prospect)",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 66,
+              "end": 76
+            },
+            "resolved": "2026-06-09",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 28,
+            "end": 77
+          },
+          "resolution": {
+            "msg_index": 3,
+            "start": 67,
+            "end": 87
+          },
+          "state": "superseded",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "sup-28",
+      "loops": [
+        {
+          "statement": "review Ankit's sister's CV",
+          "direction": "blocked_on_you",
+          "counterparty": "Ankit",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 15,
+              "end": 25
+            },
+            "resolved": "2026-07-12",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 10,
+            "end": 31
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "follow up on \"wo cv d\"",
+          "direction": "blocked_on_you",
+          "counterparty": "Ankit",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 4,
+            "end": 12
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ]
+    },
+    {
+      "thread_id": "sup-29",
+      "loops": [
+        {
+          "statement": "build a competitor comparison table for the pricing page",
+          "direction": "blocked_on_you",
+          "counterparty": "Neha",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 23
+          },
+          "resolution": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 12
+          },
+          "state": "superseded",
+          "register": "en"
+        },
+        {
+          "statement": "ask legal what comparison claims are permitted",
+          "direction": "blocked_on_you",
+          "counterparty": "Neha",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 8,
+            "end": 61
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ]
+    },
+    {
+      "thread_id": "sup-30",
+      "loops": [
+        {
+          "statement": "send Kavya a shortlist of offsite venues",
+          "direction": "blocked_on_you",
+          "counterparty": "Kavya",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 5,
+              "end": 23
+            },
+            "resolved": "2026-07-03",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 43
+          },
+          "resolution": {
+            "msg_index": 2,
+            "start": 30,
+            "end": 74
+          },
+          "state": "superseded",
+          "register": "ta-en"
+        }
+      ]
+    }
+  ]
+}

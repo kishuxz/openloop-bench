@@ -49,8 +49,28 @@ product importance, and results should say so.
 
 ## Results
 
-**Pending — Phase 3.** Nothing has been measured yet. This repo currently ships
-the schema, the corpus, and the tools that keep them honest.
+**No model has been measured yet.** The extractor is Phase 3 and has not landed.
+
+What ships now is the thing that will measure it: the matcher, the metrics, the
+cost model and a generated report, running end to end against fixture prediction
+files. [`results/REPORT.md`](results/REPORT.md) is real output — of the eval, not
+of any extractor — and it says so on the page.
+
+The one design decision in there is **how a predicted loop is decided to be a
+ground-truth loop**. Predictions carry no ids, so matching is on **evidence span
+overlap** (IoU within one message), never on how similar the two `statement`
+strings read: text similarity would score paraphrasing quality instead of
+detection. The threshold is a judgment call, so every run is scored at 0.3, 0.5
+and 0.7 and all three are reported — on these fixtures the ranking of the
+configurations changes between them, which is exactly the finding a
+single-threshold headline would have hidden.
+
+Alongside raw accuracy the eval reports one **cost-weighted** number: a missed
+loop costs 1, a false `blocked_on_you` costs 3, and a false `blocked_on_them`
+costs 8, because that one sends an outbound message to somebody who may have
+already delivered. Those weights are a stance rather than a measurement, so they
+are printed in the report every time. Full reasoning:
+[`packages/eval/README.md`](packages/eval/README.md).
 
 ## The schema
 
@@ -90,9 +110,12 @@ check.
 | `pnpm validate` | Parses every thread, re-resolves all 510 spans, checks ids against filenames. Non-zero exit with a per-file, per-path listing on any failure. |
 | `pnpm stats` | Corpus composition — buckets, channels, directions, states, registers, deadline certainty — overall and per split. |
 | `pnpm stats:check` | Asserts the composition: bucket targets met, no bucket empty in either split, dev share in band. |
-| `pnpm test` | 84 tests, including deliberately malformed fixtures proving the validator still catches each invariant. |
+| `pnpm test` | 214 tests: deliberately malformed fixtures proving the validator still catches each invariant, and the matcher on every case where the IoU threshold changes the answer. |
 | `pnpm stats:by-batch` | Per-batch distributions, flagging any dimension that moved more than 15 points between consecutive batches. |
 | `pnpm separability` | Leakage diagnostic. Never fails a build — see below. |
+| `pnpm eval` | Scores every prediction file at IoU 0.3 / 0.5 / 0.7. Writes per-config metrics and a full match log. Refuses a prediction file whose corpus hash is not the current one. |
+| `pnpm report` | Renders `results/REPORT.md` from the committed prediction and metric files. Deterministic; refuses to render against stale results. |
+| `pnpm fixtures:gen` | Regenerates the fixture prediction files from the corpus. |
 | `pnpm typecheck` | `tsc` across the workspace. |
 | `pnpm lint` | ESLint across the workspace. |
 
@@ -133,9 +156,11 @@ disputing a label.
 ```
 packages/schema      Zod schemas + inferred types. Single source of truth.
 packages/corpus      200 labeled threads, LABELING.md, DRIFT.md, CLIs.
-packages/extractor   Reference extractor.        Stub — Phase 2.
-packages/eval        Metrics + report generation. Stub — Phase 3.
-apps/web             Static results viewer.       Stub — Phase 3.
+packages/extractor   Reference extractor.        Stub — Phase 3.
+packages/eval        Matcher, metrics, cost model, report generator.
+apps/web             Static results viewer.       Stub — Phase 5.
+fixtures/predictions Generated prediction files the eval is built against.
+results              Metrics, match logs, REPORT.md. All committed.
 ```
 
 ## Is the corpus separable without doing the task?
@@ -198,6 +223,18 @@ resolutions are defensible but arguable — "agle hafte" resolving to nothing,
 "weekend tak" resolving to Sunday — and are written up as such in LABELING.md.
 Inter-annotator agreement on the `test` split should be measured before the
 numbers are published. ([#5](https://github.com/kishuxz/openloop-bench/issues/5))
+
+**Match assignment is greedy, not optimal.** Candidate pairs are taken in
+descending IoU order rather than solved as a maximum-weight assignment. With a
+handful of loops per thread the two agree except in contrived cases, and greedy
+is explainable in a sentence — which matters more here, because every match
+decision is written to a file a human is expected to be able to check.
+
+**A false positive is attributed to the register it claimed.** Register is a
+property of a loop, and a false positive has no true loop to inherit one from. So
+a register row's precision reads as "precision among loops this extractor called
+`hi-en`", not "precision on `hi-en`". It is the only attribution the data
+supports, and the report says so beside the tables.
 
 **`register: "other"` is unused.** No thread in the seed corpus is in a third
 code-mix. Inventing one to fill the enum would be worse than leaving it empty.
