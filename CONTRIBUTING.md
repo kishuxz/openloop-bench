@@ -131,9 +131,93 @@ the file happens to be broken.
 
 ## Conventions
 
-[`CONVENTIONS.md`](CONVENTIONS.md) records which conventions came from the
-gstack reference project and where this repo's brief overrode them. Read it
-before introducing a tool, a config file, or a build step.
+Read this before introducing a tool, a config file, or a build step.
+
+**ESM everywhere.** `"type": "module"` in every `package.json`, no CommonJS
+anywhere, no dual builds.
+
+**`.js` extensions on relative imports** even though the files are `.ts`. It is
+the standard ESM-compatible style, and it keeps the door open to emitting real
+Node ESM later without touching every import.
+
+**Packages resolve to TypeScript source, not to `dist/`.** Each package's
+`exports` points at `src/index.ts`. Nothing here is published to npm, and a
+build step between "edit the schema" and "run the validator" would be pure
+friction. It also means `pnpm install && pnpm validate` works on a fresh clone
+with no build.
+
+**Explicit `engines`.** Node 20 or later, with `packageManager` set so
+`corepack` resolves the same pnpm everyone else runs.
+
+**Strict beyond `strict: true`.** `noUncheckedIndexedAccess`,
+`exactOptionalPropertyTypes`, `noImplicitReturns`, `noUnusedLocals` and
+`noFallthroughCasesInSwitch` are all on. `noUncheckedIndexedAccess` in
+particular is load-bearing: this codebase indexes into `messages[]` by a number
+that comes out of a JSON file, and the compiler should force that check rather
+than trusting the corpus.
+
+**ESLint, but no formatter.** The `lint` step is part of the required gate, and
+the config covers what `tsc` cannot see: unused expressions, shadowed bindings,
+`any` creeping into a package whose whole job is types. There is deliberately no
+formatter, because a CI step that fails on whitespace costs more attention than
+it saves at this size. Style is held by consistency: double quotes, semicolons,
+two-space indent, trailing commas, roughly 100 column comments.
+
+**Vitest configured once at the repo root** rather than per package, since the
+test suites are small and the corpus tests need to read files across package
+boundaries anyway.
+
+**File-header block comments that explain the decision, not the code.** Every
+non-trivial source file opens with a comment saying what the module is the
+single source of truth for and which failure it exists to prevent. The schema is
+the intellectual contribution here, and its reasoning has to survive in the file
+rather than in a PR thread.
+
+**Colon-namespaced scripts, plain verbs at the top level.** `validate`, `stats`,
+`test` and `typecheck` at the top; the namespaced form (`test:watch`,
+`stats:check`) is reserved for variants.
+
+**Root scripts delegate to the package that owns the work.** Root `validate` and
+`stats` are `pnpm --filter @openloop-bench/corpus run ...`, so each CLI has
+exactly one definition.
+
+**Precise, greppable failure output.** CLIs print one actionable line per problem
+and exit non-zero. `pnpm validate` prints `file  path  message` per issue,
+because the output is a user interface: it is the gate on every corpus edit.
+
+**Tolerant reads, strict writes.** The validator reads every thread file and
+reports all failures in one pass instead of aborting on the first, while the
+schema itself refuses anything questionable.
+
+**Static invariants are enforced by tests, not by review.** A deliberately
+malformed fixture fails the build if the validator ever stops catching it. If an
+invariant matters, it needs a test that fails without it rather than a note
+asking reviewers to watch for it.
+
+**Docs formatting.** Comparison tables carry a `Why` or `Rationale` column,
+bullet lists use bold lead-ins, and each document opens with a short register of
+things to know.
+
+**`.context/` is gitignored.** The Conductor workspace scratch directory never
+gets committed.
+
+## Decisions log
+
+Design decisions that still bind. Each is a constraint to work within rather
+than history.
+
+| Date | Decision | Rationale |
+|---|---|---|
+| 2026-08-14 | Evidence spans validated inside `ThreadSchema`, not in a separate pass | "Parsed" and "grounded" become the same event; no consumer can forget the second check. |
+| 2026-08-14 | Offsets are UTF-16 code units, with a surrogate-pair guard | Matches `String.prototype.slice` exactly for TS consumers; the guard keeps spans convertible to code-point indices for anyone else. |
+| 2026-08-14 | Bucket lives in the `thread_id` prefix, not a schema field | Visible in `ls`, greppable, and unable to disagree with the filename. Rejected a `bucket` field as a second source of truth. |
+| 2026-08-14 | `split` stored per thread, not computed at run time | A split redrawn per run can be redrawn to flatter a result. |
+| 2026-08-14 | Corpus authoring goes through quoted substrings, not hand-counted offsets | Hand-counting is how a corpus ends up with spans that resolve to the wrong words. |
+| 2026-08-14 | Predictions are matched on evidence span IoU, not statement similarity | Text similarity scores paraphrasing quality, not detection. |
+| 2026-08-14 | Every eval run is scored at three IoU thresholds, not one | The threshold is a judgment call; reporting one number hides it, and a config's ranking can move between them. |
+| 2026-08-14 | The prediction format lives in `packages/eval`, not `packages/schema` | The schema is ground truth. A prediction is deliberately laxer, since ungrounded spans and inconsistent fields must parse so they can be *counted*, and putting a second, laxer loop shape in the source of truth would invite the two to be confused. |
+| 2026-08-14 | Fixture predictions are generated from the corpus, not hand-written | Hand-written fixtures go stale on any thread edit and have no known-correct score. Generated ones let the eval be checked against what was injected. |
+| 2026-08-14 | `results/` and `fixtures/` are committed, and CI fails on a regeneration diff | Makes "deterministic: same inputs, same bytes out" a checked claim, and makes every number in REPORT.md traceable without re-running anything. |
 
 ## The documents
 
@@ -142,8 +226,7 @@ before introducing a tool, a config file, or a build step.
 | [`packages/corpus/LABELING.md`](packages/corpus/LABELING.md) | The rulebook. Every labeling rule, worked cases for the hard ones, and §11's list of calls that remain arguable. |
 | [`packages/corpus/DRIFT.md`](packages/corpus/DRIFT.md) | One entry per authoring batch: what was re-audited, what changed, which rule was underspecified. Plus the certainty drift audit and the separability remediation. |
 | [`packages/eval/README.md`](packages/eval/README.md) | The matcher's design and the alternatives it rejected, every metric's denominator, the cost weights, and why the fixtures are generated rather than written. |
-| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Commit standard, branch and PR conventions, and what to run before pushing. |
-| [`CONVENTIONS.md`](CONVENTIONS.md) | Which scaffolding conventions came from where, and the decisions log. |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Commit standard, branch and PR conventions, repo conventions, the decisions log, and what to run before pushing. |
 
 ## Layout
 
