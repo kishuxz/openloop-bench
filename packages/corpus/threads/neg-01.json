@@ -19,17 +19,23 @@
     {
       "index": 2,
       "sender": "Ankit",
-      "text": "good good, busy. we should catch up sometime properly",
+      "text": "good good, busy. im in town till friday if that helps",
       "ts": "2026-03-02T22:44:00+05:30"
     },
     {
       "index": 3,
+      "sender": "Ankit",
+      "text": "we should catch up sometime properly",
+      "ts": "2026-03-02T22:45:00+05:30"
+    },
+    {
+      "index": 4,
       "sender": "user",
       "text": "yes definitely, its been ages. lets do it soon",
       "ts": "2026-03-02T22:51:00+05:30"
     },
     {
-      "index": 4,
+      "index": 5,
       "sender": "Ankit",
       "text": "👍",
       "ts": "2026-03-02T22:52:00+05:30"

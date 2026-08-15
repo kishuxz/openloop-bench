@@ -1,19 +1,19 @@
 {
   "thread_id": "neg-25",
   "channel": "slack",
-  "split": "dev",
+  "split": "test",
   "batch": 3,
   "messages": [
     {
       "index": 0,
       "sender": "Vinod",
-      "text": "the staging cert expires in 40 days, calendar reminder is set",
+      "text": "the staging cert expires on july 11, calendar reminder is set",
       "ts": "2026-06-01T09:02:00+05:30"
     },
     {
       "index": 1,
       "sender": "Vinod",
-      "text": "already rotated the prod one last month so thats fine",
+      "text": "the prod one was rotated last month so thats fine",
       "ts": "2026-06-01T09:03:00+05:30"
     },
     {

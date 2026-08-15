@@ -19,17 +19,23 @@
     {
       "index": 2,
       "sender": "Farhan",
-      "text": "samajh sakta hu. kabhi milte hai, bahut time ho gaya",
+      "text": "samajh sakta hu. main 20 tak yahi hu, uske baad bangalore",
       "ts": "2026-03-08T19:42:00+05:30"
     },
     {
       "index": 3,
+      "sender": "Farhan",
+      "text": "kabhi milte hai, bahut time ho gaya",
+      "ts": "2026-03-08T19:43:00+05:30"
+    },
+    {
+      "index": 4,
       "sender": "user",
       "text": "haan zarur, jaldi hi milte hai",
       "ts": "2026-03-08T19:50:00+05:30"
     },
     {
-      "index": 4,
+      "index": 5,
       "sender": "Farhan",
       "text": "haan haan",
       "ts": "2026-03-08T19:51:00+05:30"
