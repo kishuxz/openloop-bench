@@ -1,0 +1,90 @@
+{
+  "thread_id": "del-07",
+  "channel": "slack",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Pooja",
+      "text": "the enterprise trial expires friday and nobody has spoken to them since the demo",
+      "ts": "2026-04-07T09:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill call them today",
+      "ts": "2026-04-07T09:45:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Pooja",
+      "text": "youre in interviews till 6 though",
+      "ts": "2026-04-07T09:50:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "true",
+      "ts": "2026-04-07T10:02:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "you take it, you ran the demo anyway. just dont discount without asking me",
+      "ts": "2026-04-07T10:03:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Pooja",
+      "text": "on it",
+      "ts": "2026-04-07T10:05:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "call the enterprise trial account before it expires",
+      "direction": "blocked_on_you",
+      "counterparty": "Pooja",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 14,
+          "end": 19
+        },
+        "resolved": "2026-04-07",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 19
+      },
+      "resolution": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 36
+      },
+      "state": "superseded",
+      "register": "en"
+    },
+    {
+      "statement": "Pooja calls the enterprise trial account before it expires",
+      "direction": "blocked_on_them",
+      "counterparty": "Pooja",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-04-10",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 36
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "Directive accepted per §2 — Pooja's 'on it' binds it, and the evidence span sits on the clause naming the act. The friday expiry stated in message 0 supplies the implied deadline."
+    }
+  ]
+}

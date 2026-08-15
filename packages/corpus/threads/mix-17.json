@@ -1,0 +1,52 @@
+{
+  "thread_id": "mix-17",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Anjali",
+      "text": "presentation ka template mil sakta hai? wahi jo tumne town hall me use kiya tha",
+      "ts": "2026-04-14T16:20:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "haan hai mere paas",
+      "ts": "2026-04-14T17:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "nikal ke bhej dunga",
+      "ts": "2026-04-14T17:02:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Anjali",
+      "text": "thank you so much 🙏",
+      "ts": "2026-04-14T17:05:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Anjali the town hall presentation template",
+      "direction": "blocked_on_you",
+      "counterparty": "Anjali",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 19
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "The only candidate resolution is a bare thank-you, which §6 rejects. Nothing shows the template arriving, so the loop stays open — the code-mixed twin of en-16."
+    }
+  ]
+}

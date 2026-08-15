@@ -1,0 +1,44 @@
+{
+  "thread_id": "neg-10",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Sanjay",
+      "text": "sir aapka number kisi ne diya, main insurance advisor hu",
+      "ts": "2026-04-07T13:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Sanjay",
+      "text": "term plan ke liye baat karni thi, aapki age me premium bahut kam aayega",
+      "ts": "2026-04-07T13:03:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "abhi interest nahi hai",
+      "ts": "2026-04-07T19:40:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Sanjay",
+      "text": "koi baat nahi sir, jab bhi lage message kar dijiyega",
+      "ts": "2026-04-07T19:45:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Sanjay",
+      "text": "aap bolenge to main comparison chart turant bhej dunga, 2 minute ka kaam hai",
+      "ts": "2026-04-07T19:46:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Sanjay",
+      "text": "main hamesha available hu",
+      "ts": "2026-04-07T19:46:00+05:30"
+    }
+  ],
+  "loops": []
+}

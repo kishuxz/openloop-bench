@@ -106,6 +106,67 @@ and carries none of the obligation:
 
 **Are loops, despite hedged phrasing:** see soft commitments, next.
 
+### In-flight statements
+
+"on it", "looking", "rolling it back now", "pulling the numbers" — present
+tense, already started, no future-tense promise to point at.
+
+**An in-flight statement is a commitment when it names the act the counterparty
+is waiting on.** "rolling it back now" names the act; the person on the other
+end is waiting for staging to come back and will follow up if it does not.
+Label it, with the evidence span on the in-flight clause.
+
+**A bare acknowledgement is not**, because no act is named: "looking", "on it",
+"checking". These say attention has been paid, not that anything is owed. If
+the thread never names the act anywhere, there is nothing to be late on.
+
+The distinction is the same one §1 test 1 makes — is there an act? — applied to
+a tense that does not announce one. `en-19` has both: "looking" is not labeled,
+"rolling it back now" two messages later is.
+
+### Recurring and standing commitments
+
+"ill send it every monday", "aap hi har month 5 tarikh ko bhej dijiye" — an
+arrangement rather than an act, with no single occurrence that is the thing
+owed.
+
+**Label it once, as one loop, with `certainty: "none"`.** The obligation is
+real and holdable — the counterparty will follow up when a Monday passes — but
+it has no due date, because every date is equally its due date. Do not label
+one loop per expected occurrence; the corpus would fill with loops nobody
+created.
+
+Do not resolve the recurrence to the next occurrence either. "Every month on
+the 5th" resolved to the coming 5th would assert a deadline the parties did not
+set for any particular month, and the eval would then score an extractor on
+inventing one.
+
+A standing arrangement closes only when someone ends it. A single missed
+occurrence is not supersession.
+
+### Directives accepted
+
+Most commitments are made by the person who owes them. Some are handed over and
+taken: "can you send both of them the standard rejection?" → "ok".
+
+**A directive plus an acceptance is a commitment**, and the evidence span goes
+on the **directive** — the clause naming the act — not on the bare "ok". The
+acceptance is what makes it binding, but a span pointing at "ok" would tell a
+reader nothing about what was agreed, and §6's test applies here too: could a
+stranger reconstruct the obligation from the span alone?
+
+**Silence is not acceptance.** An unanswered request is not a loop. The
+counterparty has to take it: "ok", "sure", "will do", "noted", or acting on it.
+
+**When the acceptor also commits in their own words, their words win.** "can
+you send the sheet?" → "ok anna" → "innaiku night ku share panren" is evidenced
+on the last of those, not on the directive. The directive form is for when
+acceptance is *all* they say. Prefer the span that carries the most of the
+obligation — usually the one naming both the act and the deadline.
+
+Direction follows who ends up owing the act, exactly as in §4 — a directive the
+subject issues and someone else accepts is `blocked_on_them`.
+
 
 ### `sup-04`, in full
 
@@ -402,6 +463,22 @@ you to.
 
 To add a thread: write it, label it, run `pnpm validate`, then `pnpm stats` to
 confirm the composition still matches the targets in `src/buckets.ts`.
+
+### No real organisations
+
+Personal names are placeholders, and so is everything else. **Do not name a real
+company, fund, bank, product or institution**, in a message or in a `sender`
+field. Use a role instead — "(client)", "(vendor)", "(insurance)", "(VC)",
+"(prospect)" — or refer to it generically: "their payments team", "the fund".
+
+Two reasons, and the second is the one that bites. A public benchmark should not
+put invented words in a real company's mouth. And a real name is a token an
+extractor can key on: "Accel" reads as investor context in a way that
+"(VC)" does not, so the corpus would be teaching brand recognition rather than
+commitment detection.
+
+Three Phase 1 threads violated this and were corrected during the batch 1 audit
+— see `DRIFT.md`.
 
 ---
 

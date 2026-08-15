@@ -5,7 +5,7 @@
   "messages": [
     {
       "index": 0,
-      "sender": "Aditya (Zeta)",
+      "sender": "Aditya (prospect)",
       "text": "Good speaking today. Could you put together a short proposal covering scope and pricing so I can take it to my head of ops?",
       "ts": "2026-03-12T17:10:00+05:30"
     },
@@ -17,7 +17,7 @@
     },
     {
       "index": 2,
-      "sender": "Aditya (Zeta)",
+      "sender": "Aditya (prospect)",
       "text": "Hold off on that actually. Our budget cycle just got pushed, so we're parking all new vendor work until the next quarter. I'll come back to you in July.",
       "ts": "2026-03-13T11:35:00+05:30"
     },
@@ -32,7 +32,7 @@
     {
       "statement": "send Aditya a draft proposal covering scope and pricing",
       "direction": "blocked_on_you",
-      "counterparty": "Aditya (Zeta)",
+      "counterparty": "Aditya (prospect)",
       "deadline": {
         "span": null,
         "resolved": null,

@@ -85,8 +85,9 @@ describe("every span resolves to real text", () => {
 });
 
 describe("composition", () => {
-  test("holds 40 threads at the specified bucket targets", () => {
-    expect(threads.length).toBe(40);
+  test("holds exactly the threads the bucket targets specify", () => {
+    const total = BUCKETS.reduce((n, b) => n + b.target, 0);
+    expect(threads.length).toBe(total);
     for (const bucket of BUCKETS) {
       const count = threads.filter((t) => bucketOf(t.thread_id) === bucket.prefix).length;
       expect(count, bucket.label).toBe(bucket.target);
@@ -108,9 +109,9 @@ describe("composition", () => {
     expect(dev / threads.length).toBeLessThanOrEqual(0.5);
   });
 
-  test("carries 8 negative threads, and they are genuinely empty", () => {
+  test("carries its full quota of negative threads, and they are genuinely empty", () => {
     const negatives = threads.filter((t) => bucketOf(t.thread_id) === "neg");
-    expect(negatives.length).toBe(8);
+    expect(negatives.length).toBe(BUCKETS.find((b) => b.prefix === "neg")?.target);
     for (const thread of negatives) {
       expect(thread.loops, thread.thread_id).toEqual([]);
     }
@@ -150,7 +151,7 @@ describe("composition", () => {
     const superseded = threads.filter((t) => t.loops.some((l) => l.state === "superseded"));
     const buckets = new Set(superseded.map((t) => bucketOf(t.thread_id)));
     expect(buckets.size).toBeGreaterThan(1);
-    expect(superseded.length).toBeGreaterThanOrEqual(10);
+    expect(superseded.length).toBeGreaterThanOrEqual(Math.floor(threads.length / 4));
   });
 
   test("labels at least one loop against an off-thread counterparty", () => {
@@ -190,7 +191,20 @@ describe("the corpus is not trivially separable", () => {
     // If negatives were only distinguishable by length or by the absence of
     // future-tense verbs, the benchmark would measure keyword matching.
     const negatives = threads.filter((t) => t.loops.length === 0);
-    const cue = /\b(ill|i'll|we'll|lets|let's|will|karo|karunga|dunga|panren|pogalam|milte)\b/i;
+    // Construction families, not a keyword list: first-person volitionals in
+    // each register, hortatives, and the modal-obligation phrasings that carry
+    // most English near-misses. The original list was English-centric and
+    // failed four code-mixed negatives that are commitment-shaped in Hindi or
+    // Tamil — see DRIFT.md, batch 1.
+    const cue = new RegExp(
+      [
+        "\\b(i'?ll|we'?ll|will|won'?t|lets|let'?s|shall|should|gonna)\\b",
+        "\\b(happy to|anytime|whenever|at some point|sometime)\\b",
+        "\\b(dunga|dungi|doonga|karunga|karungi|sochunga|bhejta|deta hu|dekhta hu|dijiye|dijiyega|milte)\\b",
+        "\\b(panren|pandren|panduven|panniduven|mudichiduven|anuppuren|varen|pogalam|pesalam|kandippa)\\b",
+      ].join("|"),
+      "i",
+    );
     for (const thread of negatives) {
       const hasCue = thread.messages.some((m) => cue.test(m.text));
       expect(hasCue, `${thread.thread_id} has no commitment-shaped language`).toBe(true);

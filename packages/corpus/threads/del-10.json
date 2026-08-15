@@ -1,0 +1,104 @@
+{
+  "thread_id": "del-10",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "user",
+      "text": "karthik, payroll is stuck, two people havent been paid",
+      "ts": "2026-04-15T08:40:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Karthik",
+      "text": "anna bank la beneficiary add panna venum, naan pandren",
+      "ts": "2026-04-15T09:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Karthik",
+      "text": "anna enaku maker access thaan iruku, approve panna mudiyala",
+      "ts": "2026-04-15T11:20:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Karthik",
+      "text": "neenga thaan approve pannanum",
+      "ts": "2026-04-15T11:21:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "sari naan approve panren, link anuppu",
+      "ts": "2026-04-15T11:40:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Karthik",
+      "text": "anuppiten",
+      "ts": "2026-04-15T11:42:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "Karthik adds the two missing beneficiaries in the bank portal",
+      "direction": "blocked_on_them",
+      "counterparty": "Karthik",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 5,
+        "end": 54
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 5,
+        "end": 59
+      },
+      "state": "superseded",
+      "register": "ta-en",
+      "notes": "A direction flip caused by access rather than by workload: Karthik can create the request but not approve it, so the act he committed to cannot be completed by him."
+    },
+    {
+      "statement": "approve the beneficiary additions in the bank portal",
+      "direction": "blocked_on_you",
+      "counterparty": "Karthik",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 5,
+        "end": 24
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en"
+    },
+    {
+      "statement": "Karthik sends the approval link",
+      "direction": "blocked_on_them",
+      "counterparty": "Karthik",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 0,
+        "end": 9
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en"
+    }
+  ]
+}

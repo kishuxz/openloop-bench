@@ -1,0 +1,50 @@
+{
+  "thread_id": "neg-16",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Prakash",
+      "text": "fyi the analytics dashboard has been slow since the schema change",
+      "ts": "2026-04-16T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Prakash",
+      "text": "not blocking anyone, just noting it",
+      "ts": "2026-04-16T10:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "yeah ive noticed too",
+      "ts": "2026-04-16T10:30:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "someone should look at those queries at some point",
+      "ts": "2026-04-16T10:31:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Prakash",
+      "text": "agreed, its on the pile",
+      "ts": "2026-04-16T10:40:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "worth fixing before it gets worse honestly",
+      "ts": "2026-04-16T10:45:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "Prakash",
+      "text": "yep",
+      "ts": "2026-04-16T10:46:00+05:30"
+    }
+  ],
+  "loops": []
+}

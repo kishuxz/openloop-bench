@@ -1,0 +1,90 @@
+{
+  "thread_id": "sup-12",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Charu",
+      "text": "anna, GST portal la challan generate panna mudiyala, error varuthu",
+      "ts": "2026-04-14T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "naan paakuren, evening la login panren",
+      "ts": "2026-04-14T10:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Charu",
+      "text": "sari",
+      "ts": "2026-04-14T10:31:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Charu",
+      "text": "anna venam, CA office la irundhu portal access vaangitaanga",
+      "ts": "2026-04-14T15:20:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Charu",
+      "text": "avanga generate panniduvanga",
+      "ts": "2026-04-14T15:21:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "super, adhuve nallathu",
+      "ts": "2026-04-14T15:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "log in to the GST portal and generate the challan",
+      "direction": "blocked_on_you",
+      "counterparty": "Charu",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 15,
+          "end": 25
+        },
+        "resolved": "2026-04-14",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 38
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 12,
+        "end": 59
+      },
+      "state": "superseded",
+      "register": "ta-en"
+    },
+    {
+      "statement": "the CA's office generates the GST challan",
+      "direction": "blocked_on_them",
+      "counterparty": "CA office",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 28
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en",
+      "notes": "Counterparty is the CA's office, which never sends a message in this thread. Permitted per §4 — delegation moves the obligation to whoever owes it, not to whoever is present."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "thread_id": "en-13",
+  "channel": "email",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Sunita (insurance)",
+      "text": "Your group health policy lapses on the 30th. We need the updated employee list before we can issue the renewal quote.",
+      "ts": "2026-04-06T11:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "noted - ill send the current headcount list by wednesday",
+      "ts": "2026-04-06T15:38:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Sunita (insurance)",
+      "text": "Thank you.",
+      "ts": "2026-04-06T16:10:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send the insurer the updated employee headcount list",
+      "direction": "blocked_on_you",
+      "counterparty": "Sunita (insurance)",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 44,
+          "end": 56
+        },
+        "resolved": "2026-04-08",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 8,
+        "end": 56
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

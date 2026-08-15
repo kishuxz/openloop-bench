@@ -1,0 +1,133 @@
+{
+  "thread_id": "en-17",
+  "channel": "email",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Procurement (client)",
+      "text": "Before we can onboard you as a supplier we need the signed MSA and a current insurance certificate.",
+      "ts": "2026-04-09T09:40:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "understood, ill get both over to you",
+      "ts": "2026-04-09T11:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Procurement (client)",
+      "text": "Thanks. Our security team will also send across a questionnaire.",
+      "ts": "2026-04-09T11:30:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Security (client)",
+      "text": "Questionnaire attached. 40 questions, mostly yes/no.",
+      "ts": "2026-04-09T14:12:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "will look at this",
+      "ts": "2026-04-09T18:40:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Procurement (client)",
+      "text": "Any movement on the MSA?",
+      "ts": "2026-04-13T10:05:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "our lawyer is stuck on one indemnity clause, close to done",
+      "ts": "2026-04-13T12:20:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "Security (client)",
+      "text": "Following up on the questionnaire.",
+      "ts": "2026-04-14T09:15:00+05:30"
+    },
+    {
+      "index": 8,
+      "sender": "user",
+      "text": "doing it today, sorry for the delay",
+      "ts": "2026-04-14T10:02:00+05:30"
+    },
+    {
+      "index": 9,
+      "sender": "Procurement (client)",
+      "text": "For visibility, our onboarding window closes friday.",
+      "ts": "2026-04-15T11:00:00+05:30"
+    },
+    {
+      "index": 10,
+      "sender": "user",
+      "text": "understood",
+      "ts": "2026-04-15T11:20:00+05:30"
+    },
+    {
+      "index": 11,
+      "sender": "user",
+      "text": "MSA signed and insurance certificate both attached. That should be everything from our side.",
+      "ts": "2026-04-16T17:45:00+05:30"
+    },
+    {
+      "index": 12,
+      "sender": "Procurement (client)",
+      "text": "Received, thank you. Passing to onboarding.",
+      "ts": "2026-04-16T18:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send the client's procurement team the signed MSA and insurance certificate",
+      "direction": "blocked_on_you",
+      "counterparty": "Procurement (client)",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-04-17",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 12,
+        "end": 36
+      },
+      "resolution": {
+        "msg_index": 11,
+        "start": 0,
+        "end": 50
+      },
+      "state": "closed",
+      "register": "en",
+      "notes": "Evidence in message 1, resolution in message 11 — ten messages and seven days apart, with unrelated traffic in between. The onboarding window stated in message 9 supplies the deadline nobody attached to the promise."
+    },
+    {
+      "statement": "complete the client's security questionnaire",
+      "direction": "blocked_on_you",
+      "counterparty": "Security (client)",
+      "deadline": {
+        "span": {
+          "msg_index": 8,
+          "start": 9,
+          "end": 14
+        },
+        "resolved": "2026-04-14",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 17
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "One loop, not two: message 8 re-affirms the commitment made in message 4 rather than creating a new one. The deadline span therefore sits in a different message than the evidence, five messages later."
+    }
+  ]
+}

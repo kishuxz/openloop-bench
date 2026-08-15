@@ -1,0 +1,102 @@
+{
+  "thread_id": "mix-13",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Vikram",
+      "text": "kal ke meeting ke liye kya kya chahiye mujhe",
+      "ts": "2026-04-08T20:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ek min likhta hu",
+      "ts": "2026-04-08T20:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "pehla, unka last invoice nikal ke rakhna",
+      "ts": "2026-04-08T20:31:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "dusra, main deck update kar dunga raat ko",
+      "ts": "2026-04-08T20:31:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "teesra, legal se NDA ka status pooch lena",
+      "ts": "2026-04-08T20:32:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Vikram",
+      "text": "invoice ready hai mere paas",
+      "ts": "2026-04-08T20:40:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "Vikram",
+      "text": "NDA wala kal subah pooch ke batata hu",
+      "ts": "2026-04-08T20:41:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "Vikram",
+      "text": "aur haan kabhi team dinner bhi karna chahiye yaar",
+      "ts": "2026-04-08T20:42:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "update the deck before tomorrow's meeting",
+      "direction": "blocked_on_you",
+      "counterparty": "Vikram",
+      "deadline": {
+        "span": {
+          "msg_index": 3,
+          "start": 34,
+          "end": 41
+        },
+        "resolved": "2026-04-08",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 7,
+        "end": 41
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    },
+    {
+      "statement": "Vikram checks the NDA status with legal",
+      "direction": "blocked_on_them",
+      "counterparty": "Vikram",
+      "deadline": {
+        "span": {
+          "msg_index": 6,
+          "start": 9,
+          "end": 18
+        },
+        "resolved": "2026-04-09",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 6,
+        "start": 0,
+        "end": 37
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "The user's instruction in message 4 and Vikram's acceptance in message 6 are one loop, evidenced on Vikram's own commitment because it carries the deadline. Message 7, 'kabhi team dinner bhi karna chahiye', is not a loop."
+    }
+  ]
+}

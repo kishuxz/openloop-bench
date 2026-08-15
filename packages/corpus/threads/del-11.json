@@ -1,0 +1,111 @@
+{
+  "thread_id": "del-11",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Nitin",
+      "text": "who is writing the incident report for saturday",
+      "ts": "2026-04-16T09:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "me, ill write it up",
+      "ts": "2026-04-16T09:31:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Nitin",
+      "text": "you werent on call though, i was",
+      "ts": "2026-04-16T09:35:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Nitin",
+      "text": "ill write it, you review",
+      "ts": "2026-04-16T09:36:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "fair. yes ill review it",
+      "ts": "2026-04-16T09:40:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Nitin",
+      "text": "also we should get the runbook updated eventually",
+      "ts": "2026-04-16T09:41:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "eventually yes",
+      "ts": "2026-04-16T09:42:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "write the incident report for Saturday's outage",
+      "direction": "blocked_on_you",
+      "counterparty": "Nitin",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 4,
+        "end": 19
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 24
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "The user claims the report without naming it — 'me' answers Nitin's question. The evidence span is on the clause that names the act, since a span reading 'me' would fail §6's reconstruction test."
+    },
+    {
+      "statement": "Nitin writes the incident report for Saturday's outage",
+      "direction": "blocked_on_them",
+      "counterparty": "Nitin",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 12
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "review Nitin's incident report",
+      "direction": "blocked_on_you",
+      "counterparty": "Nitin",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 6,
+        "end": 23
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "Message 5, 'we should get the runbook updated eventually', answered with 'eventually yes', is near-miss language sitting alongside three real loops."
+    }
+  ]
+}

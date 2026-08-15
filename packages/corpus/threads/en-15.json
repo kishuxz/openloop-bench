@@ -1,0 +1,56 @@
+{
+  "thread_id": "en-15",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Bhavna",
+      "text": "can you resend the invoice? cant find it anywhere in my mail",
+      "ts": "2026-04-08T12:20:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "yeah one sec",
+      "ts": "2026-04-08T12:44:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "ill mail it to you now",
+      "ts": "2026-04-08T12:44:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Bhavna",
+      "text": "got it, thanks",
+      "ts": "2026-04-08T13:10:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "resend Bhavna the invoice",
+      "direction": "blocked_on_you",
+      "counterparty": "Bhavna",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 22
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 6
+      },
+      "state": "closed",
+      "register": "en",
+      "notes": "Closed on the counterparty's acknowledgement of arrival, which §6 accepts as weaker evidence than a delivery statement. The span is 'got it', not the trailing 'thanks' — receipt is what proves delivery."
+    }
+  ]
+}
