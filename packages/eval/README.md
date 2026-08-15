@@ -158,3 +158,64 @@ corpus schema:
 What *is* enforced is whatever would make the file un-scoreable: the closed enums,
 integer offsets, the split, and a provenance block naming the model, the prompt
 version, the sampling parameters and the corpus hash.
+
+## What gets measured
+
+| Metric | Question |
+|---|---|
+| Loop precision and recall | Are the commitments found, and are the found ones real? Matched by span overlap, so a fabricated quote cannot score. |
+| Supersession false-positive rate | How often is a dead commitment reported as live? The headline number. |
+| Direction accuracy | Scored separately, because `blocked_on_you` read as `blocked_on_them` is the error that would let a system speak for the subject. |
+| Negative-thread false-positive rate | Measured only over the 40 zero-loop threads. Precision over positives cannot see it. |
+| Deadline resolution accuracy | Split by register, because the gap between "by friday" and "kal tak" is the point of the code-mixed half. |
+| Evidence grounding rate | What fraction of returned spans resolve to real text at all. |
+
+Every one of those is broken out by register, by bucket, by thread length, and by
+loops per thread. The last is within-thread recall: whether an extractor finds
+every commitment in a busy thread or anchors on the first one and stops.
+
+Extraction currently reports two dev configurations. **Hosted-large** establishes
+the hosted full-text baseline. **Local** runs a model that could plausibly sit on
+a user's own machine, which is the only configuration in which this product
+category is privacy-viable at all. **Hosted-redacted** remains committed as an
+attempted but incomplete prediction file, not a scored result, because provider
+failures exceeded the publish guard.
+
+## Deciding which prediction is which label
+
+A predicted loop arrives with no id, so before anything can be scored, something
+has to decide that this prediction *is* that ground-truth loop. It is the one
+real design decision in the evaluation.
+
+Matching is on **evidence span overlap**, never on how similar the two
+`statement` strings read. The obvious alternative, comparing the sentences and
+taking the close ones, scores paraphrasing quality: an extractor that finds every
+commitment and describes them tersely loses to one that writes fluent summaries
+of commitments nobody made. Overlap asks whether the extractor pointed at the
+place where the promise was made, which is the thing being measured, and the
+text decides rather than a reviewer.
+
+A prediction matches when it points into the same message and the two character
+ranges reach an intersection-over-union at or above a threshold. Assignment is
+one-to-one, so two predictions covering one true loop produce one true positive
+and one false positive. An extractor that splits a single commitment into two
+reported items has produced something spurious, and that is counted as its own
+error mode rather than absorbed.
+
+**The threshold is a judgment call, so every run is scored at 0.3, 0.5 and 0.7
+and all three are reported.** On the fixtures the ranking of the configurations
+changes between them, which is exactly the finding one tuned threshold would
+have buried. A span that resolves to no text is never matched and is a false
+positive; a span the extractor could not map back to the original message after
+redaction is neither, and is counted in its own column with an explicit bound on
+how many misses it could account for.
+
+## What scoring refuses to run against
+
+Scoring refuses to run against a corpus that has not validated in the same run,
+refuses a prediction file whose corpus hash is not the corpus on disk, refuses
+one that does not cover its split exactly, and refuses to publish metrics when
+provider failures exceed the configured publish threshold. The default threshold
+is 20.0%, configurable with `OPENLOOP_MAX_PROVIDER_FAILURE_RATE` or
+`--max-provider-failure-rate`. A partial file otherwise scores as confident
+silence, which flatters precision and looks identical to a crashed run.

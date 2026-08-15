@@ -212,58 +212,9 @@ tak" cannot drift into "by tomorrow" between the message and the label. That
 span frequently sits in a different message from the evidence, because deadlines
 get negotiated a turn or two after the promise.
 
-## What gets measured
+*What gets measured, and how a prediction is matched to a label, moved to [`packages/eval/README.md`](packages/eval/README.md).*
 
-| Metric | Question |
-|---|---|
-| Loop precision and recall | Are the commitments found, and are the found ones real? Matched by span overlap, so a fabricated quote cannot score. |
-| Supersession false-positive rate | How often is a dead commitment reported as live? The headline number. |
-| Direction accuracy | Scored separately, because `blocked_on_you` read as `blocked_on_them` is the error that would let a system speak for the subject. |
-| Negative-thread false-positive rate | Measured only over the 40 zero-loop threads. Precision over positives cannot see it. |
-| Deadline resolution accuracy | Split by register, because the gap between "by friday" and "kal tak" is the point of the code-mixed half. |
-| Evidence grounding rate | What fraction of returned spans resolve to real text at all. |
-
-Every one of those is broken out by register, by bucket, by thread length, and by
-loops per thread. The last is within-thread recall: whether an extractor finds
-every commitment in a busy thread or anchors on the first one and stops.
-
-Extraction currently reports two dev configurations. **Hosted-large** establishes
-the hosted full-text baseline. **Local** runs a model that could plausibly sit on
-a user's own machine, which is the only configuration in which this product
-category is privacy-viable at all. **Hosted-redacted** remains committed as an
-attempted but incomplete prediction file, not a scored result, because provider
-failures exceeded the publish guard.
-
-### Deciding which prediction is which label
-
-A predicted loop arrives with no id, so before anything can be scored, something
-has to decide that this prediction *is* that ground-truth loop. It is the one
-real design decision in the evaluation.
-
-Matching is on **evidence span overlap**, never on how similar the two
-`statement` strings read. The obvious alternative, comparing the sentences and
-taking the close ones, scores paraphrasing quality: an extractor that finds every
-commitment and describes them tersely loses to one that writes fluent summaries
-of commitments nobody made. Overlap asks whether the extractor pointed at the
-place where the promise was made, which is the thing being measured, and the
-text decides rather than a reviewer.
-
-A prediction matches when it points into the same message and the two character
-ranges reach an intersection-over-union at or above a threshold. Assignment is
-one-to-one, so two predictions covering one true loop produce one true positive
-and one false positive. An extractor that splits a single commitment into two
-reported items has produced something spurious, and that is counted as its own
-error mode rather than absorbed.
-
-**The threshold is a judgment call, so every run is scored at 0.3, 0.5 and 0.7
-and all three are reported.** On the fixtures the ranking of the configurations
-changes between them, which is exactly the finding one tuned threshold would
-have buried. A span that resolves to no text is never matched and is a false
-positive; a span the extractor could not map back to the original message after
-redaction is neither, and is counted in its own column with an explicit bound on
-how many misses it could account for.
-
-### Cost-weighted error
+## Cost-weighted error
 
 Precision, recall and F1 count every error once. This product does not: trading
 three missed loops for one confident false `blocked_on_them` makes it worse
@@ -349,55 +300,8 @@ names or contact details. Sampling would mean publishing other people's private
 conversations, or redacting them into something that no longer resembles how
 founders write.
 
-## Running it
-
-| Command | Does |
-|---|---|
-| `pnpm validate` | Parses every thread and re-resolves all 510 spans. Non-zero exit with a per-file, per-path listing. |
-| `pnpm stats` | Composition, overall and per split. |
-| `pnpm stats:check` | Asserts bucket targets, both splits populated, dev share in band. |
-| `pnpm stats:by-batch` | Per-batch distributions, flagging any dimension that moved more than 15 points between consecutive batches. |
-| `pnpm separability` | The leakage diagnostic. Never gates. |
-| `pnpm eval` | Scores every prediction file at IoU 0.3, 0.5 and 0.7. Writes per-config metrics and a full match log. |
-| `pnpm report` | Renders `results/REPORT.md` from the committed prediction and metric files. Deterministic; refuses to render against stale results. |
-| `pnpm fixtures:gen` | Regenerates the fixture prediction files from the corpus. |
-| `pnpm test` | 214 tests: malformed fixtures proving each validator invariant still bites, and the matcher on every case where the threshold changes the answer. |
-| `pnpm check` | All of the above, in the order CI runs them. |
-
-Scoring refuses to run against a corpus that has not validated in the same run,
-refuses a prediction file whose corpus hash is not the corpus on disk, refuses
-one that does not cover its split exactly, and refuses to publish metrics when
-provider failures exceed the configured publish threshold. The default threshold
-is 20.0%, configurable with `OPENLOOP_MAX_PROVIDER_FAILURE_RATE` or
-`--max-provider-failure-rate`. A partial file otherwise scores as confident
-silence, which flatters precision and looks identical to a crashed run.
-
-`split` is stored in each thread file rather than computed, so it travels with
-the data and cannot be redrawn per run to flatter a result. **Do not read `test`
-while iterating on prompts.** Both halves carry every phenomenon, including
-closed, superseded, mutual, implied deadlines and all three registers, so
-nothing forces you to.
-
-| Document | Contains |
-|---|---|
-| [`packages/corpus/LABELING.md`](packages/corpus/LABELING.md) | The rulebook. Every labeling rule, worked cases for the hard ones, and §11's list of calls that remain arguable. |
-| [`packages/corpus/DRIFT.md`](packages/corpus/DRIFT.md) | One entry per authoring batch: what was re-audited, what changed, which rule was underspecified. Plus the certainty drift audit and the separability remediation. |
-| [`packages/eval/README.md`](packages/eval/README.md) | The matcher's design and the alternatives it rejected, every metric's denominator, the cost weights, and why the fixtures are generated rather than written. |
-| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Commit standard, branch and PR conventions, and what to run before pushing. |
-| [`CONVENTIONS.md`](CONVENTIONS.md) | Which scaffolding conventions came from where, and the decisions log. |
-
-## Layout
-
-```
-packages/schema      Zod schemas and inferred types. Single source of truth.
-packages/corpus      200 labeled threads, LABELING.md, DRIFT.md, the CLIs.
-packages/extractor   Reference extractor.
-packages/eval        The matcher, the metrics, the cost model, the report.
-apps/web             Static results viewer.
-predictions          Model prediction files committed as eval inputs.
-fixtures/predictions Generated evaluator fixtures used by tests.
-results              Metrics, match logs, REPORT.md. All committed.
-```
+*Commands, the document index and the repository layout moved to [`CONTRIBUTING.md`](CONTRIBUTING.md).*
+*What scoring refuses to run against moved to [`packages/eval/README.md`](packages/eval/README.md).*
 
 ## License
 
