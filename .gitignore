@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+
+.env
+.env.local
+.env.*
+!.env.example
+
+# Conductor workspace scratch — agent-to-agent collaboration, never committed
+.context/
+
+.DS_Store
+*.log
