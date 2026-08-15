@@ -1,0 +1,102 @@
+{
+  "thread_id": "sup-32",
+  "channel": "slack",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Pooja",
+      "text": "the customer wants a pilot extension, another 60 days",
+      "ts": "2026-07-07T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill put a proposal together for the extension terms",
+      "ts": "2026-07-07T10:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Pooja",
+      "text": "actually theyve just signed the annual contract instead",
+      "ts": "2026-07-08T16:30:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Pooja",
+      "text": "their procurement moved faster than anyone expected",
+      "ts": "2026-07-08T16:31:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "no complaints",
+      "ts": "2026-07-08T16:40:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "ill get the kickoff scheduled then",
+      "ts": "2026-07-08T16:41:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "kickoff is booked for the 15th, invite sent to their whole team",
+      "ts": "2026-07-09T10:20:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "Pooja",
+      "text": "saw it",
+      "ts": "2026-07-09T10:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "put together a proposal for the pilot extension terms",
+      "direction": "blocked_on_you",
+      "counterparty": "Pooja",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 51
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 9,
+        "end": 55
+      },
+      "state": "superseded",
+      "register": "en"
+    },
+    {
+      "statement": "schedule the customer kickoff",
+      "direction": "blocked_on_you",
+      "counterparty": "Pooja",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 0,
+        "end": 34
+      },
+      "resolution": {
+        "msg_index": 6,
+        "start": 0,
+        "end": 30
+      },
+      "state": "closed",
+      "register": "en"
+    }
+  ]
+}

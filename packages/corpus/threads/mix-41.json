@@ -1,0 +1,97 @@
+{
+  "thread_id": "mix-41",
+  "channel": "whatsapp",
+  "split": "dev",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Farhan",
+      "text": "bhai shaadi ka card bhej raha hu, december me hai",
+      "ts": "2026-07-01T22:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "arre wah! badhai ho",
+      "ts": "2026-07-01T22:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Farhan",
+      "text": "aana zarur",
+      "ts": "2026-07-01T22:31:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "pakka aunga",
+      "ts": "2026-07-01T22:32:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Farhan",
+      "text": "ek aur cheez, tumhare wo photographer ka number chahiye tha",
+      "ts": "2026-07-01T22:35:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "haan wo achha tha",
+      "ts": "2026-07-01T22:40:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "kal dhoond ke bhej dunga",
+      "ts": "2026-07-01T22:41:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "Farhan",
+      "text": "shukriya bhai",
+      "ts": "2026-07-01T22:42:00+05:30"
+    },
+    {
+      "index": 8,
+      "sender": "user",
+      "text": "number bhej diya, save kar lo",
+      "ts": "2026-07-02T11:20:00+05:30"
+    },
+    {
+      "index": 9,
+      "sender": "Farhan",
+      "text": "mil gaya",
+      "ts": "2026-07-02T11:35:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Farhan the photographer's contact number",
+      "direction": "blocked_on_you",
+      "counterparty": "Farhan",
+      "deadline": {
+        "span": {
+          "msg_index": 6,
+          "start": 0,
+          "end": 3
+        },
+        "resolved": "2026-07-02",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 6,
+        "start": 0,
+        "end": 24
+      },
+      "resolution": {
+        "msg_index": 8,
+        "start": 0,
+        "end": 29
+      },
+      "state": "closed",
+      "register": "hi-en",
+      "notes": "'pakka aunga' about attending the wedding is not labelled — attending a social event nobody is owed fails §1 test 1, as in mix-38."
+    }
+  ]
+}

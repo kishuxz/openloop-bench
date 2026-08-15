@@ -1,0 +1,124 @@
+{
+  "thread_id": "del-23",
+  "channel": "slack",
+  "split": "dev",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Tanvi",
+      "text": "someone needs to answer the security questionnaire, 60 questions",
+      "ts": "2026-07-01T09:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill do it, ive done the last three",
+      "ts": "2026-07-01T09:40:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Tanvi",
+      "text": "you have, and each one took you a full day you didnt have",
+      "ts": "2026-07-01T09:45:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Tanvi",
+      "text": "neha has the answer bank now, let her do it and you sign off",
+      "ts": "2026-07-01T09:46:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "fine. neha, over to you, ill review before it goes",
+      "ts": "2026-07-01T09:50:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Neha",
+      "text": "on it, ill have it back by thursday",
+      "ts": "2026-07-01T10:02:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "Neha",
+      "text": "questionnaire done, all 60, in the shared drive for your review",
+      "ts": "2026-07-02T16:40:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "user",
+      "text": "reading it now",
+      "ts": "2026-07-02T17:02:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "answer the 60-question security questionnaire",
+      "direction": "blocked_on_you",
+      "counterparty": "Tanvi",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 34
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 30,
+        "end": 60
+      },
+      "state": "superseded",
+      "register": "en"
+    },
+    {
+      "statement": "Neha answers the security questionnaire",
+      "direction": "blocked_on_them",
+      "counterparty": "Neha",
+      "deadline": {
+        "span": {
+          "msg_index": 5,
+          "start": 24,
+          "end": 35
+        },
+        "resolved": "2026-07-02",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 7,
+        "end": 35
+      },
+      "resolution": {
+        "msg_index": 6,
+        "start": 0,
+        "end": 47
+      },
+      "state": "closed",
+      "register": "en"
+    },
+    {
+      "statement": "review the security questionnaire before it goes out",
+      "direction": "blocked_on_you",
+      "counterparty": "Neha",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 25,
+        "end": 50
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

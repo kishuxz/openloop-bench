@@ -1,0 +1,83 @@
+{
+  "thread_id": "en-42",
+  "channel": "imessage",
+  "split": "dev",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Rahul",
+      "text": "my parents are in town next week",
+      "ts": "2026-07-02T20:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "oh nice, how long",
+      "ts": "2026-07-02T20:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Rahul",
+      "text": "ten days. which means i am useless after 6pm",
+      "ts": "2026-07-02T20:32:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "understood",
+      "ts": "2026-07-02T20:33:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Rahul",
+      "text": "can you take the friday investor call? i genuinely cannot do it",
+      "ts": "2026-07-02T20:35:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "yeah ill take it",
+      "ts": "2026-07-02T20:40:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "Rahul",
+      "text": "youre a saint",
+      "ts": "2026-07-02T20:41:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "Rahul",
+      "text": "we should get dinner with them one evening though",
+      "ts": "2026-07-02T20:42:00+05:30"
+    },
+    {
+      "index": 8,
+      "sender": "user",
+      "text": "would like that",
+      "ts": "2026-07-02T20:45:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "take the Friday investor call in Rahul's place",
+      "direction": "blocked_on_you",
+      "counterparty": "Rahul",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-07-03",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 0,
+        "end": 16
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "Message 7, 'we should get dinner with them one evening', sits two messages from a real commitment in the same personal thread. Both are social in register; only one is owed."
+    }
+  ]
+}

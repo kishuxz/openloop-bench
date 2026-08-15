@@ -1,0 +1,66 @@
+{
+  "thread_id": "sup-33",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Sneha",
+      "text": "board deck ke liye competitive slide banana hai",
+      "ts": "2026-07-08T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "main bana dunga, friday tak",
+      "ts": "2026-07-08T10:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Sneha",
+      "text": "ruko, board ne agenda bheja hai, competitive section hai hi nahi is baar",
+      "ts": "2026-07-09T11:20:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Sneha",
+      "text": "sirf hiring aur runway",
+      "ts": "2026-07-09T11:21:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "achha theek hai",
+      "ts": "2026-07-09T11:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "build the competitive slide for the board deck",
+      "direction": "blocked_on_you",
+      "counterparty": "Sneha",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 17,
+          "end": 27
+        },
+        "resolved": "2026-07-10",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 27
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 33,
+        "end": 72
+      },
+      "state": "superseded",
+      "register": "hi-en"
+    }
+  ]
+}

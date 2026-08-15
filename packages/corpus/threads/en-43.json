@@ -1,0 +1,99 @@
+{
+  "thread_id": "en-43",
+  "channel": "slack",
+  "split": "dev",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Rahul",
+      "text": "we are going to have to cut something from the roadmap, we cannot do all four",
+      "ts": "2026-07-01T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "agreed, and i dont think either of us should decide this alone",
+      "ts": "2026-07-01T10:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "lets sit with the list and cut it together on thursday",
+      "ts": "2026-07-01T10:21:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Rahul",
+      "text": "yes. bring the revenue attribution, ill bring the effort estimates",
+      "ts": "2026-07-01T10:30:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "deal",
+      "ts": "2026-07-01T10:31:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "user and Rahul cut the roadmap together",
+      "direction": "mutual",
+      "counterparty": "Rahul",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 46,
+          "end": 54
+        },
+        "resolved": "2026-07-02",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 54
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "bring revenue attribution to the roadmap cut",
+      "direction": "blocked_on_you",
+      "counterparty": "Rahul",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-07-02",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 5,
+        "end": 34
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "Rahul brings effort estimates to the roadmap cut",
+      "direction": "blocked_on_them",
+      "counterparty": "Rahul",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-07-02",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 36,
+        "end": 66
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "One mutual act with two one-sided preparation loops under it, as in en-29. Either party can fail their half without the other failing theirs, so they are separate obligations."
+    }
+  ]
+}

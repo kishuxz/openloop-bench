@@ -1,0 +1,84 @@
+{
+  "thread_id": "sup-29",
+  "channel": "slack",
+  "split": "dev",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Neha",
+      "text": "the pricing page needs a comparison table, sales keep asking",
+      "ts": "2026-07-01T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill build one this week",
+      "ts": "2026-07-01T10:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Neha",
+      "text": "hold that, legal just said we cannot name competitors on the site",
+      "ts": "2026-07-02T14:30:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Neha",
+      "text": "we can do a feature list without naming anyone, but thats a different thing",
+      "ts": "2026-07-02T14:31:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "ok, park it. ill talk to legal about what we can actually say",
+      "ts": "2026-07-02T15:02:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "build a competitor comparison table for the pricing page",
+      "direction": "blocked_on_you",
+      "counterparty": "Neha",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 14,
+          "end": 23
+        },
+        "resolved": null,
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 23
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 11,
+        "end": 65
+      },
+      "state": "superseded",
+      "register": "en"
+    },
+    {
+      "statement": "ask legal what comparison claims are permitted",
+      "direction": "blocked_on_you",
+      "counterparty": "Neha",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 13,
+        "end": 61
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

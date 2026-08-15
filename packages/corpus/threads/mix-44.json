@@ -1,0 +1,81 @@
+{
+  "thread_id": "mix-44",
+  "channel": "whatsapp",
+  "split": "dev",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Vikram",
+      "text": "sir do directors ka signature ek saath chahiye, bank wale bol rahe hai",
+      "ts": "2026-07-03T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "matlab dono ek hi time pe branch me?",
+      "ts": "2026-07-03T10:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Vikram",
+      "text": "haan sir, joint signing hai",
+      "ts": "2026-07-03T10:22:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "theek hai, ek din nikaal ke dono chalte hai, agle hafte",
+      "ts": "2026-07-03T10:30:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Vikram",
+      "text": "main slot book karwa deta hu jab aap date bata do",
+      "ts": "2026-07-03T10:32:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "both directors attend the bank together for joint signing",
+      "direction": "mutual",
+      "counterparty": "Vikram",
+      "deadline": {
+        "span": {
+          "msg_index": 3,
+          "start": 45,
+          "end": 55
+        },
+        "resolved": null,
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 11,
+        "end": 43
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "Mutual in the strictest sense — the bank will not accept either signature alone, so neither director can discharge it by acting."
+    },
+    {
+      "statement": "Vikram books the bank slot once a date is chosen",
+      "direction": "blocked_on_them",
+      "counterparty": "Vikram",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 49
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    }
+  ]
+}

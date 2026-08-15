@@ -512,3 +512,86 @@ corpus is a score you cannot act on.
 
 The same rule binds the Phase 4 eval harness: no metric is reported against a
 corpus that has not validated in the same run.
+
+---
+
+## Batch 4 — threads 161–200 (`en-41..50`, `mix-41..50`, `sup-28..35`, `neg-33..40`, `del-22..25`)
+
+Audit target: batch 3, threads 121–160. Completes Phase 2.
+
+### Step 4 — distribution check
+
+The check fired once and it was worth firing.
+
+**Batch 4 opened at 2% `closed` against batch 3's 19%, a 17-point drop.**
+Diagnosed as thread-writing drift, and a real gap rather than a stylistic one:
+the batch was written for social commitments, mutual loops and work-register
+negatives, all of which are forward-looking by nature, and closure never got
+written in. Six loops across `en-41`, `mix-41`, `mix-45`, `mix-48`, `del-23` and
+`sup-32` were given in-thread resolutions. `closed` is now 13%, within threshold
+of batch 3.
+
+Without step 4 this would have shipped: cumulative `closed` still looked healthy
+at 12%, because three earlier batches were carrying it.
+
+Nothing else moved. The two certainty flags that remain are the batch 0→1 drift
+and the batch 2→3 correction, both diagnosed above and both permanent features
+of the history.
+
+### Step 5 — backward audit
+
+**No label changes in batch 3.** Batch 4 added no new rules; it exercised §2's
+social-register reasoning and §4's `mutual`. Both were checked against batch 3:
+
+- Two threads flagged as joint-action-not-labelled-mutual, both false positives.
+  `sup-23`'s "put a short version together" is the English idiom, not joint
+  action. `en-34`'s second loop is a one-sided preparation loop under a mutual
+  one, which is what §4 says to do.
+- Batch 3's three social-register threads (`en-33`, `mix-38`, plus negatives)
+  are consistent: `en-33` and `mix-38` both carry real loops in social threads,
+  which is the pattern batch 4 extends.
+
+### What batch 4 was for
+
+The separability diagnostic found the corpus wrote work threads as positives and
+social threads as negatives. That was corrected in the `dev` split by swapping
+split assignments, which fixed the measurement without fixing the habit. Batch 4
+fixes the habit at the source:
+
+- **Nine social-register threads carrying real loops** — a CV review owed to a
+  friend, a call owed to a parent, a mock interview, a car sale between friends.
+  Each is a genuine obligation someone would follow up on, sitting in a
+  conversation with no work content anywhere.
+- **Eight work-register negatives** — filings done, deploys announced, invoices
+  settled, a postmortem published with its actions already assigned. Threads a
+  founder would recognise from their week, containing nothing owed.
+
+### `mutual`: raised to 5.5%, not to 7%
+
+15 loops, up from 6. Written only where the act genuinely cannot be performed by
+one side: two directors who must sign at the bank simultaneously, two teams who
+must agree an SLA neither can write alone, a revenue split neither party can set
+unilaterally.
+
+Stopped at 5.5% rather than pushed to the 6-7% asked for. The remaining way to
+add mutual loops is to invent situations that do not occur at that rate in real
+messaging, and a metric computed over manufactured cases measures the author. It
+is recorded in the README as under-powered, with the count attached.
+
+### Separability after batch 4 — reported, not gated
+
+```
+corpus d9c347f4f5150b19   dev: 80 threads, 65 with loops, 15 without
+balanced accuracy 0.523   null 0.499 mean / 0.551 p95   p = 0.219
+```
+
+Down from 0.538 at 160 threads, with the leak fixed at the source this time
+rather than by split assignment. The residual features are no longer authorial
+habit: `can`, `send`, `kal`, `haan` on the loop side and `anything`, `if`,
+`worth`, `some point` on the other. Those are the genuine language of
+commitment and of near-miss, which is where §2 says to stop remediating.
+
+### Counts after batch 4
+
+200 threads, 273 loops, 510 spans, all resolving. `validate`, `stats:check` and
+84 tests pass.

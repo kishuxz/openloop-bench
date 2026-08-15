@@ -1,0 +1,97 @@
+{
+  "thread_id": "en-45",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Meghna",
+      "text": "hi! saw youre hiring for ops finally",
+      "ts": "2026-07-06T18:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "we are. you still looking?",
+      "ts": "2026-07-06T18:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Meghna",
+      "text": "very much",
+      "ts": "2026-07-06T18:31:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "send me your cv and ill put you in the process properly, no shortcuts though",
+      "ts": "2026-07-06T18:35:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Meghna",
+      "text": "thats all i want honestly",
+      "ts": "2026-07-06T18:40:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Meghna",
+      "text": "cv sent to your gmail",
+      "ts": "2026-07-06T19:02:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "got it. ill forward it to the recruiter tomorrow",
+      "ts": "2026-07-06T19:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "forward Meghna's CV to the recruiter",
+      "direction": "blocked_on_you",
+      "counterparty": "Meghna",
+      "deadline": {
+        "span": {
+          "msg_index": 6,
+          "start": 40,
+          "end": 48
+        },
+        "resolved": "2026-07-07",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 6,
+        "start": 8,
+        "end": 48
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "Meghna sends her CV",
+      "direction": "blocked_on_them",
+      "counterparty": "Meghna",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 15
+      },
+      "resolution": {
+        "msg_index": 5,
+        "start": 0,
+        "end": 21
+      },
+      "state": "closed",
+      "register": "en",
+      "notes": "The same person and the same request that neg-08 declines. There, the round had not closed and nothing was owed; here it has, and the obligation is real."
+    }
+  ]
+}

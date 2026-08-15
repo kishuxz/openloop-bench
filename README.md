@@ -8,7 +8,7 @@ An open loop is anything you owe someone or someone owes you. They are created
 casually ("I'll send it tomorrow", "kal tak bhej dunga") and written down
 nowhere. Extracting them is easy to demo and hard to do.
 
-**40 hand-labeled threads. 42 loops. 8 threads deliberately containing none.**
+**200 hand-labeled threads. 273 loops. 40 threads deliberately containing none.**
 
 ```bash
 pnpm install && pnpm validate && pnpm stats && pnpm test
@@ -20,24 +20,32 @@ pnpm install && pnpm validate && pnpm stats && pnpm test
 later in the same thread. Naive extractors read the promise, never read the
 retraction four messages down, and report a live commitment. It is the most
 common real-world false positive in this product category and nobody has
-published a number on it. 11 of the 42 loops are `superseded`, across 11 of the
-40 threads — the `sup-` and `del-` buckets both, since delegation supersedes a
-commitment just as cancellation does.
+published a number on it. 60 of the 273 loops are `superseded` — the `sup-` and
+`del-` buckets both, since delegation supersedes a commitment just as
+cancellation does.
 
-**Negatives.** 8 threads contain zero loops and heavy near-miss language — "we
+**Negatives.** 40 threads contain zero loops and heavy near-miss language — "we
 should catch up sometime", "let me know if you need anything", "happy to help
 whenever". Precision measured only on threads that contain loops cannot see the
 failure that actually kills this category: handing someone a list of things
-they never agreed to.
+they never agreed to. They are written in the same registers and about the same
+subjects as the positives, and the corpus is checked for that — see the
+separability section.
 
-**Code-mixed deadlines.** 10 threads express deadlines non-numerically — "kal
-tak", "parso", "weekend tak", "naaliki", "month end kulla". 15 of 42 loops are
-labeled `hi-en` or `ta-en`.
+**Code-mixed deadlines.** Deadlines are expressed non-numerically throughout —
+"kal tak", "parso", "weekend tak", "naaliki", "month end kulla". 118 of 273
+loops are labeled `hi-en` or `ta-en`, 43% of the corpus.
 
 **Direction as a safety boundary.** Each loop is `blocked_on_them`,
 `blocked_on_you`, or `mutual`. A system may eventually auto-nudge on
 `blocked_on_them`; it must never act autonomously on `blocked_on_you`. Getting
 this backwards is not a ranking error, and the eval scores it separately.
+
+The corpus is skewed: 174 `blocked_on_you` against 84 `blocked_on_them`. That
+was left at its natural rate rather than engineered toward parity, because
+manufacturing threads to balance a distribution distorts the corpus more than
+the imbalance does. `blocked_on_them` is under-represented relative to its
+product importance, and results should say so.
 
 ## Results
 
@@ -79,10 +87,12 @@ check.
 
 | Command | What it does |
 |---|---|
-| `pnpm validate` | Parses every thread, re-resolves all 89 spans, checks ids against filenames. Non-zero exit with a per-file, per-path listing on any failure. |
+| `pnpm validate` | Parses every thread, re-resolves all 510 spans, checks ids against filenames. Non-zero exit with a per-file, per-path listing on any failure. |
 | `pnpm stats` | Corpus composition — buckets, channels, directions, states, registers, deadline certainty — overall and per split. |
 | `pnpm stats:check` | Asserts the composition: bucket targets met, no bucket empty in either split, dev share in band. |
-| `pnpm test` | 83 tests, including deliberately malformed fixtures proving the validator still catches each invariant. |
+| `pnpm test` | 84 tests, including deliberately malformed fixtures proving the validator still catches each invariant. |
+| `pnpm stats:by-batch` | Per-batch distributions, flagging any dimension that moved more than 15 points between consecutive batches. |
+| `pnpm separability` | Leakage diagnostic. Never fails a build — see below. |
 | `pnpm typecheck` | `tsc` across the workspace. |
 | `pnpm lint` | ESLint across the workspace. |
 
@@ -90,11 +100,24 @@ check.
 
 | Bucket | Threads | dev / test | What it is for |
 |---|---|---|---|
-| `en-` | 10 | 4 / 6 | Straightforward English. The baseline. |
-| `mix-` | 10 | 4 / 6 | Hinglish/Tanglish with non-numeric deadlines. |
-| `sup-` | 6 | 2 / 4 | Committed, then cancelled/delegated/overtaken. |
-| `neg-` | 8 | 3 / 5 | Zero loops, heavy near-miss language. |
-| `del-` | 6 | 3 / 3 | Delegation and direction flips. |
+| `en-` | 50 | 20 / 30 | Straightforward English. The baseline. |
+| `mix-` | 50 | 20 / 30 | Hinglish/Tanglish with non-numeric deadlines. |
+| `sup-` | 35 | 14 / 21 | Committed, then cancelled/delegated/overtaken. |
+| `neg-` | 40 | 15 / 25 | Zero loops, heavy near-miss language. |
+| `del-` | 25 | 11 / 14 | Delegation and direction flips. |
+
+| Loops | open 175 | closed 38 | superseded 60 |
+|---|---|---|---|
+| **Direction** | blocked_on_you 174 | blocked_on_them 84 | mutual 15 |
+| **Register** | en 155 | hi-en 67 | ta-en 51 |
+| **Deadline** | explicit 139 | implied 45 | none 89 |
+
+**`mutual` is thin — 15 loops, 5.5%.** It was raised from 2.7% with genuine
+cases only: peer threads where the act cannot be performed by one side, like a
+bank requiring two director signatures at once. It was not pushed to a round
+number, because the remaining way to add mutual loops is to invent situations
+that do not occur at that rate. Treat any mutual metric as under-powered and
+report it with the count attached.
 
 `split` is stored in each thread file, so it travels with the data and cannot
 be redrawn per run to flatter a result. Both halves carry every phenomenon —
@@ -109,7 +132,7 @@ disputing a label.
 
 ```
 packages/schema      Zod schemas + inferred types. Single source of truth.
-packages/corpus      40 labeled threads, LABELING.md, validate + stats CLIs.
+packages/corpus      200 labeled threads, LABELING.md, DRIFT.md, CLIs.
 packages/extractor   Reference extractor.        Stub — Phase 2.
 packages/eval        Metrics + report generation. Stub — Phase 3.
 apps/web             Static results viewer.       Stub — Phase 3.
@@ -161,6 +184,14 @@ it becomes a real risk the moment native-script threads are added.
 Python or Go consumers, where an emoji counts as one index rather than two.
 The surrogate-pair guard makes the conversion unambiguous, but it is still a
 conversion. ([#3](https://github.com/kishuxz/openloop-bench/issues/3))
+
+**Labeling drift was found and corrected once.** `certainty` moved 33 points
+between Phase 1 and the first Phase 2 batch. Two thread-by-thread audits missed
+it because both checked rule interpretation and neither compared distributions.
+A blind re-label put the labeling-drift component at 15% and the rest at
+thread-writing drift; `pnpm stats:by-batch` now runs as a step of every batch
+audit. The whole history is in
+[`packages/corpus/DRIFT.md`](packages/corpus/DRIFT.md).
 
 **Single annotator.** Every label is one person's call. Several deadline
 resolutions are defensible but arguable — "agle hafte" resolving to nothing,

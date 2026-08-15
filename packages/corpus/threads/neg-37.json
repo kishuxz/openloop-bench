@@ -1,0 +1,39 @@
+{
+  "thread_id": "neg-37",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Bala",
+      "text": "anna, warehouse stock count mudinjiduchu, report upload panniten",
+      "ts": "2026-07-07T08:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "variance evlo",
+      "ts": "2026-07-07T08:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Bala",
+      "text": "0.4% mattum anna, last quarter 1.2%",
+      "ts": "2026-07-07T08:32:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "nalla improvement",
+      "ts": "2026-07-07T08:35:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Bala",
+      "text": "next count october 15th anna, calendar la iruku",
+      "ts": "2026-07-07T08:40:00+05:30"
+    }
+  ],
+  "loops": []
+}
