@@ -6,10 +6,10 @@ passing, the deadline is "kal tak", and the retraction arrives four messages
 later looking exactly like everything else.
 
 **Status, 15 August 2026.** Corpus complete: 200 threads, 273 loops, 510
-validated character spans. Labeling rulebook and drift log complete. The
-evaluation is complete and runs end to end — matcher, metrics, cost model and a
-generated report — against fixture predictions. Extraction is the work in
-progress, so **no model has been measured yet**.
+validated character spans. Labeling rulebook, extractor, matcher, metrics, cost
+model and generated report are in place. Current model results are **dev split
+only**: three configurations, a single prompt version with no iteration against
+dev results, and the held-out test split has not yet been run.
 
 ## The corpus
 
@@ -348,7 +348,8 @@ packages/corpus      200 labeled threads, LABELING.md, DRIFT.md, the CLIs.
 packages/extractor   Reference extractor.
 packages/eval        The matcher, the metrics, the cost model, the report.
 apps/web             Static results viewer.
-fixtures/predictions Prediction files, generated from the corpus.
+predictions          Model prediction files committed as eval inputs.
+fixtures/predictions Generated evaluator fixtures used by tests.
 results              Metrics, match logs, REPORT.md. All committed.
 ```
 

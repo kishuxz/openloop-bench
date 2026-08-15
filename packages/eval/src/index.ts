@@ -101,6 +101,7 @@ export {
 } from "./fixtures.js";
 
 export {
+  FIXTURE_PREDICTIONS_DIR,
   PREDICTIONS_DIR,
   REPORT_PATH,
   REPO_ROOT,

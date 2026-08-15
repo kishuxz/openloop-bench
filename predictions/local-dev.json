@@ -1,0 +1,3339 @@
+{
+  "schema_version": 1,
+  "run": {
+    "config": "local",
+    "split": "dev",
+    "prompt_version": "v2",
+    "corpus_hash": "d9c347f4f5150b19",
+    "created_at": "2026-08-15T06:53:55.826Z",
+    "cache_hits": 0,
+    "cache_misses": 80,
+    "throttle_stats": {
+      "requests": 0,
+      "retries": 0,
+      "rateLimit429s": 0,
+      "retryExhausted": 0,
+      "backoffMs": 0,
+      "configuredDelayMs": 0
+    }
+  },
+  "model": {
+    "provider": "ollama",
+    "id": "qwen2.5:7b",
+    "version": "qwen2.5:7b",
+    "sampling": {
+      "temperature": 0,
+      "seed": 20260815,
+      "max_retries": 5,
+      "request_delay_ms": 1500
+    },
+    "json_mode": false
+  },
+  "predictions": [
+    {
+      "thread_id": "del-01",
+      "model_thread_id": "thread-c611f0795119",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"user will send the monthly cohort data before the IC meeting\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Arjun\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"arjun will send it across today\",\n      \"evidence_msg_index\": 3,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4303,
+      "token_counts": {
+        "input": 899,
+        "output": 139,
+        "total": 1038
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: resolution: state \"closed\" requires a resolution span pointing at the message that delivered it"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "del-02",
+      "model_thread_id": "thread-41fd01edd891",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"write up the postmortem for the friday outage\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Tanvi\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"can you write up the postmortem for the friday outage?\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": \"fair. dont worry ill write it, you just review\",\n      \"resolution_msg_index\": 3,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "write up the postmortem for the friday outage",
+          "direction": "blocked_on_them",
+          "counterparty": "Tanvi",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 0,
+            "end": 54
+          },
+          "resolution": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 46
+          },
+          "state": "closed",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4550,
+      "token_counts": {
+        "input": 894,
+        "output": 155,
+        "total": 1049
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "del-03",
+      "model_thread_id": "thread-8457986d2d2e",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"send ISO 27001 certificate and signed NDA\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Procurement (Client)\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"none\"\n      },\n      \"evidence_quote\": \"Could you send both?\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": \"Thanks, appreciated.\",\n      \"resolution_msg_index\": 3,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "send ISO 27001 certificate and signed NDA",
+          "direction": "blocked_on_them",
+          "counterparty": "Procurement (Client)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 82,
+            "end": 102
+          },
+          "resolution": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 20
+          },
+          "state": "closed",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4187,
+      "token_counts": {
+        "input": 871,
+        "output": 143,
+        "total": 1014
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "del-07",
+      "model_thread_id": "thread-b78bc0c2f000",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"call them to follow up on the enterprise trial expiration\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": \"the other party (Pooja's client)\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": \"2026-04-13\",\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"the enterprise trial expires friday and nobody has spoken to them since the demo\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4786,
+      "token_counts": {
+        "input": 952,
+        "output": 161,
+        "total": 1113
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: resolution: state \"closed\" requires a resolution span pointing at the message that delivered it"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "del-08",
+      "model_thread_id": "thread-8e7c2bcdb432",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"user will send the stock statement to Lakshmi (audit) every month\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": \"Lakshmi (audit)\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"sir stock statement bank ko har month bhejna hota hai, is month ka nahi gaya\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": \"arre haan. main aaj bhej deta hu\",\n      \"resolution_msg_index\": 1,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    },\n    {\n      \"statement\": \"Lakshmi (audit) will send the stock statement to user every month\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"user\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"sir stock statement bank ko har month bhejna hota hai, is month ka nahi gaya\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": \"theek hai sir, main kar dungi\",\n      \"resolution_msg_index\": 5,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "user will send the stock statement to Lakshmi (audit) every month",
+          "direction": "blocked_on_you",
+          "counterparty": "Lakshmi (audit)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 0,
+            "end": 76
+          },
+          "resolution": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 32
+          },
+          "state": "closed",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 9029,
+      "token_counts": {
+        "input": 1022,
+        "output": 336,
+        "total": 1358
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.1: counterparty: counterparty must not be \"user\" — that id is reserved for the benchmark subject"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "del-12",
+      "model_thread_id": "thread-8b2b2670b84e",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"write the management response for the pen test report\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Neha\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"none\"\n      },\n      \"evidence_quote\": \"ill write it\",\n      \"evidence_msg_index\": 1,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "write the management response for the pen test report",
+          "direction": "blocked_on_them",
+          "counterparty": "Neha",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 12
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4048,
+      "token_counts": {
+        "input": 903,
+        "output": 133,
+        "total": 1036
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "del-13",
+      "model_thread_id": "thread-8e2a3a17ae6d",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"user will review the draft prepared by Lakshmi (audit)\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Lakshmi (audit)\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"none\"\n      },\n      \"evidence_quote\": \"main review kar dunga\",\n      \"evidence_msg_index\": 4,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"hi-en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "user will review the draft prepared by Lakshmi (audit)",
+          "direction": "blocked_on_them",
+          "counterparty": "Lakshmi (audit)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 25,
+            "end": 46
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4346,
+      "token_counts": {
+        "input": 940,
+        "output": 142,
+        "total": 1082
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "del-17",
+      "model_thread_id": "thread-a24e0e5e3fa7",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"upload the fresh app store screenshots\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Divya\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": \"2026-06-07\",\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"ill export fresh ones by wednesday, you just upload them\",\n      \"evidence_msg_index\": 3,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4391,
+      "token_counts": {
+        "input": 902,
+        "output": 148,
+        "total": 1050
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: deadline.span: certainty \"explicit\" requires a span pointing at the stated deadline; use \"implied\" if nobody said it; resolution: state \"closed\" requires a resolution span pointing at the message that delivered it"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "del-18",
+      "model_thread_id": "thread-4bf7f67a71fc",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"user will sign grant letters by Friday\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": null,\n      \"deadline\": {\n        \"quote\": \"friday tak\",\n        \"msg_index\": 4,\n        \"resolved\": \"2026-06-02\",\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"main grant letters sign kar dunga friday tak\",\n      \"evidence_msg_index\": 4,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4557,
+      "token_counts": {
+        "input": 980,
+        "output": 147,
+        "total": 1127
+      },
+      "parse_failure": {
+        "message": "loops.0.counterparty: Invalid input: expected string, received null"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "del-22",
+      "model_thread_id": "thread-a2f876c2f918",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"user will talk to Dinesh to get information about engineering colleges\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": \"Dinesh\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"mera dost dinesh professor hai wahi, usse baat karwa deta hu\",\n      \"evidence_msg_index\": 2,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"hi-en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "user will talk to Dinesh to get information about engineering colleges",
+          "direction": "blocked_on_you",
+          "counterparty": "Dinesh",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 60
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4566,
+      "token_counts": {
+        "input": 919,
+        "output": 155,
+        "total": 1074
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "del-23",
+      "model_thread_id": "thread-fff43e3d77fe",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"answer the security questionnaire, 60 questions\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Neha\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": \"2026-07-02\",\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"questionnaire done, all 60, in the shared drive for your review\",\n      \"evidence_msg_index\": 6,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 5223,
+      "token_counts": {
+        "input": 1111,
+        "output": 156,
+        "total": 1267
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: deadline.span: certainty \"explicit\" requires a span pointing at the stated deadline; use \"implied\" if nobody said it; resolution: state \"closed\" requires a resolution span pointing at the message that delivered it"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-01",
+      "model_thread_id": "thread-8577029f0bb8",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"send Q1 numbers update by tomorrow evening\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Priya\",\n      \"deadline\": {\n        \"quote\": \"tomorrow evening\",\n        \"msg_index\": 2,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"ill send it by tomorrow evening\",\n      \"evidence_msg_index\": 2,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4014,
+      "token_counts": {
+        "input": 839,
+        "output": 139,
+        "total": 978
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: deadline.span: certainty \"implied\" requires span to be null; a phrase you can point at makes it \"explicit\""
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-05",
+      "model_thread_id": "thread-ad4b09199eeb",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"ill pull them from the billing dashboard and send\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Meera (CA)\",\n      \"deadline\": null,\n      \"evidence_quote\": \"ill pull them from the billing dashboard and send\",\n      \"evidence_msg_index\": 3,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 3579,
+      "token_counts": {
+        "input": 893,
+        "output": 112,
+        "total": 1005
+      },
+      "parse_failure": {
+        "message": "loops.0.deadline: Invalid input: expected object, received null"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-06",
+      "model_thread_id": "thread-ed57e9ab6bfc",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"find 30 mins this week and just decide\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Divya\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"lets find 30 mins this week and just decide\",\n      \"evidence_msg_index\": 2,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "find 30 mins this week and just decide",
+          "direction": "blocked_on_them",
+          "counterparty": "Divya",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 43
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4086,
+      "token_counts": {
+        "input": 832,
+        "output": 142,
+        "total": 974
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-07",
+      "model_thread_id": "thread-914d24169de6",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1321,
+      "token_counts": {
+        "input": 954,
+        "output": 8,
+        "total": 962
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-11",
+      "model_thread_id": "thread-28244286ecf6",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"settlement mismatch on the gateway needs to be sorted\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Deepak's support team\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"none\"\n      },\n      \"evidence_quote\": \"ill update you once i hear back from them\",\n      \"evidence_msg_index\": 2,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "settlement mismatch on the gateway needs to be sorted",
+          "direction": "blocked_on_them",
+          "counterparty": "Deepak's support team",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 41
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 3911,
+      "token_counts": {
+        "input": 768,
+        "output": 142,
+        "total": 910
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-12",
+      "model_thread_id": "thread-263b6ecb17f3",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1495,
+      "token_counts": {
+        "input": 891,
+        "output": 8,
+        "total": 899
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-13",
+      "model_thread_id": "thread-5548e20404dc",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"send the current headcount list by wednesday\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": \"Sunita (insurance)\",\n      \"deadline\": {\n        \"quote\": \"by wednesday\",\n        \"msg_index\": 1,\n        \"resolved\": null,\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"noted - ill send the current headcount list by wednesday\",\n      \"evidence_msg_index\": 1,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "send the current headcount list by wednesday",
+          "direction": "blocked_on_you",
+          "counterparty": "Sunita (insurance)",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 44,
+              "end": 56
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 56
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4252,
+      "token_counts": {
+        "input": 786,
+        "output": 148,
+        "total": 934
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-14",
+      "model_thread_id": "thread-02a850399c30",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"look at the cloud bill and update it\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": null,\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"ok ill look at the cloud thing tonight\",\n      \"evidence_msg_index\": 4,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    },\n    {\n      \"statement\": \"set up a call with Sameer about integration\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": null,\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"ill also ping sameer and set something up\",\n      \"evidence_msg_index\": 5,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    },\n    {\n      \"statement\": \"file the trademark\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": null,\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"trademark - can you take that one? you have the login\",\n      \"evidence_msg_index\": 6,\n      \"resolution_quote\": \"fine ill get it filed this week\",\n      \"resolution_msg_index\": 7,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 10804,
+      "token_counts": {
+        "input": 1175,
+        "output": 393,
+        "total": 1568
+      },
+      "parse_failure": {
+        "message": "loops.0.counterparty: Invalid input: expected string, received null; loops.1.counterparty: Invalid input: expected string, received null; loops.2.counterparty: Invalid input: expected string, received null"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-21",
+      "model_thread_id": "thread-685b9e63c6e8",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1000,
+      "token_counts": {
+        "input": 826,
+        "output": 8,
+        "total": 834
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-22",
+      "model_thread_id": "thread-8217f37c56b1",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"respond to points 3 and 7\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Gopal (auditor)\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"none\"\n      },\n      \"evidence_quote\": \"Please review and respond to points 3 and 7 in particular.\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "respond to points 3 and 7",
+          "direction": "blocked_on_them",
+          "counterparty": "Gopal (auditor)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 40,
+            "end": 98
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4163,
+      "token_counts": {
+        "input": 860,
+        "output": 144,
+        "total": 1004
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-23",
+      "model_thread_id": "thread-2cef97dfb125",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1418,
+      "token_counts": {
+        "input": 974,
+        "output": 8,
+        "total": 982
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-24",
+      "model_thread_id": "thread-4fe04f019f5e",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"get in a room and agree one definition of MRR\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Tanvi\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"lets get in a room and agree one definition\",\n      \"evidence_msg_index\": 2,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "get in a room and agree one definition of MRR",
+          "direction": "blocked_on_them",
+          "counterparty": "Tanvi",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 43
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4256,
+      "token_counts": {
+        "input": 903,
+        "output": 141,
+        "total": 1044
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-31",
+      "model_thread_id": "thread-17fa760f47dc",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"regenerate the SDK docs and push by wednesday\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": \"user\",\n      \"deadline\": {\n        \"quote\": \"wednesday\",\n        \"msg_index\": 1,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"ill regenerate them and push by wednesday\",\n      \"evidence_msg_index\": 1,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 3803,
+      "token_counts": {
+        "input": 756,
+        "output": 140,
+        "total": 896
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: deadline.span: certainty \"implied\" requires span to be null; a phrase you can point at makes it \"explicit\"; counterparty: counterparty must not be \"user\" — that id is reserved for the benchmark subject"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-32",
+      "model_thread_id": "thread-a349016ee171",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"Ill have first-draft copy for all five with you by friday.\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Yasmin (agency)\",\n      \"deadline\": {\n        \"quote\": \"by friday\",\n        \"msg_index\": 1,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"Ill have first-draft copy for all five with you by friday.\",\n      \"evidence_msg_index\": 1,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 6252,
+      "token_counts": {
+        "input": 1509,
+        "output": 153,
+        "total": 1662
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: deadline.span: certainty \"implied\" requires span to be null; a phrase you can point at makes it \"explicit\""
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-33",
+      "model_thread_id": "thread-5aef280c0a7e",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"send hiring tracker template to Kabir\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": \"Kabir\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": \"2026-06-03\",\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"yeah ill send it over tomorrow morning\",\n      \"evidence_msg_index\": 5,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4422,
+      "token_counts": {
+        "input": 955,
+        "output": 144,
+        "total": 1099
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: deadline.span: certainty \"explicit\" requires a span pointing at the stated deadline; use \"implied\" if nobody said it; resolution: state \"closed\" requires a resolution span pointing at the message that delivered it"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-34",
+      "model_thread_id": "thread-2e145f22830e",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"settle whether the mobile app gets its own release train\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Tanvi\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": \"2026-06-07\",\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"lets settle it thursday\",\n      \"evidence_msg_index\": 2,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4182,
+      "token_counts": {
+        "input": 837,
+        "output": 146,
+        "total": 983
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: deadline.span: certainty \"explicit\" requires a span pointing at the stated deadline; use \"implied\" if nobody said it; resolution: state \"closed\" requires a resolution span pointing at the message that delivered it"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-41",
+      "model_thread_id": "thread-ab315c31dc1b",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"look at Ankit's sister's CV and send comments\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": \"Ankit\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"none\"\n      },\n      \"evidence_quote\": \"ill go through it this weekend and send comments\",\n      \"evidence_msg_index\": 6,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "look at Ankit's sister's CV and send comments",
+          "direction": "blocked_on_you",
+          "counterparty": "Ankit",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 6,
+            "start": 0,
+            "end": 48
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4844,
+      "token_counts": {
+        "input": 1147,
+        "output": 139,
+        "total": 1286
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-42",
+      "model_thread_id": "thread-1af634ff0239",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"take the Friday investor call\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Rahul\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"none\"\n      },\n      \"evidence_quote\": \"can you take the friday investor call? i genuinely cannot do it\",\n      \"evidence_msg_index\": 4,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "take the Friday investor call",
+          "direction": "blocked_on_them",
+          "counterparty": "Rahul",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 63
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4845,
+      "token_counts": {
+        "input": 1136,
+        "output": 139,
+        "total": 1275
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-43",
+      "model_thread_id": "thread-566a2229a3a2",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"cut the roadmap together on thursday\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Rahul\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": \"2026-07-07\",\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"lets sit with the list and cut it together on thursday\",\n      \"evidence_msg_index\": 2,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4453,
+      "token_counts": {
+        "input": 908,
+        "output": 150,
+        "total": 1058
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: deadline.span: certainty \"explicit\" requires a span pointing at the stated deadline; use \"implied\" if nobody said it; resolution: state \"closed\" requires a resolution span pointing at the message that delivered it"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "en-44",
+      "model_thread_id": "thread-b6387fb60633",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"get both sides on a call next week and agree the split\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Aditya (partner)\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"Shall we get both sides on a call next week and agree the split?\",\n      \"evidence_msg_index\": 2,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "get both sides on a call next week and agree the split",
+          "direction": "blocked_on_them",
+          "counterparty": "Aditya (partner)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 64
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4303,
+      "token_counts": {
+        "input": 855,
+        "output": 151,
+        "total": 1006
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-01",
+      "model_thread_id": "thread-783a8b0ff14c",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"send the deck by tomorrow\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Priya\",\n      \"deadline\": {\n        \"quote\": \"kal tak bhej dunga pakka\",\n        \"msg_index\": 2,\n        \"resolved\": null,\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"kal tak bhej dunga pakka\",\n      \"evidence_msg_index\": 2,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"hi-en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "send the deck by tomorrow",
+          "direction": "blocked_on_them",
+          "counterparty": "Priya",
+          "deadline": {
+            "span": {
+              "msg_index": 2,
+              "start": 0,
+              "end": 24
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 24
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4087,
+      "token_counts": {
+        "input": 825,
+        "output": 145,
+        "total": 970
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-02",
+      "model_thread_id": "thread-a74d3d9fd2a7",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"march ka payment pending hai still\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Vikram\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"none\"\n      },\n      \"evidence_quote\": \"march ka payment pending hai still\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"hi-en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "march ka payment pending hai still",
+          "direction": "blocked_on_them",
+          "counterparty": "Vikram",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 9,
+            "end": 43
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 3960,
+      "token_counts": {
+        "input": 830,
+        "output": 136,
+        "total": 966
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-03",
+      "model_thread_id": "thread-34ff6e964e54",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1059,
+      "token_counts": {
+        "input": 836,
+        "output": 8,
+        "total": 844
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-04",
+      "model_thread_id": "thread-63385e4b9c84",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"Adv. Menon will review the SHA draft and send comments by the weekend\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Adv. Menon\",\n      \"deadline\": {\n        \"quote\": \"weekend tak review kar ke comments bhej deta hu\",\n        \"msg_index\": 2,\n        \"resolved\": null,\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"weekend tak review kar ke comments bhej deta hu\",\n      \"evidence_msg_index\": 2,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"hi-en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "Adv. Menon will review the SHA draft and send comments by the weekend",
+          "direction": "blocked_on_them",
+          "counterparty": "Adv. Menon",
+          "deadline": {
+            "span": {
+              "msg_index": 2,
+              "start": 0,
+              "end": 47
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 47
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4610,
+      "token_counts": {
+        "input": 834,
+        "output": 165,
+        "total": 999
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-11",
+      "model_thread_id": "thread-70daccce9339",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1228,
+      "token_counts": {
+        "input": 903,
+        "output": 8,
+        "total": 911
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-12",
+      "model_thread_id": "thread-e07451d9e5d6",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 888,
+      "token_counts": {
+        "input": 764,
+        "output": 8,
+        "total": 772
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-13",
+      "model_thread_id": "thread-7ca3ba942ec6",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"main deck update kar dunga raat ko\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Vikram\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"none\"\n      },\n      \"evidence_quote\": \"dusra, main deck update kar dunga raat ko\",\n      \"evidence_msg_index\": 3,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "main deck update kar dunga raat ko",
+          "direction": "blocked_on_them",
+          "counterparty": "Vikram",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 41
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4817,
+      "token_counts": {
+        "input": 1113,
+        "output": 142,
+        "total": 1255
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-14",
+      "model_thread_id": "thread-8d665895f0fb",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1063,
+      "token_counts": {
+        "input": 841,
+        "output": 8,
+        "total": 849
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-21",
+      "model_thread_id": "thread-a6bb0362480d",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"quotation bhi kal tak mail kar dunga sir\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Waseem (vendor)\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"quotation bhi kal tak mail kar dunga sir\",\n      \"evidence_msg_index\": 3,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "quotation bhi kal tak mail kar dunga sir",
+          "direction": "blocked_on_them",
+          "counterparty": "Waseem (vendor)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 40
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4182,
+      "token_counts": {
+        "input": 839,
+        "output": 146,
+        "total": 985
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-22",
+      "model_thread_id": "thread-438184b2530d",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"reply to Bala's GST notice within 15 days\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Bala\",\n      \"deadline\": {\n        \"quote\": \"15 naal la\",\n        \"msg_index\": 0,\n        \"resolved\": null,\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"reply pannanum 15 naal la\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"ta-en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "reply to Bala's GST notice within 15 days",
+          "direction": "blocked_on_them",
+          "counterparty": "Bala",
+          "deadline": {
+            "span": {
+              "msg_index": 0,
+              "start": 45,
+              "end": 55
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 30,
+            "end": 55
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "ta-en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4450,
+      "token_counts": {
+        "input": 912,
+        "output": 150,
+        "total": 1062
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-23",
+      "model_thread_id": "thread-b674a1575528",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"copy main likh dunga\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Anjali\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"copy main likh dunga\",\n      \"evidence_msg_index\": 3,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "copy main likh dunga",
+          "direction": "blocked_on_them",
+          "counterparty": "Anjali",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 20
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4349,
+      "token_counts": {
+        "input": 991,
+        "output": 134,
+        "total": 1125
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-24",
+      "model_thread_id": "thread-f62e7523e1ed",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"generate ESI and PF challan, payment pending\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Karthik\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"none\"\n      },\n      \"evidence_quote\": \"anna ESI aur PF ka challan generate aagiduchu, payment pending\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"hi-en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "generate ESI and PF challan, payment pending",
+          "direction": "blocked_on_them",
+          "counterparty": "Karthik",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 0,
+            "end": 62
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4603,
+      "token_counts": {
+        "input": 968,
+        "output": 149,
+        "total": 1117
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-32",
+      "model_thread_id": "thread-27b3dbdc6952",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"factory license renewal 30th ku expire aagum\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Karthik\",\n      \"deadline\": {\n        \"quote\": \"30th ku expire aagum\",\n        \"msg_index\": 0,\n        \"resolved\": null,\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"anna, factory license renewal 30th ku expire aagum\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "factory license renewal 30th ku expire aagum",
+          "direction": "blocked_on_them",
+          "counterparty": "Karthik",
+          "deadline": {
+            "span": {
+              "msg_index": 0,
+              "start": 30,
+              "end": 50
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 0,
+            "end": 50
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4583,
+      "token_counts": {
+        "input": 909,
+        "output": 156,
+        "total": 1065
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-33",
+      "model_thread_id": "thread-9f8a7f15006b",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"user will do the Hindi translation of the landing page\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": null,\n      \"deadline\": {\n        \"quote\": \"friday tak\",\n        \"msg_index\": 3,\n        \"resolved\": \"2026-06-08\",\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"main khud kar deta hu, friday tak\",\n      \"evidence_msg_index\": 3,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"closed\",\n      \"register\": \"hi-en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4674,
+      "token_counts": {
+        "input": 979,
+        "output": 152,
+        "total": 1131
+      },
+      "parse_failure": {
+        "message": "loops.0.counterparty: Invalid input: expected string, received null"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-34",
+      "model_thread_id": "thread-234300b4f08b",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"user will transfer 15k to Bala for driver salary advance\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Bala\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"none\"\n      },\n      \"evidence_quote\": \"anna, driver salary advance kekuraan, 15k\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "user will transfer 15k to Bala for driver salary advance",
+          "direction": "blocked_on_them",
+          "counterparty": "Bala",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 0,
+            "end": 41
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4401,
+      "token_counts": {
+        "input": 898,
+        "output": 148,
+        "total": 1046
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-38",
+      "model_thread_id": "thread-1c101b806173",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"de do CA ka number, mujhe apni filing karwani hai\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Farhan\",\n      \"deadline\": null,\n      \"evidence_quote\": \"aur ek kaam tha, tumhare CA ka number de do, mujhe apni filing karwani hai\",\n      \"evidence_msg_index\": 4,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4178,
+      "token_counts": {
+        "input": 987,
+        "output": 130,
+        "total": 1117
+      },
+      "parse_failure": {
+        "message": "loops.0.deadline: Invalid input: expected object, received null"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-41",
+      "model_thread_id": "thread-fb6507c686a4",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"user needs to provide the photographer's number for Farhan\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": \"Farhan\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"user, haan wo achha tha, kal dhoond ke bhej dunga\",\n      \"evidence_msg_index\": 6,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [
+        {
+          "loop_index": 0,
+          "field": "evidence",
+          "msg_index": 6,
+          "quote": "user, haan wo achha tha, kal dhoond ke bhej dunga",
+          "reason": "grounding_failure"
+        }
+      ],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 5265,
+      "token_counts": {
+        "input": 1209,
+        "output": 150,
+        "total": 1359
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-42",
+      "model_thread_id": "thread-0990c5b91852",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"user will make a call to chacha ji's son on Sunday\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": \"chacha ji's son\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"main is sunday call kar lunga usse\",\n      \"evidence_msg_index\": 3,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "user will make a call to chacha ji's son on Sunday",
+          "direction": "blocked_on_you",
+          "counterparty": "chacha ji's son",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 34
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4340,
+      "token_counts": {
+        "input": 911,
+        "output": 145,
+        "total": 1056
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-43",
+      "model_thread_id": "thread-3db06ace4695",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"user will provide a mock interview to Raghav next weekend\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": \"Raghav\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": \"2026-07-15\",\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"next weekend pannalam, naan calendar la potuduren\",\n      \"evidence_msg_index\": 5,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4750,
+      "token_counts": {
+        "input": 972,
+        "output": 155,
+        "total": 1127
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: deadline.span: certainty \"explicit\" requires a span pointing at the stated deadline; use \"implied\" if nobody said it"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "mix-44",
+      "model_thread_id": "thread-594ded111eaf",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"user and Vikram need to jointly sign the document\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Vikram\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"matlab dono ek hi time pe branch me?\",\n      \"evidence_msg_index\": 1,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "user and Vikram need to jointly sign the document",
+          "direction": "blocked_on_them",
+          "counterparty": "Vikram",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 36
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4370,
+      "token_counts": {
+        "input": 925,
+        "output": 142,
+        "total": 1067
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "neg-01",
+      "model_thread_id": "thread-3d0bca23323a",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1408,
+      "token_counts": {
+        "input": 963,
+        "output": 8,
+        "total": 971
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "neg-02",
+      "model_thread_id": "thread-de637236aa30",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"let me know if you need anything from my end\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Divya\",\n      \"deadline\": null,\n      \"evidence_quote\": \"let me know if you need anything from my end\",\n      \"evidence_msg_index\": 4,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 3811,
+      "token_counts": {
+        "input": 978,
+        "output": 112,
+        "total": 1090
+      },
+      "parse_failure": {
+        "message": "loops.0.deadline: Invalid input: expected object, received null"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "neg-03",
+      "model_thread_id": "thread-27d43c6a7841",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1412,
+      "token_counts": {
+        "input": 985,
+        "output": 8,
+        "total": 993
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "neg-07",
+      "model_thread_id": "thread-e048a3e732c8",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"shout if anything looks off after that\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Tanvi\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": \"2026-03-18\",\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"shout if anything looks off after that\",\n      \"evidence_msg_index\": 1,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4405,
+      "token_counts": {
+        "input": 901,
+        "output": 146,
+        "total": 1047
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: deadline.span: certainty \"explicit\" requires a span pointing at the stated deadline; use \"implied\" if nobody said it; resolution: state \"closed\" requires a resolution span pointing at the message that delivered it"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "neg-09",
+      "model_thread_id": "thread-8fb325335379",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1411,
+      "token_counts": {
+        "input": 968,
+        "output": 8,
+        "total": 976
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "neg-10",
+      "model_thread_id": "thread-e6d672d52861",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1485,
+      "token_counts": {
+        "input": 1002,
+        "output": 8,
+        "total": 1010
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "neg-13",
+      "model_thread_id": "thread-6c82c14d4337",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1348,
+      "token_counts": {
+        "input": 953,
+        "output": 8,
+        "total": 961
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "neg-16",
+      "model_thread_id": "thread-2b1a25efcccd",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1488,
+      "token_counts": {
+        "input": 1007,
+        "output": 8,
+        "total": 1015
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "neg-21",
+      "model_thread_id": "thread-f4ce7209ba90",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1316,
+      "token_counts": {
+        "input": 954,
+        "output": 8,
+        "total": 962
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "neg-27",
+      "model_thread_id": "thread-b8ffd6ecddeb",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"next review 20th ku thaan anna\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Ravi (CS)\",\n      \"deadline\": {\n        \"quote\": \"20th ku thaan anna\",\n        \"msg_index\": 1,\n        \"resolved\": null,\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"next review 20th ku thaan anna\",\n      \"evidence_msg_index\": 3,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"hi-en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [
+        {
+          "loop_index": 0,
+          "field": "evidence",
+          "msg_index": 3,
+          "quote": "next review 20th ku thaan anna",
+          "reason": "grounding_failure"
+        }
+      ],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4924,
+      "token_counts": {
+        "input": 994,
+        "output": 154,
+        "total": 1148
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "neg-29",
+      "model_thread_id": "thread-2f00bf54a986",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1348,
+      "token_counts": {
+        "input": 953,
+        "output": 8,
+        "total": 961
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "neg-32",
+      "model_thread_id": "thread-2c42cf0acda7",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"watchman leave ku poraan next week\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Gopal\",\n      \"deadline\": {\n        \"quote\": \"next week\",\n        \"msg_index\": 0,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"anna, watchman leave ku poraan next week\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4271,
+      "token_counts": {
+        "input": 907,
+        "output": 142,
+        "total": 1049
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: deadline.span: certainty \"implied\" requires span to be null; a phrase you can point at makes it \"explicit\""
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "neg-33",
+      "model_thread_id": "thread-62b0e84597c6",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"quarterly infra review is on the 24th, calendar invite is out\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Prakash\",\n      \"deadline\": {\n        \"quote\": \"on the 24th\",\n        \"msg_index\": 0,\n        \"resolved\": null,\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"quarterly infra review is on the 24th, calendar invite is out\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "quarterly infra review is on the 24th, calendar invite is out",
+          "direction": "blocked_on_them",
+          "counterparty": "Prakash",
+          "deadline": {
+            "span": {
+              "msg_index": 0,
+              "start": 26,
+              "end": 37
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 0,
+            "end": 61
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4935,
+      "token_counts": {
+        "input": 979,
+        "output": 159,
+        "total": 1138
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "neg-34",
+      "model_thread_id": "thread-0326369f48d0",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"GST filing next on 20 August\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Meera (CA)\",\n      \"deadline\": {\n        \"quote\": \"next filing 20 august ko hai\",\n        \"msg_index\": 2,\n        \"resolved\": null,\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"sir next filing 20 august ko hai\",\n      \"evidence_msg_index\": 2,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "GST filing next on 20 August",
+          "direction": "blocked_on_them",
+          "counterparty": "Meera (CA)",
+          "deadline": {
+            "span": {
+              "msg_index": 2,
+              "start": 4,
+              "end": 32
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 32
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4582,
+      "token_counts": {
+        "input": 911,
+        "output": 149,
+        "total": 1060
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "neg-35",
+      "model_thread_id": "thread-56fe3377a307",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"someone should probably do a game day on this eventually\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Harsha or team\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"someone should probably do a game day on this eventually\",\n      \"evidence_msg_index\": 4,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "someone should probably do a game day on this eventually",
+          "direction": "blocked_on_them",
+          "counterparty": "Harsha or team",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 56
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4480,
+      "token_counts": {
+        "input": 967,
+        "output": 143,
+        "total": 1110
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "sup-01",
+      "model_thread_id": "thread-453b82bfaa2b",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"ill send it tonight\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Priya\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"ill send it tonight\",\n      \"evidence_msg_index\": 2,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "ill send it tonight",
+          "direction": "blocked_on_them",
+          "counterparty": "Priya",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "implied"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 19
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 3904,
+      "token_counts": {
+        "input": 889,
+        "output": 129,
+        "total": 1018
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "sup-02",
+      "model_thread_id": "thread-5a049e93c19b",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"reply to their ops team\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": \"ops team\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"none\"\n      },\n      \"evidence_quote\": \"also someone needs to reply to their ops team\",\n      \"evidence_msg_index\": 2,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "reply to their ops team",
+          "direction": "blocked_on_you",
+          "counterparty": "ops team",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 45
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4239,
+      "token_counts": {
+        "input": 972,
+        "output": 133,
+        "total": 1105
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "sup-07",
+      "model_thread_id": "thread-bf26dd05cebe",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1235,
+      "token_counts": {
+        "input": 923,
+        "output": 8,
+        "total": 931
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "sup-08",
+      "model_thread_id": "thread-432fde33539a",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"swap the asset in the template today\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": \"Tejas\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"none\"\n      },\n      \"evidence_quote\": \"ill swap the asset in the template today\",\n      \"evidence_msg_index\": 1,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "swap the asset in the template today",
+          "direction": "blocked_on_you",
+          "counterparty": "Tejas",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 40
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4257,
+      "token_counts": {
+        "input": 956,
+        "output": 134,
+        "total": 1090
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "sup-09",
+      "model_thread_id": "thread-e93705dde540",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"user will confirm moderator for the panel\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"organiser\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"none\"\n      },\n      \"evidence_quote\": \"kal ke panel ke liye moderator confirm hua?\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"closed\",\n      \"register\": \"hi-en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4361,
+      "token_counts": {
+        "input": 977,
+        "output": 138,
+        "total": 1115
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: resolution: state \"closed\" requires a resolution span pointing at the message that delivered it"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "sup-14",
+      "model_thread_id": "thread-0fd73901fc96",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1229,
+      "token_counts": {
+        "input": 902,
+        "output": 8,
+        "total": 910
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "sup-15",
+      "model_thread_id": "thread-dccec573d29c",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"hostel wale event ke liye sponsorship chahiye tha, 50k\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Meghna\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"none\"\n      },\n      \"evidence_quote\": \"hostel wale event ke liye sponsorship chahiye tha, 50k\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": \"arre suno, college ne khud hi budget approve kar diya\\nab sponsor ki zarurat nahi\",\n      \"resolution_msg_index\": 3,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [
+        {
+          "loop_index": 0,
+          "field": "resolution",
+          "msg_index": 3,
+          "quote": "arre suno, college ne khud hi budget approve kar diya\nab sponsor ki zarurat nahi",
+          "reason": "grounding_failure"
+        }
+      ],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 5347,
+      "token_counts": {
+        "input": 976,
+        "output": 181,
+        "total": 1157
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "sup-16",
+      "model_thread_id": "thread-f97dd1763d7f",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"hold the position open till friday and check in thursday if I haven't heard\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"user\",\n      \"deadline\": {\n        \"quote\": \"till friday\",\n        \"msg_index\": 1,\n        \"resolved\": \"2026-05-07\",\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"Ill hold the position open till friday and check in thursday if I havent heard.\",\n      \"evidence_msg_index\": 1,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4830,
+      "token_counts": {
+        "input": 911,
+        "output": 166,
+        "total": 1077
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: counterparty: counterparty must not be \"user\" — that id is reserved for the benchmark subject; resolution: state \"closed\" requires a resolution span pointing at the message that delivered it"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "sup-21",
+      "model_thread_id": "thread-a9e1a9878d05",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"decision on the trade show booth needs to be made, deposit is due friday\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Pooja\",\n      \"deadline\": {\n        \"quote\": \"deposit is due friday\",\n        \"msg_index\": 0,\n        \"resolved\": null,\n        \"certainty\": \"explicit\"\n      },\n      \"evidence_quote\": \"the trade show booth needs a decision, deposit is due friday\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4524,
+      "token_counts": {
+        "input": 905,
+        "output": 153,
+        "total": 1058
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: resolution: state \"closed\" requires a resolution span pointing at the message that delivered it"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "sup-22",
+      "model_thread_id": "thread-864a27e50606",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1151,
+      "token_counts": {
+        "input": 863,
+        "output": 8,
+        "total": 871
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "sup-23",
+      "model_thread_id": "thread-f9cc1e77a33c",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"Ill put a short version together by tuesday.\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Aditya (prospect)\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"none\"\n      },\n      \"evidence_quote\": \"Ill put a short version together by tuesday.\",\n      \"evidence_msg_index\": 1,\n      \"resolution_quote\": \"Update - infosec accepted the SOC2 report from your trust page, so no whitepaper needed.\",\n      \"resolution_msg_index\": 3,\n      \"state\": \"closed\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "Ill put a short version together by tuesday.",
+          "direction": "blocked_on_them",
+          "counterparty": "Aditya (prospect)",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 33,
+            "end": 77
+          },
+          "resolution": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 88
+          },
+          "state": "closed",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4813,
+      "token_counts": {
+        "input": 930,
+        "output": 162,
+        "total": 1092
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "sup-28",
+      "model_thread_id": "thread-863faf44b2bf",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": []\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1063,
+      "token_counts": {
+        "input": 829,
+        "output": 8,
+        "total": 837
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "sup-29",
+      "model_thread_id": "thread-9508f9d98cf1",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"ill build one this week\",\n      \"direction\": \"blocked_on_you\",\n      \"counterparty\": null,\n      \"deadline\": {\n        \"quote\": \"this week\",\n        \"msg_index\": 1,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"ill build one this week\",\n      \"evidence_msg_index\": 1,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"open\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4022,
+      "token_counts": {
+        "input": 912,
+        "output": 131,
+        "total": 1043
+      },
+      "parse_failure": {
+        "message": "loops.0.counterparty: Invalid input: expected string, received null"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    },
+    {
+      "thread_id": "sup-30",
+      "model_thread_id": "thread-319a8b10bff3",
+      "config": "local",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "ollama",
+        "id": "qwen2.5:7b",
+        "version": "qwen2.5:7b",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": false
+      },
+      "raw_model_response": "{\n  \"loops\": [\n    {\n      \"statement\": \"book offsite venue\",\n      \"direction\": \"blocked_on_them\",\n      \"counterparty\": \"Kavya\",\n      \"deadline\": {\n        \"quote\": null,\n        \"msg_index\": null,\n        \"resolved\": null,\n        \"certainty\": \"implied\"\n      },\n      \"evidence_quote\": \"anna, offsite ku venue book pannanum, 30 per\",\n      \"evidence_msg_index\": 0,\n      \"resolution_quote\": null,\n      \"resolution_msg_index\": null,\n      \"state\": \"superseded\",\n      \"register\": \"en\"\n    }\n  ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 4148,
+      "token_counts": {
+        "input": 851,
+        "output": 144,
+        "total": 995
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: resolution: state \"superseded\" requires a resolution span pointing at the message that cancelled, delegated or overtook it"
+      },
+      "provider_error": null,
+      "json_mode_used": false
+    }
+  ]
+}

@@ -125,6 +125,14 @@
           "hallucinated": 0,
           "missing": 9
         },
+        "deadline_span": {
+          "of": 40,
+          "found": 31,
+          "rate": 0.775,
+          "missing": 9,
+          "unmappable": 0,
+          "spurious": 0
+        },
         "resolution_span": {
           "of": 20,
           "scored": 17,
@@ -139,6 +147,10 @@
           "grounded": 73,
           "of": 73,
           "rate": 1
+        },
+        "span_tightness": {
+          "matched": 70,
+          "mean_iou": 0.6954171207879136
         },
         "unmappable": {
           "predictions": 2,
@@ -282,6 +294,14 @@
                   "hallucinated": 0,
                   "missing": 6
                 },
+                "deadline_span": {
+                  "of": 21,
+                  "found": 15,
+                  "rate": 0.7142857142857143,
+                  "missing": 6,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 12,
                   "scored": 11,
@@ -296,6 +316,10 @@
                   "grounded": 41,
                   "of": 41,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 39,
+                  "mean_iou": 0.6910632597117681
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -437,6 +461,14 @@
                   "hallucinated": 0,
                   "missing": 2
                 },
+                "deadline_span": {
+                  "of": 15,
+                  "found": 13,
+                  "rate": 0.8666666666666667,
+                  "missing": 2,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 7,
                   "scored": 6,
@@ -451,6 +483,10 @@
                   "grounded": 26,
                   "of": 26,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 26,
+                  "mean_iou": 0.7029329401802902
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -592,6 +628,14 @@
                   "hallucinated": 0,
                   "missing": 1
                 },
+                "deadline_span": {
+                  "of": 4,
+                  "found": 3,
+                  "rate": 0.75,
+                  "missing": 1,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 1,
                   "scored": 0,
@@ -606,6 +650,10 @@
                   "grounded": 6,
                   "of": 6,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 5,
+                  "mean_iou": 0.690294976341488
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -747,6 +795,14 @@
                   "hallucinated": 0,
                   "missing": 0
                 },
+                "deadline_span": {
+                  "of": 0,
+                  "found": 0,
+                  "rate": 0,
+                  "missing": 0,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 0,
                   "scored": 0,
@@ -761,6 +817,10 @@
                   "grounded": 0,
                   "of": 0,
                   "rate": 0
+                },
+                "span_tightness": {
+                  "matched": 0,
+                  "mean_iou": 0
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -906,6 +966,14 @@
                   "hallucinated": 0,
                   "missing": 3
                 },
+                "deadline_span": {
+                  "of": 6,
+                  "found": 3,
+                  "rate": 0.5,
+                  "missing": 3,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 7,
                   "scored": 6,
@@ -920,6 +988,10 @@
                   "grounded": 20,
                   "of": 20,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 20,
+                  "mean_iou": 0.705036585225893
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -1061,6 +1133,14 @@
                   "hallucinated": 0,
                   "missing": 2
                 },
+                "deadline_span": {
+                  "of": 10,
+                  "found": 8,
+                  "rate": 0.8,
+                  "missing": 2,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 2,
                   "scored": 2,
@@ -1075,6 +1155,10 @@
                   "grounded": 20,
                   "of": 20,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 19,
+                  "mean_iou": 0.6844813595822579
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -1216,6 +1300,14 @@
                   "hallucinated": 0,
                   "missing": 2
                 },
+                "deadline_span": {
+                  "of": 15,
+                  "found": 13,
+                  "rate": 0.8666666666666667,
+                  "missing": 2,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 2,
                   "scored": 2,
@@ -1230,6 +1322,10 @@
                   "grounded": 20,
                   "of": 20,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 19,
+                  "mean_iou": 0.6969627088762752
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -1371,6 +1467,14 @@
                   "hallucinated": 0,
                   "missing": 0
                 },
+                "deadline_span": {
+                  "of": 0,
+                  "found": 0,
+                  "rate": 0,
+                  "missing": 0,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 0,
                   "scored": 0,
@@ -1385,6 +1489,10 @@
                   "grounded": 0,
                   "of": 0,
                   "rate": 0
+                },
+                "span_tightness": {
+                  "matched": 0,
+                  "mean_iou": 0
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -1526,6 +1634,14 @@
                   "hallucinated": 0,
                   "missing": 2
                 },
+                "deadline_span": {
+                  "of": 9,
+                  "found": 7,
+                  "rate": 0.7777777777777778,
+                  "missing": 2,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 9,
                   "scored": 7,
@@ -1540,6 +1656,10 @@
                   "grounded": 13,
                   "of": 13,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 12,
+                  "mean_iou": 0.6942524541603291
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -1685,6 +1805,14 @@
                   "hallucinated": 0,
                   "missing": 1
                 },
+                "deadline_span": {
+                  "of": 11,
+                  "found": 10,
+                  "rate": 0.9090909090909091,
+                  "missing": 1,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 4,
                   "scored": 3,
@@ -1699,6 +1827,10 @@
                   "grounded": 15,
                   "of": 15,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 15,
+                  "mean_iou": 0.6907320940400434
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -1840,6 +1972,14 @@
                   "hallucinated": 0,
                   "missing": 6
                 },
+                "deadline_span": {
+                  "of": 22,
+                  "found": 16,
+                  "rate": 0.7272727272727273,
+                  "missing": 6,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 13,
                   "scored": 11,
@@ -1854,6 +1994,10 @@
                   "grounded": 47,
                   "of": 47,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 45,
+                  "mean_iou": 0.6977965711592045
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -1995,6 +2139,14 @@
                   "hallucinated": 0,
                   "missing": 1
                 },
+                "deadline_span": {
+                  "of": 4,
+                  "found": 3,
+                  "rate": 0.75,
+                  "missing": 1,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 1,
                   "scored": 1,
@@ -2009,6 +2161,10 @@
                   "grounded": 7,
                   "of": 7,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 7,
+                  "mean_iou": 0.6999753546771378
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -2150,6 +2306,14 @@
                   "hallucinated": 0,
                   "missing": 1
                 },
+                "deadline_span": {
+                  "of": 3,
+                  "found": 2,
+                  "rate": 0.6666666666666666,
+                  "missing": 1,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 2,
                   "scored": 2,
@@ -2164,6 +2328,10 @@
                   "grounded": 4,
                   "of": 4,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 3,
+                  "mean_iou": 0.672514619883041
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -2309,6 +2477,14 @@
                   "hallucinated": 0,
                   "missing": 0
                 },
+                "deadline_span": {
+                  "of": 0,
+                  "found": 0,
+                  "rate": 0,
+                  "missing": 0,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 0,
                   "scored": 0,
@@ -2323,6 +2499,10 @@
                   "grounded": 0,
                   "of": 0,
                   "rate": 0
+                },
+                "span_tightness": {
+                  "matched": 0,
+                  "mean_iou": 0
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -2464,6 +2644,14 @@
                   "hallucinated": 0,
                   "missing": 2
                 },
+                "deadline_span": {
+                  "of": 18,
+                  "found": 16,
+                  "rate": 0.8888888888888888,
+                  "missing": 2,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 9,
                   "scored": 7,
@@ -2478,6 +2666,10 @@
                   "grounded": 24,
                   "of": 24,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 23,
+                  "mean_iou": 0.6916457624720092
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -2619,6 +2811,14 @@
                   "hallucinated": 0,
                   "missing": 3
                 },
+                "deadline_span": {
+                  "of": 14,
+                  "found": 11,
+                  "rate": 0.7857142857142857,
+                  "missing": 3,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 6,
                   "scored": 6,
@@ -2633,6 +2833,10 @@
                   "grounded": 30,
                   "of": 30,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 29,
+                  "mean_iou": 0.6942821861503454
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -2774,6 +2978,14 @@
                   "hallucinated": 0,
                   "missing": 4
                 },
+                "deadline_span": {
+                  "of": 8,
+                  "found": 4,
+                  "rate": 0.5,
+                  "missing": 4,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 5,
                   "scored": 4,
@@ -2788,6 +3000,10 @@
                   "grounded": 19,
                   "of": 19,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 18,
+                  "mean_iou": 0.7020645844409833
                 },
                 "unmappable": {
                   "predictions": 2,
@@ -2933,6 +3149,14 @@
           "hallucinated": 0,
           "missing": 9
         },
+        "deadline_span": {
+          "of": 40,
+          "found": 31,
+          "rate": 0.775,
+          "missing": 9,
+          "unmappable": 0,
+          "spurious": 0
+        },
         "resolution_span": {
           "of": 20,
           "scored": 17,
@@ -2947,6 +3171,10 @@
           "grounded": 73,
           "of": 73,
           "rate": 1
+        },
+        "span_tightness": {
+          "matched": 70,
+          "mean_iou": 0.6954171207879136
         },
         "unmappable": {
           "predictions": 2,
@@ -3090,6 +3318,14 @@
                   "hallucinated": 0,
                   "missing": 6
                 },
+                "deadline_span": {
+                  "of": 21,
+                  "found": 15,
+                  "rate": 0.7142857142857143,
+                  "missing": 6,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 12,
                   "scored": 11,
@@ -3104,6 +3340,10 @@
                   "grounded": 41,
                   "of": 41,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 39,
+                  "mean_iou": 0.6910632597117681
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -3245,6 +3485,14 @@
                   "hallucinated": 0,
                   "missing": 2
                 },
+                "deadline_span": {
+                  "of": 15,
+                  "found": 13,
+                  "rate": 0.8666666666666667,
+                  "missing": 2,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 7,
                   "scored": 6,
@@ -3259,6 +3507,10 @@
                   "grounded": 26,
                   "of": 26,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 26,
+                  "mean_iou": 0.7029329401802902
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -3400,6 +3652,14 @@
                   "hallucinated": 0,
                   "missing": 1
                 },
+                "deadline_span": {
+                  "of": 4,
+                  "found": 3,
+                  "rate": 0.75,
+                  "missing": 1,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 1,
                   "scored": 0,
@@ -3414,6 +3674,10 @@
                   "grounded": 6,
                   "of": 6,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 5,
+                  "mean_iou": 0.690294976341488
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -3555,6 +3819,14 @@
                   "hallucinated": 0,
                   "missing": 0
                 },
+                "deadline_span": {
+                  "of": 0,
+                  "found": 0,
+                  "rate": 0,
+                  "missing": 0,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 0,
                   "scored": 0,
@@ -3569,6 +3841,10 @@
                   "grounded": 0,
                   "of": 0,
                   "rate": 0
+                },
+                "span_tightness": {
+                  "matched": 0,
+                  "mean_iou": 0
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -3714,6 +3990,14 @@
                   "hallucinated": 0,
                   "missing": 3
                 },
+                "deadline_span": {
+                  "of": 6,
+                  "found": 3,
+                  "rate": 0.5,
+                  "missing": 3,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 7,
                   "scored": 6,
@@ -3728,6 +4012,10 @@
                   "grounded": 20,
                   "of": 20,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 20,
+                  "mean_iou": 0.705036585225893
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -3869,6 +4157,14 @@
                   "hallucinated": 0,
                   "missing": 2
                 },
+                "deadline_span": {
+                  "of": 10,
+                  "found": 8,
+                  "rate": 0.8,
+                  "missing": 2,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 2,
                   "scored": 2,
@@ -3883,6 +4179,10 @@
                   "grounded": 20,
                   "of": 20,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 19,
+                  "mean_iou": 0.6844813595822579
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -4024,6 +4324,14 @@
                   "hallucinated": 0,
                   "missing": 2
                 },
+                "deadline_span": {
+                  "of": 15,
+                  "found": 13,
+                  "rate": 0.8666666666666667,
+                  "missing": 2,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 2,
                   "scored": 2,
@@ -4038,6 +4346,10 @@
                   "grounded": 20,
                   "of": 20,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 19,
+                  "mean_iou": 0.6969627088762752
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -4179,6 +4491,14 @@
                   "hallucinated": 0,
                   "missing": 0
                 },
+                "deadline_span": {
+                  "of": 0,
+                  "found": 0,
+                  "rate": 0,
+                  "missing": 0,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 0,
                   "scored": 0,
@@ -4193,6 +4513,10 @@
                   "grounded": 0,
                   "of": 0,
                   "rate": 0
+                },
+                "span_tightness": {
+                  "matched": 0,
+                  "mean_iou": 0
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -4334,6 +4658,14 @@
                   "hallucinated": 0,
                   "missing": 2
                 },
+                "deadline_span": {
+                  "of": 9,
+                  "found": 7,
+                  "rate": 0.7777777777777778,
+                  "missing": 2,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 9,
                   "scored": 7,
@@ -4348,6 +4680,10 @@
                   "grounded": 13,
                   "of": 13,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 12,
+                  "mean_iou": 0.6942524541603291
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -4493,6 +4829,14 @@
                   "hallucinated": 0,
                   "missing": 1
                 },
+                "deadline_span": {
+                  "of": 11,
+                  "found": 10,
+                  "rate": 0.9090909090909091,
+                  "missing": 1,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 4,
                   "scored": 3,
@@ -4507,6 +4851,10 @@
                   "grounded": 15,
                   "of": 15,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 15,
+                  "mean_iou": 0.6907320940400434
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -4648,6 +4996,14 @@
                   "hallucinated": 0,
                   "missing": 6
                 },
+                "deadline_span": {
+                  "of": 22,
+                  "found": 16,
+                  "rate": 0.7272727272727273,
+                  "missing": 6,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 13,
                   "scored": 11,
@@ -4662,6 +5018,10 @@
                   "grounded": 47,
                   "of": 47,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 45,
+                  "mean_iou": 0.6977965711592045
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -4803,6 +5163,14 @@
                   "hallucinated": 0,
                   "missing": 1
                 },
+                "deadline_span": {
+                  "of": 4,
+                  "found": 3,
+                  "rate": 0.75,
+                  "missing": 1,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 1,
                   "scored": 1,
@@ -4817,6 +5185,10 @@
                   "grounded": 7,
                   "of": 7,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 7,
+                  "mean_iou": 0.6999753546771378
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -4958,6 +5330,14 @@
                   "hallucinated": 0,
                   "missing": 1
                 },
+                "deadline_span": {
+                  "of": 3,
+                  "found": 2,
+                  "rate": 0.6666666666666666,
+                  "missing": 1,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 2,
                   "scored": 2,
@@ -4972,6 +5352,10 @@
                   "grounded": 4,
                   "of": 4,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 3,
+                  "mean_iou": 0.672514619883041
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -5117,6 +5501,14 @@
                   "hallucinated": 0,
                   "missing": 0
                 },
+                "deadline_span": {
+                  "of": 0,
+                  "found": 0,
+                  "rate": 0,
+                  "missing": 0,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 0,
                   "scored": 0,
@@ -5131,6 +5523,10 @@
                   "grounded": 0,
                   "of": 0,
                   "rate": 0
+                },
+                "span_tightness": {
+                  "matched": 0,
+                  "mean_iou": 0
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -5272,6 +5668,14 @@
                   "hallucinated": 0,
                   "missing": 2
                 },
+                "deadline_span": {
+                  "of": 18,
+                  "found": 16,
+                  "rate": 0.8888888888888888,
+                  "missing": 2,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 9,
                   "scored": 7,
@@ -5286,6 +5690,10 @@
                   "grounded": 24,
                   "of": 24,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 23,
+                  "mean_iou": 0.6916457624720092
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -5427,6 +5835,14 @@
                   "hallucinated": 0,
                   "missing": 3
                 },
+                "deadline_span": {
+                  "of": 14,
+                  "found": 11,
+                  "rate": 0.7857142857142857,
+                  "missing": 3,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 6,
                   "scored": 6,
@@ -5441,6 +5857,10 @@
                   "grounded": 30,
                   "of": 30,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 29,
+                  "mean_iou": 0.6942821861503454
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -5582,6 +6002,14 @@
                   "hallucinated": 0,
                   "missing": 4
                 },
+                "deadline_span": {
+                  "of": 8,
+                  "found": 4,
+                  "rate": 0.5,
+                  "missing": 4,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 5,
                   "scored": 4,
@@ -5596,6 +6024,10 @@
                   "grounded": 19,
                   "of": 19,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 18,
+                  "mean_iou": 0.7020645844409833
                 },
                 "unmappable": {
                   "predictions": 2,
@@ -5656,105 +6088,117 @@
         "truth_loops": 107,
         "predicted_loops": 75,
         "detection": {
-          "tp": 30,
-          "fp": 43,
-          "fn": 77,
-          "precision": 0.410958904109589,
-          "recall": 0.2803738317757009,
-          "f1": 0.33333333333333337
+          "tp": 70,
+          "fp": 3,
+          "fn": 37,
+          "precision": 0.958904109589041,
+          "recall": 0.6542056074766355,
+          "f1": 0.7777777777777777
         },
         "direction": {
           "rows": {
             "blocked_on_them": {
-              "blocked_on_them": 13,
+              "blocked_on_them": 23,
               "blocked_on_you": 0,
               "mutual": 0
             },
             "blocked_on_you": {
-              "blocked_on_them": 2,
-              "blocked_on_you": 15,
+              "blocked_on_them": 4,
+              "blocked_on_you": 38,
               "mutual": 0
             },
             "mutual": {
               "blocked_on_them": 0,
               "blocked_on_you": 0,
-              "mutual": 0
+              "mutual": 5
             }
           },
-          "correct": 28,
-          "n": 30,
-          "accuracy": 0.9333333333333333
+          "correct": 66,
+          "n": 70,
+          "accuracy": 0.9428571428571428
         },
         "state": {
           "rows": {
             "open": {
-              "open": 22,
+              "open": 50,
               "closed": 0,
               "superseded": 0
             },
             "closed": {
               "open": 0,
-              "closed": 1,
+              "closed": 5,
               "superseded": 0
             },
             "superseded": {
-              "open": 1,
+              "open": 3,
               "closed": 0,
-              "superseded": 6
+              "superseded": 12
             }
           },
-          "correct": 29,
-          "n": 30,
-          "accuracy": 0.9666666666666667,
+          "correct": 67,
+          "n": 70,
+          "accuracy": 0.9571428571428572,
           "superseded_as_open": {
-            "count": 1,
-            "of": 7,
-            "rate": 0.14285714285714285
+            "count": 3,
+            "of": 15,
+            "rate": 0.2
           }
         },
         "certainty": {
           "rows": {
             "explicit": {
-              "explicit": 11,
-              "implied": 5,
+              "explicit": 31,
+              "implied": 9,
               "none": 0
             },
             "implied": {
               "explicit": 0,
-              "implied": 2,
+              "implied": 7,
               "none": 0
             },
             "none": {
               "explicit": 0,
               "implied": 0,
-              "none": 12
+              "none": 23
             }
           },
-          "correct": 25,
-          "n": 30,
-          "accuracy": 0.8333333333333334
+          "correct": 61,
+          "n": 70,
+          "accuracy": 0.8714285714285714
         },
         "deadline_resolved": {
-          "exact": 11,
-          "of": 16,
-          "rate": 0.6875,
+          "exact": 33,
+          "of": 42,
+          "rate": 0.7857142857142857,
           "hallucinated": 0,
-          "missing": 5
+          "missing": 9
+        },
+        "deadline_span": {
+          "of": 40,
+          "found": 31,
+          "rate": 0.775,
+          "missing": 9,
+          "unmappable": 0,
+          "spurious": 0
         },
         "resolution_span": {
-          "of": 8,
-          "scored": 7,
-          "msg_index_correct": 7,
-          "msg_index_rate": 1,
-          "mean_iou": 1,
-          "missing": 1,
+          "of": 20,
+          "scored": 17,
+          "msg_index_correct": 16,
+          "msg_index_rate": 0.9411764705882353,
+          "mean_iou": 0.9411764705882353,
+          "missing": 3,
           "unmappable": 0,
-          "spurious": 2
+          "spurious": 5
         },
         "grounding": {
           "grounded": 73,
           "of": 73,
           "rate": 1
+        },
+        "span_tightness": {
+          "matched": 70,
+          "mean_iou": 0.6954171207879136
         },
         "unmappable": {
           "predictions": 2,
@@ -5769,38 +6213,38 @@
         "cost": {
           "by_kind": {
             "false_negative": {
-              "count": 77,
-              "cost": 77
+              "count": 37,
+              "cost": 37
             },
             "false_positive": {
-              "count": 43,
-              "cost": 189
+              "count": 3,
+              "cost": 9
             },
             "superseded_as_open": {
-              "count": 1,
-              "cost": 8
+              "count": 3,
+              "cost": 24
             },
             "direction_inverted": {
-              "count": 2,
-              "cost": 16
+              "count": 4,
+              "cost": 32
             }
           },
           "false_positive_by_direction": {
             "blocked_on_them": {
-              "count": 12,
-              "cost": 96
+              "count": 0,
+              "cost": 0
             },
             "blocked_on_you": {
-              "count": 26,
-              "cost": 78
+              "count": 3,
+              "cost": 9
             },
             "mutual": {
-              "count": 5,
-              "cost": 15
+              "count": 0,
+              "cost": 0
             }
           },
-          "total": 290,
-          "per_thread": 3.625
+          "total": 102,
+          "per_thread": 1.275
         }
       },
       "breakdowns": {
@@ -5813,105 +6257,117 @@
                 "truth_loops": 60,
                 "predicted_loops": 42,
                 "detection": {
-                  "tp": 15,
-                  "fp": 26,
-                  "fn": 45,
-                  "precision": 0.36585365853658536,
-                  "recall": 0.25,
-                  "f1": 0.297029702970297
+                  "tp": 39,
+                  "fp": 2,
+                  "fn": 21,
+                  "precision": 0.9512195121951219,
+                  "recall": 0.65,
+                  "f1": 0.7722772277227723
                 },
                 "direction": {
                   "rows": {
                     "blocked_on_them": {
-                      "blocked_on_them": 5,
+                      "blocked_on_them": 11,
                       "blocked_on_you": 0,
                       "mutual": 0
                     },
                     "blocked_on_you": {
-                      "blocked_on_them": 2,
-                      "blocked_on_you": 8,
+                      "blocked_on_them": 3,
+                      "blocked_on_you": 21,
                       "mutual": 0
                     },
                     "mutual": {
                       "blocked_on_them": 0,
                       "blocked_on_you": 0,
-                      "mutual": 0
+                      "mutual": 4
                     }
                   },
-                  "correct": 13,
-                  "n": 15,
-                  "accuracy": 0.8666666666666667
+                  "correct": 36,
+                  "n": 39,
+                  "accuracy": 0.9230769230769231
                 },
                 "state": {
                   "rows": {
                     "open": {
-                      "open": 9,
+                      "open": 27,
                       "closed": 0,
                       "superseded": 0
                     },
                     "closed": {
                       "open": 0,
-                      "closed": 1,
+                      "closed": 3,
                       "superseded": 0
                     },
                     "superseded": {
                       "open": 1,
                       "closed": 0,
-                      "superseded": 4
+                      "superseded": 8
                     }
                   },
-                  "correct": 14,
-                  "n": 15,
-                  "accuracy": 0.9333333333333333,
+                  "correct": 38,
+                  "n": 39,
+                  "accuracy": 0.9743589743589743,
                   "superseded_as_open": {
                     "count": 1,
-                    "of": 5,
-                    "rate": 0.2
+                    "of": 9,
+                    "rate": 0.1111111111111111
                   }
                 },
                 "certainty": {
                   "rows": {
                     "explicit": {
-                      "explicit": 5,
-                      "implied": 3,
+                      "explicit": 15,
+                      "implied": 6,
                       "none": 0
                     },
                     "implied": {
                       "explicit": 0,
-                      "implied": 1,
+                      "implied": 6,
                       "none": 0
                     },
                     "none": {
                       "explicit": 0,
                       "implied": 0,
-                      "none": 6
+                      "none": 12
                     }
                   },
-                  "correct": 12,
-                  "n": 15,
-                  "accuracy": 0.8
+                  "correct": 33,
+                  "n": 39,
+                  "accuracy": 0.8461538461538461
                 },
                 "deadline_resolved": {
-                  "exact": 4,
-                  "of": 7,
-                  "rate": 0.5714285714285714,
+                  "exact": 17,
+                  "of": 23,
+                  "rate": 0.7391304347826086,
                   "hallucinated": 0,
-                  "missing": 3
+                  "missing": 6
+                },
+                "deadline_span": {
+                  "of": 21,
+                  "found": 15,
+                  "rate": 0.7142857142857143,
+                  "missing": 6,
+                  "unmappable": 0,
+                  "spurious": 0
                 },
                 "resolution_span": {
-                  "of": 6,
-                  "scored": 5,
-                  "msg_index_correct": 5,
+                  "of": 12,
+                  "scored": 11,
+                  "msg_index_correct": 11,
                   "msg_index_rate": 1,
                   "mean_iou": 1,
                   "missing": 1,
                   "unmappable": 0,
-                  "spurious": 1
+                  "spurious": 2
                 },
                 "grounding": {
                   "grounded": 41,
                   "of": 41,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 39,
+                  "mean_iou": 0.6910632597117681
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -5926,38 +6382,38 @@
                 "cost": {
                   "by_kind": {
                     "false_negative": {
-                      "count": 45,
-                      "cost": 45
+                      "count": 21,
+                      "cost": 21
                     },
                     "false_positive": {
-                      "count": 26,
-                      "cost": 113
+                      "count": 2,
+                      "cost": 6
                     },
                     "superseded_as_open": {
                       "count": 1,
                       "cost": 8
                     },
                     "direction_inverted": {
-                      "count": 2,
-                      "cost": 16
+                      "count": 3,
+                      "cost": 24
                     }
                   },
                   "false_positive_by_direction": {
                     "blocked_on_them": {
-                      "count": 7,
-                      "cost": 56
+                      "count": 0,
+                      "cost": 0
                     },
                     "blocked_on_you": {
-                      "count": 15,
-                      "cost": 45
+                      "count": 2,
+                      "cost": 6
                     },
                     "mutual": {
-                      "count": 4,
-                      "cost": 12
+                      "count": 0,
+                      "cost": 0
                     }
                   },
-                  "total": 182,
-                  "per_thread": 5.2
+                  "total": 59,
+                  "per_thread": 1.6857142857142857
                 }
               }
             },
@@ -5968,67 +6424,67 @@
                 "truth_loops": 35,
                 "predicted_loops": 27,
                 "detection": {
-                  "tp": 13,
-                  "fp": 13,
-                  "fn": 22,
-                  "precision": 0.5,
-                  "recall": 0.37142857142857144,
-                  "f1": 0.42622950819672134
+                  "tp": 26,
+                  "fp": 0,
+                  "fn": 9,
+                  "precision": 1,
+                  "recall": 0.7428571428571429,
+                  "f1": 0.8524590163934427
                 },
                 "direction": {
                   "rows": {
                     "blocked_on_them": {
-                      "blocked_on_them": 8,
+                      "blocked_on_them": 12,
                       "blocked_on_you": 0,
                       "mutual": 0
                     },
                     "blocked_on_you": {
                       "blocked_on_them": 0,
-                      "blocked_on_you": 5,
+                      "blocked_on_you": 13,
                       "mutual": 0
                     },
                     "mutual": {
                       "blocked_on_them": 0,
                       "blocked_on_you": 0,
-                      "mutual": 0
+                      "mutual": 1
                     }
                   },
-                  "correct": 13,
-                  "n": 13,
+                  "correct": 26,
+                  "n": 26,
                   "accuracy": 1
                 },
                 "state": {
                   "rows": {
                     "open": {
-                      "open": 11,
+                      "open": 19,
                       "closed": 0,
                       "superseded": 0
                     },
                     "closed": {
                       "open": 0,
-                      "closed": 0,
+                      "closed": 2,
                       "superseded": 0
                     },
                     "superseded": {
-                      "open": 0,
+                      "open": 1,
                       "closed": 0,
-                      "superseded": 2
+                      "superseded": 4
                     }
                   },
-                  "correct": 13,
-                  "n": 13,
-                  "accuracy": 1,
+                  "correct": 25,
+                  "n": 26,
+                  "accuracy": 0.9615384615384616,
                   "superseded_as_open": {
-                    "count": 0,
-                    "of": 2,
-                    "rate": 0
+                    "count": 1,
+                    "of": 5,
+                    "rate": 0.2
                   }
                 },
                 "certainty": {
                   "rows": {
                     "explicit": {
-                      "explicit": 6,
-                      "implied": 1,
+                      "explicit": 13,
+                      "implied": 2,
                       "none": 0
                     },
                     "implied": {
@@ -6039,34 +6495,46 @@
                     "none": {
                       "explicit": 0,
                       "implied": 0,
-                      "none": 6
+                      "none": 11
                     }
                   },
-                  "correct": 12,
-                  "n": 13,
+                  "correct": 24,
+                  "n": 26,
                   "accuracy": 0.9230769230769231
                 },
                 "deadline_resolved": {
-                  "exact": 6,
-                  "of": 7,
+                  "exact": 12,
+                  "of": 14,
                   "rate": 0.8571428571428571,
                   "hallucinated": 0,
-                  "missing": 1
+                  "missing": 2
                 },
-                "resolution_span": {
-                  "of": 2,
-                  "scored": 2,
-                  "msg_index_correct": 2,
-                  "msg_index_rate": 1,
-                  "mean_iou": 1,
-                  "missing": 0,
+                "deadline_span": {
+                  "of": 15,
+                  "found": 13,
+                  "rate": 0.8666666666666667,
+                  "missing": 2,
                   "unmappable": 0,
                   "spurious": 0
+                },
+                "resolution_span": {
+                  "of": 7,
+                  "scored": 6,
+                  "msg_index_correct": 5,
+                  "msg_index_rate": 0.8333333333333334,
+                  "mean_iou": 0.8333333333333334,
+                  "missing": 1,
+                  "unmappable": 0,
+                  "spurious": 2
                 },
                 "grounding": {
                   "grounded": 26,
                   "of": 26,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 26,
+                  "mean_iou": 0.7029329401802902
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -6081,16 +6549,16 @@
                 "cost": {
                   "by_kind": {
                     "false_negative": {
-                      "count": 22,
-                      "cost": 22
+                      "count": 9,
+                      "cost": 9
                     },
                     "false_positive": {
-                      "count": 13,
-                      "cost": 59
-                    },
-                    "superseded_as_open": {
                       "count": 0,
                       "cost": 0
+                    },
+                    "superseded_as_open": {
+                      "count": 1,
+                      "cost": 8
                     },
                     "direction_inverted": {
                       "count": 0,
@@ -6099,20 +6567,20 @@
                   },
                   "false_positive_by_direction": {
                     "blocked_on_them": {
-                      "count": 4,
-                      "cost": 32
+                      "count": 0,
+                      "cost": 0
                     },
                     "blocked_on_you": {
-                      "count": 8,
-                      "cost": 24
+                      "count": 0,
+                      "cost": 0
                     },
                     "mutual": {
-                      "count": 1,
-                      "cost": 3
+                      "count": 0,
+                      "cost": 0
                     }
                   },
-                  "total": 81,
-                  "per_thread": 3.857142857142857
+                  "total": 17,
+                  "per_thread": 0.8095238095238095
                 }
               }
             },
@@ -6123,12 +6591,12 @@
                 "truth_loops": 12,
                 "predicted_loops": 6,
                 "detection": {
-                  "tp": 2,
-                  "fp": 4,
-                  "fn": 10,
-                  "precision": 0.3333333333333333,
-                  "recall": 0.16666666666666666,
-                  "f1": 0.2222222222222222
+                  "tp": 5,
+                  "fp": 1,
+                  "fn": 7,
+                  "precision": 0.8333333333333334,
+                  "recall": 0.4166666666666667,
+                  "f1": 0.5555555555555556
                 },
                 "direction": {
                   "rows": {
@@ -6138,8 +6606,8 @@
                       "mutual": 0
                     },
                     "blocked_on_you": {
-                      "blocked_on_them": 0,
-                      "blocked_on_you": 2,
+                      "blocked_on_them": 1,
+                      "blocked_on_you": 4,
                       "mutual": 0
                     },
                     "mutual": {
@@ -6148,14 +6616,14 @@
                       "mutual": 0
                     }
                   },
-                  "correct": 2,
-                  "n": 2,
-                  "accuracy": 1
+                  "correct": 4,
+                  "n": 5,
+                  "accuracy": 0.8
                 },
                 "state": {
                   "rows": {
                     "open": {
-                      "open": 2,
+                      "open": 4,
                       "closed": 0,
                       "superseded": 0
                     },
@@ -6165,24 +6633,24 @@
                       "superseded": 0
                     },
                     "superseded": {
-                      "open": 0,
+                      "open": 1,
                       "closed": 0,
                       "superseded": 0
                     }
                   },
-                  "correct": 2,
-                  "n": 2,
-                  "accuracy": 1,
+                  "correct": 4,
+                  "n": 5,
+                  "accuracy": 0.8,
                   "superseded_as_open": {
-                    "count": 0,
-                    "of": 0,
-                    "rate": 0
+                    "count": 1,
+                    "of": 1,
+                    "rate": 1
                   }
                 },
                 "certainty": {
                   "rows": {
                     "explicit": {
-                      "explicit": 0,
+                      "explicit": 3,
                       "implied": 1,
                       "none": 0
                     },
@@ -6197,24 +6665,32 @@
                       "none": 0
                     }
                   },
-                  "correct": 1,
-                  "n": 2,
-                  "accuracy": 0.5
+                  "correct": 4,
+                  "n": 5,
+                  "accuracy": 0.8
                 },
                 "deadline_resolved": {
-                  "exact": 1,
-                  "of": 2,
-                  "rate": 0.5,
+                  "exact": 4,
+                  "of": 5,
+                  "rate": 0.8,
                   "hallucinated": 0,
                   "missing": 1
                 },
+                "deadline_span": {
+                  "of": 4,
+                  "found": 3,
+                  "rate": 0.75,
+                  "missing": 1,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
-                  "of": 0,
+                  "of": 1,
                   "scored": 0,
                   "msg_index_correct": 0,
                   "msg_index_rate": 0,
                   "mean_iou": 0,
-                  "missing": 0,
+                  "missing": 1,
                   "unmappable": 0,
                   "spurious": 1
                 },
@@ -6222,6 +6698,10 @@
                   "grounded": 6,
                   "of": 6,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 5,
+                  "mean_iou": 0.690294976341488
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -6236,38 +6716,38 @@
                 "cost": {
                   "by_kind": {
                     "false_negative": {
-                      "count": 10,
-                      "cost": 10
+                      "count": 7,
+                      "cost": 7
                     },
                     "false_positive": {
-                      "count": 4,
-                      "cost": 17
+                      "count": 1,
+                      "cost": 3
                     },
                     "superseded_as_open": {
-                      "count": 0,
-                      "cost": 0
+                      "count": 1,
+                      "cost": 8
                     },
                     "direction_inverted": {
-                      "count": 0,
-                      "cost": 0
+                      "count": 1,
+                      "cost": 8
                     }
                   },
                   "false_positive_by_direction": {
                     "blocked_on_them": {
-                      "count": 1,
-                      "cost": 8
+                      "count": 0,
+                      "cost": 0
                     },
                     "blocked_on_you": {
-                      "count": 3,
-                      "cost": 9
+                      "count": 1,
+                      "cost": 3
                     },
                     "mutual": {
                       "count": 0,
                       "cost": 0
                     }
                   },
-                  "total": 27,
-                  "per_thread": 3
+                  "total": 26,
+                  "per_thread": 2.888888888888889
                 }
               }
             },
@@ -6363,6 +6843,14 @@
                   "hallucinated": 0,
                   "missing": 0
                 },
+                "deadline_span": {
+                  "of": 0,
+                  "found": 0,
+                  "rate": 0,
+                  "missing": 0,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 0,
                   "scored": 0,
@@ -6377,6 +6865,10 @@
                   "grounded": 0,
                   "of": 0,
                   "rate": 0
+                },
+                "span_tightness": {
+                  "matched": 0,
+                  "mean_iou": 0
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -6437,23 +6929,23 @@
                 "truth_loops": 29,
                 "predicted_loops": 20,
                 "detection": {
-                  "tp": 12,
-                  "fp": 8,
-                  "fn": 17,
-                  "precision": 0.6,
-                  "recall": 0.41379310344827586,
-                  "f1": 0.4897959183673469
+                  "tp": 20,
+                  "fp": 0,
+                  "fn": 9,
+                  "precision": 1,
+                  "recall": 0.6896551724137931,
+                  "f1": 0.8163265306122449
                 },
                 "direction": {
                   "rows": {
                     "blocked_on_them": {
-                      "blocked_on_them": 6,
+                      "blocked_on_them": 9,
                       "blocked_on_you": 0,
                       "mutual": 0
                     },
                     "blocked_on_you": {
                       "blocked_on_them": 1,
-                      "blocked_on_you": 5,
+                      "blocked_on_you": 10,
                       "mutual": 0
                     },
                     "mutual": {
@@ -6462,14 +6954,14 @@
                       "mutual": 0
                     }
                   },
-                  "correct": 11,
-                  "n": 12,
-                  "accuracy": 0.9166666666666666
+                  "correct": 19,
+                  "n": 20,
+                  "accuracy": 0.95
                 },
                 "state": {
                   "rows": {
                     "open": {
-                      "open": 8,
+                      "open": 13,
                       "closed": 0,
                       "superseded": 0
                     },
@@ -6481,61 +6973,73 @@
                     "superseded": {
                       "open": 1,
                       "closed": 0,
-                      "superseded": 2
+                      "superseded": 5
                     }
                   },
-                  "correct": 11,
-                  "n": 12,
-                  "accuracy": 0.9166666666666666,
+                  "correct": 19,
+                  "n": 20,
+                  "accuracy": 0.95,
                   "superseded_as_open": {
                     "count": 1,
-                    "of": 3,
-                    "rate": 0.3333333333333333
+                    "of": 6,
+                    "rate": 0.16666666666666666
                   }
                 },
                 "certainty": {
                   "rows": {
                     "explicit": {
-                      "explicit": 2,
-                      "implied": 2,
+                      "explicit": 3,
+                      "implied": 3,
                       "none": 0
                     },
                     "implied": {
                       "explicit": 0,
-                      "implied": 0,
+                      "implied": 1,
                       "none": 0
                     },
                     "none": {
                       "explicit": 0,
                       "implied": 0,
-                      "none": 8
+                      "none": 13
                     }
                   },
-                  "correct": 10,
-                  "n": 12,
-                  "accuracy": 0.8333333333333334
+                  "correct": 17,
+                  "n": 20,
+                  "accuracy": 0.85
                 },
                 "deadline_resolved": {
-                  "exact": 1,
-                  "of": 3,
-                  "rate": 0.3333333333333333,
+                  "exact": 3,
+                  "of": 6,
+                  "rate": 0.5,
                   "hallucinated": 0,
-                  "missing": 2
+                  "missing": 3
                 },
-                "resolution_span": {
-                  "of": 4,
-                  "scored": 3,
-                  "msg_index_correct": 3,
-                  "msg_index_rate": 1,
-                  "mean_iou": 1,
-                  "missing": 1,
+                "deadline_span": {
+                  "of": 6,
+                  "found": 3,
+                  "rate": 0.5,
+                  "missing": 3,
                   "unmappable": 0,
                   "spurious": 0
+                },
+                "resolution_span": {
+                  "of": 7,
+                  "scored": 6,
+                  "msg_index_correct": 5,
+                  "msg_index_rate": 0.8333333333333334,
+                  "mean_iou": 0.8333333333333334,
+                  "missing": 1,
+                  "unmappable": 0,
+                  "spurious": 1
                 },
                 "grounding": {
                   "grounded": 20,
                   "of": 20,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 20,
+                  "mean_iou": 0.705036585225893
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -6550,12 +7054,12 @@
                 "cost": {
                   "by_kind": {
                     "false_negative": {
-                      "count": 17,
-                      "cost": 17
+                      "count": 9,
+                      "cost": 9
                     },
                     "false_positive": {
-                      "count": 8,
-                      "cost": 39
+                      "count": 0,
+                      "cost": 0
                     },
                     "superseded_as_open": {
                       "count": 1,
@@ -6568,20 +7072,20 @@
                   },
                   "false_positive_by_direction": {
                     "blocked_on_them": {
-                      "count": 3,
-                      "cost": 24
+                      "count": 0,
+                      "cost": 0
                     },
                     "blocked_on_you": {
-                      "count": 5,
-                      "cost": 15
+                      "count": 0,
+                      "cost": 0
                     },
                     "mutual": {
                       "count": 0,
                       "cost": 0
                     }
                   },
-                  "total": 72,
-                  "per_thread": 6.545454545454546
+                  "total": 25,
+                  "per_thread": 2.272727272727273
                 }
               }
             },
@@ -6592,45 +7096,45 @@
                 "truth_loops": 31,
                 "predicted_loops": 21,
                 "detection": {
-                  "tp": 4,
-                  "fp": 16,
-                  "fn": 27,
-                  "precision": 0.2,
-                  "recall": 0.12903225806451613,
-                  "f1": 0.1568627450980392
+                  "tp": 19,
+                  "fp": 1,
+                  "fn": 12,
+                  "precision": 0.95,
+                  "recall": 0.6129032258064516,
+                  "f1": 0.7450980392156863
                 },
                 "direction": {
                   "rows": {
                     "blocked_on_them": {
-                      "blocked_on_them": 2,
+                      "blocked_on_them": 6,
                       "blocked_on_you": 0,
                       "mutual": 0
                     },
                     "blocked_on_you": {
                       "blocked_on_them": 1,
-                      "blocked_on_you": 1,
+                      "blocked_on_you": 8,
                       "mutual": 0
                     },
                     "mutual": {
                       "blocked_on_them": 0,
                       "blocked_on_you": 0,
-                      "mutual": 0
+                      "mutual": 4
                     }
                   },
-                  "correct": 3,
-                  "n": 4,
-                  "accuracy": 0.75
+                  "correct": 18,
+                  "n": 19,
+                  "accuracy": 0.9473684210526315
                 },
                 "state": {
                   "rows": {
                     "open": {
-                      "open": 4,
+                      "open": 17,
                       "closed": 0,
                       "superseded": 0
                     },
                     "closed": {
                       "open": 0,
-                      "closed": 0,
+                      "closed": 2,
                       "superseded": 0
                     },
                     "superseded": {
@@ -6639,8 +7143,8 @@
                       "superseded": 0
                     }
                   },
-                  "correct": 4,
-                  "n": 4,
+                  "correct": 19,
+                  "n": 19,
                   "accuracy": 1,
                   "superseded_as_open": {
                     "count": 0,
@@ -6651,46 +7155,58 @@
                 "certainty": {
                   "rows": {
                     "explicit": {
-                      "explicit": 1,
-                      "implied": 0,
+                      "explicit": 8,
+                      "implied": 2,
                       "none": 0
                     },
                     "implied": {
                       "explicit": 0,
-                      "implied": 1,
+                      "implied": 5,
                       "none": 0
                     },
                     "none": {
                       "explicit": 0,
                       "implied": 0,
-                      "none": 2
+                      "none": 4
                     }
                   },
-                  "correct": 4,
-                  "n": 4,
-                  "accuracy": 1
+                  "correct": 17,
+                  "n": 19,
+                  "accuracy": 0.8947368421052632
                 },
                 "deadline_resolved": {
-                  "exact": 2,
-                  "of": 2,
-                  "rate": 1,
+                  "exact": 11,
+                  "of": 13,
+                  "rate": 0.8461538461538461,
                   "hallucinated": 0,
-                  "missing": 0
+                  "missing": 2
+                },
+                "deadline_span": {
+                  "of": 10,
+                  "found": 8,
+                  "rate": 0.8,
+                  "missing": 2,
+                  "unmappable": 0,
+                  "spurious": 0
                 },
                 "resolution_span": {
-                  "of": 0,
-                  "scored": 0,
-                  "msg_index_correct": 0,
-                  "msg_index_rate": 0,
-                  "mean_iou": 0,
+                  "of": 2,
+                  "scored": 2,
+                  "msg_index_correct": 2,
+                  "msg_index_rate": 1,
+                  "mean_iou": 1,
                   "missing": 0,
                   "unmappable": 0,
-                  "spurious": 1
+                  "spurious": 2
                 },
                 "grounding": {
                   "grounded": 20,
                   "of": 20,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 19,
+                  "mean_iou": 0.6844813595822579
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -6705,12 +7221,12 @@
                 "cost": {
                   "by_kind": {
                     "false_negative": {
-                      "count": 27,
-                      "cost": 27
+                      "count": 12,
+                      "cost": 12
                     },
                     "false_positive": {
-                      "count": 16,
-                      "cost": 68
+                      "count": 1,
+                      "cost": 3
                     },
                     "superseded_as_open": {
                       "count": 0,
@@ -6723,20 +7239,20 @@
                   },
                   "false_positive_by_direction": {
                     "blocked_on_them": {
-                      "count": 4,
-                      "cost": 32
+                      "count": 0,
+                      "cost": 0
                     },
                     "blocked_on_you": {
-                      "count": 8,
-                      "cost": 24
+                      "count": 1,
+                      "cost": 3
                     },
                     "mutual": {
-                      "count": 4,
-                      "cost": 12
+                      "count": 0,
+                      "cost": 0
                     }
                   },
-                  "total": 103,
-                  "per_thread": 5.15
+                  "total": 23,
+                  "per_thread": 1.15
                 }
               }
             },
@@ -6747,45 +7263,45 @@
                 "truth_loops": 29,
                 "predicted_loops": 21,
                 "detection": {
-                  "tp": 9,
-                  "fp": 11,
-                  "fn": 20,
-                  "precision": 0.45,
-                  "recall": 0.3103448275862069,
-                  "f1": 0.3673469387755102
+                  "tp": 19,
+                  "fp": 1,
+                  "fn": 10,
+                  "precision": 0.95,
+                  "recall": 0.6551724137931034,
+                  "f1": 0.7755102040816326
                 },
                 "direction": {
                   "rows": {
                     "blocked_on_them": {
-                      "blocked_on_them": 5,
+                      "blocked_on_them": 8,
                       "blocked_on_you": 0,
                       "mutual": 0
                     },
                     "blocked_on_you": {
-                      "blocked_on_them": 0,
-                      "blocked_on_you": 4,
+                      "blocked_on_them": 1,
+                      "blocked_on_you": 9,
                       "mutual": 0
                     },
                     "mutual": {
                       "blocked_on_them": 0,
                       "blocked_on_you": 0,
-                      "mutual": 0
+                      "mutual": 1
                     }
                   },
-                  "correct": 9,
-                  "n": 9,
-                  "accuracy": 1
+                  "correct": 18,
+                  "n": 19,
+                  "accuracy": 0.9473684210526315
                 },
                 "state": {
                   "rows": {
                     "open": {
-                      "open": 9,
+                      "open": 17,
                       "closed": 0,
                       "superseded": 0
                     },
                     "closed": {
                       "open": 0,
-                      "closed": 0,
+                      "closed": 2,
                       "superseded": 0
                     },
                     "superseded": {
@@ -6794,8 +7310,8 @@
                       "superseded": 0
                     }
                   },
-                  "correct": 9,
-                  "n": 9,
+                  "correct": 19,
+                  "n": 19,
                   "accuracy": 1,
                   "superseded_as_open": {
                     "count": 0,
@@ -6806,7 +7322,7 @@
                 "certainty": {
                   "rows": {
                     "explicit": {
-                      "explicit": 5,
+                      "explicit": 13,
                       "implied": 2,
                       "none": 0
                     },
@@ -6818,34 +7334,46 @@
                     "none": {
                       "explicit": 0,
                       "implied": 0,
-                      "none": 1
+                      "none": 3
                     }
                   },
-                  "correct": 7,
-                  "n": 9,
-                  "accuracy": 0.7777777777777778
+                  "correct": 17,
+                  "n": 19,
+                  "accuracy": 0.8947368421052632
                 },
                 "deadline_resolved": {
-                  "exact": 6,
-                  "of": 8,
-                  "rate": 0.75,
+                  "exact": 13,
+                  "of": 15,
+                  "rate": 0.8666666666666667,
                   "hallucinated": 0,
                   "missing": 2
                 },
+                "deadline_span": {
+                  "of": 15,
+                  "found": 13,
+                  "rate": 0.8666666666666667,
+                  "missing": 2,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
-                  "of": 0,
-                  "scored": 0,
-                  "msg_index_correct": 0,
-                  "msg_index_rate": 0,
-                  "mean_iou": 0,
+                  "of": 2,
+                  "scored": 2,
+                  "msg_index_correct": 2,
+                  "msg_index_rate": 1,
+                  "mean_iou": 1,
                   "missing": 0,
                   "unmappable": 0,
-                  "spurious": 1
+                  "spurious": 2
                 },
                 "grounding": {
                   "grounded": 20,
                   "of": 20,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 19,
+                  "mean_iou": 0.6969627088762752
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -6860,38 +7388,38 @@
                 "cost": {
                   "by_kind": {
                     "false_negative": {
-                      "count": 20,
-                      "cost": 20
+                      "count": 10,
+                      "cost": 10
                     },
                     "false_positive": {
-                      "count": 11,
-                      "cost": 53
+                      "count": 1,
+                      "cost": 3
                     },
                     "superseded_as_open": {
                       "count": 0,
                       "cost": 0
                     },
                     "direction_inverted": {
-                      "count": 0,
-                      "cost": 0
+                      "count": 1,
+                      "cost": 8
                     }
                   },
                   "false_positive_by_direction": {
                     "blocked_on_them": {
-                      "count": 4,
-                      "cost": 32
+                      "count": 0,
+                      "cost": 0
                     },
                     "blocked_on_you": {
-                      "count": 6,
-                      "cost": 18
-                    },
-                    "mutual": {
                       "count": 1,
                       "cost": 3
+                    },
+                    "mutual": {
+                      "count": 0,
+                      "cost": 0
                     }
                   },
-                  "total": 73,
-                  "per_thread": 3.65
+                  "total": 21,
+                  "per_thread": 1.05
                 }
               }
             },
@@ -6987,6 +7515,14 @@
                   "hallucinated": 0,
                   "missing": 0
                 },
+                "deadline_span": {
+                  "of": 0,
+                  "found": 0,
+                  "rate": 0,
+                  "missing": 0,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 0,
                   "scored": 0,
@@ -7001,6 +7537,10 @@
                   "grounded": 0,
                   "of": 0,
                   "rate": 0
+                },
+                "span_tightness": {
+                  "matched": 0,
+                  "mean_iou": 0
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -7057,12 +7597,12 @@
                 "truth_loops": 18,
                 "predicted_loops": 13,
                 "detection": {
-                  "tp": 5,
-                  "fp": 8,
-                  "fn": 13,
-                  "precision": 0.38461538461538464,
-                  "recall": 0.2777777777777778,
-                  "f1": 0.3225806451612903
+                  "tp": 12,
+                  "fp": 1,
+                  "fn": 6,
+                  "precision": 0.9230769230769231,
+                  "recall": 0.6666666666666666,
+                  "f1": 0.7741935483870968
                 },
                 "direction": {
                   "rows": {
@@ -7072,8 +7612,8 @@
                       "mutual": 0
                     },
                     "blocked_on_you": {
-                      "blocked_on_them": 0,
-                      "blocked_on_you": 5,
+                      "blocked_on_them": 1,
+                      "blocked_on_you": 11,
                       "mutual": 0
                     },
                     "mutual": {
@@ -7082,14 +7622,14 @@
                       "mutual": 0
                     }
                   },
-                  "correct": 5,
-                  "n": 5,
-                  "accuracy": 1
+                  "correct": 11,
+                  "n": 12,
+                  "accuracy": 0.9166666666666666
                 },
                 "state": {
                   "rows": {
                     "open": {
-                      "open": 1,
+                      "open": 3,
                       "closed": 0,
                       "superseded": 0
                     },
@@ -7099,25 +7639,25 @@
                       "superseded": 0
                     },
                     "superseded": {
-                      "open": 0,
+                      "open": 2,
                       "closed": 0,
-                      "superseded": 4
+                      "superseded": 7
                     }
                   },
-                  "correct": 5,
-                  "n": 5,
-                  "accuracy": 1,
+                  "correct": 10,
+                  "n": 12,
+                  "accuracy": 0.8333333333333334,
                   "superseded_as_open": {
-                    "count": 0,
-                    "of": 4,
-                    "rate": 0
+                    "count": 2,
+                    "of": 9,
+                    "rate": 0.2222222222222222
                   }
                 },
                 "certainty": {
                   "rows": {
                     "explicit": {
-                      "explicit": 3,
-                      "implied": 1,
+                      "explicit": 7,
+                      "implied": 2,
                       "none": 0
                     },
                     "implied": {
@@ -7128,27 +7668,35 @@
                     "none": {
                       "explicit": 0,
                       "implied": 0,
-                      "none": 1
+                      "none": 3
                     }
                   },
-                  "correct": 4,
-                  "n": 5,
-                  "accuracy": 0.8
+                  "correct": 10,
+                  "n": 12,
+                  "accuracy": 0.8333333333333334
                 },
                 "deadline_resolved": {
-                  "exact": 2,
-                  "of": 3,
-                  "rate": 0.6666666666666666,
+                  "exact": 6,
+                  "of": 8,
+                  "rate": 0.75,
                   "hallucinated": 0,
-                  "missing": 1
+                  "missing": 2
+                },
+                "deadline_span": {
+                  "of": 9,
+                  "found": 7,
+                  "rate": 0.7777777777777778,
+                  "missing": 2,
+                  "unmappable": 0,
+                  "spurious": 0
                 },
                 "resolution_span": {
-                  "of": 4,
-                  "scored": 4,
-                  "msg_index_correct": 4,
+                  "of": 9,
+                  "scored": 7,
+                  "msg_index_correct": 7,
                   "msg_index_rate": 1,
                   "mean_iou": 1,
-                  "missing": 0,
+                  "missing": 2,
                   "unmappable": 0,
                   "spurious": 0
                 },
@@ -7156,6 +7704,10 @@
                   "grounded": 13,
                   "of": 13,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 12,
+                  "mean_iou": 0.6942524541603291
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -7170,38 +7722,38 @@
                 "cost": {
                   "by_kind": {
                     "false_negative": {
-                      "count": 13,
-                      "cost": 13
+                      "count": 6,
+                      "cost": 6
                     },
                     "false_positive": {
-                      "count": 8,
-                      "cost": 29
+                      "count": 1,
+                      "cost": 3
                     },
                     "superseded_as_open": {
-                      "count": 0,
-                      "cost": 0
+                      "count": 2,
+                      "cost": 16
                     },
                     "direction_inverted": {
-                      "count": 0,
-                      "cost": 0
+                      "count": 1,
+                      "cost": 8
                     }
                   },
                   "false_positive_by_direction": {
                     "blocked_on_them": {
-                      "count": 1,
-                      "cost": 8
+                      "count": 0,
+                      "cost": 0
                     },
                     "blocked_on_you": {
-                      "count": 7,
-                      "cost": 21
+                      "count": 1,
+                      "cost": 3
                     },
                     "mutual": {
                       "count": 0,
                       "cost": 0
                     }
                   },
-                  "total": 42,
-                  "per_thread": 3
+                  "total": 33,
+                  "per_thread": 2.357142857142857
                 }
               }
             }
@@ -7216,39 +7768,39 @@
                 "truth_loops": 24,
                 "predicted_loops": 15,
                 "detection": {
-                  "tp": 6,
-                  "fp": 9,
-                  "fn": 18,
-                  "precision": 0.4,
-                  "recall": 0.25,
-                  "f1": 0.3076923076923077
+                  "tp": 15,
+                  "fp": 0,
+                  "fn": 9,
+                  "precision": 1,
+                  "recall": 0.625,
+                  "f1": 0.7692307692307693
                 },
                 "direction": {
                   "rows": {
                     "blocked_on_them": {
-                      "blocked_on_them": 5,
+                      "blocked_on_them": 7,
                       "blocked_on_you": 0,
                       "mutual": 0
                     },
                     "blocked_on_you": {
                       "blocked_on_them": 0,
-                      "blocked_on_you": 1,
+                      "blocked_on_you": 6,
                       "mutual": 0
                     },
                     "mutual": {
                       "blocked_on_them": 0,
                       "blocked_on_you": 0,
-                      "mutual": 0
+                      "mutual": 2
                     }
                   },
-                  "correct": 6,
-                  "n": 6,
+                  "correct": 15,
+                  "n": 15,
                   "accuracy": 1
                 },
                 "state": {
                   "rows": {
                     "open": {
-                      "open": 5,
+                      "open": 11,
                       "closed": 0,
                       "superseded": 0
                     },
@@ -7258,56 +7810,64 @@
                       "superseded": 0
                     },
                     "superseded": {
-                      "open": 0,
+                      "open": 1,
                       "closed": 0,
-                      "superseded": 1
+                      "superseded": 3
                     }
                   },
-                  "correct": 6,
-                  "n": 6,
-                  "accuracy": 1,
+                  "correct": 14,
+                  "n": 15,
+                  "accuracy": 0.9333333333333333,
                   "superseded_as_open": {
-                    "count": 0,
-                    "of": 1,
-                    "rate": 0
+                    "count": 1,
+                    "of": 4,
+                    "rate": 0.25
                   }
                 },
                 "certainty": {
                   "rows": {
                     "explicit": {
-                      "explicit": 4,
+                      "explicit": 10,
                       "implied": 1,
                       "none": 0
                     },
                     "implied": {
                       "explicit": 0,
-                      "implied": 0,
+                      "implied": 1,
                       "none": 0
                     },
                     "none": {
                       "explicit": 0,
                       "implied": 0,
-                      "none": 1
+                      "none": 3
                     }
                   },
-                  "correct": 5,
-                  "n": 6,
-                  "accuracy": 0.8333333333333334
+                  "correct": 14,
+                  "n": 15,
+                  "accuracy": 0.9333333333333333
                 },
                 "deadline_resolved": {
-                  "exact": 4,
-                  "of": 5,
-                  "rate": 0.8,
+                  "exact": 9,
+                  "of": 10,
+                  "rate": 0.9,
                   "hallucinated": 0,
                   "missing": 1
                 },
+                "deadline_span": {
+                  "of": 11,
+                  "found": 10,
+                  "rate": 0.9090909090909091,
+                  "missing": 1,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
-                  "of": 1,
-                  "scored": 1,
-                  "msg_index_correct": 1,
+                  "of": 4,
+                  "scored": 3,
+                  "msg_index_correct": 3,
                   "msg_index_rate": 1,
                   "mean_iou": 1,
-                  "missing": 0,
+                  "missing": 1,
                   "unmappable": 0,
                   "spurious": 0
                 },
@@ -7315,6 +7875,10 @@
                   "grounded": 15,
                   "of": 15,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 15,
+                  "mean_iou": 0.6907320940400434
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -7329,16 +7893,16 @@
                 "cost": {
                   "by_kind": {
                     "false_negative": {
-                      "count": 18,
-                      "cost": 18
+                      "count": 9,
+                      "cost": 9
                     },
                     "false_positive": {
-                      "count": 9,
-                      "cost": 37
-                    },
-                    "superseded_as_open": {
                       "count": 0,
                       "cost": 0
+                    },
+                    "superseded_as_open": {
+                      "count": 1,
+                      "cost": 8
                     },
                     "direction_inverted": {
                       "count": 0,
@@ -7347,20 +7911,20 @@
                   },
                   "false_positive_by_direction": {
                     "blocked_on_them": {
-                      "count": 2,
-                      "cost": 16
+                      "count": 0,
+                      "cost": 0
                     },
                     "blocked_on_you": {
-                      "count": 5,
-                      "cost": 15
+                      "count": 0,
+                      "cost": 0
                     },
                     "mutual": {
-                      "count": 2,
-                      "cost": 6
+                      "count": 0,
+                      "cost": 0
                     }
                   },
-                  "total": 55,
-                  "per_thread": 2.75
+                  "total": 17,
+                  "per_thread": 0.85
                 }
               }
             },
@@ -7371,105 +7935,117 @@
                 "truth_loops": 68,
                 "predicted_loops": 48,
                 "detection": {
-                  "tp": 20,
-                  "fp": 27,
-                  "fn": 48,
-                  "precision": 0.425531914893617,
-                  "recall": 0.29411764705882354,
-                  "f1": 0.34782608695652173
+                  "tp": 45,
+                  "fp": 2,
+                  "fn": 23,
+                  "precision": 0.9574468085106383,
+                  "recall": 0.6617647058823529,
+                  "f1": 0.782608695652174
                 },
                 "direction": {
                   "rows": {
                     "blocked_on_them": {
-                      "blocked_on_them": 7,
+                      "blocked_on_them": 14,
                       "blocked_on_you": 0,
                       "mutual": 0
                     },
                     "blocked_on_you": {
-                      "blocked_on_them": 1,
-                      "blocked_on_you": 12,
+                      "blocked_on_them": 3,
+                      "blocked_on_you": 25,
                       "mutual": 0
                     },
                     "mutual": {
                       "blocked_on_them": 0,
                       "blocked_on_you": 0,
-                      "mutual": 0
+                      "mutual": 3
                     }
                   },
-                  "correct": 19,
-                  "n": 20,
-                  "accuracy": 0.95
+                  "correct": 42,
+                  "n": 45,
+                  "accuracy": 0.9333333333333333
                 },
                 "state": {
                   "rows": {
                     "open": {
-                      "open": 14,
+                      "open": 32,
                       "closed": 0,
                       "superseded": 0
                     },
                     "closed": {
                       "open": 0,
-                      "closed": 0,
+                      "closed": 2,
                       "superseded": 0
                     },
                     "superseded": {
-                      "open": 1,
+                      "open": 2,
                       "closed": 0,
-                      "superseded": 5
+                      "superseded": 9
                     }
                   },
-                  "correct": 19,
-                  "n": 20,
-                  "accuracy": 0.95,
+                  "correct": 43,
+                  "n": 45,
+                  "accuracy": 0.9555555555555556,
                   "superseded_as_open": {
-                    "count": 1,
-                    "of": 6,
-                    "rate": 0.16666666666666666
+                    "count": 2,
+                    "of": 11,
+                    "rate": 0.18181818181818182
                   }
                 },
                 "certainty": {
                   "rows": {
                     "explicit": {
-                      "explicit": 6,
-                      "implied": 3,
+                      "explicit": 16,
+                      "implied": 6,
                       "none": 0
                     },
                     "implied": {
                       "explicit": 0,
-                      "implied": 1,
+                      "implied": 5,
                       "none": 0
                     },
                     "none": {
                       "explicit": 0,
                       "implied": 0,
-                      "none": 10
+                      "none": 18
                     }
                   },
-                  "correct": 17,
-                  "n": 20,
-                  "accuracy": 0.85
+                  "correct": 39,
+                  "n": 45,
+                  "accuracy": 0.8666666666666667
                 },
                 "deadline_resolved": {
-                  "exact": 5,
-                  "of": 8,
-                  "rate": 0.625,
+                  "exact": 18,
+                  "of": 24,
+                  "rate": 0.75,
                   "hallucinated": 0,
-                  "missing": 3
+                  "missing": 6
+                },
+                "deadline_span": {
+                  "of": 22,
+                  "found": 16,
+                  "rate": 0.7272727272727273,
+                  "missing": 6,
+                  "unmappable": 0,
+                  "spurious": 0
                 },
                 "resolution_span": {
-                  "of": 6,
-                  "scored": 5,
-                  "msg_index_correct": 5,
-                  "msg_index_rate": 1,
-                  "mean_iou": 1,
-                  "missing": 1,
+                  "of": 13,
+                  "scored": 11,
+                  "msg_index_correct": 10,
+                  "msg_index_rate": 0.9090909090909091,
+                  "mean_iou": 0.9090909090909091,
+                  "missing": 2,
                   "unmappable": 0,
-                  "spurious": 1
+                  "spurious": 4
                 },
                 "grounding": {
                   "grounded": 47,
                   "of": 47,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 45,
+                  "mean_iou": 0.6977965711592045
                 },
                 "unmappable": {
                   "predictions": 1,
@@ -7484,38 +8060,38 @@
                 "cost": {
                   "by_kind": {
                     "false_negative": {
-                      "count": 48,
-                      "cost": 48
+                      "count": 23,
+                      "cost": 23
                     },
                     "false_positive": {
-                      "count": 27,
-                      "cost": 126
+                      "count": 2,
+                      "cost": 6
                     },
                     "superseded_as_open": {
-                      "count": 1,
-                      "cost": 8
+                      "count": 2,
+                      "cost": 16
                     },
                     "direction_inverted": {
-                      "count": 1,
-                      "cost": 8
+                      "count": 3,
+                      "cost": 24
                     }
                   },
                   "false_positive_by_direction": {
                     "blocked_on_them": {
-                      "count": 9,
-                      "cost": 72
+                      "count": 0,
+                      "cost": 0
                     },
                     "blocked_on_you": {
-                      "count": 15,
-                      "cost": 45
+                      "count": 2,
+                      "cost": 6
                     },
                     "mutual": {
-                      "count": 3,
-                      "cost": 9
+                      "count": 0,
+                      "cost": 0
                     }
                   },
-                  "total": 190,
-                  "per_thread": 3.6538461538461537
+                  "total": 69,
+                  "per_thread": 1.3269230769230769
                 }
               }
             },
@@ -7526,23 +8102,23 @@
                 "truth_loops": 11,
                 "predicted_loops": 8,
                 "detection": {
-                  "tp": 4,
-                  "fp": 3,
-                  "fn": 7,
-                  "precision": 0.5714285714285714,
-                  "recall": 0.36363636363636365,
-                  "f1": 0.4444444444444444
+                  "tp": 7,
+                  "fp": 0,
+                  "fn": 4,
+                  "precision": 1,
+                  "recall": 0.6363636363636364,
+                  "f1": 0.7777777777777778
                 },
                 "direction": {
                   "rows": {
                     "blocked_on_them": {
-                      "blocked_on_them": 1,
+                      "blocked_on_them": 2,
                       "blocked_on_you": 0,
                       "mutual": 0
                     },
                     "blocked_on_you": {
                       "blocked_on_them": 1,
-                      "blocked_on_you": 2,
+                      "blocked_on_you": 4,
                       "mutual": 0
                     },
                     "mutual": {
@@ -7551,14 +8127,14 @@
                       "mutual": 0
                     }
                   },
-                  "correct": 3,
-                  "n": 4,
-                  "accuracy": 0.75
+                  "correct": 6,
+                  "n": 7,
+                  "accuracy": 0.8571428571428571
                 },
                 "state": {
                   "rows": {
                     "open": {
-                      "open": 3,
+                      "open": 6,
                       "closed": 0,
                       "superseded": 0
                     },
@@ -7573,8 +8149,8 @@
                       "superseded": 0
                     }
                   },
-                  "correct": 4,
-                  "n": 4,
+                  "correct": 7,
+                  "n": 7,
                   "accuracy": 1,
                   "superseded_as_open": {
                     "count": 0,
@@ -7585,7 +8161,7 @@
                 "certainty": {
                   "rows": {
                     "explicit": {
-                      "explicit": 1,
+                      "explicit": 3,
                       "implied": 1,
                       "none": 0
                     },
@@ -7597,19 +8173,27 @@
                     "none": {
                       "explicit": 0,
                       "implied": 0,
-                      "none": 1
+                      "none": 2
                     }
                   },
-                  "correct": 3,
-                  "n": 4,
-                  "accuracy": 0.75
+                  "correct": 6,
+                  "n": 7,
+                  "accuracy": 0.8571428571428571
                 },
                 "deadline_resolved": {
-                  "exact": 2,
-                  "of": 3,
-                  "rate": 0.6666666666666666,
+                  "exact": 4,
+                  "of": 5,
+                  "rate": 0.8,
                   "hallucinated": 0,
                   "missing": 1
+                },
+                "deadline_span": {
+                  "of": 4,
+                  "found": 3,
+                  "rate": 0.75,
+                  "missing": 1,
+                  "unmappable": 0,
+                  "spurious": 0
                 },
                 "resolution_span": {
                   "of": 1,
@@ -7626,6 +8210,10 @@
                   "of": 7,
                   "rate": 1
                 },
+                "span_tightness": {
+                  "matched": 7,
+                  "mean_iou": 0.6999753546771378
+                },
                 "unmappable": {
                   "predictions": 1,
                   "deadline_spans": 0,
@@ -7639,12 +8227,12 @@
                 "cost": {
                   "by_kind": {
                     "false_negative": {
-                      "count": 7,
-                      "cost": 7
+                      "count": 4,
+                      "cost": 4
                     },
                     "false_positive": {
-                      "count": 3,
-                      "cost": 14
+                      "count": 0,
+                      "cost": 0
                     },
                     "superseded_as_open": {
                       "count": 0,
@@ -7657,20 +8245,20 @@
                   },
                   "false_positive_by_direction": {
                     "blocked_on_them": {
-                      "count": 1,
-                      "cost": 8
+                      "count": 0,
+                      "cost": 0
                     },
                     "blocked_on_you": {
-                      "count": 2,
-                      "cost": 6
+                      "count": 0,
+                      "cost": 0
                     },
                     "mutual": {
                       "count": 0,
                       "cost": 0
                     }
                   },
-                  "total": 29,
-                  "per_thread": 4.833333333333333
+                  "total": 12,
+                  "per_thread": 2
                 }
               }
             },
@@ -7681,12 +8269,12 @@
                 "truth_loops": 4,
                 "predicted_loops": 4,
                 "detection": {
-                  "tp": 0,
-                  "fp": 4,
-                  "fn": 4,
-                  "precision": 0,
-                  "recall": 0,
-                  "f1": 0
+                  "tp": 3,
+                  "fp": 1,
+                  "fn": 1,
+                  "precision": 0.75,
+                  "recall": 0.75,
+                  "f1": 0.75
                 },
                 "direction": {
                   "rows": {
@@ -7697,7 +8285,7 @@
                     },
                     "blocked_on_you": {
                       "blocked_on_them": 0,
-                      "blocked_on_you": 0,
+                      "blocked_on_you": 3,
                       "mutual": 0
                     },
                     "mutual": {
@@ -7706,20 +8294,20 @@
                       "mutual": 0
                     }
                   },
-                  "correct": 0,
-                  "n": 0,
-                  "accuracy": 0
+                  "correct": 3,
+                  "n": 3,
+                  "accuracy": 1
                 },
                 "state": {
                   "rows": {
                     "open": {
-                      "open": 0,
+                      "open": 1,
                       "closed": 0,
                       "superseded": 0
                     },
                     "closed": {
                       "open": 0,
-                      "closed": 0,
+                      "closed": 2,
                       "superseded": 0
                     },
                     "superseded": {
@@ -7728,9 +8316,9 @@
                       "superseded": 0
                     }
                   },
-                  "correct": 0,
-                  "n": 0,
-                  "accuracy": 0,
+                  "correct": 3,
+                  "n": 3,
+                  "accuracy": 1,
                   "superseded_as_open": {
                     "count": 0,
                     "of": 0,
@@ -7740,8 +8328,8 @@
                 "certainty": {
                   "rows": {
                     "explicit": {
-                      "explicit": 0,
-                      "implied": 0,
+                      "explicit": 2,
+                      "implied": 1,
                       "none": 0
                     },
                     "implied": {
@@ -7755,23 +8343,31 @@
                       "none": 0
                     }
                   },
-                  "correct": 0,
-                  "n": 0,
-                  "accuracy": 0
+                  "correct": 2,
+                  "n": 3,
+                  "accuracy": 0.6666666666666666
                 },
                 "deadline_resolved": {
-                  "exact": 0,
-                  "of": 0,
-                  "rate": 0,
+                  "exact": 2,
+                  "of": 3,
+                  "rate": 0.6666666666666666,
                   "hallucinated": 0,
-                  "missing": 0
+                  "missing": 1
+                },
+                "deadline_span": {
+                  "of": 3,
+                  "found": 2,
+                  "rate": 0.6666666666666666,
+                  "missing": 1,
+                  "unmappable": 0,
+                  "spurious": 0
                 },
                 "resolution_span": {
-                  "of": 0,
-                  "scored": 0,
-                  "msg_index_correct": 0,
-                  "msg_index_rate": 0,
-                  "mean_iou": 0,
+                  "of": 2,
+                  "scored": 2,
+                  "msg_index_correct": 2,
+                  "msg_index_rate": 1,
+                  "mean_iou": 1,
                   "missing": 0,
                   "unmappable": 0,
                   "spurious": 0
@@ -7780,6 +8376,10 @@
                   "grounded": 4,
                   "of": 4,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 3,
+                  "mean_iou": 0.672514619883041
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -7794,12 +8394,12 @@
                 "cost": {
                   "by_kind": {
                     "false_negative": {
-                      "count": 4,
-                      "cost": 4
+                      "count": 1,
+                      "cost": 1
                     },
                     "false_positive": {
-                      "count": 4,
-                      "cost": 12
+                      "count": 1,
+                      "cost": 3
                     },
                     "superseded_as_open": {
                       "count": 0,
@@ -7816,16 +8416,16 @@
                       "cost": 0
                     },
                     "blocked_on_you": {
-                      "count": 4,
-                      "cost": 12
+                      "count": 1,
+                      "cost": 3
                     },
                     "mutual": {
                       "count": 0,
                       "cost": 0
                     }
                   },
-                  "total": 16,
-                  "per_thread": 8
+                  "total": 4,
+                  "per_thread": 2
                 }
               }
             }
@@ -7925,6 +8525,14 @@
                   "hallucinated": 0,
                   "missing": 0
                 },
+                "deadline_span": {
+                  "of": 0,
+                  "found": 0,
+                  "rate": 0,
+                  "missing": 0,
+                  "unmappable": 0,
+                  "spurious": 0
+                },
                 "resolution_span": {
                   "of": 0,
                   "scored": 0,
@@ -7939,6 +8547,10 @@
                   "grounded": 0,
                   "of": 0,
                   "rate": 0
+                },
+                "span_tightness": {
+                  "matched": 0,
+                  "mean_iou": 0
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -7995,98 +8607,106 @@
                 "truth_loops": 34,
                 "predicted_loops": 24,
                 "detection": {
-                  "tp": 9,
-                  "fp": 15,
-                  "fn": 25,
-                  "precision": 0.375,
-                  "recall": 0.2647058823529412,
-                  "f1": 0.31034482758620696
+                  "tp": 23,
+                  "fp": 1,
+                  "fn": 11,
+                  "precision": 0.9583333333333334,
+                  "recall": 0.6764705882352942,
+                  "f1": 0.7931034482758621
                 },
                 "direction": {
                   "rows": {
                     "blocked_on_them": {
-                      "blocked_on_them": 5,
+                      "blocked_on_them": 6,
                       "blocked_on_you": 0,
                       "mutual": 0
                     },
                     "blocked_on_you": {
-                      "blocked_on_them": 0,
-                      "blocked_on_you": 4,
+                      "blocked_on_them": 1,
+                      "blocked_on_you": 15,
                       "mutual": 0
                     },
                     "mutual": {
                       "blocked_on_them": 0,
                       "blocked_on_you": 0,
-                      "mutual": 0
+                      "mutual": 1
                     }
                   },
-                  "correct": 9,
-                  "n": 9,
-                  "accuracy": 1
+                  "correct": 22,
+                  "n": 23,
+                  "accuracy": 0.9565217391304348
                 },
                 "state": {
                   "rows": {
                     "open": {
-                      "open": 7,
+                      "open": 14,
                       "closed": 0,
                       "superseded": 0
                     },
                     "closed": {
                       "open": 0,
-                      "closed": 0,
+                      "closed": 3,
                       "superseded": 0
                     },
                     "superseded": {
-                      "open": 0,
+                      "open": 2,
                       "closed": 0,
-                      "superseded": 2
+                      "superseded": 4
                     }
                   },
-                  "correct": 9,
-                  "n": 9,
-                  "accuracy": 1,
+                  "correct": 21,
+                  "n": 23,
+                  "accuracy": 0.9130434782608695,
                   "superseded_as_open": {
-                    "count": 0,
-                    "of": 2,
-                    "rate": 0
+                    "count": 2,
+                    "of": 6,
+                    "rate": 0.3333333333333333
                   }
                 },
                 "certainty": {
                   "rows": {
                     "explicit": {
-                      "explicit": 6,
-                      "implied": 1,
+                      "explicit": 16,
+                      "implied": 2,
                       "none": 0
                     },
                     "implied": {
                       "explicit": 0,
-                      "implied": 1,
+                      "implied": 3,
                       "none": 0
                     },
                     "none": {
                       "explicit": 0,
                       "implied": 0,
-                      "none": 1
+                      "none": 2
                     }
                   },
-                  "correct": 8,
-                  "n": 9,
-                  "accuracy": 0.8888888888888888
+                  "correct": 21,
+                  "n": 23,
+                  "accuracy": 0.9130434782608695
                 },
                 "deadline_resolved": {
-                  "exact": 6,
-                  "of": 7,
-                  "rate": 0.8571428571428571,
+                  "exact": 17,
+                  "of": 19,
+                  "rate": 0.8947368421052632,
                   "hallucinated": 0,
-                  "missing": 1
+                  "missing": 2
+                },
+                "deadline_span": {
+                  "of": 18,
+                  "found": 16,
+                  "rate": 0.8888888888888888,
+                  "missing": 2,
+                  "unmappable": 0,
+                  "spurious": 0
                 },
                 "resolution_span": {
-                  "of": 2,
-                  "scored": 2,
-                  "msg_index_correct": 2,
+                  "of": 9,
+                  "scored": 7,
+                  "msg_index_correct": 7,
                   "msg_index_rate": 1,
                   "mean_iou": 1,
-                  "missing": 0,
+                  "missing": 2,
                   "unmappable": 0,
                   "spurious": 1
                 },
@@ -8094,6 +8714,10 @@
                   "grounded": 24,
                   "of": 24,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 23,
+                  "mean_iou": 0.6916457624720092
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -8108,38 +8732,38 @@
                 "cost": {
                   "by_kind": {
                     "false_negative": {
-                      "count": 25,
-                      "cost": 25
+                      "count": 11,
+                      "cost": 11
                     },
                     "false_positive": {
-                      "count": 15,
-                      "cost": 55
+                      "count": 1,
+                      "cost": 3
                     },
                     "superseded_as_open": {
-                      "count": 0,
-                      "cost": 0
+                      "count": 2,
+                      "cost": 16
                     },
                     "direction_inverted": {
-                      "count": 0,
-                      "cost": 0
+                      "count": 1,
+                      "cost": 8
                     }
                   },
                   "false_positive_by_direction": {
                     "blocked_on_them": {
-                      "count": 2,
-                      "cost": 16
+                      "count": 0,
+                      "cost": 0
                     },
                     "blocked_on_you": {
-                      "count": 12,
-                      "cost": 36
-                    },
-                    "mutual": {
                       "count": 1,
                       "cost": 3
+                    },
+                    "mutual": {
+                      "count": 0,
+                      "cost": 0
                     }
                   },
-                  "total": 80,
-                  "per_thread": 2.3529411764705883
+                  "total": 38,
+                  "per_thread": 1.1176470588235294
                 }
               }
             },
@@ -8150,39 +8774,39 @@
                 "truth_loops": 42,
                 "predicted_loops": 30,
                 "detection": {
-                  "tp": 11,
-                  "fp": 19,
-                  "fn": 31,
-                  "precision": 0.36666666666666664,
-                  "recall": 0.2619047619047619,
-                  "f1": 0.3055555555555555
+                  "tp": 29,
+                  "fp": 1,
+                  "fn": 13,
+                  "precision": 0.9666666666666667,
+                  "recall": 0.6904761904761905,
+                  "f1": 0.8055555555555556
                 },
                 "direction": {
                   "rows": {
                     "blocked_on_them": {
-                      "blocked_on_them": 2,
+                      "blocked_on_them": 9,
                       "blocked_on_you": 0,
                       "mutual": 0
                     },
                     "blocked_on_you": {
-                      "blocked_on_them": 0,
-                      "blocked_on_you": 9,
+                      "blocked_on_them": 1,
+                      "blocked_on_you": 16,
                       "mutual": 0
                     },
                     "mutual": {
                       "blocked_on_them": 0,
                       "blocked_on_you": 0,
-                      "mutual": 0
+                      "mutual": 3
                     }
                   },
-                  "correct": 11,
-                  "n": 11,
-                  "accuracy": 1
+                  "correct": 28,
+                  "n": 29,
+                  "accuracy": 0.9655172413793104
                 },
                 "state": {
                   "rows": {
                     "open": {
-                      "open": 8,
+                      "open": 23,
                       "closed": 0,
                       "superseded": 0
                     },
@@ -8194,61 +8818,73 @@
                     "superseded": {
                       "open": 0,
                       "closed": 0,
-                      "superseded": 3
+                      "superseded": 6
                     }
                   },
-                  "correct": 11,
-                  "n": 11,
+                  "correct": 29,
+                  "n": 29,
                   "accuracy": 1,
                   "superseded_as_open": {
                     "count": 0,
-                    "of": 3,
+                    "of": 6,
                     "rate": 0
                   }
                 },
                 "certainty": {
                   "rows": {
                     "explicit": {
-                      "explicit": 2,
-                      "implied": 2,
+                      "explicit": 11,
+                      "implied": 3,
                       "none": 0
                     },
                     "implied": {
                       "explicit": 0,
-                      "implied": 1,
+                      "implied": 3,
                       "none": 0
                     },
                     "none": {
                       "explicit": 0,
                       "implied": 0,
-                      "none": 6
+                      "none": 12
                     }
                   },
-                  "correct": 9,
-                  "n": 11,
-                  "accuracy": 0.8181818181818182
+                  "correct": 26,
+                  "n": 29,
+                  "accuracy": 0.896551724137931
                 },
                 "deadline_resolved": {
-                  "exact": 3,
-                  "of": 5,
-                  "rate": 0.6,
+                  "exact": 12,
+                  "of": 15,
+                  "rate": 0.8,
                   "hallucinated": 0,
-                  "missing": 2
+                  "missing": 3
+                },
+                "deadline_span": {
+                  "of": 14,
+                  "found": 11,
+                  "rate": 0.7857142857142857,
+                  "missing": 3,
+                  "unmappable": 0,
+                  "spurious": 0
                 },
                 "resolution_span": {
-                  "of": 3,
-                  "scored": 3,
-                  "msg_index_correct": 3,
+                  "of": 6,
+                  "scored": 6,
+                  "msg_index_correct": 6,
                   "msg_index_rate": 1,
                   "mean_iou": 1,
                   "missing": 0,
                   "unmappable": 0,
-                  "spurious": 1
+                  "spurious": 3
                 },
                 "grounding": {
                   "grounded": 30,
                   "of": 30,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 29,
+                  "mean_iou": 0.6942821861503454
                 },
                 "unmappable": {
                   "predictions": 0,
@@ -8263,38 +8899,38 @@
                 "cost": {
                   "by_kind": {
                     "false_negative": {
-                      "count": 31,
-                      "cost": 31
+                      "count": 13,
+                      "cost": 13
                     },
                     "false_positive": {
-                      "count": 19,
-                      "cost": 97
+                      "count": 1,
+                      "cost": 3
                     },
                     "superseded_as_open": {
                       "count": 0,
                       "cost": 0
                     },
                     "direction_inverted": {
-                      "count": 0,
-                      "cost": 0
+                      "count": 1,
+                      "cost": 8
                     }
                   },
                   "false_positive_by_direction": {
                     "blocked_on_them": {
-                      "count": 8,
-                      "cost": 64
+                      "count": 0,
+                      "cost": 0
                     },
                     "blocked_on_you": {
-                      "count": 8,
-                      "cost": 24
+                      "count": 1,
+                      "cost": 3
                     },
                     "mutual": {
-                      "count": 3,
-                      "cost": 9
+                      "count": 0,
+                      "cost": 0
                     }
                   },
-                  "total": 128,
-                  "per_thread": 6.095238095238095
+                  "total": 24,
+                  "per_thread": 1.1428571428571428
                 }
               }
             },
@@ -8305,105 +8941,117 @@
                 "truth_loops": 31,
                 "predicted_loops": 21,
                 "detection": {
-                  "tp": 10,
-                  "fp": 9,
-                  "fn": 21,
-                  "precision": 0.5263157894736842,
-                  "recall": 0.3225806451612903,
-                  "f1": 0.39999999999999997
+                  "tp": 18,
+                  "fp": 1,
+                  "fn": 13,
+                  "precision": 0.9473684210526315,
+                  "recall": 0.5806451612903226,
+                  "f1": 0.72
                 },
                 "direction": {
                   "rows": {
                     "blocked_on_them": {
-                      "blocked_on_them": 6,
+                      "blocked_on_them": 8,
                       "blocked_on_you": 0,
                       "mutual": 0
                     },
                     "blocked_on_you": {
                       "blocked_on_them": 2,
-                      "blocked_on_you": 2,
+                      "blocked_on_you": 7,
                       "mutual": 0
                     },
                     "mutual": {
                       "blocked_on_them": 0,
                       "blocked_on_you": 0,
-                      "mutual": 0
+                      "mutual": 1
                     }
                   },
-                  "correct": 8,
-                  "n": 10,
-                  "accuracy": 0.8
+                  "correct": 16,
+                  "n": 18,
+                  "accuracy": 0.8888888888888888
                 },
                 "state": {
                   "rows": {
                     "open": {
-                      "open": 7,
+                      "open": 13,
                       "closed": 0,
                       "superseded": 0
                     },
                     "closed": {
                       "open": 0,
-                      "closed": 1,
+                      "closed": 2,
                       "superseded": 0
                     },
                     "superseded": {
                       "open": 1,
                       "closed": 0,
-                      "superseded": 1
+                      "superseded": 2
                     }
                   },
-                  "correct": 9,
-                  "n": 10,
-                  "accuracy": 0.9,
+                  "correct": 17,
+                  "n": 18,
+                  "accuracy": 0.9444444444444444,
                   "superseded_as_open": {
                     "count": 1,
-                    "of": 2,
-                    "rate": 0.5
+                    "of": 3,
+                    "rate": 0.3333333333333333
                   }
                 },
                 "certainty": {
                   "rows": {
                     "explicit": {
-                      "explicit": 3,
-                      "implied": 2,
+                      "explicit": 4,
+                      "implied": 4,
                       "none": 0
                     },
                     "implied": {
                       "explicit": 0,
-                      "implied": 0,
+                      "implied": 1,
                       "none": 0
                     },
                     "none": {
                       "explicit": 0,
                       "implied": 0,
-                      "none": 5
+                      "none": 9
                     }
                   },
-                  "correct": 8,
-                  "n": 10,
-                  "accuracy": 0.8
+                  "correct": 14,
+                  "n": 18,
+                  "accuracy": 0.7777777777777778
                 },
                 "deadline_resolved": {
-                  "exact": 2,
-                  "of": 4,
+                  "exact": 4,
+                  "of": 8,
                   "rate": 0.5,
                   "hallucinated": 0,
-                  "missing": 2
+                  "missing": 4
                 },
-                "resolution_span": {
-                  "of": 3,
-                  "scored": 2,
-                  "msg_index_correct": 2,
-                  "msg_index_rate": 1,
-                  "mean_iou": 1,
-                  "missing": 1,
+                "deadline_span": {
+                  "of": 8,
+                  "found": 4,
+                  "rate": 0.5,
+                  "missing": 4,
                   "unmappable": 0,
                   "spurious": 0
+                },
+                "resolution_span": {
+                  "of": 5,
+                  "scored": 4,
+                  "msg_index_correct": 3,
+                  "msg_index_rate": 0.75,
+                  "mean_iou": 0.75,
+                  "missing": 1,
+                  "unmappable": 0,
+                  "spurious": 1
                 },
                 "grounding": {
                   "grounded": 19,
                   "of": 19,
                   "rate": 1
+                },
+                "span_tightness": {
+                  "matched": 18,
+                  "mean_iou": 0.7020645844409833
                 },
                 "unmappable": {
                   "predictions": 2,
@@ -8418,12 +9066,12 @@
                 "cost": {
                   "by_kind": {
                     "false_negative": {
-                      "count": 21,
-                      "cost": 21
+                      "count": 13,
+                      "cost": 13
                     },
                     "false_positive": {
-                      "count": 9,
-                      "cost": 37
+                      "count": 1,
+                      "cost": 3
                     },
                     "superseded_as_open": {
                       "count": 1,
@@ -8436,20 +9084,20 @@
                   },
                   "false_positive_by_direction": {
                     "blocked_on_them": {
-                      "count": 2,
-                      "cost": 16
+                      "count": 0,
+                      "cost": 0
                     },
                     "blocked_on_you": {
-                      "count": 6,
-                      "cost": 18
-                    },
-                    "mutual": {
                       "count": 1,
                       "cost": 3
+                    },
+                    "mutual": {
+                      "count": 0,
+                      "cost": 0
                     }
                   },
-                  "total": 82,
-                  "per_thread": 8.2
+                  "total": 40,
+                  "per_thread": 4
                 }
               }
             }

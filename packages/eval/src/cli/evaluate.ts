@@ -1,7 +1,7 @@
 /**
  * eval — score every prediction file and write the results artifacts.
  *
- * Reads `fixtures/predictions/*.json` (or the files named on the command line)
+ * Reads `predictions/*.json` (or the files named on the command line)
  * and writes, per configuration:
  *
  *   results/metrics-{config}-{split}.json   every metric at every threshold

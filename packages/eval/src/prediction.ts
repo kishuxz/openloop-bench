@@ -151,6 +151,71 @@ export const PredictionFileSchema = z.strictObject({
 });
 export type PredictionFile = z.infer<typeof PredictionFileSchema>;
 
+const ExtractorPredictionSchema = z.strictObject({
+  schema_version: z.literal(1),
+  run: z.strictObject({
+    config: z.string().min(1),
+    split: SplitSchema,
+    prompt_version: z.string().min(1),
+    corpus_hash: z.string().min(8),
+    created_at: z.string().min(1),
+  }).passthrough(),
+  model: z.strictObject({
+    id: z.string().min(1),
+    sampling: z.record(z.string(), z.union([z.string(), z.number(), z.boolean(), z.null()])),
+    json_mode: z.boolean().optional(),
+  }).passthrough(),
+  predictions: z.array(
+    z.strictObject({
+      thread_id: z.string().min(1),
+      parsed_loops: z.array(PredictedLoopSchema),
+    }).passthrough(),
+  ),
+}).passthrough();
+
+function generatedDate(createdAt: string): string {
+  const match = createdAt.match(/^\d{4}-\d{2}-\d{2}/u);
+  return match?.[0] ?? new Date().toISOString().slice(0, 10);
+}
+
+/**
+ * Accept the extractor's richer artifact shape and normalize it to the eval
+ * contract. This keeps prediction data immutable: scoring adapts at the reader
+ * boundary instead of rewriting committed model outputs into a second format.
+ */
+export function normalizePredictionFile(json: unknown): PredictionFile {
+  const direct = PredictionFileSchema.safeParse(json);
+  if (direct.success) return direct.data;
+
+  const extractor = ExtractorPredictionSchema.safeParse(json);
+  if (!extractor.success) {
+    const directMessage = direct.error.issues.map((issue) => `${issue.path.join(".")}: ${issue.message}`).join("; ");
+    const extractorMessage = extractor.error.issues.map((issue) => `${issue.path.join(".")}: ${issue.message}`).join("; ");
+    throw new Error(`not eval format (${directMessage}); not extractor format (${extractorMessage})`);
+  }
+
+  const value = extractor.data;
+  return {
+    format: PREDICTION_FORMAT,
+    meta: {
+      config: value.run.config,
+      model_id: value.model.id,
+      prompt_version: value.run.prompt_version,
+      sampling: {
+        ...value.model.sampling,
+        ...(value.model.json_mode === undefined ? {} : { json_mode: value.model.json_mode }),
+      },
+      corpus_hash: value.run.corpus_hash,
+      split: value.run.split,
+      generated_at: generatedDate(value.run.created_at),
+    },
+    predictions: value.predictions.map((prediction) => ({
+      thread_id: prediction.thread_id,
+      loops: prediction.parsed_loops,
+    })),
+  };
+}
+
 /** Every prediction in the file, flattened, keeping the thread it came from. */
 export function allPredictedLoops(
   file: PredictionFile,

@@ -3,10 +3,24 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Reference LLM extractor. Stub — implemented in Phase 2.",
+  "description": "Reference LLM extractor.",
   "license": "MIT",
-  "scripts": {},
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "extract": "tsx src/cli/extract.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
   "dependencies": {
-    "@openloop-bench/schema": "workspace:*"
+    "@openloop-bench/corpus": "workspace:*",
+    "@openloop-bench/schema": "workspace:*",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "tsx": "^4.23.0",
+    "typescript": "^5.9.0"
   }
 }

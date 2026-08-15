@@ -9,7 +9,7 @@
     0.5,
     0.7
   ],
-  "note": "Every match decision at every threshold. near_misses.reason: below_threshold = overlapped but under the IoU bar; lost_contest = cleared the bar but a higher-IoU pair took one of the two. Threads where nothing was predicted and nothing was labeled are counted, not listed.",
+  "note": "Every match decision at every threshold. near_misses.reason: below_threshold = overlapped but was neither contained nor over the IoU bar; lost_contest = matched the containment/IoU rule but a higher-IoU pair took one of the two. Threads where nothing was predicted and nothing was labeled are counted, not listed.",
   "thresholds": [
     {
       "iou_threshold": 0.3,
@@ -9099,6 +9099,35 @@
               }
             },
             {
+              "iou": 0.555556,
+              "pred_index": 1,
+              "truth_index": 1,
+              "truth": {
+                "statement": "Neha writes the management response to the pen test report",
+                "direction": "blocked_on_them",
+                "state": "open",
+                "register": "en",
+                "evidence": {
+                  "msg_index": 3,
+                  "start": 25,
+                  "end": 40,
+                  "text": "ill do this one"
+                }
+              },
+              "prediction": {
+                "statement": "Neha writes the management response to the pen test report",
+                "direction": "blocked_on_them",
+                "state": "open",
+                "register": "en",
+                "evidence": {
+                  "msg_index": 3,
+                  "start": 20,
+                  "end": 47,
+                  "text": " and ill do this one, you j"
+                }
+              }
+            },
+            {
               "iou": 0.848485,
               "pred_index": 2,
               "truth_index": 2,
@@ -9159,22 +9188,6 @@
           ],
           "false_positives": [
             {
-              "pred_index": 1,
-              "grounded": true,
-              "prediction": {
-                "statement": "Neha writes the management response to the pen test report",
-                "direction": "blocked_on_them",
-                "state": "open",
-                "register": "en",
-                "evidence": {
-                  "msg_index": 3,
-                  "start": 20,
-                  "end": 47,
-                  "text": " and ill do this one, you j"
-                }
-              }
-            },
-            {
               "pred_index": 4,
               "grounded": true,
               "prediction": {
@@ -9191,55 +9204,9 @@
               }
             }
           ],
-          "false_negatives": [
-            {
-              "truth_index": 1,
-              "truth": {
-                "statement": "Neha writes the management response to the pen test report",
-                "direction": "blocked_on_them",
-                "state": "open",
-                "register": "en",
-                "evidence": {
-                  "msg_index": 3,
-                  "start": 25,
-                  "end": 40,
-                  "text": "ill do this one"
-                }
-              }
-            }
-          ],
+          "false_negatives": [],
           "unmappable": [],
           "near_misses": [
-            {
-              "reason": "below_threshold",
-              "iou": 0.555556,
-              "pred_index": 1,
-              "truth_index": 1,
-              "truth": {
-                "statement": "Neha writes the management response to the pen test report",
-                "direction": "blocked_on_them",
-                "state": "open",
-                "register": "en",
-                "evidence": {
-                  "msg_index": 3,
-                  "start": 25,
-                  "end": 40,
-                  "text": "ill do this one"
-                }
-              },
-              "prediction": {
-                "statement": "Neha writes the management response to the pen test report",
-                "direction": "blocked_on_them",
-                "state": "open",
-                "register": "en",
-                "evidence": {
-                  "msg_index": 3,
-                  "start": 20,
-                  "end": 47,
-                  "text": " and ill do this one, you j"
-                }
-              }
-            },
             {
               "reason": "below_threshold",
               "iou": 0.128205,
@@ -9968,11 +9935,23 @@
         },
         {
           "thread_id": "en-11",
-          "matched": [],
-          "false_positives": [
+          "matched": [
             {
+              "iou": 0.609756,
               "pred_index": 0,
-              "grounded": true,
+              "truth_index": 0,
+              "truth": {
+                "statement": "Deepak reports back on the gateway settlement mismatch",
+                "direction": "blocked_on_them",
+                "state": "open",
+                "register": "en",
+                "evidence": {
+                  "msg_index": 2,
+                  "start": 0,
+                  "end": 41,
+                  "text": "ill update you once i hear back from them"
+                }
+              },
               "prediction": {
                 "statement": "Deepak reports back on the gateway settlement mismatch",
                 "direction": "blocked_on_them",
@@ -9985,7 +9964,9 @@
                   "text": "ill update you once i hea"
                 }
               }
-            },
+            }
+          ],
+          "false_positives": [
             {
               "pred_index": 1,
               "grounded": true,
@@ -10003,57 +9984,11 @@
               }
             }
           ],
-          "false_negatives": [
-            {
-              "truth_index": 0,
-              "truth": {
-                "statement": "Deepak reports back on the gateway settlement mismatch",
-                "direction": "blocked_on_them",
-                "state": "open",
-                "register": "en",
-                "evidence": {
-                  "msg_index": 2,
-                  "start": 0,
-                  "end": 41,
-                  "text": "ill update you once i hear back from them"
-                }
-              }
-            }
-          ],
+          "false_negatives": [],
           "unmappable": [],
           "near_misses": [
             {
-              "reason": "below_threshold",
-              "iou": 0.609756,
-              "pred_index": 0,
-              "truth_index": 0,
-              "truth": {
-                "statement": "Deepak reports back on the gateway settlement mismatch",
-                "direction": "blocked_on_them",
-                "state": "open",
-                "register": "en",
-                "evidence": {
-                  "msg_index": 2,
-                  "start": 0,
-                  "end": 41,
-                  "text": "ill update you once i hear back from them"
-                }
-              },
-              "prediction": {
-                "statement": "Deepak reports back on the gateway settlement mismatch",
-                "direction": "blocked_on_them",
-                "state": "open",
-                "register": "en",
-                "evidence": {
-                  "msg_index": 2,
-                  "start": 0,
-                  "end": 25,
-                  "text": "ill update you once i hea"
-                }
-              }
-            },
-            {
-              "reason": "below_threshold",
+              "reason": "lost_contest",
               "iou": 0.609756,
               "pred_index": 1,
               "truth_index": 0,
@@ -10083,7 +10018,15 @@
               }
             }
           ],
-          "split_truths": [],
+          "split_truths": [
+            {
+              "truth_index": 0,
+              "pred_indices": [
+                0,
+                1
+              ]
+            }
+          ],
           "merged_predictions": []
         },
         {
@@ -10671,6 +10614,35 @@
           "thread_id": "en-34",
           "matched": [
             {
+              "iou": 0.608696,
+              "pred_index": 0,
+              "truth_index": 0,
+              "truth": {
+                "statement": "user and Tanvi decide whether the mobile app gets its own release train",
+                "direction": "mutual",
+                "state": "open",
+                "register": "en",
+                "evidence": {
+                  "msg_index": 2,
+                  "start": 0,
+                  "end": 23,
+                  "text": "lets settle it thursday"
+                }
+              },
+              "prediction": {
+                "statement": "user and Tanvi decide whether the mobile app gets its own release train",
+                "direction": "mutual",
+                "state": "open",
+                "register": "en",
+                "evidence": {
+                  "msg_index": 2,
+                  "start": 0,
+                  "end": 14,
+                  "text": "lets settle it"
+                }
+              }
+            },
+            {
               "iou": 0.933333,
               "pred_index": 2,
               "truth_index": 1,
@@ -10702,22 +10674,6 @@
           ],
           "false_positives": [
             {
-              "pred_index": 0,
-              "grounded": true,
-              "prediction": {
-                "statement": "user and Tanvi decide whether the mobile app gets its own release train",
-                "direction": "mutual",
-                "state": "open",
-                "register": "en",
-                "evidence": {
-                  "msg_index": 2,
-                  "start": 0,
-                  "end": 14,
-                  "text": "lets settle it"
-                }
-              }
-            },
-            {
               "pred_index": 1,
               "grounded": true,
               "prediction": {
@@ -10734,57 +10690,11 @@
               }
             }
           ],
-          "false_negatives": [
-            {
-              "truth_index": 0,
-              "truth": {
-                "statement": "user and Tanvi decide whether the mobile app gets its own release train",
-                "direction": "mutual",
-                "state": "open",
-                "register": "en",
-                "evidence": {
-                  "msg_index": 2,
-                  "start": 0,
-                  "end": 23,
-                  "text": "lets settle it thursday"
-                }
-              }
-            }
-          ],
+          "false_negatives": [],
           "unmappable": [],
           "near_misses": [
             {
-              "reason": "below_threshold",
-              "iou": 0.608696,
-              "pred_index": 0,
-              "truth_index": 0,
-              "truth": {
-                "statement": "user and Tanvi decide whether the mobile app gets its own release train",
-                "direction": "mutual",
-                "state": "open",
-                "register": "en",
-                "evidence": {
-                  "msg_index": 2,
-                  "start": 0,
-                  "end": 23,
-                  "text": "lets settle it thursday"
-                }
-              },
-              "prediction": {
-                "statement": "user and Tanvi decide whether the mobile app gets its own release train",
-                "direction": "mutual",
-                "state": "open",
-                "register": "en",
-                "evidence": {
-                  "msg_index": 2,
-                  "start": 0,
-                  "end": 14,
-                  "text": "lets settle it"
-                }
-              }
-            },
-            {
-              "reason": "below_threshold",
+              "reason": "lost_contest",
               "iou": 0.608696,
               "pred_index": 1,
               "truth_index": 0,
@@ -10814,7 +10724,15 @@
               }
             }
           ],
-          "split_truths": [],
+          "split_truths": [
+            {
+              "truth_index": 0,
+              "pred_indices": [
+                0,
+                1
+              ]
+            }
+          ],
           "merged_predictions": []
         },
         {
@@ -11400,26 +11318,39 @@
                   "text": "sra, main deck update kar dunga raat ko"
                 }
               }
+            },
+            {
+              "iou": 0.594595,
+              "pred_index": 1,
+              "truth_index": 1,
+              "truth": {
+                "statement": "Vikram checks the NDA status with legal",
+                "direction": "blocked_on_them",
+                "state": "open",
+                "register": "hi-en",
+                "evidence": {
+                  "msg_index": 6,
+                  "start": 0,
+                  "end": 37,
+                  "text": "NDA wala kal subah pooch ke batata hu"
+                }
+              },
+              "prediction": {
+                "statement": "Vikram checks the NDA status with legal",
+                "direction": "blocked_on_them",
+                "state": "open",
+                "register": "hi-en",
+                "evidence": {
+                  "msg_index": 6,
+                  "start": 0,
+                  "end": 22,
+                  "text": "NDA wala kal subah poo"
+                }
+              }
             }
           ],
           "false_positives": [
             {
-              "pred_index": 1,
-              "grounded": true,
-              "prediction": {
-                "statement": "Vikram checks the NDA status with legal",
-                "direction": "blocked_on_them",
-                "state": "open",
-                "register": "hi-en",
-                "evidence": {
-                  "msg_index": 6,
-                  "start": 0,
-                  "end": 22,
-                  "text": "NDA wala kal subah poo"
-                }
-              }
-            },
-            {
               "pred_index": 2,
               "grounded": true,
               "prediction": {
@@ -11436,57 +11367,11 @@
               }
             }
           ],
-          "false_negatives": [
-            {
-              "truth_index": 1,
-              "truth": {
-                "statement": "Vikram checks the NDA status with legal",
-                "direction": "blocked_on_them",
-                "state": "open",
-                "register": "hi-en",
-                "evidence": {
-                  "msg_index": 6,
-                  "start": 0,
-                  "end": 37,
-                  "text": "NDA wala kal subah pooch ke batata hu"
-                }
-              }
-            }
-          ],
+          "false_negatives": [],
           "unmappable": [],
           "near_misses": [
             {
-              "reason": "below_threshold",
-              "iou": 0.594595,
-              "pred_index": 1,
-              "truth_index": 1,
-              "truth": {
-                "statement": "Vikram checks the NDA status with legal",
-                "direction": "blocked_on_them",
-                "state": "open",
-                "register": "hi-en",
-                "evidence": {
-                  "msg_index": 6,
-                  "start": 0,
-                  "end": 37,
-                  "text": "NDA wala kal subah pooch ke batata hu"
-                }
-              },
-              "prediction": {
-                "statement": "Vikram checks the NDA status with legal",
-                "direction": "blocked_on_them",
-                "state": "open",
-                "register": "hi-en",
-                "evidence": {
-                  "msg_index": 6,
-                  "start": 0,
-                  "end": 22,
-                  "text": "NDA wala kal subah poo"
-                }
-              }
-            },
-            {
-              "reason": "below_threshold",
+              "reason": "lost_contest",
               "iou": 0.594595,
               "pred_index": 2,
               "truth_index": 1,
@@ -11516,7 +11401,15 @@
               }
             }
           ],
-          "split_truths": [],
+          "split_truths": [
+            {
+              "truth_index": 1,
+              "pred_indices": [
+                1,
+                2
+              ]
+            }
+          ],
           "merged_predictions": []
         },
         {
@@ -12508,46 +12401,8 @@
         },
         {
           "thread_id": "sup-07",
-          "matched": [],
-          "false_positives": [
+          "matched": [
             {
-              "pred_index": 0,
-              "grounded": true,
-              "prediction": {
-                "statement": "send the journalist a high-resolution founder photo",
-                "direction": "blocked_on_you",
-                "state": "superseded",
-                "register": "hi-en",
-                "evidence": {
-                  "msg_index": 1,
-                  "start": 0,
-                  "end": 23,
-                  "text": "haan bhijwata hu, shoot"
-                }
-              }
-            }
-          ],
-          "false_negatives": [
-            {
-              "truth_index": 0,
-              "truth": {
-                "statement": "send the journalist a high-resolution founder photo",
-                "direction": "blocked_on_you",
-                "state": "superseded",
-                "register": "hi-en",
-                "evidence": {
-                  "msg_index": 1,
-                  "start": 0,
-                  "end": 16,
-                  "text": "haan bhijwata hu"
-                }
-              }
-            }
-          ],
-          "unmappable": [],
-          "near_misses": [
-            {
-              "reason": "below_threshold",
               "iou": 0.695652,
               "pred_index": 0,
               "truth_index": 0,
@@ -12577,6 +12432,10 @@
               }
             }
           ],
+          "false_positives": [],
+          "false_negatives": [],
+          "unmappable": [],
+          "near_misses": [],
           "split_truths": [],
           "merged_predictions": []
         },

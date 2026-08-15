@@ -54,6 +54,7 @@ export interface ReportInputs {
 // ---------------------------------------------------------------------------
 
 const pct = (value: number): string => `${(value * 100).toFixed(1)}%`;
+const pp = (value: number): string => `${value >= 0 ? "+" : ""}${(value * 100).toFixed(1)} pp`;
 const num = (value: number): string => value.toFixed(2);
 
 function table(headers: readonly string[], rows: ReadonlyArray<readonly string[]>): string[] {
@@ -107,6 +108,13 @@ function thresholdOf(run: ScoredRun, iou: number): MetricSet {
   return found?.overall ?? run.run.thresholds[0]!.overall;
 }
 
+function sameDetection(a: MetricSet, b: MetricSet): boolean {
+  return a.detection.tp === b.detection.tp &&
+    a.detection.fp === b.detection.fp &&
+    a.detection.fn === b.detection.fn &&
+    a.cost.total === b.cost.total;
+}
+
 function provenance(inputs: ReportInputs): string[] {
   const lines: string[] = [
     "## Provenance",
@@ -152,12 +160,19 @@ function matching(inputs: ReportInputs): string[] {
     "prose the extractor composed, and scoring it would measure paraphrasing quality",
     "rather than detection.",
     "",
-    "A prediction matches a true loop when both point into the **same message** and their",
-    "character ranges reach an **intersection-over-union** at or above the threshold.",
+    "A prediction matches a true loop when both point into the **same message** and either",
+    "span fully contains the other, or their character ranges reach an",
+    "**intersection-over-union** at or above the threshold.",
     "Matching is one-to-one and greedy by descending IoU: where two predictions cover one",
     "true loop, the higher IoU takes the match and the other is a false positive — an",
     "extractor that splits one commitment into two has produced a spurious item, and that",
     "is counted separately as a *split*.",
+    "",
+    "Containment is checked before the IoU threshold because the corpus labels deliberately",
+    "use tight commitment spans, while extractor predictions can include a lead-in clause",
+    "around the same commitment. That is still a detection hit. The remaining boundary",
+    "agreement is reported separately as **span tightness**: mean evidence IoU over matched",
+    "pairs.",
     "",
     `**The threshold is a judgment call, so the whole eval runs at ${thresholds.map((t) => t.toFixed(1)).join(", ")}** and all of`,
     `them are reported. ${DEFAULT_IOU.toFixed(1)} is used where a single number is needed, and it is marked as such.`,
@@ -212,36 +227,148 @@ function headline(inputs: ReportInputs): string[] {
   return lines;
 }
 
-function detection(inputs: ReportInputs): string[] {
-  const rows: string[][] = [];
-  for (const run of inputs.runs) {
-    for (const t of run.run.thresholds) {
-      const m = t.overall;
-      rows.push([
-        `\`${run.run.meta.config}\``,
-        t.iou_threshold.toFixed(1) + (t.iou_threshold === DEFAULT_IOU ? " *" : ""),
-        String(m.detection.tp),
-        String(m.detection.fp),
-        String(m.detection.fn),
-        pct(m.detection.precision),
-        pct(m.detection.recall),
-        pct(m.detection.f1),
-        num(m.cost.per_thread),
-      ]);
-    }
-  }
+function comparisonDeltas(inputs: ReportInputs): string[] {
+  const byConfig = new Map(inputs.runs.map((run) => [run.run.meta.config, thresholdOf(run, DEFAULT_IOU)]));
+  const hostedLarge = byConfig.get("hosted-large");
+  const hostedRedacted = byConfig.get("hosted-redacted");
+  const local = byConfig.get("local");
+  if (!hostedLarge || !hostedRedacted || !local) return [];
+
+  const row = (label: string, base: MetricSet, compare: MetricSet, finding: string): string[] => [
+    label,
+    pp(compare.detection.precision - base.detection.precision),
+    pp(compare.detection.recall - base.detection.recall),
+    pp(compare.detection.f1 - base.detection.f1),
+    `${compare.cost.total - base.cost.total >= 0 ? "+" : ""}${compare.cost.total - base.cost.total}`,
+    `${compare.cost.per_thread - base.cost.per_thread >= 0 ? "+" : ""}${num(compare.cost.per_thread - base.cost.per_thread)}`,
+    finding,
+  ];
 
   return [
-    "## Detection at every threshold",
+    "## Configuration deltas",
+    "",
+    `At IoU ${DEFAULT_IOU.toFixed(1)}. Deltas are second config minus first config.`,
     "",
     ...table(
-      ["config", "IoU", "TP", "FP", "FN", "precision", "recall", "F1", "cost/thread"],
-      rows,
+      ["comparison", "precision", "recall", "F1", "cost", "cost/thread", "finding"],
+      [
+        row(
+          "`hosted-large` → `hosted-redacted`",
+          hostedLarge,
+          hostedRedacted,
+          "Redaction did not cost little: recall and F1 collapsed; lower cost comes from silence after provider and parse failures.",
+        ),
+        row(
+          "`local` → `hosted-large`",
+          local,
+          hostedLarge,
+          "Hosted-large buys recall and F1 over local, while adding false positives and cost-weighted error.",
+        ),
+      ],
     ),
     "",
-    `\`*\` marks the default threshold. Unmappable predictions are in none of TP, FP or FN.`,
+  ];
+}
+
+function detection(inputs: ReportInputs): string[] {
+  const thresholds = inputs.runs[0]?.run.iou_thresholds ?? [];
+  const thresholdRange = thresholds.length === 0
+    ? "the configured thresholds"
+    : `IoU ${thresholds[0]!.toFixed(1)}-${thresholds[thresholds.length - 1]!.toFixed(1)}`;
+
+  return [
+    "## Detection",
+    "",
+    "Detection is reported once at the default threshold. The final column states whether",
+    `TP/FP/FN and total cost are invariant across ${thresholdRange}; when they are, repeated`,
+    "threshold rows would only make the table look more precise than the decision is.",
+    "",
+    ...table(
+      ["config", "TP", "FP", "FN", "precision", "recall", "F1", "cost/thread", "threshold finding"],
+      inputs.runs.map((run) => {
+        const m = thresholdOf(run, DEFAULT_IOU);
+        const stable = run.run.thresholds.every((t) => sameDetection(t.overall, run.run.thresholds[0]!.overall));
+        const finding = stable
+          ? `stable across ${thresholdRange}`
+          : `varies across ${thresholdRange}; see metrics JSON`;
+        return [
+          `\`${run.run.meta.config}\``,
+          String(m.detection.tp),
+          String(m.detection.fp),
+          String(m.detection.fn),
+          pct(m.detection.precision),
+          pct(m.detection.recall),
+          pct(m.detection.f1),
+          num(m.cost.per_thread),
+          finding,
+        ];
+      }),
+    ),
+    "",
+    `Default threshold: IoU ${DEFAULT_IOU.toFixed(1)}. Unmappable predictions are in none of TP, FP or FN.`,
+    "",
+    "**Matcher change note.** The earlier pure-IoU matcher scored span-convention agreement",
+    "as detection: a prediction that fully contained a tight label span could become both a",
+    "false positive and a false negative. The hosted-large dev audit that exposed this moved",
+    "at IoU 0.5 from P/R/F1 43.7%/42.1%/42.9% to 51.5%/49.5%/50.5%; cost moved 429 → 403.",
+    "Span-boundary variance is now reported separately as span tightness.",
     "",
   ];
+}
+
+function spanTightness(inputs: ReportInputs): string[] {
+  const lines = [
+    "## Span Tightness",
+    "",
+    "Mean evidence IoU over matched pairs. Detection uses containment-first matching so",
+    "lead-in clauses do not become false positives and false negatives; this table keeps",
+    "the boundary-convention agreement visible as its own metric.",
+    "",
+    ...table(
+      ["config", ...(inputs.runs[0]?.run.iou_thresholds ?? []).map((t) => `IoU ${t.toFixed(1)}`)],
+      inputs.runs.map((run) => [
+        `\`${run.run.meta.config}\``,
+        ...run.run.thresholds.map((t) => {
+          const s = t.overall.span_tightness;
+          return `${num(s.mean_iou)} (${s.matched})`;
+        }),
+      ]),
+    ),
+    "",
+    `### Register Finding`,
+    "",
+    `By register at IoU ${DEFAULT_IOU.toFixed(1)}. The lowest non-empty row is the register where the model's evidence spans are loosest:`,
+    "",
+  ];
+
+  for (const run of inputs.runs) {
+    const threshold = run.run.thresholds.find((t) => t.iou_threshold === DEFAULT_IOU) ?? run.run.thresholds[0]!;
+    const nonEmpty = threshold.breakdowns.by_register.groups
+      .filter(({ metrics }) => metrics.span_tightness.matched > 0)
+      .sort((a, b) => a.metrics.span_tightness.mean_iou - b.metrics.span_tightness.mean_iou);
+    const lowest = nonEmpty[0];
+    lines.push(
+      `**\`${run.run.meta.config}\`**`,
+      "",
+      ...(lowest
+        ? [
+            `Finding: \`${lowest.key}\` has the loosest matched evidence spans at ${num(lowest.metrics.span_tightness.mean_iou)} mean IoU.`,
+            "",
+          ]
+        : []),
+      ...table(
+        ["register", "span tightness", "matched pairs"],
+        threshold.breakdowns.by_register.groups.map(({ key, metrics }) => [
+          key,
+          metrics.span_tightness.matched === 0 ? "—" : num(metrics.span_tightness.mean_iou),
+          String(metrics.span_tightness.matched),
+        ]),
+      ),
+      "",
+    );
+  }
+
+  return lines;
 }
 
 function rankingStability(inputs: ReportInputs): string[] {
@@ -394,14 +521,17 @@ function deadlines(inputs: ReportInputs): string[] {
     "Certainty is whether a deadline was stated at all, and how firmly. The resolved date",
     "is the harder half: it is where non-numeric code-mixed phrasing — *kal tak*, *parso*,",
     "*naaliki*, *weekend tak* — either survives the trip to a calendar date or does not.",
+    "Quote detection and date resolution are separate: finding `by wednesday` is not the",
+    "same as resolving it to `2026-04-08`.",
     "",
     ...table(
-      ["config", "certainty accuracy", "resolved date exact", "date hallucinated", "date missing"],
+      ["config", "certainty accuracy", "deadline quote found", "resolved date exact", "date hallucinated", "date missing"],
       inputs.runs.map((run) => {
         const m = thresholdOf(run, DEFAULT_IOU);
         return [
           `\`${run.run.meta.config}\``,
           `${pct(m.certainty.accuracy)} (${m.certainty.correct}/${m.certainty.n})`,
+          `${pct(m.deadline_span.rate)} (${m.deadline_span.found}/${m.deadline_span.of})`,
           `${pct(m.deadline_resolved.rate)} (${m.deadline_resolved.exact}/${m.deadline_resolved.of})`,
           String(m.deadline_resolved.hallucinated),
           String(m.deadline_resolved.missing),
@@ -411,8 +541,9 @@ function deadlines(inputs: ReportInputs): string[] {
     "",
     "*Hallucinated* is a date produced where the truth resolves to none — \"agle hafte\" is",
     "real phrasing that names no day, and inventing one is worse than leaving it null.",
-    "*Missing* is the reverse. Both are counted outside the exact-match rate so neither can",
-    "be traded against it.",
+    "*Date missing* is the reverse: the truth resolves to a calendar date and the prediction",
+    "does not. It does not count truth deadlines whose correct resolved value is null.",
+    "Both are counted outside the exact-match rate so neither can be traded against it.",
     "",
     `Certainty confusion at IoU ${DEFAULT_IOU.toFixed(1)}, matched pairs only:`,
     "",
@@ -618,6 +749,7 @@ function breakdowns(inputs: ReportInputs): string[] {
             "P",
             "R",
             "F1",
+            "tightness",
             "direction",
             "state",
             "sup→open",
@@ -636,6 +768,7 @@ function breakdowns(inputs: ReportInputs): string[] {
             metrics.detection.tp + metrics.detection.fp === 0 ? "—" : pct(metrics.detection.precision),
             metrics.truth_loops === 0 ? "—" : pct(metrics.detection.recall),
             metrics.truth_loops === 0 ? "—" : pct(metrics.detection.f1),
+            metrics.span_tightness.matched === 0 ? "—" : num(metrics.span_tightness.mean_iou),
             metrics.direction.n === 0 ? "—" : pct(metrics.direction.accuracy),
             metrics.state.n === 0 ? "—" : pct(metrics.state.accuracy),
             metrics.state.superseded_as_open.of === 0
@@ -830,6 +963,8 @@ function limitations(inputs: ReportInputs): string[] {
   const lines = [
     "## What these numbers do not say",
     "",
+    "- **Scope.** Dev split only; three configurations; a single prompt version with no",
+    "  iteration against dev results; held-out test split not yet run.",
     "- **The matching threshold is a constant somebody chose.** Every table above is",
     "  conditional on it. That is why all three thresholds are reported and why the ranking",
     "  question is asked out loud rather than answered once at 0.5.",
@@ -869,7 +1004,7 @@ export function renderReport(inputs: ReportInputs): string {
     "# openloop-bench — results",
     "",
     "Generated by `pnpm report` from the committed prediction files in",
-    "`fixtures/predictions/` and the committed metrics in `results/`. Deterministic: the",
+    "`predictions/` and the committed metrics in `results/`. Deterministic: the",
     "same inputs produce the same bytes, and CI fails on a diff. Do not edit by hand.",
     "",
     `Corpus \`${inputs.corpusHash}\` — validated in the same run that produced these numbers.`,
@@ -879,7 +1014,9 @@ export function renderReport(inputs: ReportInputs): string {
     ...provenance(inputs),
     ...matching(inputs),
     ...headline(inputs),
+    ...comparisonDeltas(inputs),
     ...detection(inputs),
+    ...spanTightness(inputs),
     ...rankingStability(inputs),
     ...supersession(inputs),
     ...direction(inputs),
