@@ -63,6 +63,10 @@ function pct(part: number, whole: number): string {
   return whole === 0 ? "n/a" : `${((part / whole) * 100).toFixed(1)}%`;
 }
 
+function ratio(part: number, whole: number): string {
+  return whole === 0 ? "n/a" : (part / whole).toFixed(2);
+}
+
 function bucketRows(threads: Thread[]): Row[] {
   return BUCKETS.map((bucket) => {
     const inBucket = threads.filter((t) => bucketOf(t.thread_id) === bucket.prefix);
@@ -101,13 +105,27 @@ function main(): void {
     return;
   }
 
+  // Loop density is reported twice on purpose. A fifth of this corpus is
+  // deliberately empty, so the all-threads mean is pulled down by threads that
+  // were never meant to contain a loop, and reads as "sparsely labeled" when
+  // the labeled threads are not sparse at all. Reporting only the non-empty
+  // mean would hide the negatives instead, which is worse. Both, or neither.
+  const nonEmpty = threads.length - zeroLoop.length;
+  const summary: Array<[string, string]> = [
+    ["threads", `${threads.length}`],
+    ["loops", `${loops.length}`],
+    ["zero-loop threads", `${zeroLoop.length}  (${pct(zeroLoop.length, threads.length)} of threads)`],
+    ["dev / test", `${dev} / ${test}  (${pct(dev, threads.length)} / ${pct(test, threads.length)})`],
+    ["loops per thread", `${ratio(loops.length, threads.length)}  (all threads)`],
+    [
+      "loops per non-empty thread",
+      `${ratio(loops.length, nonEmpty)}  (excluding the ${zeroLoop.length} zero-loop threads)`,
+    ],
+  ];
+
   console.log("openloop-bench corpus stats");
   console.log("");
-  console.log(`  threads              ${threads.length}`);
-  console.log(`  loops                ${loops.length}`);
-  console.log(`  zero-loop threads    ${zeroLoop.length}  (${pct(zeroLoop.length, threads.length)} of threads)`);
-  console.log(`  dev / test           ${dev} / ${test}  (${pct(dev, threads.length)} / ${pct(test, threads.length)})`);
-  console.log(`  loops per thread     ${(loops.length / threads.length).toFixed(2)}`);
+  for (const [label, value] of summary) console.log(`  ${label.padEnd(28)}${value}`);
   console.log("");
 
   table("bucket (threads)", bucketRows(threads), {
