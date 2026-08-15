@@ -13,7 +13,7 @@ import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   {
-    ignores: ["**/node_modules/**", "**/dist/**", "**/.next/**", ".context/**"],
+    ignores: ["**/node_modules/**", "**/dist/**", "**/.next/**", "**/out/**", "**/next-env.d.ts", ".context/**"],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
