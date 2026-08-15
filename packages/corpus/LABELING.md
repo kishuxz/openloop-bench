@@ -63,7 +63,7 @@ availability rule, and two negative threads sit in the gap:
 Both threads keep their existing zero-loop labels until the precedence is
 decided, because changing them would move two threads out of the negatives
 bucket and that is a decision about the benchmark, not a labeling detail.
-Tracked separately; do not resolve it by editing one thread.
+Tracked in issue #18; do not resolve it by editing one thread.
 
 
 **Not loops.** Social maintenance language. It uses the grammar of commitment
