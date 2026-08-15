@@ -303,6 +303,37 @@ founders write.
 *Commands, the document index and the repository layout moved to [`CONTRIBUTING.md`](CONTRIBUTING.md).*
 *What scoring refuses to run against moved to [`packages/eval/README.md`](packages/eval/README.md).*
 
+## Roadmap
+
+Intent, not work done. Nothing below v1 has been built, and none of it is a
+commitment.
+
+**v1, current.** 200 threads, one annotator, two configurations scored on the
+dev split.
+
+**v2.** Inter-annotator agreement measured and kappa published, especially on
+the superseded label. A submission harness so another extractor can be scored
+against the same corpus. A test split held out by mechanism rather than by
+discipline.
+
+**v3.** Calibration, meaning whether stated confidence predicts correctness,
+since that is the gate on any system acting without asking. Longitudinal loops
+that live across days and threads rather than within one. Resolution that
+arrives on a different channel from the commitment.
+
+## Kill criteria
+
+Conditions under which parts of this benchmark should be abandoned rather than
+defended.
+
+**If inter-annotator agreement on `superseded` falls below roughly 0.6**, the
+label is ill-defined. The headline metric needs redesigning rather than more
+data, because more data labeled against an unclear rule buys nothing.
+
+**If PII redaction costs less than a couple of points once the run completes**,
+the tension this was built around does not exist, and the framing narrows to
+supersession alone.
+
 ## License
 
 MIT.
