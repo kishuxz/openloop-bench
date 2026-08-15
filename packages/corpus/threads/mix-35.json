@@ -1,0 +1,69 @@
+{
+  "thread_id": "mix-35",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Vikram",
+      "text": "sir ROC filing ki last date 30 june hai",
+      "ts": "2026-06-08T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "kya kya chahiye",
+      "ts": "2026-06-08T10:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Vikram",
+      "text": "AOC-4 aur MGT-7, dono ke liye signed financials chahiye",
+      "ts": "2026-06-08T10:32:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "auditor se sign karwa ke bhejta hu, agle hafte tak",
+      "ts": "2026-06-08T11:02:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Vikram",
+      "text": "sir thoda jaldi ho jaye to accha, portal last din hang hota hai",
+      "ts": "2026-06-08T11:10:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "theek hai, 20 tak kar deta hu",
+      "ts": "2026-06-08T11:15:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "get the financials signed by the auditor and send them for ROC filing",
+      "direction": "blocked_on_you",
+      "counterparty": "Vikram",
+      "deadline": {
+        "span": {
+          "msg_index": 5,
+          "start": 11,
+          "end": 17
+        },
+        "resolved": "2026-06-20",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 34
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "The deadline is renegotiated two messages after the commitment — 'agle hafte tak' becomes '20 tak'. One loop, and the span points at the deadline that governs, not the one that was superseded."
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "thread_id": "del-21",
+  "channel": "slack",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Tanvi",
+      "text": "someone needs to own the on-call rota now that were nine people",
+      "ts": "2026-06-15T09:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill own it",
+      "ts": "2026-06-15T09:40:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Tanvi",
+      "text": "youve said that twice and it hasnt happened, no offence",
+      "ts": "2026-06-15T09:45:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "fair hit",
+      "ts": "2026-06-15T09:46:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Harsha",
+      "text": "i can own it, i already track who is around anyway",
+      "ts": "2026-06-15T09:50:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "yes, harsha owns it. ill get you admin on the paging tool by tomorrow",
+      "ts": "2026-06-15T09:55:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "Harsha",
+      "text": "ill publish a rota for the next quarter once i have access",
+      "ts": "2026-06-15T10:02:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "own the on-call rota",
+      "direction": "blocked_on_you",
+      "counterparty": "Tanvi",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 10
+      },
+      "resolution": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 50
+      },
+      "state": "superseded",
+      "register": "en"
+    },
+    {
+      "statement": "Harsha owns the on-call rota",
+      "direction": "blocked_on_them",
+      "counterparty": "Harsha",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 12
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "give Harsha admin access on the paging tool",
+      "direction": "blocked_on_you",
+      "counterparty": "Harsha",
+      "deadline": {
+        "span": {
+          "msg_index": 5,
+          "start": 58,
+          "end": 69
+        },
+        "resolved": "2026-06-16",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 21,
+        "end": 69
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "Harsha publishes an on-call rota for the next quarter",
+      "direction": "blocked_on_them",
+      "counterparty": "Harsha",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 6,
+        "start": 0,
+        "end": 58
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "The supersession here is driven by track record rather than capability or workload — message 2 refuses the commitment on the grounds that it has been made and dropped before."
+    }
+  ]
+}

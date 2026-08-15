@@ -1,0 +1,109 @@
+{
+  "thread_id": "sup-26",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Nandini (LP)",
+      "text": "hi - are you able to join the LP dinner on the 24th?",
+      "ts": "2026-06-10T11:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "yes, ill be there. ill also bring the one pager you asked for",
+      "ts": "2026-06-10T13:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Nandini (LP)",
+      "text": "wonderful",
+      "ts": "2026-06-10T13:35:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Nandini (LP)",
+      "text": "slight change, weve moved it to a call instead, half the LPs are travelling",
+      "ts": "2026-06-15T09:20:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Nandini (LP)",
+      "text": "same date, 5pm. no need to bring anything, just send the one pager over beforehand",
+      "ts": "2026-06-15T09:21:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "understood, ill mail it across before the call",
+      "ts": "2026-06-15T10:02:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "attend the LP dinner on the 24th",
+      "direction": "blocked_on_you",
+      "counterparty": "Nandini (LP)",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-06-24",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 17
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 15,
+        "end": 46
+      },
+      "state": "superseded",
+      "register": "en"
+    },
+    {
+      "statement": "bring the one pager to the LP dinner",
+      "direction": "blocked_on_you",
+      "counterparty": "Nandini (LP)",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-06-24",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 19,
+        "end": 61
+      },
+      "resolution": {
+        "msg_index": 4,
+        "start": 16,
+        "end": 41
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "Two loops from one message, superseded by two different messages — the event changed form, and the deliverable changed channel. The replacement is a third loop."
+    },
+    {
+      "statement": "email the one pager to Nandini before the LP call",
+      "direction": "blocked_on_you",
+      "counterparty": "Nandini (LP)",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-06-24",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 12,
+        "end": 46
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

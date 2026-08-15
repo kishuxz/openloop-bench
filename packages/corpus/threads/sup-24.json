@@ -1,0 +1,84 @@
+{
+  "thread_id": "sup-24",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Ravi (CS)",
+      "text": "anna, refund policy page update pannanum, customers confuse aaguraanga",
+      "ts": "2026-06-08T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "naan draft panren, wednesday ku",
+      "ts": "2026-06-08T10:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Ravi (CS)",
+      "text": "anna legal team already oru version anuppiruknaanga last month",
+      "ts": "2026-06-09T11:20:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Ravi (CS)",
+      "text": "adhaye publish pannalam",
+      "ts": "2026-06-09T11:21:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "adhu irundha adhaye podunga",
+      "ts": "2026-06-09T11:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "draft an updated refund policy page",
+      "direction": "blocked_on_you",
+      "counterparty": "Ravi (CS)",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 19,
+          "end": 31
+        },
+        "resolved": "2026-06-10",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 31
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 5,
+        "end": 62
+      },
+      "state": "superseded",
+      "register": "ta-en"
+    },
+    {
+      "statement": "Ravi publishes the legal team's existing refund policy version",
+      "direction": "blocked_on_them",
+      "counterparty": "Ravi (CS)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 27
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en"
+    }
+  ]
+}

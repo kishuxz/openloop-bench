@@ -1,0 +1,67 @@
+{
+  "thread_id": "sup-23",
+  "channel": "email",
+  "split": "dev",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Aditya (prospect)",
+      "text": "Could you send a security whitepaper? Our infosec team wants one before the pilot.",
+      "ts": "2026-06-04T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "We dont have one written up, but Ill put a short version together by tuesday.",
+      "ts": "2026-06-04T11:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Aditya (prospect)",
+      "text": "Appreciated.",
+      "ts": "2026-06-04T12:02:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Aditya (prospect)",
+      "text": "Update - infosec accepted the SOC2 report from your trust page, so no whitepaper needed.",
+      "ts": "2026-06-08T10:15:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "Even better. Ill still write one eventually, it keeps coming up.",
+      "ts": "2026-06-08T11:02:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "write a short security whitepaper for the prospect's infosec team",
+      "direction": "blocked_on_you",
+      "counterparty": "Aditya (prospect)",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 66,
+          "end": 76
+        },
+        "resolved": "2026-06-09",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 33,
+        "end": 76
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 67,
+        "end": 87
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "Message 4's 'Ill still write one eventually' is not a replacement loop — no party is owed it and no date bounds it, so it fails §1 test 4. Supersession here is not followed by a new commitment."
+    }
+  ]
+}

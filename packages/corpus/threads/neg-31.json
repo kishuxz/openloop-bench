@@ -1,0 +1,39 @@
+{
+  "thread_id": "neg-31",
+  "channel": "imessage",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Rahul",
+      "text": "did you see the competitor raised 40m",
+      "ts": "2026-06-10T22:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "yes. ignoring it",
+      "ts": "2026-06-10T22:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Rahul",
+      "text": "healthy",
+      "ts": "2026-06-10T22:31:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Rahul",
+      "text": "we should probably think about our positioning though",
+      "ts": "2026-06-10T22:35:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "at some point yes, not this quarter",
+      "ts": "2026-06-10T22:40:00+05:30"
+    }
+  ],
+  "loops": []
+}

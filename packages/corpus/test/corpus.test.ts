@@ -202,10 +202,18 @@ describe("the corpus is not trivially separable", () => {
         "\\b(happy to|anytime|whenever|at some point|sometime)\\b",
         "\\b(dunga|dungi|doonga|karunga|karungi|sochunga|bhejta|deta hu|dekhta hu|dijiye|dijiyega|milte)\\b",
         "\\b(panren|pandren|panduven|panniduven|mudichiduven|anuppuren|varen|pogalam|pesalam|kandippa)\\b",
-        // Tamil necessitative -anum ("paakanum", "pannanum") is the direct
-        // analogue of English "should", and carries the same near-miss weight.
+        // Tamil suffixes as families, not literals. The necessitative -anum
+        // ("paakanum") is the analogue of English "should"; the hortative
+        // -alam ("pogalam", "yosikalam") is the analogue of "let's". Three
+        // separate batches failed this test on a Tamil construction the list
+        // did not happen to contain — see DRIFT.md.
         "\\b\\w{2,}anum\\b",
+        "\\b\\w{2,}alam\\b",
         "\\b(yaaravadhu|yaarachum|koi)\\b",
+        // Availability offers — the canonical near-miss of §2 — in all three
+        // registers. "let me know if you need anything" has direct equivalents
+        // that share none of its vocabulary.
+        "\\b(let me know|bata dena|bata dijiye|bol dena|sollunga|irukken|hazir)\\b",
       ].join("|"),
       "i",
     );

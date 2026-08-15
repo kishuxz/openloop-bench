@@ -1,0 +1,119 @@
+{
+  "thread_id": "mix-40",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Kavya",
+      "text": "anna, employee handbook update pannanum, POSH policy add pannanum",
+      "ts": "2026-06-15T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "legal kitta template iruka",
+      "ts": "2026-06-15T09:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Kavya",
+      "text": "iruku anna, but customise pannanum",
+      "ts": "2026-06-15T09:32:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "sari, neenga draft pannunga, naan review panren",
+      "ts": "2026-06-15T09:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Kavya",
+      "text": "innaiku evening ku draft anuppuren anna",
+      "ts": "2026-06-15T09:45:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "sari",
+      "ts": "2026-06-15T09:46:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "Kavya",
+      "text": "anna draft anuppiten",
+      "ts": "2026-06-15T18:30:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "user",
+      "text": "paakuren naaliki",
+      "ts": "2026-06-15T20:02:00+05:30"
+    },
+    {
+      "index": 8,
+      "sender": "Kavya",
+      "text": "anna oru naal ellarukum training um pannanum ithu pathi",
+      "ts": "2026-06-16T09:02:00+05:30"
+    },
+    {
+      "index": 9,
+      "sender": "user",
+      "text": "aama, adhukku aprom paakalam",
+      "ts": "2026-06-16T09:10:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "Kavya drafts the updated employee handbook with the POSH policy",
+      "direction": "blocked_on_them",
+      "counterparty": "Kavya",
+      "deadline": {
+        "span": {
+          "msg_index": 4,
+          "start": 0,
+          "end": 18
+        },
+        "resolved": "2026-06-15",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 39
+      },
+      "resolution": {
+        "msg_index": 6,
+        "start": 5,
+        "end": 20
+      },
+      "state": "closed",
+      "register": "ta-en"
+    },
+    {
+      "statement": "review Kavya's employee handbook draft",
+      "direction": "blocked_on_you",
+      "counterparty": "Kavya",
+      "deadline": {
+        "span": {
+          "msg_index": 7,
+          "start": 9,
+          "end": 16
+        },
+        "resolved": "2026-06-16",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 7,
+        "start": 0,
+        "end": 16
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en",
+      "notes": "Message 8, about training everyone one day, is near-miss language closing a thread that contains two real loops."
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "thread_id": "en-32",
+  "channel": "email",
+  "split": "dev",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Yasmin (agency)",
+      "text": "Kicking off the website rebuild. First thing we need is copy for the five core pages.",
+      "ts": "2026-06-01T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "Ill have first-draft copy for all five with you by friday.",
+      "ts": "2026-06-01T12:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Yasmin (agency)",
+      "text": "Great. Well start wireframes in parallel.",
+      "ts": "2026-06-01T13:02:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Yasmin (agency)",
+      "text": "Wireframes attached for the home and pricing pages.",
+      "ts": "2026-06-02T16:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "these look good, one comment on pricing - the tier names are wrong",
+      "ts": "2026-06-02T18:20:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Yasmin (agency)",
+      "text": "Noted, well fix.",
+      "ts": "2026-06-03T09:15:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "Yasmin (agency)",
+      "text": "Do you have a preference on hero imagery? Stock or a shoot?",
+      "ts": "2026-06-03T11:02:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "user",
+      "text": "stock for now, we can shoot later",
+      "ts": "2026-06-03T14:30:00+05:30"
+    },
+    {
+      "index": 8,
+      "sender": "Yasmin (agency)",
+      "text": "Understood.",
+      "ts": "2026-06-03T15:02:00+05:30"
+    },
+    {
+      "index": 9,
+      "sender": "Yasmin (agency)",
+      "text": "Remaining three wireframes attached.",
+      "ts": "2026-06-04T17:20:00+05:30"
+    },
+    {
+      "index": 10,
+      "sender": "user",
+      "text": "will look tomorrow",
+      "ts": "2026-06-04T19:40:00+05:30"
+    },
+    {
+      "index": 11,
+      "sender": "Yasmin (agency)",
+      "text": "Any word on the copy? Were blocked on the home page.",
+      "ts": "2026-06-05T10:02:00+05:30"
+    },
+    {
+      "index": 12,
+      "sender": "user",
+      "text": "copy for all five pages is in the shared doc, just finished it",
+      "ts": "2026-06-05T16:50:00+05:30"
+    },
+    {
+      "index": 13,
+      "sender": "Yasmin (agency)",
+      "text": "Perfect, thank you.",
+      "ts": "2026-06-05T17:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "write first-draft copy for the five core website pages",
+      "direction": "blocked_on_you",
+      "counterparty": "Yasmin (agency)",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 48,
+          "end": 57
+        },
+        "resolved": "2026-06-05",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 57
+      },
+      "resolution": {
+        "msg_index": 12,
+        "start": 0,
+        "end": 44
+      },
+      "state": "closed",
+      "register": "en",
+      "notes": "Evidence in message 1, resolution in message 12, with eight unrelated messages between them."
+    },
+    {
+      "statement": "fix the wrong tier names on the pricing wireframe",
+      "direction": "blocked_on_them",
+      "counterparty": "Yasmin (agency)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 0,
+        "end": 15
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "review the remaining three wireframes",
+      "direction": "blocked_on_you",
+      "counterparty": "Yasmin (agency)",
+      "deadline": {
+        "span": {
+          "msg_index": 10,
+          "start": 10,
+          "end": 18
+        },
+        "resolved": "2026-06-05",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 10,
+        "start": 0,
+        "end": 18
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

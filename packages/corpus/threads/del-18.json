@@ -1,0 +1,108 @@
+{
+  "thread_id": "del-18",
+  "channel": "whatsapp",
+  "split": "dev",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Sneha",
+      "text": "cap table update karna hai, naye ESOP grants add karne hai",
+      "ts": "2026-06-02T11:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "main kar deta hu, excel mere paas hai",
+      "ts": "2026-06-02T11:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Sneha",
+      "text": "sir excel purana hai, ab hum cap table software pe hai",
+      "ts": "2026-06-02T11:35:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Sneha",
+      "text": "main hi kar deti hu, mujhe access hai",
+      "ts": "2026-06-02T11:36:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "haan tum karo. main grant letters sign kar dunga friday tak",
+      "ts": "2026-06-02T12:02:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Sneha",
+      "text": "theek hai",
+      "ts": "2026-06-02T12:05:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "update the cap table with the new ESOP grants",
+      "direction": "blocked_on_you",
+      "counterparty": "Sneha",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 37
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 37
+      },
+      "state": "superseded",
+      "register": "hi-en"
+    },
+    {
+      "statement": "Sneha updates the cap table with the new ESOP grants",
+      "direction": "blocked_on_them",
+      "counterparty": "Sneha",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 19
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    },
+    {
+      "statement": "sign the ESOP grant letters",
+      "direction": "blocked_on_you",
+      "counterparty": "Sneha",
+      "deadline": {
+        "span": {
+          "msg_index": 4,
+          "start": 49,
+          "end": 59
+        },
+        "resolved": "2026-06-05",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 15,
+        "end": 59
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    }
+  ]
+}

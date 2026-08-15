@@ -1,0 +1,33 @@
+{
+  "thread_id": "neg-26",
+  "channel": "whatsapp",
+  "split": "dev",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Imran",
+      "text": "bhai tumhare office ke paas achha PG hai kya, mere cousin ko chahiye",
+      "ts": "2026-06-02T20:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "pata nahi yaar, main dekhta hu kabhi to bata dunga",
+      "ts": "2026-06-02T20:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Imran",
+      "text": "koi jaldi nahi, wo agle saal aayega",
+      "ts": "2026-06-02T20:32:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "haan phir dekhte hai",
+      "ts": "2026-06-02T20:35:00+05:30"
+    }
+  ],
+  "loops": []
+}

@@ -1,0 +1,39 @@
+{
+  "thread_id": "neg-25",
+  "channel": "slack",
+  "split": "dev",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Vinod",
+      "text": "the staging cert expires in 40 days, calendar reminder is set",
+      "ts": "2026-06-01T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Vinod",
+      "text": "already rotated the prod one last month so thats fine",
+      "ts": "2026-06-01T09:03:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "good",
+      "ts": "2026-06-01T09:30:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Prakash",
+      "text": "we should automate cert rotation at some point honestly",
+      "ts": "2026-06-01T09:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "yeah it comes up every year",
+      "ts": "2026-06-01T09:45:00+05:30"
+    }
+  ],
+  "loops": []
+}
