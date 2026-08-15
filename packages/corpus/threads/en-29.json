@@ -1,0 +1,112 @@
+{
+  "thread_id": "en-29",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Neha",
+      "text": "the sales team keeps asking for a battlecard against the incumbent",
+      "ts": "2026-05-13T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "worth doing",
+      "ts": "2026-05-13T10:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Neha",
+      "text": "i can draft it but i dont know the technical differentiation well enough",
+      "ts": "2026-05-13T10:25:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "and i dont know what objections they actually hear",
+      "ts": "2026-05-13T10:30:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "lets do it together, an hour should be enough",
+      "ts": "2026-05-13T10:31:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Neha",
+      "text": "works. ill bring the objection list",
+      "ts": "2026-05-13T10:35:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "and ill bring the technical side",
+      "ts": "2026-05-13T10:36:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "Neha",
+      "text": "we should also refresh the demo script one of these days",
+      "ts": "2026-05-13T10:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "user and Neha build the competitive battlecard together in one session",
+      "direction": "mutual",
+      "counterparty": "Neha",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 45
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "Neha brings the list of objections the sales team hears",
+      "direction": "blocked_on_them",
+      "counterparty": "Neha",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 7,
+        "end": 35
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "bring the technical differentiation material to the battlecard session",
+      "direction": "blocked_on_you",
+      "counterparty": "Neha",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 6,
+        "start": 4,
+        "end": 32
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "A mutual loop with two one-sided preparation loops under it. These are separate obligations — either party can fail their half without the other failing theirs — unlike en-06, where checking a calendar was a step inside the mutual act. Message 7 is near-miss language."
+    }
+  ]
+}

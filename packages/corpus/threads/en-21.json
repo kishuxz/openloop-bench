@@ -1,0 +1,56 @@
+{
+  "thread_id": "en-21",
+  "channel": "slack",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "user",
+      "text": "who owns the pricing experiment results",
+      "ts": "2026-05-04T09:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Vinod",
+      "text": "me. ill have the readout by wednesday",
+      "ts": "2026-05-04T09:40:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Pooja",
+      "text": "im curious too, can you post it here rather than dm",
+      "ts": "2026-05-04T09:45:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Vinod",
+      "text": "sure",
+      "ts": "2026-05-04T09:46:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "Vinod posts the pricing experiment readout in the channel",
+      "direction": "blocked_on_them",
+      "counterparty": "Vinod",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 25,
+          "end": 37
+        },
+        "resolved": "2026-05-06",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 4,
+        "end": 37
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "Three people in the channel, one counterparty. The act is owed to the user, who asked; Pooja's request changes where it is posted, not who owes it."
+    }
+  ]
+}

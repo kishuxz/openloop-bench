@@ -1,0 +1,52 @@
+{
+  "thread_id": "en-22",
+  "channel": "email",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Gopal (auditor)",
+      "text": "Attaching the draft audit observations. Please review and respond to points 3 and 7 in particular.",
+      "ts": "2026-05-04T11:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "Thanks. We'll respond in writing.",
+      "ts": "2026-05-04T16:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "Responses to 1 through 5 attached. 6 and 7 need our CTO, who is back monday.",
+      "ts": "2026-05-06T18:40:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Gopal (auditor)",
+      "text": "Understood, we'll hold the file open.",
+      "ts": "2026-05-07T09:15:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "respond in writing to all of the auditor's draft observations",
+      "direction": "blocked_on_you",
+      "counterparty": "Gopal (auditor)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 8,
+        "end": 32
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "Partial delivery: responses to 1-5 arrived in message 2, 6 and 7 did not. Stays open per §2 — closing it would assert the promised act was performed, and a third of it was not."
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "thread_id": "en-27",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Dinesh",
+      "text": "im picking up the rate limiter work this sprint",
+      "ts": "2026-05-11T09:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Dinesh",
+      "text": "ill have something on staging by thursday for you to hammer",
+      "ts": "2026-05-11T09:31:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "nice",
+      "ts": "2026-05-11T09:40:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Prakash",
+      "text": "ill do the load test once its up",
+      "ts": "2026-05-11T09:45:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Dinesh",
+      "text": "ill also need someone to review the config change, its fiddly",
+      "ts": "2026-05-11T09:50:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "ill review it",
+      "ts": "2026-05-11T10:02:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "Dinesh puts the rate limiter on staging",
+      "direction": "blocked_on_them",
+      "counterparty": "Dinesh",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 30,
+          "end": 41
+        },
+        "resolved": "2026-05-14",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 59
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "Prakash load tests the rate limiter once it is on staging",
+      "direction": "blocked_on_them",
+      "counterparty": "Prakash",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 32
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "review Dinesh's rate limiter config change",
+      "direction": "blocked_on_you",
+      "counterparty": "Dinesh",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 0,
+        "end": 13
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "Three loops in a six-message channel thread with three participants, each owed to a different party. Counterparty is the person the act is owed to, not the channel."
+    }
+  ]
+}

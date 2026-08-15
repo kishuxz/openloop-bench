@@ -14,6 +14,12 @@
       "sender": "user",
       "text": "Thanks for having me, genuinely enjoyed it. Happy to come back anytime, and do send the recording link whenever it's up.",
       "ts": "2026-04-09T15:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Conference (organiser)",
+      "text": "Wonderful. We'll be in touch when the next round of planning starts.",
+      "ts": "2026-04-10T09:15:00+05:30"
     }
   ],
   "loops": []

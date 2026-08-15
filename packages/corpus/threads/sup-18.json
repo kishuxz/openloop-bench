@@ -1,0 +1,101 @@
+{
+  "thread_id": "sup-18",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Tanvi",
+      "text": "the nightly job has failed three times this week",
+      "ts": "2026-05-12T09:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill add retries and alerting to it today",
+      "ts": "2026-05-12T09:45:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Tanvi",
+      "text": "hold on",
+      "ts": "2026-05-12T10:02:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Tanvi",
+      "text": "were replacing that whole pipeline next sprint anyway, dinesh already has the branch open",
+      "ts": "2026-05-12T10:03:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Tanvi",
+      "text": "not worth patching something were deleting",
+      "ts": "2026-05-12T10:04:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "fair enough",
+      "ts": "2026-05-12T10:20:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "ill mute the alert then so it stops paging people",
+      "ts": "2026-05-12T10:21:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "Tanvi",
+      "text": "yes please",
+      "ts": "2026-05-12T10:25:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "add retries and alerting to the failing nightly job",
+      "direction": "blocked_on_you",
+      "counterparty": "Tanvi",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 35,
+          "end": 40
+        },
+        "resolved": "2026-05-12",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 40
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 53
+      },
+      "state": "superseded",
+      "register": "en"
+    },
+    {
+      "statement": "mute the nightly job's alert so it stops paging people",
+      "direction": "blocked_on_you",
+      "counterparty": "Tanvi",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 6,
+        "start": 0,
+        "end": 49
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

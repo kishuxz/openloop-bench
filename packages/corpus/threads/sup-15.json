@@ -1,0 +1,71 @@
+{
+  "thread_id": "sup-15",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Meghna",
+      "text": "hostel wale event ke liye sponsorship chahiye tha, 50k",
+      "ts": "2026-05-05T20:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "haan kar dete hai, main finance ko bol deta hu kal",
+      "ts": "2026-05-05T21:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Meghna",
+      "text": "thank you so much!",
+      "ts": "2026-05-05T21:35:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Meghna",
+      "text": "arre suno, college ne khud hi budget approve kar diya",
+      "ts": "2026-05-07T11:02:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Meghna",
+      "text": "ab sponsor ki zarurat nahi",
+      "ts": "2026-05-07T11:02:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "achha, agli baar sahi",
+      "ts": "2026-05-07T12:20:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "tell finance to release 50k sponsorship for Meghna's event",
+      "direction": "blocked_on_you",
+      "counterparty": "Meghna",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 47,
+          "end": 50
+        },
+        "resolved": "2026-05-06",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 19,
+        "end": 50
+      },
+      "resolution": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 26
+      },
+      "state": "superseded",
+      "register": "hi-en"
+    }
+  ]
+}

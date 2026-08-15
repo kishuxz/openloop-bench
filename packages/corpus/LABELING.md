@@ -124,6 +124,51 @@ The distinction is the same one §1 test 1 makes — is there an act? — applie
 a tense that does not announce one. `en-19` has both: "looking" is not labeled,
 "rolling it back now" two messages later is.
 
+### Group threads: who is the counterparty
+
+A commitment made in a channel with four people in it still has exactly one
+counterparty field.
+
+**Use the person the act is owed to, not the channel.** If someone asks and the
+subject answers, the asker is the counterparty even if six people watched.
+
+**When it is genuinely owed to the group** — "ill post the numbers here before
+standup" with no one having asked — use the most specific standing party
+available: the person who raised the topic, or the person who will be blocked
+without it. If nobody fits, use the channel or team as the counterparty string
+("#launch", "the ops team"). A loop owed to everybody and nobody still has to be
+chaseable by someone, and if it is not, check it against §1 test 4 before
+labeling it at all.
+
+Never split one act into one loop per person present.
+
+### Partial delivery
+
+"sent the first three, rest tomorrow." Something arrived; the obligation is not
+discharged.
+
+**A partly delivered commitment stays `open`.** `closed` asserts the promised
+act was performed, and half of it was not. Do not close it and open a
+replacement either — that would double-count in recall and imply the original
+commitment ended, which it did not.
+
+Record what arrived in `notes`. If the remainder carries a new deadline, that
+deadline replaces the original on the same loop.
+
+### Delivery rejected, and the loop reopening
+
+"attached" → "this is the old version, can you resend?"
+
+**Label two loops.** The first is `closed` — the promisor did the thing they
+said they would do, and the label tracks the obligation rather than whether the
+result was any good. The second is a new loop created by the rejection, owed by
+whoever now owes the corrected version.
+
+This is deliberately not supersession. Nothing was cancelled or handed off; a
+commitment completed and a fresh one replaced it. Getting this wrong in the
+other direction — one perpetually open loop — would hide the delivery that
+demonstrably happened.
+
 ### Recurring and standing commitments
 
 "ill send it every monday", "aap hi har month 5 tarikh ko bhej dijiye" — an

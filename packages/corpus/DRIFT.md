@@ -119,3 +119,63 @@ re-examined under the clarified directive rule and are consistent as labeled.
 
 80 threads, 98 loops, 184 spans, all resolving. `validate`, `stats:check` and
 83 tests pass.
+
+---
+
+## Batch 2 — threads 81–120 (`en-21..30`, `mix-21..30`, `sup-14..20`, `neg-17..24`, `del-12..16`)
+
+Audit target: batch 1, threads 41–80.
+
+### Rules added during this batch
+
+| Rule | Forced by | What it settles |
+|---|---|---|
+| **Group threads: who is the counterparty** (§2) | `en-21`, `en-27`, `del-14` | One counterparty per loop, chosen as the party the act is owed to — the asker, or whoever is blocked without it. Never one loop per person present. |
+| **Partial delivery** (§2) | `en-22`, `mix-26` | Half-delivered stays `open`. Not `closed`, and not closed-plus-replacement, which would double-count recall. |
+| **Delivery rejected, and the loop reopening** (§2) | `en-23`, `mix-25` | The first loop `closed` — the promisor did what they said — and the correction is a new loop. Deliberately not supersession. |
+
+### Findings
+
+**1. No label changes were required in batch 1.** The three new rules were
+checked against every batch 1 thread that could touch them:
+
+- *Partial delivery.* One candidate, `mix-19` message 6 ("baaki do pending").
+  The loop there is scoped to the two documents still outstanding, and message
+  13 delivers both, so it closes correctly. Scoping the statement to exclude
+  the already-delivered item and treating all three as one partly-delivered
+  loop give the same label, so the thread stands either way.
+- *Delivery rejected.* One candidate, `en-15` message 0 ("can you resend the
+  invoice?"). Not a rejection — the original was sent before the thread opens,
+  so this is a fresh request, not a correction of an in-thread delivery.
+- *Group threads.* Three multi-party threads: `en-17`, `del-09`, `neg-13`.
+  `en-17` already carries two different counterparties for two loops in one
+  thread, chosen by who is owed each act, which is what the rule now says.
+  `del-09` and `neg-13` are consistent.
+
+This is the first audit that changed nothing, which is the outcome the process
+is supposed to trend toward.
+
+**2. The cue pattern missed Tamil again.** `neg-19` failed the
+not-trivially-separable test on "yaaravadhu paakanum adha" — "someone should
+look at that", the exact Tamil analogue of the English near-miss the test is
+built around.
+
+This is a recurrence of batch 1 finding 3, and the recurrence is the useful
+part: patching in individual words was always going to keep failing. The
+pattern now matches the Tamil necessitative suffix `-anum` as a family, along
+with the indefinite subjects ("yaaravadhu", "koi"), rather than another handful
+of literals.
+
+**3. Two threads were shorter than the stated range.** `neg-12` and `neg-20`
+were two messages against a floor of three. Both were email exchanges that
+genuinely end after a reply, so each gained a closing message rather than being
+padded.
+
+*Cause:* the length range was a target I was not measuring per batch. It is now
+checked alongside the composition figures.
+
+### Counts after batch 2
+
+120 threads, 163 loops, 290 spans, all resolving. Thread lengths span 3–20
+messages. 16 threads carry 3–5 loops, against a target of 15 at 200 — already
+met. `validate`, `stats:check` and 83 tests pass.

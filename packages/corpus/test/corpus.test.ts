@@ -202,6 +202,10 @@ describe("the corpus is not trivially separable", () => {
         "\\b(happy to|anytime|whenever|at some point|sometime)\\b",
         "\\b(dunga|dungi|doonga|karunga|karungi|sochunga|bhejta|deta hu|dekhta hu|dijiye|dijiyega|milte)\\b",
         "\\b(panren|pandren|panduven|panniduven|mudichiduven|anuppuren|varen|pogalam|pesalam|kandippa)\\b",
+        // Tamil necessitative -anum ("paakanum", "pannanum") is the direct
+        // analogue of English "should", and carries the same near-miss weight.
+        "\\b\\w{2,}anum\\b",
+        "\\b(yaaravadhu|yaarachum|koi)\\b",
       ].join("|"),
       "i",
     );

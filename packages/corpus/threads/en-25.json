@@ -1,0 +1,52 @@
+{
+  "thread_id": "en-25",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Sridhar (landlord)",
+      "text": "sir maintenance ke liye plumber bhejenge kal",
+      "ts": "2026-05-07T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Sridhar (landlord)",
+      "text": "someone should be there between 11 and 1",
+      "ts": "2026-05-07T09:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "ok ill make sure office is open",
+      "ts": "2026-05-07T10:20:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Sridhar (landlord)",
+      "text": "theek hai",
+      "ts": "2026-05-07T10:25:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "make sure the office is open for the plumber",
+      "direction": "blocked_on_you",
+      "counterparty": "Sridhar (landlord)",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-05-08",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 3,
+        "end": 31
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "The visit is tomorrow between 11 and 1, stated as a fact about the plumber rather than attached to the commitment, so implied with a null span."
+    }
+  ]
+}

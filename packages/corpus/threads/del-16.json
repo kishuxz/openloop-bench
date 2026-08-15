@@ -1,0 +1,114 @@
+{
+  "thread_id": "del-16",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Harsha",
+      "text": "im on call this weekend but im at a wedding saturday, phone will be off for a few hours",
+      "ts": "2026-05-14T16:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill cover saturday",
+      "ts": "2026-05-14T16:10:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Harsha",
+      "text": "you dont have prod access anymore, we removed it after the audit",
+      "ts": "2026-05-14T16:15:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "ah right",
+      "ts": "2026-05-14T16:16:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "dinesh, can you cover saturday afternoon? harsha is at a wedding",
+      "ts": "2026-05-14T16:20:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Dinesh",
+      "text": "yep i can do that",
+      "ts": "2026-05-14T16:30:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "ill get my access restored properly next week so this doesnt happen again",
+      "ts": "2026-05-14T16:35:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "cover Harsha's on-call shift on Saturday",
+      "direction": "blocked_on_you",
+      "counterparty": "Harsha",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-05-16",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 18
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 33
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "Superseded by a capability the promisor no longer has, as in del-10. The obligation moves rather than disappearing."
+    },
+    {
+      "statement": "Dinesh covers on-call on Saturday afternoon",
+      "direction": "blocked_on_them",
+      "counterparty": "Dinesh",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-05-16",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 0,
+        "end": 17
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "get production access restored",
+      "direction": "blocked_on_you",
+      "counterparty": "Harsha",
+      "deadline": {
+        "span": {
+          "msg_index": 6,
+          "start": 36,
+          "end": 45
+        },
+        "resolved": null,
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 6,
+        "start": 0,
+        "end": 45
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

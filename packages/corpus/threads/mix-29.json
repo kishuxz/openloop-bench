@@ -1,0 +1,104 @@
+{
+  "thread_id": "mix-29",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Vikram",
+      "text": "board meeting ke liye dates chahiye, sab directors ko pooch ke batao",
+      "ts": "2026-05-14T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "main sabko individually pooch ke ek doodle bhej deta hu",
+      "ts": "2026-05-14T10:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Vikram",
+      "text": "arre nahi, tum pooch loge to teen din lagega",
+      "ts": "2026-05-14T10:35:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Vikram",
+      "text": "main company secretary se karwata hu, unka kaam hi yehi hai",
+      "ts": "2026-05-14T10:36:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "aur badhiya",
+      "ts": "2026-05-14T10:40:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Vikram",
+      "text": "haan aur venue bhi wahi dekh lenge",
+      "ts": "2026-05-14T10:41:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "poll the directors for board meeting dates and circulate options",
+      "direction": "blocked_on_you",
+      "counterparty": "Vikram",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 55
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 36
+      },
+      "state": "superseded",
+      "register": "hi-en"
+    },
+    {
+      "statement": "the company secretary polls the directors for board meeting dates",
+      "direction": "blocked_on_them",
+      "counterparty": "company secretary",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 36
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "Counterparty is the company secretary, who never appears in the thread. Vikram arranges it but does not owe the act."
+    },
+    {
+      "statement": "the company secretary arranges the board meeting venue",
+      "direction": "blocked_on_them",
+      "counterparty": "company secretary",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 9,
+        "end": 34
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    }
+  ]
+}

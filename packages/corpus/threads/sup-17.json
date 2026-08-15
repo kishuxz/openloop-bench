@@ -1,0 +1,59 @@
+{
+  "thread_id": "sup-17",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Ravi (CS)",
+      "text": "anna, customer training session ku slides venum",
+      "ts": "2026-05-11T09:15:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "naan pandren, weekend la time iruku",
+      "ts": "2026-05-11T09:40:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Ravi (CS)",
+      "text": "anna customer postpone panniraanga, next quarter nu solraanga",
+      "ts": "2026-05-13T16:02:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "sari, appo aprom paakalam",
+      "ts": "2026-05-13T16:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "prepare slides for the customer training session",
+      "direction": "blocked_on_you",
+      "counterparty": "Ravi (CS)",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 14,
+          "end": 24
+        },
+        "resolved": "2026-05-17",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 35
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 5,
+        "end": 34
+      },
+      "state": "superseded",
+      "register": "ta-en"
+    }
+  ]
+}

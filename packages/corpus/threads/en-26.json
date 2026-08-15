@@ -1,0 +1,90 @@
+{
+  "thread_id": "en-26",
+  "channel": "email",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Kavya (customer)",
+      "text": "We're seeing duplicate charges on three accounts this month. Can you look into it urgently?",
+      "ts": "2026-05-08T08:40:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "On it now. Ill confirm the scope within the hour and refund anything duplicated today.",
+      "ts": "2026-05-08T09:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "Confirmed: 3 accounts, 4 duplicate charges, total 18,400. Refunds initiated, they take 5-7 days to land.",
+      "ts": "2026-05-08T09:55:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Kavya (customer)",
+      "text": "Thank you for the quick turnaround.",
+      "ts": "2026-05-08T10:30:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Kavya (customer)",
+      "text": "Will you send something in writing about how this happened?",
+      "ts": "2026-05-08T10:31:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "Yes - well send a short RCA once weve finished the investigation.",
+      "ts": "2026-05-08T11:02:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "confirm the scope of the duplicate charges and refund them",
+      "direction": "blocked_on_you",
+      "counterparty": "Kavya (customer)",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 33,
+          "end": 48
+        },
+        "resolved": "2026-05-08",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 11,
+        "end": 85
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 58,
+        "end": 75
+      },
+      "state": "closed",
+      "register": "en"
+    },
+    {
+      "statement": "send the customer a written RCA for the duplicate charges",
+      "direction": "blocked_on_you",
+      "counterparty": "Kavya (customer)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 6,
+        "end": 64
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "Conditional on a certain event — the investigation is already running — so it is a loop, unlike a conditional on an uncertain one."
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "thread_id": "en-23",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Charu (recruiter)",
+      "text": "shortlist for the backend role is ready, 6 profiles",
+      "ts": "2026-05-05T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Charu (recruiter)",
+      "text": "ill share the deck by eod today",
+      "ts": "2026-05-05T10:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "great",
+      "ts": "2026-05-05T10:20:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Charu (recruiter)",
+      "text": "shared, check your mail",
+      "ts": "2026-05-05T17:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "opened it - this is the old shortlist, the one from april",
+      "ts": "2026-05-05T18:02:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Charu (recruiter)",
+      "text": "oh no sorry, wrong attachment. ill resend the right one tonight",
+      "ts": "2026-05-05T18:10:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "Charu shares the backend role shortlist deck",
+      "direction": "blocked_on_them",
+      "counterparty": "Charu (recruiter)",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 19,
+          "end": 31
+        },
+        "resolved": "2026-05-05",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 31
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 23
+      },
+      "state": "closed",
+      "register": "en",
+      "notes": "Closed even though the wrong file arrived. The label tracks the obligation, not whether the result was any good — see the rejection rule in §2. The correction is a separate loop."
+    },
+    {
+      "statement": "Charu resends the correct backend shortlist deck",
+      "direction": "blocked_on_them",
+      "counterparty": "Charu (recruiter)",
+      "deadline": {
+        "span": {
+          "msg_index": 5,
+          "start": 56,
+          "end": 63
+        },
+        "resolved": "2026-05-05",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 31,
+        "end": 63
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

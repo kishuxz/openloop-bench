@@ -1,0 +1,98 @@
+{
+  "thread_id": "del-13",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Lakshmi (audit)",
+      "text": "sir directors report draft karna hai, board meeting se pehle",
+      "ts": "2026-05-05T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "main draft kar deta hu, pichli baar ka format hai mere paas",
+      "ts": "2026-05-05T11:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Lakshmi (audit)",
+      "text": "sir is baar related party transactions ka section badal gaya hai",
+      "ts": "2026-05-05T11:40:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Lakshmi (audit)",
+      "text": "main kar deti hu, aap sirf review kar dena",
+      "ts": "2026-05-05T11:41:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "haan aap hi kar do phir, main review kar dunga",
+      "ts": "2026-05-05T12:02:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "draft the directors' report before the board meeting",
+      "direction": "blocked_on_you",
+      "counterparty": "Lakshmi (audit)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 22
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 42
+      },
+      "state": "superseded",
+      "register": "hi-en"
+    },
+    {
+      "statement": "Lakshmi drafts the directors' report",
+      "direction": "blocked_on_them",
+      "counterparty": "Lakshmi (audit)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 16
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    },
+    {
+      "statement": "review Lakshmi's draft of the directors' report",
+      "direction": "blocked_on_you",
+      "counterparty": "Lakshmi (audit)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 25,
+        "end": 46
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "Direction flip driven by expertise rather than workload — Lakshmi knows the changed section and the user does not."
+    }
+  ]
+}
