@@ -115,6 +115,38 @@ packages/eval        Metrics + report generation. Stub — Phase 3.
 apps/web             Static results viewer.       Stub — Phase 3.
 ```
 
+## Is the corpus separable without doing the task?
+
+A benchmark of this shape has a specific way of being worthless: if the threads
+that contain commitments differ from the threads that do not in some surface
+way, an extractor can score well by learning this corpus instead of learning to
+detect commitments.
+
+`pnpm separability` measures it. A bag-of-tokens classifier is trained to
+predict "does this thread contain a loop" from thread text alone, cross-validated
+within the `dev` split, scored by balanced accuracy against a 200-shuffle
+permutation null. Nothing in it knows what language it is reading.
+
+It found three real leaks, all of them habits of the person who wrote the
+threads:
+
+| Leak | What it was |
+|---|---|
+| `already` | Used as the completed-act near-miss in five negatives and almost nowhere else. It stopped being a near-miss and became a tell. |
+| Topic | Positives were work threads, negatives were often social — catching up, career advice, a cold call. The classifier was learning subject matter. |
+| Dates | Not one negative thread contained a date, though a thread can state a filing deadline and still owe nobody anything. |
+
+**This check is a diagnostic and never fails a build.** The threshold assertion
+it started with was removed rather than relaxed. Fixing the first leak moved the
+p-value from 0.030 to 0.119 through a change that reassigned threads between
+splits and altered no label — and a number that unstable, if it can fail CI,
+eventually gets made to pass by tuning the corpus toward its own checker. The
+ranked feature list is the useful output, and it is equally informative at any
+p-value.
+
+The check refuses to run against a corpus that has not validated in the same
+run, and every score it prints carries the corpus content hash it came from.
+
 ## Known limitations
 
 **Grapheme clusters are not checked.** Span boundaries are validated against

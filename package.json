@@ -14,6 +14,7 @@
     "stats": "pnpm --filter @openloop-bench/corpus run stats",
     "stats:check": "pnpm --filter @openloop-bench/corpus run stats:check",
     "stats:by-batch": "pnpm --filter @openloop-bench/corpus run stats:by-batch",
+    "separability": "pnpm --filter @openloop-bench/corpus run separability",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "pnpm -r --if-present run typecheck",

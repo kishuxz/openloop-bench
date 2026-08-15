@@ -473,9 +473,42 @@ social threads as negatives more often than the reverse. Batch 4 should carry
 social-register commitments and work-register negatives deliberately, and the
 check will say whether that lands.
 
-**And a caution.** At 64 dev threads this measurement has real variance —
-p moved from 0.030 to 0.119 on a change that shifted no labels at all. Driving
-p arbitrarily high would be fitting the corpus to its own checker. The bar is
-"at or near chance", not "as far from chance as possible", and if a future
-batch fails it twice the right answer may be to keep it as a reported
-diagnostic rather than a hard gate.
+### Demoted to a diagnostic
+
+The threshold assertion has been **removed**, not raised. The check reports and
+never fails a build on its score.
+
+The remediation above is the argument. Fixing the leak moved p from 0.030 to
+0.119 through a change that reassigned threads between `dev` and `test` — it
+altered no label, no message, and no span. A statistic that swings that far on
+a split reassignment cannot gate a build honestly: the only lever available for
+making it pass is the corpus, so a failing build would eventually be answered by
+tuning the corpus toward its own checker. That is a worse defect than the leak
+it would be hiding, and unlike the leak it leaves no trace.
+
+The verdict was never the useful part. The ranked feature list and the
+per-thread margins are what named `already`, the social/work topic split, and
+the absence of dates in negatives — and they are exactly as informative at
+p = 0.4 as at p = 0.01.
+
+**The bar, as judgment rather than as a number:** keep remediating while the
+top-weighted features are obviously authorial habit — a word reached for
+whenever negatives were written, a topic only ever given to one side. Stop when
+what remains reads like the genuine language of commitment, because at that
+point the classifier has found the phenomenon the corpus exists to capture, and
+pushing further would mean removing it.
+
+### It cannot run on an unvalidated corpus
+
+While fixing the leak, an edit broke `mix-11`'s evidence span. The build failed,
+and a separability number from the previous run stayed on screen and was read as
+current for one round.
+
+`separabilityReport()` is now the only entry point. It validates the corpus in
+the same run, then computes, or throws — there is no cached-score path and no
+third state. Every score it returns carries the corpus content hash it was
+computed from, printed beside the number, because a score you cannot trace to a
+corpus is a score you cannot act on.
+
+The same rule binds the Phase 4 eval harness: no metric is reported against a
+corpus that has not validated in the same run.

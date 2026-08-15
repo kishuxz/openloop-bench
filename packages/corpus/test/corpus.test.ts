@@ -14,7 +14,7 @@ import { basename, join } from "node:path";
 import { resolveSpan, type Loop, type Thread } from "@openloop-bench/schema";
 import { BUCKETS, bucketOf } from "../src/buckets.js";
 import { loadThreads, threadFiles, THREADS_DIR } from "../src/load.js";
-import { separability } from "../src/separability.js";
+import { formatReport, separabilityReport } from "../src/separability.js";
 
 const { loaded, failures } = loadThreads();
 const threads: Thread[] = loaded.map((l) => l.thread);
@@ -188,36 +188,25 @@ describe("labels stay honest", () => {
 });
 
 describe("the corpus is not trivially separable", () => {
-  // Replaces a hand-authored cue list that asserted every negative contains
-  // "commitment-shaped language". It failed on a different Tamil construction
-  // in three consecutive batches, and every fix was authored from English
-  // intuition about what other grammars ought to look like. This knows nothing
-  // about language: it trains a bag-of-tokens classifier on the dev split and
-  // asks whether thread text alone predicts whether a thread has loops.
+  // Reports; does not gate. The threshold assertion was removed, not raised —
+  // p moved 0.030 -> 0.119 on a change that reassigned threads between splits
+  // and altered no label, and a number that unstable would end up being made to
+  // pass by tuning the corpus toward its own checker. Reasoning in
+  // src/separability.ts and DRIFT.md.
   //
-  // Cross-validated on dev only — the test split must not be read, and a check
-  // fitted on it would be reading it.
-  const dev = threads.filter((t) => t.split === "dev");
-  const result = separability(dev);
+  // This test still fails on a corpus that does not validate, or one too small
+  // to cross-validate, because those are real errors rather than scores.
+  test("separability runs and reports", () => {
+    const report = separabilityReport();
+    console.log("");
+    for (const line of formatReport(report)) console.log(line);
+    expect(report.corpusHash).toMatch(/^[0-9a-f]{16}$/);
+    expect(report.observed).toBeGreaterThanOrEqual(0);
+    expect(report.observed).toBeLessThanOrEqual(1);
+  });
 
-  test("a bag-of-tokens classifier performs at or near chance", () => {
-    const detail = [
-      `balanced accuracy ${result.observed.toFixed(3)}`,
-      `null mean ${result.nullMean.toFixed(3)}`,
-      `null p95 ${result.null95.toFixed(3)}`,
-      `p=${result.pValue.toFixed(3)}`,
-      "",
-      "leaks toward HAVING a loop:  " + result.topPositive.map(([t, w]) => `${t}(${w.toFixed(2)})`).join(" "),
-      "leaks toward NO loop:        " + result.topNegative.map(([t, w]) => `${t}(${w.toFixed(2)})`).join(" "),
-      "",
-      "These features are the leak. Threads carrying them need rewriting so the",
-      "vocabulary stops standing in for the judgment the benchmark measures.",
-    ].join("\n");
-
-    // The permutation null is the comparison that matters: with 64 threads and
-    // 20% negatives, any fixed threshold would be guesswork about how much of a
-    // score is structure and how much is small-sample noise.
-    expect(result.observed, detail).toBeLessThanOrEqual(result.null95);
+  test("it refuses to score a corpus that does not validate", () => {
+    expect(() => separabilityReport(join(import.meta.dirname, "fixtures"))).toThrow(/does not validate/);
   });
 
   test("negatives and positives are not separable by thread length either", () => {

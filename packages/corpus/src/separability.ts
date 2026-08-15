@@ -1,25 +1,57 @@
 /**
- * separability — can a bag-of-words classifier tell a loop-bearing thread from
- * a negative, using thread text alone?
+ * separability — a diagnostic, not a gate.
  *
- * If it can, the corpus leaks. Surface vocabulary would be standing in for the
- * judgment the benchmark is supposed to measure, and an extractor could score
- * well by learning which words appear in this corpus's negatives rather than by
- * detecting commitments.
+ * Trains a bag-of-tokens classifier to predict "does this thread contain at
+ * least one loop" from thread text alone. If it succeeds, the corpus leaks:
+ * surface vocabulary is standing in for the judgment the benchmark measures,
+ * and an extractor could score well by learning this corpus rather than the
+ * task.
  *
- * This replaces a hand-authored cue list that asserted every negative contains
- * "commitment-shaped language". That list failed on a different Tamil
- * construction in three consecutive batches — literals, then the necessitative
- * `-anum`, then the hortative `-alam` and availability offers — and each fix
- * was authored from English intuition about what Tamil ought to look like.
- * Three failures across three grammars is evidence the approach was wrong, not
- * that coverage was incomplete. Nothing here knows what language it is reading.
+ * ## Why this does not fail a build
  *
- * Deliberately simple: token counts, a Bernoulli naive Bayes, and a permutation
- * test. No embeddings, no external models, no vocabulary anyone wrote by hand.
+ * It used to assert that observed balanced accuracy sat below the permutation
+ * null's 95th percentile. That assertion is gone, and deliberately not merely
+ * relaxed.
+ *
+ * The number is too unstable to gate on. Fixing the first leak moved p from
+ * 0.030 to 0.119 through a change that reassigned threads between `dev` and
+ * `test` and altered no label and no message. A statistic that swings that far
+ * on a split reassignment will, if it can fail a build, eventually be made to
+ * pass — and the only lever available is the corpus itself. That is the corpus
+ * being tuned toward its own checker, which is a worse defect than the leak it
+ * would be papering over, and an invisible one.
+ *
+ * The value here was never the verdict. It is the ranked feature list and the
+ * per-thread margins: they name which threads to rewrite, and they are exactly
+ * as informative at p = 0.4 as at p = 0.01.
+ *
+ * **The bar, stated as judgment rather than as a threshold:** keep remediating
+ * while the top-weighted features are obviously authorial habit — a word you
+ * reached for whenever you wrote negatives, a topic you only ever gave to one
+ * side. Stop when what remains looks like the genuine language of commitment,
+ * because at that point the classifier is picking up the phenomenon the corpus
+ * exists to capture, and driving it lower would mean removing that.
+ *
+ * ## What it still fails on
+ *
+ * Real errors. A corpus that does not validate, or too few threads to
+ * cross-validate, throw. There is no cached-score path and no stale-read path:
+ * `separabilityReport` validates the corpus in the same run, computes, or
+ * throws. Every score it returns carries the content hash it was computed
+ * from, because a number without one is a number you cannot trace to a corpus.
+ *
+ * Deliberately simple: token counts, a Bernoulli naive Bayes, a permutation
+ * test. No embeddings, no external models, no vocabulary anyone wrote by hand
+ * — the cue list this replaced failed on a different Tamil construction in
+ * three consecutive batches, every fix authored from English intuition about
+ * what other grammars ought to look like.
  */
 
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import type { Thread } from "@openloop-bench/schema";
+import { loadThreads, THREADS_DIR, threadFiles } from "./load.js";
 
 /** Lowercased alphanumeric runs. Unicode-aware, so Devanagari and Tamil survive. */
 export function tokenize(text: string): string[] {
@@ -188,4 +220,82 @@ export function separability(threads: readonly Thread[], permutations = 200, see
     topPositive: ranked.slice(0, 12),
     topNegative: ranked.slice(-12).reverse(),
   };
+}
+
+/** Fewer than this and cross-validation folds stop being meaningful. */
+export const MIN_THREADS = 20;
+
+export interface SeparabilityReport extends SeparabilityResult {
+  /** Content hash of the corpus these numbers were computed from. */
+  readonly corpusHash: string;
+  readonly threads: number;
+  readonly positives: number;
+  readonly negatives: number;
+}
+
+/** SHA-256 over every thread file, in filename order. Traceability, not security. */
+export function corpusHash(dir: string = THREADS_DIR): string {
+  const hash = createHash("sha256");
+  for (const file of threadFiles(dir)) {
+    hash.update(file);
+    hash.update(readFileSync(join(dir, file)));
+  }
+  return hash.digest("hex").slice(0, 16);
+}
+
+/**
+ * The only supported entry point. Validates the corpus, then computes — or
+ * throws. There is no third state.
+ *
+ * The validation step is not decoration. A broken evidence span once left the
+ * build failing while a previously-computed separability number stayed on
+ * screen, and it was read as current. Deriving the score in the same run as the
+ * parse makes that arrangement impossible rather than merely discouraged.
+ */
+export function separabilityReport(dir: string = THREADS_DIR, permutations = 200): SeparabilityReport {
+  const { loaded, failures } = loadThreads(dir);
+  if (failures.length > 0) {
+    const detail = failures.map((f) => `${f.file}: ${f.problems.join("; ")}`).join("\n  ");
+    throw new Error(
+      `separability refuses to run against a corpus that does not validate. ${failures.length} file(s) failed:\n  ${detail}`,
+    );
+  }
+
+  const dev = loaded.map((l) => l.thread).filter((t) => t.split === "dev");
+  if (dev.length < MIN_THREADS) {
+    throw new Error(`separability needs at least ${MIN_THREADS} dev threads to cross-validate; found ${dev.length}`);
+  }
+  const positives = dev.filter((t) => t.loops.length > 0).length;
+  const negatives = dev.length - positives;
+  if (positives < 5 || negatives < 5) {
+    throw new Error(`separability needs at least 5 threads per class in dev; found ${positives} with loops, ${negatives} without`);
+  }
+
+  return {
+    ...separability(dev, permutations),
+    corpusHash: corpusHash(dir),
+    threads: dev.length,
+    positives,
+    negatives,
+  };
+}
+
+/** Human-readable rendering. The feature lists are the point, not the score. */
+export function formatReport(report: SeparabilityReport): string[] {
+  return [
+    `corpus ${report.corpusHash}  —  dev split: ${report.threads} threads, ${report.positives} with loops, ${report.negatives} without`,
+    "",
+    `  balanced accuracy   ${report.observed.toFixed(3)}   (0.500 is chance)`,
+    `  permutation null    ${report.nullMean.toFixed(3)} mean, ${report.null95.toFixed(3)} at p95`,
+    `  p-value             ${report.pValue.toFixed(3)}`,
+    "",
+    "  leaks toward HAVING a loop:",
+    `    ${report.topPositive.map(([t, w]) => `${t}(${w.toFixed(2)})`).join(" ")}`,
+    "  leaks toward NO loop:",
+    `    ${report.topNegative.map(([t, w]) => `${t}(${w.toFixed(2)})`).join(" ")}`,
+    "",
+    "  Diagnostic only — this never fails a build. Remediate while the features",
+    "  above are obviously authorial habit; stop when what remains reads like the",
+    "  genuine language of commitment.",
+  ];
 }
