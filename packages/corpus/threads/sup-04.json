@@ -34,27 +34,19 @@
       "direction": "blocked_on_you",
       "counterparty": "Aditya (Zeta)",
       "deadline": {
-        "span": {
-          "msg_index": 1,
-          "start": 46,
-          "end": 55
-        },
-        "resolved": "2026-03-13",
-        "certainty": "explicit"
+        "span": null,
+        "resolved": null,
+        "certainty": "implied"
       },
       "evidence": {
         "msg_index": 1,
         "start": 10,
         "end": 55
       },
-      "resolution": {
-        "msg_index": 2,
-        "start": 0,
-        "end": 25
-      },
-      "state": "superseded",
+      "resolution": null,
+      "state": "open",
       "register": "en",
-      "notes": "Aditya's 'I'll come back to you in July' is not labelled as a new loop: it is a vague future intention with no agreed obligation and no date the user could hold him to. See the pleasantry rule."
+      "notes": "Previously labelled superseded. Under the first-person future-tense test, \"I'll have a draft proposal with you by friday\" is a commitment and Aditya's \"Hold off on that actually\" defers it rather than cancelling it: he commits to returning in July and the user answers \"Happy to pick it up whenever\". The obligation survives, so the loop is open; the friday deadline does not, so certainty drops to implied with no span. July is a month-long range with no agreed endpoint, so resolved stays null."
     }
   ]
 }
