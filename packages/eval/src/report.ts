@@ -39,6 +39,7 @@ import {
 } from "./metrics.js";
 import { costOfError, type CostMatrix } from "./cost.js";
 import { hasOffsets, UNMAPPABLE, type PredictedLoop } from "./prediction.js";
+import { formatRate, type IncompleteRun } from "./quality.js";
 
 /** How many failures per category per config get printed. */
 export const GALLERY_CAP = 10;
@@ -47,6 +48,7 @@ export interface ReportInputs {
   /** One per configuration, in the order they should appear. */
   readonly runs: readonly ScoredRun[];
   readonly corpusHash: string;
+  readonly incompleteRuns?: readonly IncompleteRun[];
 }
 
 // ---------------------------------------------------------------------------
@@ -149,6 +151,46 @@ function provenance(inputs: ReportInputs): string[] {
   return lines;
 }
 
+function scopeLine(inputs: ReportInputs): string[] {
+  const configs = inputs.runs.map((run) => `\`${run.run.meta.config}\``).join(", ");
+  const incomplete = inputs.incompleteRuns?.some((run) => run.config === "hosted-redacted")
+    ? "; `hosted-redacted` attempted and incomplete"
+    : "";
+
+  return [
+    "**Scope.** Dev split only; two configs reported",
+    `(${configs}); single prompt version with no iteration against dev results;`,
+    `held-out test split not run${incomplete}.`,
+    "",
+  ];
+}
+
+function attemptedIncomplete(inputs: ReportInputs): string[] {
+  const runs = inputs.incompleteRuns ?? [];
+  if (runs.length === 0) return [];
+
+  const lines = [
+    "## Attempted, Incomplete",
+    "",
+    "These prediction files remain committed as evidence, but are excluded from every",
+    "computed metric and every comparison table because the provider-failure rate exceeded",
+    "the publish threshold.",
+    "",
+  ];
+
+  for (const run of runs) {
+    const reason = run.reason === "provider_failure_rate"
+      ? `provider failure rate ${formatRate(run.provider_failure_rate)} exceeded the ${formatRate(run.max_provider_failure_rate)} threshold`
+      : "run did not pass the publish guard";
+    lines.push(
+      `- \`${run.config}\` — Attempted, incomplete. ${run.attempted_threads} threads attempted, ${run.provider_failures} provider failures, ${run.parse_failures} parse failures, ${run.threads_with_parsed_loops} threads with parsed loops; ${reason}. Run abandoned to free-tier rate limits, to be re-run.`,
+    );
+  }
+
+  lines.push("");
+  return lines;
+}
+
 function matching(inputs: ReportInputs): string[] {
   const thresholds = inputs.runs[0]?.run.iou_thresholds ?? [];
   return [
@@ -230,9 +272,8 @@ function headline(inputs: ReportInputs): string[] {
 function comparisonDeltas(inputs: ReportInputs): string[] {
   const byConfig = new Map(inputs.runs.map((run) => [run.run.meta.config, thresholdOf(run, DEFAULT_IOU)]));
   const hostedLarge = byConfig.get("hosted-large");
-  const hostedRedacted = byConfig.get("hosted-redacted");
   const local = byConfig.get("local");
-  if (!hostedLarge || !hostedRedacted || !local) return [];
+  if (!hostedLarge || !local) return [];
 
   const row = (label: string, base: MetricSet, compare: MetricSet, finding: string): string[] => [
     label,
@@ -252,12 +293,6 @@ function comparisonDeltas(inputs: ReportInputs): string[] {
     ...table(
       ["comparison", "precision", "recall", "F1", "cost", "cost/thread", "finding"],
       [
-        row(
-          "`hosted-large` → `hosted-redacted`",
-          hostedLarge,
-          hostedRedacted,
-          "Redaction did not cost little: recall and F1 collapsed; lower cost comes from silence after provider and parse failures.",
-        ),
         row(
           "`local` → `hosted-large`",
           local,
@@ -963,8 +998,9 @@ function limitations(inputs: ReportInputs): string[] {
   const lines = [
     "## What these numbers do not say",
     "",
-    "- **Scope.** Dev split only; three configurations; a single prompt version with no",
-    "  iteration against dev results; held-out test split not yet run.",
+    "- **Scope.** Dev split only; two configurations reported (`hosted-large`, `local`);",
+    "  single prompt version with no iteration against dev results; held-out test split",
+    "  not run; `hosted-redacted` attempted and incomplete.",
     "- **The matching threshold is a constant somebody chose.** Every table above is",
     "  conditional on it. That is why all three thresholds are reported and why the ranking",
     "  question is asked out loud rather than answered once at 0.5.",
@@ -1011,6 +1047,8 @@ export function renderReport(inputs: ReportInputs): string {
     "The eval refuses to score against a corpus that has not validated, and refuses any",
     "prediction file whose corpus hash does not match the corpus on disk.",
     "",
+    ...scopeLine(inputs),
+    ...attemptedIncomplete(inputs),
     ...provenance(inputs),
     ...matching(inputs),
     ...headline(inputs),

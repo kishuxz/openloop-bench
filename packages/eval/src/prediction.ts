@@ -35,6 +35,7 @@
  * rather than scoring it.
  */
 
+import { readFileSync } from "node:fs";
 import { z } from "zod";
 import {
   CertaintySchema,
@@ -151,6 +152,17 @@ export const PredictionFileSchema = z.strictObject({
 });
 export type PredictionFile = z.infer<typeof PredictionFileSchema>;
 
+export interface PredictionRunAttempt {
+  readonly config: string;
+  readonly split: string;
+  readonly attempted_threads: number;
+  readonly provider_failures: number;
+  readonly parse_failures: number;
+  readonly threads_with_parsed_loops: number;
+  readonly parsed_loops: number;
+  readonly provider_failure_rate: number;
+}
+
 const ExtractorPredictionSchema = z.strictObject({
   schema_version: z.literal(1),
   run: z.strictObject({
@@ -172,6 +184,29 @@ const ExtractorPredictionSchema = z.strictObject({
     }).passthrough(),
   ),
 }).passthrough();
+
+const ExtractorAttemptSchema = z.strictObject({
+  run: z.strictObject({
+    config: z.string().min(1),
+    split: SplitSchema,
+  }).passthrough(),
+  predictions: z.array(
+    z.strictObject({
+      parsed_loops: z.array(z.unknown()).optional(),
+      parse_failure: z.unknown().nullable().optional(),
+      provider_error: z.unknown().nullable().optional(),
+    }).passthrough(),
+  ),
+}).passthrough();
+
+/** Read a prediction JSON file without normalizing away extractor failure fields. */
+export function readPredictionJson(path: string): unknown {
+  try {
+    return JSON.parse(readFileSync(path, "utf-8"));
+  } catch (error) {
+    throw new Error(`${path}: not valid JSON — ${(error as Error).message}`, { cause: error });
+  }
+}
 
 function generatedDate(createdAt: string): string {
   const match = createdAt.match(/^\d{4}-\d{2}-\d{2}/u);
@@ -213,6 +248,50 @@ export function normalizePredictionFile(json: unknown): PredictionFile {
       thread_id: prediction.thread_id,
       loops: prediction.parsed_loops,
     })),
+  };
+}
+
+/**
+ * Extract run-attempt counters before scoring. Extractor artifacts carry
+ * provider and parse failures that the normalized eval contract intentionally
+ * drops; those counters decide whether a run is publishable at all.
+ */
+export function predictionRunAttempt(json: unknown): PredictionRunAttempt {
+  const direct = PredictionFileSchema.safeParse(json);
+  if (direct.success) {
+    const attempted = direct.data.predictions.length;
+    const parsedLoops = direct.data.predictions.reduce((n, prediction) => n + prediction.loops.length, 0);
+    return {
+      config: direct.data.meta.config,
+      split: direct.data.meta.split,
+      attempted_threads: attempted,
+      provider_failures: 0,
+      parse_failures: 0,
+      threads_with_parsed_loops: direct.data.predictions.filter((prediction) => prediction.loops.length > 0).length,
+      parsed_loops: parsedLoops,
+      provider_failure_rate: 0,
+    };
+  }
+
+  const extractor = ExtractorAttemptSchema.safeParse(json);
+  if (!extractor.success) {
+    throw new Error(`prediction attempt counters unavailable: ${extractor.error.issues.map((issue) => `${issue.path.join(".")}: ${issue.message}`).join("; ")}`);
+  }
+
+  const attempted = extractor.data.predictions.length;
+  const providerFailures = extractor.data.predictions.filter((prediction) => prediction.provider_error != null).length;
+  const parseFailures = extractor.data.predictions.filter((prediction) => prediction.parse_failure != null).length;
+  const parsedLoops = extractor.data.predictions.reduce((n, prediction) => n + (prediction.parsed_loops?.length ?? 0), 0);
+
+  return {
+    config: extractor.data.run.config,
+    split: extractor.data.run.split,
+    attempted_threads: attempted,
+    provider_failures: providerFailures,
+    parse_failures: parseFailures,
+    threads_with_parsed_loops: extractor.data.predictions.filter((prediction) => (prediction.parsed_loops?.length ?? 0) > 0).length,
+    parsed_loops: parsedLoops,
+    provider_failure_rate: attempted === 0 ? 0 : providerFailures / attempted,
   };
 }
 

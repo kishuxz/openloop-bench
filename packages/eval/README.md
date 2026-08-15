@@ -9,8 +9,8 @@ pnpm eval           # score every prediction file → results/metrics-*.json, ma
 pnpm report         # render results/REPORT.md from the committed files
 ```
 
-**Phase 3 has not landed.** Everything here runs against generated fixtures, not
-model output. Integration is a separate step.
+Measured dev prediction files live in `predictions/`. Generated fixtures still
+exist under `fixtures/predictions/` as evaluator test vectors.
 
 ## The matcher is the whole design
 
@@ -110,12 +110,17 @@ and the report says so on the page rather than in this file.
   across corpus versions compares two benchmarks and calls it one.
 - A file that does not cover the split exactly — every thread, once, nothing else
   — is refused. A partial file scores as confident silence and flatters precision.
+- A run whose provider-failure rate exceeds the publish threshold is kept as an
+  input artifact but excluded from published metrics. The default threshold is
+  20.0%, configurable with `OPENLOOP_MAX_PROVIDER_FAILURE_RATE` or
+  `--max-provider-failure-rate`.
 - `pnpm report` re-runs the matcher and refuses to render if the committed
   `results/*.json` disagree with it, so REPORT.md can never state a number that no
   committed artifact backs.
-- The committed report is scoped to the dev split only: three configurations, a
-  single prompt version with no iteration against dev results, and no held-out
-  test split run yet.
+- The committed report is scoped to the dev split only: two configurations
+  reported (`hosted-large`, `local`), a single prompt version with no iteration
+  against dev results, no held-out test split run yet, and `hosted-redacted`
+  attempted but incomplete.
 
 ## The fixtures
 

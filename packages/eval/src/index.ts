@@ -18,11 +18,14 @@ export {
   UNMAPPABLE,
   allPredictedLoops,
   hasOffsets,
+  predictionRunAttempt,
+  readPredictionJson,
   type PredictedDeadline,
   type PredictedLoop,
   type PredictedOffsets,
   type PredictedSpan,
   type PredictionFile,
+  type PredictionRunAttempt,
   type RunMeta,
   type ThreadPrediction,
 } from "./prediction.js";
@@ -112,3 +115,13 @@ export {
 } from "./paths.js";
 
 export { renderReport, type ReportInputs } from "./report.js";
+
+export {
+  DEFAULT_MAX_PROVIDER_FAILURE_RATE,
+  PROVIDER_FAILURE_RATE_ENV,
+  formatRate,
+  incompleteRun,
+  parseProviderFailureThreshold,
+  type IncompleteRun,
+  type PublishGate,
+} from "./quality.js";
