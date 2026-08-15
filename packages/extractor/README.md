@@ -1,23 +1,31 @@
 # @openloop-bench/extractor
 
-**Status: stub. No implementation — Phase 2.**
+Reference extractor for Phase 3. It produces prediction files only; metrics,
+scoring, and matching belong to the eval package.
 
-The reference extractor: thread in, `Loop[]` out, scored against the ground
-truth in `@openloop-bench/corpus`.
+```bash
+pnpm extract --split dev
+pnpm extract --split dev --config hosted-redacted --no-cache
+```
 
-What it will have to get right, in the order the corpus makes hard:
+The extractor validates the corpus in the same run before loading any thread.
+`loadForExtraction(threadId)` returns only `thread_id`, `channel`, and
+`messages`, and the model-facing `thread_id` is opaque so bucket prefixes such
+as `sup-` never reach the model.
 
-1. **Supersession.** Reading the promise and stopping there is the default
-   failure. The extractor has to read the whole thread before it can decide
-   `state`.
-2. **Direction.** `blocked_on_you` mislabeled as `blocked_on_them` is the one
-   error class that would let a downstream system speak for the subject. It is
-   scored separately from the rest.
-3. **Grounded evidence.** Output must carry character spans that resolve, not
-   quotes. `resolveEvidence()` from `@openloop-bench/schema` is the check, and
-   it is the same function the corpus validator runs.
-4. **Code-mixed deadlines.** `deadline.raw` must come back as it was typed —
-   "kal tak", not "by tomorrow".
+The versioned prompt exports `PROMPT_VERSION`.
+Prediction files record the prompt version, model id/version, sampling
+parameters, raw model response, parsed loops, unmappable spans, latency, token
+counts, parse failures, and provider failures.
 
-Phase 3 measures how much of this degrades under PII redaction and under local
-models.
+Configs:
+
+| Config | Provider | Text |
+|---|---|---|
+| `hosted-large` | Groq, `OPENLOOP_HOSTED_MODEL`/`GROQ_MODEL` or `llama-3.3-70b-versatile` | full |
+| `hosted-redacted` | Groq, `OPENLOOP_REDACTED_MODEL` or hosted model | PII redacted, spans remapped |
+| `local` | Ollama, `OPENLOOP_LOCAL_MODEL`/`OLLAMA_MODEL` or `qwen2.5:7b` | full |
+
+`--split test` refuses unless `--final` is passed and no existing test
+prediction file is present. Dev runs always print the remaining test-run
+warning.

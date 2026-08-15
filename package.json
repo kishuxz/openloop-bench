@@ -15,6 +15,7 @@
     "stats:check": "pnpm --filter @openloop-bench/corpus run stats:check",
     "stats:by-batch": "pnpm --filter @openloop-bench/corpus run stats:by-batch",
     "separability": "pnpm --filter @openloop-bench/corpus run separability",
+    "extract": "pnpm --filter @openloop-bench/extractor run extract",
     "eval": "pnpm --filter @openloop-bench/eval run eval",
     "report": "pnpm --filter @openloop-bench/eval run report",
     "fixtures:gen": "pnpm --filter @openloop-bench/eval run fixtures:gen",
