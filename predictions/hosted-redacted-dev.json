@@ -1,0 +1,2834 @@
+{
+  "schema_version": 1,
+  "run": {
+    "config": "hosted-redacted",
+    "split": "dev",
+    "prompt_version": "v2",
+    "corpus_hash": "d9c347f4f5150b19",
+    "created_at": "2026-08-15T06:48:52.741Z",
+    "cache_hits": 0,
+    "cache_misses": 80,
+    "throttle_stats": {
+      "requests": 430,
+      "retries": 350,
+      "rateLimit429s": 417,
+      "retryExhausted": 67,
+      "backoffMs": 2213868,
+      "configuredDelayMs": 1500
+    }
+  },
+  "model": {
+    "provider": "groq",
+    "id": "llama-3.3-70b-versatile",
+    "version": "llama-3.3-70b-versatile",
+    "sampling": {
+      "temperature": 0,
+      "seed": 20260815,
+      "max_retries": 5,
+      "request_delay_ms": 1500
+    },
+    "json_mode": true
+  },
+  "predictions": [
+    {
+      "thread_id": "del-01",
+      "model_thread_id": "thread-c611f0795119",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\n  \"loops\": [\n       {\n           \"statement\": \"share the monthly cohort data before the IC meeting\",\n           \"direction\": \"blocked_on_them\",\n           \"counterparty\": \"[PERSON_8]\",\n           \"deadline\": {\n               \"quote\": \"before the IC meeting\",\n               \"msg_index\": 0,\n               \"resolved\": null,\n               \"certainty\": \"implied\"\n           },\n           \"evidence_quote\": \"can you share the monthly cohort data before the IC meeting?\",\n           \"evidence_msg_index\": 0,\n           \"resolution_quote\": null,\n           \"resolution_msg_index\": null,\n           \"state\": \"open\",\n           \"register\": \"en\"\n       }\n   ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 2271,
+      "token_counts": {
+        "input": 871,
+        "output": 146,
+        "total": 1017
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: deadline.span: certainty \"implied\" requires span to be null; a phrase you can point at makes it \"explicit\""
+      },
+      "provider_error": null,
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "del-02",
+      "model_thread_id": "thread-41fd01edd891",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\n  \"loops\":[\n      {\n         \"statement\":\"Write the postmortem for the Friday outage\",\n         \"direction\":\"blocked_on_you\",\n         \"counterparty\":\"[PERSON_1]\",\n         \"deadline\":{\n            \"quote\":\"by wednesday\",\n            \"msg_index\":1,\n            \"resolved\":null,\n            \"certainty\":\"explicit\"\n         },\n         \"evidence_quote\":\"can you write up the postmortem for the friday outage?\",\n         \"evidence_msg_index\":0,\n         \"resolution_quote\":\"fair. dont worry ill write it, you just review\",\n         \"resolution_msg_index\":3,\n         \"state\":\"superseded\",\n         \"register\":\"en\"\n      },\n      {\n         \"statement\":\"Review the postmortem for the Friday outage\",\n         \"direction\":\"blocked_on_them\",\n         \"counterparty\":\"[PERSON_1]\",\n         \"deadline\":null,\n         \"evidence_quote\":\"fair. dont worry ill write it, you just review\",\n         \"evidence_msg_index\":3,\n         \"resolution_quote\":null,\n         \"resolution_msg_index\":null,\n         \"state\":\"open\",\n         \"register\":\"en\"\n      }\n   ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 2239,
+      "token_counts": {
+        "input": 870,
+        "output": 243,
+        "total": 1113
+      },
+      "parse_failure": {
+        "message": "loops.1.deadline: Invalid input: expected object, received null"
+      },
+      "provider_error": null,
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "del-03",
+      "model_thread_id": "thread-8457986d2d2e",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\n  \"loops\":[\n      {\n         \"statement\":\"send ISO 27001 certificate and signed NDA\",\n         \"direction\":\"blocked_on_them\",\n         \"counterparty\":\"[PERSON_14] from our ops side\",\n         \"deadline\":{\n            \"quote\":\"by thursday\",\n            \"msg_index\":2,\n            \"resolved\":null,\n            \"certainty\":\"explicit\"\n         },\n         \"evidence_quote\":\"Could you send both?\",\n         \"evidence_msg_index\":0,\n         \"resolution_quote\":null,\n         \"resolution_msg_index\":null,\n         \"state\":\"open\",\n         \"register\":\"en\"\n      }\n   ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "send ISO 27001 certificate and signed NDA",
+          "direction": "blocked_on_them",
+          "counterparty": "[PERSON_14] from our ops side",
+          "deadline": {
+            "span": {
+              "msg_index": 2,
+              "start": 110,
+              "end": 121
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 82,
+            "end": 102
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1995,
+      "token_counts": {
+        "input": 858,
+        "output": 133,
+        "total": 991
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "del-07",
+      "model_thread_id": "thread-b78bc0c2f000",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\n  \"loops\":[\n      {\n         \"statement\":\"call the enterprise trial team\",\n         \"direction\":\"blocked_on_them\",\n         \"counterparty\":\"enterprise trial team\",\n         \"deadline\":{\n            \"quote\":\"friday\",\n            \"msg_index\":0,\n            \"resolved\":\"2026-04-10\",\n            \"certainty\":\"explicit\"\n         },\n         \"evidence_quote\":\"ill call them today\",\n         \"evidence_msg_index\":1,\n         \"resolution_quote\":\"on it\",\n         \"resolution_msg_index\":5,\n         \"state\":\"closed\",\n         \"register\":\"en\"\n      }\n   ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "call the enterprise trial team",
+          "direction": "blocked_on_them",
+          "counterparty": "enterprise trial team",
+          "deadline": {
+            "span": {
+              "msg_index": 0,
+              "start": 29,
+              "end": 35
+            },
+            "resolved": "2026-04-10",
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 19
+          },
+          "resolution": {
+            "msg_index": 5,
+            "start": 0,
+            "end": 5
+          },
+          "state": "closed",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 2106,
+      "token_counts": {
+        "input": 917,
+        "output": 127,
+        "total": 1044
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "del-08",
+      "model_thread_id": "thread-8e7c2bcdb432",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\n  \"loops\":[\n      {\n         \"statement\":\"send stock statement to the bank every month\",\n         \"direction\":\"blocked_on_them\",\n         \"counterparty\":\"[PERSON_1]\",\n         \"deadline\":{\n            \"quote\":\"5 tarikh ko\",\n            \"msg_index\":4,\n            \"resolved\":null,\n            \"certainty\":\"explicit\"\n         },\n         \"evidence_quote\":\"main aaj bhej deta hu\",\n         \"evidence_msg_index\":1,\n         \"resolution_quote\":null,\n         \"resolution_msg_index\":null,\n         \"state\":\"open\",\n         \"register\":\"hi-en\"\n      }\n   ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "send stock statement to the bank every month",
+          "direction": "blocked_on_them",
+          "counterparty": "[PERSON_1]",
+          "deadline": {
+            "span": {
+              "msg_index": 4,
+              "start": 33,
+              "end": 44
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 11,
+            "end": 32
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 8631,
+      "token_counts": {
+        "input": 979,
+        "output": 133,
+        "total": 1112
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "del-12",
+      "model_thread_id": "thread-8b2b2670b84e",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\n  \"loops\":[\n      {\n         \"statement\":\"write the management response for the pen test report\",\n         \"direction\":\"blocked_on_them\",\n         \"counterparty\":\"[PERSON_1]\",\n         \"deadline\":{\n            \"quote\":null,\n            \"msg_index\":null,\n            \"resolved\":null,\n            \"certainty\":\"none\"\n         },\n         \"evidence_quote\":\"ill write it\",\n         \"evidence_msg_index\":1,\n         \"resolution_quote\":\"give me the template and ill do this one, you just sign off\",\n         \"resolution_msg_index\":3,\n         \"state\":\"superseded\",\n         \"register\":\"en\"\n      },\n      {\n         \"statement\":\"send the template for the management response\",\n         \"direction\":\"blocked_on_you\",\n         \"counterparty\":\"[PERSON_1]\",\n         \"deadline\":{\n            \"quote\":null,\n            \"msg_index\":null,\n            \"resolved\":null,\n            \"certainty\":\"none\"\n         },\n         \"evidence_quote\":\"give me the template and ill do this one, you just sign off\",\n         \"evidence_msg_index\":3,\n         \"resolution_quote\":\"deal. sending you the template now\",\n         \"resolution_msg_index\":4,\n         \"state\":\"closed\",\n         \"register\":\"en\"\n      },\n      {\n         \"statement\":\"sign off on the management response\",\n         \"direction\":\"blocked_on_you\",\n         \"counterparty\":\"[PERSON_1]\",\n         \"deadline\":{\n            \"quote\":null,\n            \"msg_index\":null,\n            \"resolved\":null,\n            \"certainty\":\"none\"\n         },\n         \"evidence_quote\":\"give me the template and ill do this one, you just sign off\",\n         \"evidence_msg_index\":3,\n         \"resolution_quote\":null,\n         \"resolution_msg_index\":null,\n         \"state\":\"open\",\n         \"register\":\"en\"\n      }\n   ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "write the management response for the pen test report",
+          "direction": "blocked_on_them",
+          "counterparty": "[PERSON_1]",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 12
+          },
+          "resolution": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 59
+          },
+          "state": "superseded",
+          "register": "en"
+        },
+        {
+          "statement": "send the template for the management response",
+          "direction": "blocked_on_you",
+          "counterparty": "[PERSON_1]",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 59
+          },
+          "resolution": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 34
+          },
+          "state": "closed",
+          "register": "en"
+        },
+        {
+          "statement": "sign off on the management response",
+          "direction": "blocked_on_you",
+          "counterparty": "[PERSON_1]",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 59
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 2525,
+      "token_counts": {
+        "input": 877,
+        "output": 390,
+        "total": 1267
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "del-13",
+      "model_thread_id": "thread-8e2a3a17ae6d",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\n  \"loops\":[\n      {\n         \"statement\":\"Directors report draft review\",\n         \"direction\":\"blocked_on_them\",\n         \"counterparty\":\"[PERSON_1]\",\n         \"deadline\":{\n            \"quote\":\"board meeting se pehle\",\n            \"msg_index\":0,\n            \"resolved\":null,\n            \"certainty\":\"implied\"\n         },\n         \"evidence_quote\":\"sir directors report draft karna hai, board meeting se pehle\",\n         \"evidence_msg_index\":0,\n         \"resolution_quote\":null,\n         \"resolution_msg_index\":null,\n         \"state\":\"open\",\n         \"register\":\"hi-en\"\n      }\n   ]\n}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 8281,
+      "token_counts": {
+        "input": 906,
+        "output": 137,
+        "total": 1043
+      },
+      "parse_failure": {
+        "message": "valid JSON violating schema: loops.0: deadline.span: certainty \"implied\" requires span to be null; a phrase you can point at makes it \"explicit\""
+      },
+      "provider_error": null,
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "del-17",
+      "model_thread_id": "thread-a24e0e5e3fa7",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\n  \"loops\":[\n      {\n         \"statement\":\"upload fresh app store screenshots\",\n         \"direction\":\"blocked_on_them\",\n         \"counterparty\":\"[PERSON_1]\",\n         \"deadline\":{\n            \"quote\":\"by wednesday\",\n            \"msg_index\":3,\n            \"resolved\":null,\n            \"certainty\":\"explicit\"\n         },\n         \"evidence_quote\":\"ill export fresh ones by wednesday, you just upload them\",\n         \"evidence_msg_index\":3,\n         \"resolution_quote\":null,\n         \"resolution_msg_index\":null,\n         \"state\":\"open\",\n         \"register\":\"en\"\n      },\n      {\n         \"statement\":\"export fresh app store screenshots\",\n         \"direction\":\"blocked_on_them\",\n         \"counterparty\":\"[PERSON_1]\",\n         \"deadline\":{\n            \"quote\":\"by wednesday\",\n            \"msg_index\":3,\n            \"resolved\":null,\n            \"certainty\":\"explicit\"\n         },\n         \"evidence_quote\":\"ill export fresh ones by wednesday, you just upload them\",\n         \"evidence_msg_index\":3,\n         \"resolution_quote\":null,\n         \"resolution_msg_index\":null,\n         \"state\":\"open\",\n         \"register\":\"en\"\n      }\n   ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "upload fresh app store screenshots",
+          "direction": "blocked_on_them",
+          "counterparty": "[PERSON_1]",
+          "deadline": {
+            "span": {
+              "msg_index": 3,
+              "start": 22,
+              "end": 34
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 56
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        },
+        {
+          "statement": "export fresh app store screenshots",
+          "direction": "blocked_on_them",
+          "counterparty": "[PERSON_1]",
+          "deadline": {
+            "span": {
+              "msg_index": 3,
+              "start": 22,
+              "end": 34
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 3,
+            "start": 0,
+            "end": 56
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 2156,
+      "token_counts": {
+        "input": 881,
+        "output": 253,
+        "total": 1134
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "del-18",
+      "model_thread_id": "thread-4bf7f67a71fc",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\n  \"loops\":[\n      {\n         \"statement\":\"update cap table and add new ESOP grants\",\n         \"direction\":\"blocked_on_them\",\n         \"counterparty\":\"[PERSON_1]\",\n         \"deadline\":{\n            \"quote\":null,\n            \"msg_index\":null,\n            \"resolved\":null,\n            \"certainty\":\"none\"\n         },\n         \"evidence_quote\":\"cap table update karna hai, naye ESOP grants add karne hai\",\n         \"evidence_msg_index\":0,\n         \"resolution_quote\":null,\n         \"resolution_msg_index\":null,\n         \"state\":\"open\",\n         \"register\":\"hi-en\"\n      },\n      {\n         \"statement\":\"sign grant letters\",\n         \"direction\":\"blocked_on_you\",\n         \"counterparty\":\"[PERSON_1]\",\n         \"deadline\":{\n            \"quote\":\"friday tak\",\n            \"msg_index\":4,\n            \"resolved\":null,\n            \"certainty\":\"explicit\"\n         },\n         \"evidence_quote\":\"main grant letters sign kar dunga friday tak\",\n         \"evidence_msg_index\":4,\n         \"resolution_quote\":null,\n         \"resolution_msg_index\":null,\n         \"state\":\"open\",\n         \"register\":\"hi-en\"\n      }\n   ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "update cap table and add new ESOP grants",
+          "direction": "blocked_on_them",
+          "counterparty": "[PERSON_1]",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 0,
+            "end": 58
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        },
+        {
+          "statement": "sign grant letters",
+          "direction": "blocked_on_you",
+          "counterparty": "[PERSON_1]",
+          "deadline": {
+            "span": {
+              "msg_index": 4,
+              "start": 49,
+              "end": 59
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 15,
+            "end": 59
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 8621,
+      "token_counts": {
+        "input": 946,
+        "output": 255,
+        "total": 1201
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "del-22",
+      "model_thread_id": "thread-a2f876c2f918",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\n  \"loops\": [\n       {\n           \"statement\": \"get admission guidance from [PERSON_12] for chacha ji's beta\",\n           \"direction\": \"blocked_on_you\",\n           \"counterparty\": \"[PERSON_12]\",\n           \"deadline\": {\n               \"quote\": null,\n               \"msg_index\": null,\n               \"resolved\": null,\n               \"certainty\": \"none\"\n           },\n           \"evidence_quote\": \"mera dost [PERSON_12] professor hai wahi, usse baat karwa deta hu\",\n           \"evidence_msg_index\": 2,\n           \"resolution_quote\": null,\n           \"resolution_msg_index\": null,\n           \"state\": \"open\",\n           \"register\": \"hi-en\"\n       }\n   ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "get admission guidance from [PERSON_12] for chacha ji's beta",
+          "direction": "blocked_on_you",
+          "counterparty": "[PERSON_12]",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 0,
+            "end": 60
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "hi-en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 42577,
+      "token_counts": {
+        "input": 896,
+        "output": 157,
+        "total": 1053
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "del-23",
+      "model_thread_id": "thread-fff43e3d77fe",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99766, Requested 1065. Please try again in 11m57.983999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41266,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-01",
+      "model_thread_id": "thread-8577029f0bb8",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99718, Requested 1030. Please try again in 10m46.271999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41492,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-05",
+      "model_thread_id": "thread-ad4b09199eeb",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99669, Requested 1253. Please try again in 13m16.608s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41629,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-06",
+      "model_thread_id": "thread-ed57e9ab6bfc",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99621, Requested 1071. Please try again in 9m57.888s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41676,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-07",
+      "model_thread_id": "thread-914d24169de6",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99574, Requested 1321. Please try again in 12m53.28s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41243,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-11",
+      "model_thread_id": "thread-28244286ecf6",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99526, Requested 967. Please try again in 7m5.952s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41280,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-12",
+      "model_thread_id": "thread-263b6ecb17f3",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99478, Requested 869. Please try again in 4m59.808s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41505,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-13",
+      "model_thread_id": "thread-5548e20404dc",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99429, Requested 776. Please try again in 2m57.12s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 42174,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-14",
+      "model_thread_id": "thread-02a850399c30",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99381, Requested 1110. Please try again in 7m4.224s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41375,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-21",
+      "model_thread_id": "thread-685b9e63c6e8",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99333, Requested 812. Please try again in 2m5.279999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41450,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-22",
+      "model_thread_id": "thread-8217f37c56b1",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99285, Requested 839. Please try again in 1m47.136s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41446,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-23",
+      "model_thread_id": "thread-2cef97dfb125",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99237, Requested 928. Please try again in 2m22.56s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41401,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-24",
+      "model_thread_id": "thread-4fe04f019f5e",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99189, Requested 880. Please try again in 59.616s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41241,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-31",
+      "model_thread_id": "thread-17fa760f47dc",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\n  \"loops\": [\n     {\n       \"statement\": \"regenerate SDK docs and push by Wednesday\",\n       \"direction\": \"blocked_on_them\",\n       \"counterparty\": \"[PERSON_1]\",\n       \"deadline\": {\n         \"quote\": \"by wednesday\",\n         \"msg_index\": 1,\n         \"resolved\": null,\n         \"certainty\": \"explicit\"\n       },\n       \"evidence_quote\": \"ill regenerate them and push by wednesday\",\n       \"evidence_msg_index\": 1,\n       \"resolution_quote\": null,\n       \"resolution_msg_index\": null,\n       \"state\": \"open\",\n       \"register\": \"en\"\n     }\n   ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "regenerate SDK docs and push by Wednesday",
+          "direction": "blocked_on_them",
+          "counterparty": "[PERSON_1]",
+          "deadline": {
+            "span": {
+              "msg_index": 1,
+              "start": 29,
+              "end": 41
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 1,
+            "start": 0,
+            "end": 41
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 1973,
+      "token_counts": {
+        "input": 747,
+        "output": 140,
+        "total": 887
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-32",
+      "model_thread_id": "thread-a349016ee171",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99952, Requested 1396. Please try again in 19m24.672s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41450,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-33",
+      "model_thread_id": "thread-5aef280c0a7e",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99904, Requested 1061. Please try again in 13m53.76s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41864,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-34",
+      "model_thread_id": "thread-2e145f22830e",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99856, Requested 821. Please try again in 9m44.928s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41159,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-41",
+      "model_thread_id": "thread-ab315c31dc1b",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99809, Requested 1092. Please try again in 12m58.464s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41016,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-42",
+      "model_thread_id": "thread-1af634ff0239",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99761, Requested 1074. Please try again in 12m1.44s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41365,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-43",
+      "model_thread_id": "thread-566a2229a3a2",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99713, Requested 882. Please try again in 8m34.08s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41828,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "en-44",
+      "model_thread_id": "thread-b6387fb60633",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99665, Requested 833. Please try again in 7m10.272s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41228,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-01",
+      "model_thread_id": "thread-783a8b0ff14c",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99617, Requested 811. Please try again in 6m9.792s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41148,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-02",
+      "model_thread_id": "thread-a74d3d9fd2a7",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99569, Requested 816. Please try again in 5m32.64s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41510,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-03",
+      "model_thread_id": "thread-34ff6e964e54",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99521, Requested 812. Please try again in 4m47.712s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41566,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-04",
+      "model_thread_id": "thread-63385e4b9c84",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99474, Requested 815. Please try again in 4m9.696s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41014,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-11",
+      "model_thread_id": "thread-70daccce9339",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99426, Requested 878. Please try again in 4m22.656s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41327,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-12",
+      "model_thread_id": "thread-e07451d9e5d6",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99377, Requested 759. Please try again in 1m57.504s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41788,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-13",
+      "model_thread_id": "thread-7ca3ba942ec6",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99329, Requested 1062. Please try again in 5m37.824s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41799,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-14",
+      "model_thread_id": "thread-8d665895f0fb",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99281, Requested 817. Please try again in 1m24.672s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41747,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-21",
+      "model_thread_id": "thread-a6bb0362480d",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99233, Requested 822. Please try again in 47.52s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41482,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-22",
+      "model_thread_id": "thread-438184b2530d",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99185, Requested 885. Please try again in 1m0.48s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41235,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-23",
+      "model_thread_id": "thread-b674a1575528",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99137, Requested 952. Please try again in 1m16.896s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41610,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-24",
+      "model_thread_id": "thread-f62e7523e1ed",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99089, Requested 933. Please try again in 19.008s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41431,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-32",
+      "model_thread_id": "thread-27b3dbdc6952",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\n  \"loops\": [\n       {\n           \"statement\": \"factory license renewal application\",\n           \"direction\": \"blocked_on_you\",\n           \"counterparty\": \"[PERSON_1]\",\n           \"deadline\": {\n               \"quote\": \"30th ku expire aagum\",\n               \"msg_index\": 0,\n               \"resolved\": null,\n               \"certainty\": \"explicit\"\n           },\n           \"evidence_quote\": \"factory license renewal 30th ku expire aagum\",\n           \"evidence_msg_index\": 0,\n           \"resolution_quote\": null,\n           \"resolution_msg_index\": null,\n           \"state\": \"open\",\n           \"register\": \"ta-en\"\n       },\n       {\n           \"statement\": \"filling the application form\",\n           \"direction\": \"blocked_on_them\",\n           \"counterparty\": \"[PERSON_1]\",\n           \"deadline\": {\n               \"quote\": null,\n               \"msg_index\": null,\n               \"resolved\": null,\n               \"certainty\": \"none\"\n           },\n           \"evidence_quote\": \"naan application form fill panni vekkren innaiku\",\n           \"evidence_msg_index\": 4,\n           \"resolution_quote\": null,\n           \"resolution_msg_index\": null,\n           \"state\": \"open\",\n           \"register\": \"ta-en\"\n       },\n       {\n           \"statement\": \"paying the fees\",\n           \"direction\": \"blocked_on_you\",\n           \"counterparty\": \"[PERSON_1]\",\n           \"deadline\": {\n               \"quote\": null,\n               \"msg_index\": null,\n               \"resolved\": null,\n               \"certainty\": \"none\"\n           },\n           \"evidence_quote\": \"fees um kattanum\",\n           \"evidence_msg_index\": 2,\n           \"resolution_quote\": \"naan naaliki fees kattiduren\",\n           \"resolution_msg_index\": 3,\n           \"state\": \"closed\",\n           \"register\": \"ta-en\"\n       }\n   ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "factory license renewal application",
+          "direction": "blocked_on_you",
+          "counterparty": "[PERSON_1]",
+          "deadline": {
+            "span": {
+              "msg_index": 0,
+              "start": 30,
+              "end": 50
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 6,
+            "end": 50
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "ta-en"
+        },
+        {
+          "statement": "filling the application form",
+          "direction": "blocked_on_them",
+          "counterparty": "[PERSON_1]",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 48
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "ta-en"
+        },
+        {
+          "statement": "paying the fees",
+          "direction": "blocked_on_you",
+          "counterparty": "[PERSON_1]",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 2,
+            "start": 11,
+            "end": 27
+          },
+          "resolution": {
+            "msg_index": 3,
+            "start": 6,
+            "end": 34
+          },
+          "state": "closed",
+          "register": "ta-en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 2552,
+      "token_counts": {
+        "input": 881,
+        "output": 406,
+        "total": 1287
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-33",
+      "model_thread_id": "thread-9f8a7f15006b",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99952, Requested 945. Please try again in 12m55.008s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41409,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-34",
+      "model_thread_id": "thread-234300b4f08b",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99905, Requested 873. Please try again in 11m12.192s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 40926,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-38",
+      "model_thread_id": "thread-1c101b806173",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99857, Requested 955. Please try again in 11m41.568s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41624,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-41",
+      "model_thread_id": "thread-fb6507c686a4",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99809, Requested 1143. Please try again in 13m42.528s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41467,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-42",
+      "model_thread_id": "thread-0990c5b91852",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99761, Requested 887. Please try again in 9m19.872s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41772,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-43",
+      "model_thread_id": "thread-3db06ace4695",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99712, Requested 938. Please try again in 9m21.6s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41606,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "mix-44",
+      "model_thread_id": "thread-594ded111eaf",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99665, Requested 898. Please try again in 8m6.431999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41221,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "neg-01",
+      "model_thread_id": "thread-3d0bca23323a",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99617, Requested 935. Please try again in 7m56.928s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41220,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "neg-02",
+      "model_thread_id": "thread-de637236aa30",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99569, Requested 945. Please try again in 7m24.095999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41679,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "neg-03",
+      "model_thread_id": "thread-27d43c6a7841",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99520, Requested 953. Please try again in 6m48.671999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41894,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "neg-07",
+      "model_thread_id": "thread-e048a3e732c8",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99473, Requested 877. Please try again in 5m2.4s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 40937,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "neg-09",
+      "model_thread_id": "thread-8fb325335379",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99425, Requested 930. Please try again in 5m6.72s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41731,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "neg-10",
+      "model_thread_id": "thread-e6d672d52861",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99376, Requested 971. Please try again in 4m59.808s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 42243,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "neg-13",
+      "model_thread_id": "thread-6c82c14d4337",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99328, Requested 922. Please try again in 3m36s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41196,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "neg-16",
+      "model_thread_id": "thread-2b1a25efcccd",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99281, Requested 970. Please try again in 3m36.864s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 40629,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "neg-21",
+      "model_thread_id": "thread-f4ce7209ba90",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99233, Requested 923. Please try again in 2m14.783999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41649,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "neg-27",
+      "model_thread_id": "thread-b8ffd6ecddeb",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99184, Requested 958. Please try again in 2m2.688s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41765,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "neg-29",
+      "model_thread_id": "thread-2f00bf54a986",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99137, Requested 917. Please try again in 46.656s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41047,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "neg-32",
+      "model_thread_id": "thread-2c42cf0acda7",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\n  \"loops\": [\n       {\n           \"statement\": \"watchman replacement arrangement\",\n           \"direction\": \"blocked_on_them\",\n           \"counterparty\": \"[PERSON_1]\",\n           \"deadline\": {\n               \"quote\": \"next week\",\n               \"msg_index\": 0,\n               \"resolved\": null,\n               \"certainty\": \"explicit\"\n           },\n           \"evidence_quote\": \"anna, watchman leave ku poraan next week\",\n           \"evidence_msg_index\": 0,\n           \"resolution_quote\": null,\n           \"resolution_msg_index\": null,\n           \"state\": \"open\",\n           \"register\": \"ta-en\"\n       },\n       {\n           \"statement\": \"inform about any needs\",\n           \"direction\": \"blocked_on_you\",\n           \"counterparty\": \"[PERSON_1]\",\n           \"deadline\": {\n               \"quote\": null,\n               \"msg_index\": null,\n               \"resolved\": null,\n               \"certainty\": \"none\"\n           },\n           \"evidence_quote\": \"anna edhavadhu venumna sollunga, naan irukken\",\n           \"evidence_msg_index\": 4,\n           \"resolution_quote\": null,\n           \"resolution_msg_index\": null,\n           \"state\": \"open\",\n           \"register\": \"ta-en\"\n       }\n   ]\n}",
+      "parsed_loops": [
+        {
+          "statement": "watchman replacement arrangement",
+          "direction": "blocked_on_them",
+          "counterparty": "[PERSON_1]",
+          "deadline": {
+            "span": {
+              "msg_index": 0,
+              "start": 31,
+              "end": 40
+            },
+            "resolved": null,
+            "certainty": "explicit"
+          },
+          "evidence": {
+            "msg_index": 0,
+            "start": 0,
+            "end": 40
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "ta-en"
+        },
+        {
+          "statement": "inform about any needs",
+          "direction": "blocked_on_you",
+          "counterparty": "[PERSON_1]",
+          "deadline": {
+            "span": null,
+            "resolved": null,
+            "certainty": "none"
+          },
+          "evidence": {
+            "msg_index": 4,
+            "start": 0,
+            "end": 45
+          },
+          "resolution": null,
+          "state": "open",
+          "register": "ta-en"
+        }
+      ],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 24102,
+      "token_counts": {
+        "input": 886,
+        "output": 269,
+        "total": 1155
+      },
+      "parse_failure": null,
+      "provider_error": null,
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "neg-33",
+      "model_thread_id": "thread-62b0e84597c6",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99953, Requested 946. Please try again in 12m56.736s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41147,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "neg-34",
+      "model_thread_id": "thread-0326369f48d0",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99905, Requested 1148. Please try again in 15m9.791999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41429,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "neg-35",
+      "model_thread_id": "thread-56fe3377a307",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99857, Requested 935. Please try again in 11m24.288s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41461,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "sup-01",
+      "model_thread_id": "thread-453b82bfaa2b",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99809, Requested 869. Please try again in 9m45.791999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41497,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "sup-02",
+      "model_thread_id": "thread-5a049e93c19b",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99761, Requested 940. Please try again in 10m5.664s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41311,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "sup-07",
+      "model_thread_id": "thread-bf26dd05cebe",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99713, Requested 895. Please try again in 8m45.312s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41146,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "sup-08",
+      "model_thread_id": "thread-432fde33539a",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99665, Requested 1191. Please try again in 12m19.584s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41597,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "sup-09",
+      "model_thread_id": "thread-e93705dde540",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99617, Requested 945. Please try again in 8m5.568s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41318,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "sup-14",
+      "model_thread_id": "thread-0fd73901fc96",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99569, Requested 876. Please try again in 6m24.48s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41525,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "sup-15",
+      "model_thread_id": "thread-dccec573d29c",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99522, Requested 941. Please try again in 6m40.032s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41355,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "sup-16",
+      "model_thread_id": "thread-f97dd1763d7f",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99474, Requested 880. Please try again in 5m5.856s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41077,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "sup-21",
+      "model_thread_id": "thread-a9e1a9878d05",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99426, Requested 880. Please try again in 4m24.383999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41138,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "sup-22",
+      "model_thread_id": "thread-864a27e50606",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99378, Requested 844. Please try again in 3m11.808s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41781,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "sup-23",
+      "model_thread_id": "thread-f9cc1e77a33c",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99330, Requested 897. Please try again in 3m16.128s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41671,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "sup-28",
+      "model_thread_id": "thread-863faf44b2bf",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99282, Requested 813. Please try again in 1m22.08s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41342,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "sup-29",
+      "model_thread_id": "thread-9508f9d98cf1",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99235, Requested 887. Please try again in 1m45.408s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 40926,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    },
+    {
+      "thread_id": "sup-30",
+      "model_thread_id": "thread-319a8b10bff3",
+      "config": "hosted-redacted",
+      "prompt_version": "v2",
+      "model": {
+        "provider": "groq",
+        "id": "llama-3.3-70b-versatile",
+        "version": "llama-3.3-70b-versatile",
+        "sampling": {
+          "temperature": 0,
+          "seed": 20260815,
+          "max_retries": 5,
+          "request_delay_ms": 1500
+        },
+        "json_mode": true
+      },
+      "raw_model_response": "{\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kmdkwvkyfe2vgevx23vw2sv9` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99186, Requested 834. Please try again in 17.28s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+      "parsed_loops": [],
+      "grounding_failures": [],
+      "ambiguous_quotes": [],
+      "unmappable_spans": [],
+      "latency_ms": 41497,
+      "token_counts": null,
+      "parse_failure": {
+        "message": "provider error: Groq request exhausted retries after HTTP 429"
+      },
+      "provider_error": "Groq request exhausted retries after HTTP 429",
+      "json_mode_used": true
+    }
+  ]
+}
