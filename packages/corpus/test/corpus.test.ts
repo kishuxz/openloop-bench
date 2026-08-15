@@ -14,6 +14,7 @@ import { basename, join } from "node:path";
 import { resolveSpan, type Loop, type Thread } from "@openloop-bench/schema";
 import { BUCKETS, bucketOf } from "../src/buckets.js";
 import { loadThreads, threadFiles, THREADS_DIR } from "../src/load.js";
+import { separability } from "../src/separability.js";
 
 const { loaded, failures } = loadThreads();
 const threads: Thread[] = loaded.map((l) => l.thread);
@@ -187,43 +188,39 @@ describe("labels stay honest", () => {
 });
 
 describe("the corpus is not trivially separable", () => {
-  test("both positive and negative threads contain commitment-shaped language", () => {
-    // If negatives were only distinguishable by length or by the absence of
-    // future-tense verbs, the benchmark would measure keyword matching.
-    const negatives = threads.filter((t) => t.loops.length === 0);
-    // Construction families, not a keyword list: first-person volitionals in
-    // each register, hortatives, and the modal-obligation phrasings that carry
-    // most English near-misses. The original list was English-centric and
-    // failed four code-mixed negatives that are commitment-shaped in Hindi or
-    // Tamil — see DRIFT.md, batch 1.
-    const cue = new RegExp(
-      [
-        "\\b(i'?ll|we'?ll|will|won'?t|lets|let'?s|shall|should|gonna)\\b",
-        "\\b(happy to|anytime|whenever|at some point|sometime)\\b",
-        "\\b(dunga|dungi|doonga|karunga|karungi|sochunga|bhejta|deta hu|dekhta hu|dijiye|dijiyega|milte)\\b",
-        "\\b(panren|pandren|panduven|panniduven|mudichiduven|anuppuren|varen|pogalam|pesalam|kandippa)\\b",
-        // Tamil suffixes as families, not literals. The necessitative -anum
-        // ("paakanum") is the analogue of English "should"; the hortative
-        // -alam ("pogalam", "yosikalam") is the analogue of "let's". Three
-        // separate batches failed this test on a Tamil construction the list
-        // did not happen to contain — see DRIFT.md.
-        "\\b\\w{2,}anum\\b",
-        "\\b\\w{2,}alam\\b",
-        "\\b(yaaravadhu|yaarachum|koi)\\b",
-        // Availability offers — the canonical near-miss of §2 — in all three
-        // registers. "let me know if you need anything" has direct equivalents
-        // that share none of its vocabulary.
-        "\\b(let me know|bata dena|bata dijiye|bol dena|sollunga|irukken|hazir)\\b",
-      ].join("|"),
-      "i",
-    );
-    for (const thread of negatives) {
-      const hasCue = thread.messages.some((m) => cue.test(m.text));
-      expect(hasCue, `${thread.thread_id} has no commitment-shaped language`).toBe(true);
-    }
+  // Replaces a hand-authored cue list that asserted every negative contains
+  // "commitment-shaped language". It failed on a different Tamil construction
+  // in three consecutive batches, and every fix was authored from English
+  // intuition about what other grammars ought to look like. This knows nothing
+  // about language: it trains a bag-of-tokens classifier on the dev split and
+  // asks whether thread text alone predicts whether a thread has loops.
+  //
+  // Cross-validated on dev only — the test split must not be read, and a check
+  // fitted on it would be reading it.
+  const dev = threads.filter((t) => t.split === "dev");
+  const result = separability(dev);
+
+  test("a bag-of-tokens classifier performs at or near chance", () => {
+    const detail = [
+      `balanced accuracy ${result.observed.toFixed(3)}`,
+      `null mean ${result.nullMean.toFixed(3)}`,
+      `null p95 ${result.null95.toFixed(3)}`,
+      `p=${result.pValue.toFixed(3)}`,
+      "",
+      "leaks toward HAVING a loop:  " + result.topPositive.map(([t, w]) => `${t}(${w.toFixed(2)})`).join(" "),
+      "leaks toward NO loop:        " + result.topNegative.map(([t, w]) => `${t}(${w.toFixed(2)})`).join(" "),
+      "",
+      "These features are the leak. Threads carrying them need rewriting so the",
+      "vocabulary stops standing in for the judgment the benchmark measures.",
+    ].join("\n");
+
+    // The permutation null is the comparison that matters: with 64 threads and
+    // 20% negatives, any fixed threshold would be guesswork about how much of a
+    // score is structure and how much is small-sample noise.
+    expect(result.observed, detail).toBeLessThanOrEqual(result.null95);
   });
 
-  test("negative threads are not obviously shorter than positive ones", () => {
+  test("negatives and positives are not separable by thread length either", () => {
     const mean = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
     const negLength = mean(threads.filter((t) => t.loops.length === 0).map((t) => t.messages.length));
     const posLength = mean(threads.filter((t) => t.loops.length > 0).map((t) => t.messages.length));

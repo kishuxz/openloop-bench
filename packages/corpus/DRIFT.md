@@ -357,3 +357,84 @@ rather than extended again.
 
 160 threads, 220 loops, 412 spans, all resolving. `validate`, `stats:check` and
 83 tests pass.
+
+---
+
+## Test replacement — the separable-cue check
+
+Not a batch audit. A tooling change forced by three batch audits in a row
+finding the same class of defect.
+
+### Why it was replaced rather than extended a fourth time
+
+The old test asserted that every negative thread contains "commitment-shaped
+language", checked against a hand-authored list of cues. It failed three times:
+
+| Batch | Failed on | Fix |
+|---|---|---|
+| 1 | `neg-11` "pesalam", `neg-14` "sochunga", `neg-15` "dekhta hu", `neg-16` "should" | Added construction families to the list |
+| 2 | `neg-19` "yaaravadhu paakanum" | Generalised the Tamil necessitative `-anum` |
+| 3 | `neg-27` "yosikalam", `neg-32` "sollunga, naan irukken" | Generalised the hortative `-alam`, added availability offers |
+
+Each fix generalised further than the last and each was still authored from
+English intuition about what other grammars ought to look like. Three failures
+across three grammars is evidence that the *approach* was wrong, not that
+coverage was incomplete — a list written by someone whose first language is not
+Tamil will keep having holes in Tamil, and the corpus is 42% code-mixed by loop
+and rising.
+
+There is a deeper problem than coverage. The old test only ever asked about
+negatives, and only about one surface feature. It could not have detected
+leakage in the *positives*, or leakage through any word its author had not
+thought of. It was checking a hypothesis about the corpus rather than measuring
+the property the corpus needs to have.
+
+### What replaced it
+
+A classifier, in `src/separability.ts`:
+
+- Bag of distinct tokens per thread — a Unicode-aware split on letters and
+  digits, so no vocabulary is written by hand and nothing knows what language it
+  is reading.
+- Bernoulli naive Bayes with Laplace smoothing.
+- Stratified 5-fold cross-validation **within the dev split only**. Fitting any
+  part of this on `test` would be reading `test`.
+- Balanced accuracy, because the corpus is 80% positive by construction and raw
+  accuracy would score 0.80 for answering "loop" every time.
+- A 200-shuffle permutation test. At 64 threads with 12 negatives, a fixed
+  threshold like "0.65 is too high" is guesswork; comparing against the same
+  procedure on shuffled labels measures how much of the score is structure and
+  how much is small-sample noise.
+
+The corpus passes if observed balanced accuracy sits at or below the null 95th
+percentile. On failure the test prints the top weighted tokens in both
+directions — those features **are** the leak, and they name the threads that
+need rewriting.
+
+### First run against 160 threads: FAIL
+
+```
+balanced accuracy 0.606    null mean 0.497    null p95 0.558    p = 0.010
+```
+
+Leaking toward *having* a loop: `can by tak before them ill send deta ok still
+update sari`
+
+Leaking toward *no* loop: `already time bhai onboarding baat if aama properly
+good well 40 kabhi`
+
+Three separate leaks, all of them mine:
+
+1. **`already` at -2.27 is the strongest single feature in the corpus.** I used
+   "already X" as the completed-act near-miss in negative after negative —
+   `neg-09`, `neg-17`, `neg-25`, `neg-32`, `neg-07`. It became a tell. Completed
+   acts belong in loop-bearing threads too.
+2. **Social register is concentrated in negatives.** `bhai`, `kabhi`, `baat`,
+   `aama` mark the informal threads, and I wrote informal threads as negatives
+   and work threads as positives. Real founders make commitments to friends.
+3. **Deadline vocabulary is concentrated in positives.** `by`, `tak`, `before`
+   are top positive features, which means no negative thread contains a date.
+   A thread can state a filing date and contain no commitment.
+
+Per the instruction, batch 4 is not being written under a failing test. The
+remediation is in the next section once approved.

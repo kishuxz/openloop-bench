@@ -14,6 +14,14 @@ export { BUCKETS, BUCKET_PREFIXES, bucketOf, type Bucket } from "./buckets.js";
 export { DEV_SHARE_RANGE, checkComposition } from "./composition.js";
 
 export {
+  separability,
+  threadTokens,
+  tokenize,
+  type Sample,
+  type SeparabilityResult,
+} from "./separability.js";
+
+export {
   THREADS_DIR,
   filenameMismatch,
   loadCorpusOrThrow,
