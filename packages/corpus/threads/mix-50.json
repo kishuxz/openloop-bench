@@ -1,0 +1,98 @@
+{
+  "thread_id": "mix-50",
+  "channel": "slack",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Anjali",
+      "text": "app store screenshots wale kaam ka kya hua, abhi tak purane hai",
+      "ts": "2026-07-09T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "divya ne export kiye the, maine upload nahi kiya",
+      "ts": "2026-07-09T10:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "aaj kar deta hu",
+      "ts": "2026-07-09T10:31:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Anjali",
+      "text": "ek aur, hindi wala description bhi update karna hai",
+      "ts": "2026-07-09T10:35:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "wo main is hafte dekh lunga",
+      "ts": "2026-07-09T10:40:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Anjali",
+      "text": "kabhi proper localisation process bhi banana chahiye",
+      "ts": "2026-07-09T10:45:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "haan kabhi",
+      "ts": "2026-07-09T10:46:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "upload the new app store screenshots",
+      "direction": "blocked_on_you",
+      "counterparty": "Anjali",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 3
+        },
+        "resolved": "2026-07-09",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 15
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "The same obligation del-17 created in batch 3, still outstanding weeks later in a different thread. Referenced and re-committed to, so it is labelled here per §1."
+    },
+    {
+      "statement": "update the Hindi app store description",
+      "direction": "blocked_on_you",
+      "counterparty": "Anjali",
+      "deadline": {
+        "span": {
+          "msg_index": 4,
+          "start": 8,
+          "end": 16
+        },
+        "resolved": null,
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 27
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "Message 5 is the near-miss, and it is the same one mix-33 ended on. Founders repeat themselves."
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "thread_id": "en-49",
+  "channel": "email",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Nikhil",
+      "text": "Ive accepted the offer - looking forward to starting. What do you need from me before day one?",
+      "ts": "2026-07-06T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "Welcome aboard. Well send the laptop and onboarding pack to your address this week.",
+      "ts": "2026-07-06T11:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "From you, just the signed NDA and your bank details for payroll.",
+      "ts": "2026-07-06T11:31:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Nikhil",
+      "text": "NDA signed and attached. Ill send bank details separately.",
+      "ts": "2026-07-06T14:20:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "Perfect.",
+      "ts": "2026-07-06T15:02:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Nikhil the laptop and onboarding pack",
+      "direction": "blocked_on_you",
+      "counterparty": "Nikhil",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 73,
+          "end": 82
+        },
+        "resolved": null,
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 16,
+        "end": 82
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "Nikhil sends his bank details for payroll",
+      "direction": "blocked_on_them",
+      "counterparty": "Nikhil",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 25,
+        "end": 57
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "The NDA arrives in the same message that commits to the bank details, so one request produced a completed act and a live loop side by side."
+    }
+  ]
+}
