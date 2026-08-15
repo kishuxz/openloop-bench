@@ -8,8 +8,11 @@ later looking exactly like everything else.
 **Status, 15 August 2026.** Corpus complete: 200 threads, 273 loops, 510
 validated character spans. Labeling rulebook, extractor, matcher, metrics, cost
 model and generated report are in place. Current model results are **dev split
-only**: three configurations, a single prompt version with no iteration against
-dev results, and the held-out test split has not yet been run.
+only**: two configs reported (`hosted-large`, `local`), a single prompt version
+with no iteration against dev results, and the held-out test split has not yet
+been run. `hosted-redacted` was attempted and incomplete: 80 threads attempted,
+67 provider failures, 10 threads with parsed loops; run abandoned to free-tier
+rate limits, to be re-run.
 
 ## The corpus
 
@@ -182,13 +185,12 @@ Every one of those is broken out by register, by bucket, by thread length, and b
 loops per thread. The last is within-thread recall: whether an extractor finds
 every commitment in a busy thread or anchors on the first one and stops.
 
-Extraction runs against three configurations. **Frontier** establishes the
-ceiling. **PII-redacted** replaces names and contact details before extraction
-and measures what redaction costs — counterparty identity is load-bearing for
-`direction`, so this is expected to hurt, and the question is how much.
-**Local** runs a model that could plausibly sit on a user's own machine, which
-is the only configuration in which this product category is privacy-viable at
-all.
+Extraction currently reports two dev configurations. **Hosted-large** establishes
+the hosted full-text baseline. **Local** runs a model that could plausibly sit on
+a user's own machine, which is the only configuration in which this product
+category is privacy-viable at all. **Hosted-redacted** remains committed as an
+attempted but incomplete prediction file, not a scored result, because provider
+failures exceeded the publish guard.
 
 ### Deciding which prediction is which label
 
@@ -321,10 +323,12 @@ founders write.
 | `pnpm check` | All of the above, in the order CI runs them. |
 
 Scoring refuses to run against a corpus that has not validated in the same run,
-refuses a prediction file whose corpus hash is not the corpus on disk, and
-refuses one that does not cover its split exactly. A partial file otherwise
-scores as confident silence, which flatters precision and looks identical to a
-crashed run.
+refuses a prediction file whose corpus hash is not the corpus on disk, refuses
+one that does not cover its split exactly, and refuses to publish metrics when
+provider failures exceed the configured publish threshold. The default threshold
+is 20.0%, configurable with `OPENLOOP_MAX_PROVIDER_FAILURE_RATE` or
+`--max-provider-failure-rate`. A partial file otherwise scores as confident
+silence, which flatters precision and looks identical to a crashed run.
 
 `split` is stored in each thread file rather than computed, so it travels with
 the data and cannot be redrawn per run to flatter a result. **Do not read `test`

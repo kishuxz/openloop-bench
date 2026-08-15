@@ -1,4 +1,4 @@
-import { formatMetric, isNotableCell, results } from "../lib/results";
+import { formatMetric, gap, isNotableCell, results } from "../lib/results";
 
 export default function ResultsPage() {
   return (
@@ -8,41 +8,54 @@ export default function ResultsPage() {
         <h1>{results.report_title}</h1>
         <p>{results.report_deck}</p>
       </header>
+      <p className="scope-line">{results.scope}</p>
+
+      {(results.incomplete_runs ?? []).map((run) => (
+        <section className="incomplete-note" aria-label={`${run.label} incomplete note`} key={run.config}>
+          <p className="eyebrow">Attempted, Incomplete</p>
+          <h2>{run.label}</h2>
+          <p>{run.note}</p>
+        </section>
+      ))}
 
       <section aria-labelledby="headline-table">
         <h2 id="headline-table">Headline Table</h2>
-        <div className="table-scroll">
-          <table>
-            <thead>
-              <tr>
-                <th scope="col">Config</th>
-                {results.metrics.map((metric) => (
-                  <th key={metric.id} scope="col">
-                    {metric.label}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {results.configs.map((config) => (
-                <tr key={config.id}>
-                  <th scope="row">
-                    <span>{config.label}</span>
-                    <small>{config.model_id}</small>
-                  </th>
+        {results.configs.length === 0 || results.metrics.length === 0 ? (
+          <p className="gap">{gap("headline metrics missing from committed JSON")}</p>
+        ) : (
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Config</th>
                   {results.metrics.map((metric) => (
-                    <td
-                      key={metric.id}
-                      className={isNotableCell(config.id, metric.id) ? "numeric notable" : "numeric"}
-                    >
-                      {formatMetric(config.metric_values[metric.id], metric.format)}
-                    </td>
+                    <th key={metric.id} scope="col">
+                      {metric.label}
+                    </th>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {results.configs.map((config) => (
+                  <tr key={config.id}>
+                    <th scope="row">
+                      <span>{config.label}</span>
+                      <small>{config.model_id}</small>
+                    </th>
+                    {results.metrics.map((metric) => (
+                      <td
+                        key={metric.id}
+                        className={isNotableCell(config.id, metric.id) ? "numeric notable" : "numeric"}
+                      >
+                        {formatMetric(config.metric_values[metric.id], metric.format)}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </section>
 
       <section className="callout" aria-labelledby="headline-number">
@@ -54,19 +67,23 @@ export default function ResultsPage() {
 
       <section aria-labelledby="deltas">
         <h2 id="deltas">Plain Deltas</h2>
-        <div className="stack">
-          {results.deltas.map((delta) => (
-            <article className="rule-block" key={delta.label}>
-              <h3>{delta.label}</h3>
-              <p>{delta.comparison}</p>
-              <ul>
-                {delta.statements.map((statement) => (
-                  <li key={statement}>{statement}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
+        {results.deltas.length === 0 ? (
+          <p className="gap">{gap("comparison deltas missing from committed JSON")}</p>
+        ) : (
+          <div className="stack">
+            {results.deltas.map((delta) => (
+              <article className="rule-block" key={delta.label}>
+                <h3>{delta.label}</h3>
+                <p>{delta.comparison}</p>
+                <ul>
+                  {delta.statements.map((statement) => (
+                    <li key={statement}>{statement}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        )}
       </section>
 
       <section aria-labelledby="cost-weighted">
