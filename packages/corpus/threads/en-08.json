@@ -1,0 +1,49 @@
+{
+  "thread_id": "en-08",
+  "channel": "email",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Nikhil",
+      "text": "Hi - thanks again for the call yesterday. Really excited about this. Just checking in on where things stand with the written offer, since I need to give my current employer notice.",
+      "ts": "2026-03-12T11:05:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "Hi Nikhil - completely fair. We're finalising the ESOP language with our lawyer. We'll have the signed offer letter over to you by monday.",
+      "ts": "2026-03-12T16:38:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Nikhil",
+      "text": "Perfect, that works. Thanks!",
+      "ts": "2026-03-12T16:52:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Nikhil the signed offer letter",
+      "direction": "blocked_on_you",
+      "counterparty": "Nikhil",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 128,
+          "end": 137
+        },
+        "resolved": "2026-03-16",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 81,
+        "end": 137
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

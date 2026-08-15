@@ -1,0 +1,58 @@
+{
+  "thread_id": "en-05",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Meera (CA)",
+      "text": "sir the gst filing for feb is on the 20th",
+      "ts": "2026-03-09T09:31:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Meera (CA)",
+      "text": "i still dont have the march invoices from your side",
+      "ts": "2026-03-09T09:31:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "oh right",
+      "ts": "2026-03-09T12:18:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "ill pull them from the billing dashboard and send",
+      "ts": "2026-03-09T12:19:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Meera (CA)",
+      "text": "ok please",
+      "ts": "2026-03-09T12:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Meera the March invoices for the GST filing",
+      "direction": "blocked_on_you",
+      "counterparty": "Meera (CA)",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-03-20",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 49
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "The 20th is stated as a fact about the filing, not as a deadline anyone attached to this commitment — so certainty is implied and span is null, but resolved is still knowable."
+    }
+  ]
+}

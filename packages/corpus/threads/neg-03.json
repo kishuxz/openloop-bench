@@ -1,0 +1,38 @@
+{
+  "thread_id": "neg-03",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Farhan",
+      "text": "bhai kaisa chal raha hai sab",
+      "ts": "2026-03-08T19:12:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "chal raha hai, thoda hectic hai fundraise ke wajah se",
+      "ts": "2026-03-08T19:40:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Farhan",
+      "text": "samajh sakta hu. kabhi milte hai, bahut time ho gaya",
+      "ts": "2026-03-08T19:42:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "haan zarur, jaldi hi milte hai",
+      "ts": "2026-03-08T19:50:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Farhan",
+      "text": "haan haan",
+      "ts": "2026-03-08T19:51:00+05:30"
+    }
+  ],
+  "loops": []
+}

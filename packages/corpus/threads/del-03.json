@@ -1,0 +1,78 @@
+{
+  "thread_id": "del-03",
+  "channel": "email",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Procurement (Client)",
+      "text": "Before we can raise the PO we need your ISO 27001 certificate and the signed NDA. Could you send both?",
+      "ts": "2026-03-11T09:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "Sure - I'll dig them out and send them over.",
+      "ts": "2026-03-11T12:15:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "Correction: looping in Fatima from our ops side, she holds the compliance folder and will send both documents by thursday. Fatima - over to you.",
+      "ts": "2026-03-11T12:41:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Procurement (Client)",
+      "text": "Thanks, appreciated.",
+      "ts": "2026-03-11T14:02:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Procurement the ISO 27001 certificate and signed NDA",
+      "direction": "blocked_on_you",
+      "counterparty": "Procurement (Client)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 7,
+        "end": 43
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 12,
+        "end": 47
+      },
+      "state": "superseded",
+      "register": "en"
+    },
+    {
+      "statement": "Fatima sends Procurement the ISO 27001 certificate and signed NDA",
+      "direction": "blocked_on_them",
+      "counterparty": "Fatima",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 110,
+          "end": 121
+        },
+        "resolved": "2026-03-12",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 49,
+        "end": 121
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "blocked_on_them even though Fatima is on the user's own team. Direction is about who owes the act, not which company they work for."
+    }
+  ]
+}

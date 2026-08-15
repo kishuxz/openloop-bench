@@ -1,0 +1,55 @@
+{
+  "thread_id": "mix-05",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "user",
+      "text": "landing page mockups status enna",
+      "ts": "2026-03-10T15:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Divya",
+      "text": "hero section mudinjiduchu, pricing section pending",
+      "ts": "2026-03-10T15:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Divya",
+      "text": "friday evening ku full file anuppiduven",
+      "ts": "2026-03-10T15:31:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "super",
+      "ts": "2026-03-10T15:33:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "Divya sends the complete landing page mockup file",
+      "direction": "blocked_on_them",
+      "counterparty": "Divya",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 17
+        },
+        "resolved": "2026-03-13",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 39
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en"
+    }
+  ]
+}

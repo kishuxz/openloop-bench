@@ -1,0 +1,94 @@
+{
+  "thread_id": "del-06",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Rahul",
+      "text": "we still havent booked the offsite venue",
+      "ts": "2026-03-24T15:10:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "yeah. lets both look at options and compare tomorrow",
+      "ts": "2026-03-24T15:22:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Rahul",
+      "text": "ok",
+      "ts": "2026-03-24T15:25:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Rahul",
+      "text": "actually im out at the customer thing all day tomorrow",
+      "ts": "2026-03-25T09:02:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "no worries, ill shortlist three and just book one by friday",
+      "ts": "2026-03-25T09:14:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Rahul",
+      "text": "sold, whatever you pick is fine",
+      "ts": "2026-03-25T09:20:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "user and Rahul each research offsite venues and compare options",
+      "direction": "mutual",
+      "counterparty": "Rahul",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 44,
+          "end": 52
+        },
+        "resolved": "2026-03-25",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 6,
+        "end": 52
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 9,
+        "end": 54
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "A mutual loop can be superseded by one side dropping out. What replaces it is not mutual — the user took the whole thing."
+    },
+    {
+      "statement": "shortlist three offsite venues and book one",
+      "direction": "blocked_on_you",
+      "counterparty": "Rahul",
+      "deadline": {
+        "span": {
+          "msg_index": 4,
+          "start": 50,
+          "end": 59
+        },
+        "resolved": "2026-03-27",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 12,
+        "end": 59
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

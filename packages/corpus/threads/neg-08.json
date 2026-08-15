@@ -1,0 +1,38 @@
+{
+  "thread_id": "neg-08",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Meghna",
+      "text": "hey! heard you're raising. is there any room for me on the team after?",
+      "ts": "2026-03-20T16:40:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "haha nothing signed yet, still very much in process",
+      "ts": "2026-03-20T17:15:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "if the round closes ill definitely try and get you in, we'd need someone on ops",
+      "ts": "2026-03-20T17:16:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Meghna",
+      "text": "no pressure at all, just putting it out there",
+      "ts": "2026-03-20T17:20:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "noted for sure",
+      "ts": "2026-03-20T17:22:00+05:30"
+    }
+  ],
+  "loops": []
+}

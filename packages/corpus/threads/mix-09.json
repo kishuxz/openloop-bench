@@ -1,0 +1,62 @@
+{
+  "thread_id": "mix-09",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Sneha",
+      "text": "runway model update kiya tha? investor update me bhejna hai",
+      "ts": "2026-03-19T11:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "abhi tak nahi",
+      "ts": "2026-03-19T12:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "sunday tak update kar dunga pakka",
+      "ts": "2026-03-19T12:02:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Sneha",
+      "text": "pakka na? pichli baar bhi yehi bola tha 😅",
+      "ts": "2026-03-19T12:05:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "haan is baar sach me",
+      "ts": "2026-03-19T12:06:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "update the runway model for the investor update",
+      "direction": "blocked_on_you",
+      "counterparty": "Sneha",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 10
+        },
+        "resolved": "2026-03-22",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 33
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "Message 4 re-affirms the same commitment rather than creating a second one. One loop, not two — see the re-affirmation rule in LABELING.md."
+    }
+  ]
+}

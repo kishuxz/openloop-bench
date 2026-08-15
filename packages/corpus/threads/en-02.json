@@ -1,0 +1,55 @@
+{
+  "thread_id": "en-02",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "user",
+      "text": "arjun do we have the logo in svg anywhere? the png is pixelating on the pitch deck",
+      "ts": "2026-03-03T15:12:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Arjun",
+      "text": "ah yeah i have the source file",
+      "ts": "2026-03-03T15:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Arjun",
+      "text": "ill drop the exports in the shared drive by eod",
+      "ts": "2026-03-03T15:21:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "legend thanks",
+      "ts": "2026-03-03T15:22:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "Arjun uploads the SVG logo exports to the shared drive",
+      "direction": "blocked_on_them",
+      "counterparty": "Arjun",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 41,
+          "end": 47
+        },
+        "resolved": "2026-03-03",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 47
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

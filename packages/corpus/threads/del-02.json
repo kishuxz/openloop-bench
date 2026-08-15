@@ -1,0 +1,84 @@
+{
+  "thread_id": "del-02",
+  "channel": "slack",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "user",
+      "text": "can you write up the postmortem for the friday outage?",
+      "ts": "2026-03-09T11:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Tanvi",
+      "text": "yeah ill have it done by wednesday",
+      "ts": "2026-03-09T11:15:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Tanvi",
+      "text": "actually im on call all week and the vendor migration is eating me alive",
+      "ts": "2026-03-10T16:40:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "fair. dont worry ill write it, you just review",
+      "ts": "2026-03-10T16:52:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Tanvi",
+      "text": "deal",
+      "ts": "2026-03-10T16:53:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "Tanvi writes the postmortem for the Friday outage",
+      "direction": "blocked_on_them",
+      "counterparty": "Tanvi",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 22,
+          "end": 34
+        },
+        "resolved": "2026-03-11",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 5,
+        "end": 34
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 6,
+        "end": 29
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "Direction flip. The same deliverable, owed by the other party by the end of the thread."
+    },
+    {
+      "statement": "write the postmortem for the Friday outage",
+      "direction": "blocked_on_you",
+      "counterparty": "Tanvi",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 17,
+        "end": 46
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

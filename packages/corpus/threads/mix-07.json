@@ -1,0 +1,56 @@
+{
+  "thread_id": "mix-07",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Farhan",
+      "text": "yaar woh intro deck ka hindi version banaya tha na? mujhe chahiye tha",
+      "ts": "2026-03-17T21:10:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "haan tha kahi pe",
+      "ts": "2026-03-17T22:04:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "dhoond ke agle hafte tak bhej dunga",
+      "ts": "2026-03-17T22:05:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Farhan",
+      "text": "cool no hurry",
+      "ts": "2026-03-17T22:11:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "find and send Farhan the Hindi version of the intro deck",
+      "direction": "blocked_on_you",
+      "counterparty": "Farhan",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 10,
+          "end": 24
+        },
+        "resolved": null,
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 35
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "'agle hafte tak' is explicit phrasing but names a seven-day range with no agreed endpoint, so resolved stays null. Resolving it to a Friday would be the labeler inventing a date."
+    }
+  ]
+}

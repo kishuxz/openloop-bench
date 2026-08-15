@@ -1,0 +1,32 @@
+{
+  "thread_id": "neg-05",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Karthik",
+      "text": "anna, indha week ellam late aayiduchu office la",
+      "ts": "2026-03-11T21:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "theriyum, quarter close aaguthu",
+      "ts": "2026-03-11T21:44:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Karthik",
+      "text": "epavachum coffee pogalam anna, konja naala pesave illa",
+      "ts": "2026-03-11T21:46:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "kandippa, pogalam",
+      "ts": "2026-03-11T21:50:00+05:30"
+    }
+  ],
+  "loops": []
+}

@@ -1,0 +1,55 @@
+{
+  "thread_id": "mix-01",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Priya",
+      "text": "deck ka kya hua? LP call thursday hai",
+      "ts": "2026-03-04T09:12:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "haan haan kar raha hu",
+      "ts": "2026-03-04T09:40:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "kal tak bhej dunga pakka",
+      "ts": "2026-03-04T09:40:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Priya",
+      "text": "ok",
+      "ts": "2026-03-04T09:55:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Priya the deck",
+      "direction": "blocked_on_you",
+      "counterparty": "Priya",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 7
+        },
+        "resolved": "2026-03-05",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 24
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "thread_id": "mix-04",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "user",
+      "text": "sir the SHA draft bheja tha, koi update?",
+      "ts": "2026-03-11T12:40:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Adv. Menon",
+      "text": "haan mila hai",
+      "ts": "2026-03-11T19:15:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Adv. Menon",
+      "text": "weekend tak review kar ke comments bhej deta hu",
+      "ts": "2026-03-11T19:16:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "thank you sir",
+      "ts": "2026-03-11T19:20:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "Adv. Menon returns review comments on the SHA draft",
+      "direction": "blocked_on_them",
+      "counterparty": "Adv. Menon",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 11
+        },
+        "resolved": "2026-03-15",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 47
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    }
+  ]
+}

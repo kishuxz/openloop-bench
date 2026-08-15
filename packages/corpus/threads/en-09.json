@@ -1,0 +1,92 @@
+{
+  "thread_id": "en-09",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Tanvi",
+      "text": "im blocked on staging, my creds don't work anymore",
+      "ts": "2026-03-16T10:14:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ah the rotation nuked everyone. ill add you back",
+      "ts": "2026-03-16T10:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "also the csv export is still throwing on rows with commas right?",
+      "ts": "2026-03-16T10:21:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Tanvi",
+      "text": "yeah still broken. and the mehta demo is on the 18th, cant show them that",
+      "ts": "2026-03-16T10:25:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "ok ill fix that",
+      "ts": "2026-03-16T10:26:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "added you to staging, try now",
+      "ts": "2026-03-16T10:41:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "Tanvi",
+      "text": "in, thanks",
+      "ts": "2026-03-16T10:44:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "restore Tanvi's staging credentials",
+      "direction": "blocked_on_you",
+      "counterparty": "Tanvi",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 32,
+        "end": 48
+      },
+      "resolution": {
+        "msg_index": 5,
+        "start": 0,
+        "end": 29
+      },
+      "state": "closed",
+      "register": "en"
+    },
+    {
+      "statement": "fix the CSV export failing on rows containing commas",
+      "direction": "blocked_on_you",
+      "counterparty": "Tanvi",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-03-18",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 3,
+        "end": 15
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "Nobody attached a deadline to 'ill fix that', but the demo date makes one unavoidable — implied, span null, resolved knowable."
+    }
+  ]
+}

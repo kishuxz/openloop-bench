@@ -1,0 +1,66 @@
+{
+  "thread_id": "sup-01",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Priya",
+      "text": "do you have the latest deck? the one in the drive is from jan",
+      "ts": "2026-03-04T14:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "yeah i have it locally",
+      "ts": "2026-03-04T14:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "ill send it tonight",
+      "ts": "2026-03-04T14:20:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Priya",
+      "text": "oh actually ravi just sent me the march one, ignore this",
+      "ts": "2026-03-04T16:45:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "ok cool",
+      "ts": "2026-03-04T16:50:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Priya the latest deck",
+      "direction": "blocked_on_you",
+      "counterparty": "Priya",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 12,
+          "end": 19
+        },
+        "resolved": "2026-03-04",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 19
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 12,
+        "end": 56
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "Superseded, not closed: the need was met, but not by the user and not by the act they committed to. Nothing in the thread shows the user sending anything."
+    }
+  ]
+}

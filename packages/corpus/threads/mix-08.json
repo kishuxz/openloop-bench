@@ -1,0 +1,71 @@
+{
+  "thread_id": "mix-08",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "user",
+      "text": "vendor quotes compare panni oru sheet pannunga, board ku venum",
+      "ts": "2026-03-18T10:20:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Karthik",
+      "text": "ok anna",
+      "ts": "2026-03-18T10:41:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Karthik",
+      "text": "innaiku night ku share panren",
+      "ts": "2026-03-18T10:41:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "sari",
+      "ts": "2026-03-18T10:45:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Karthik",
+      "text": "sheet anuppiten, check pannunga",
+      "ts": "2026-03-18T22:15:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "paathen, nalla iruku",
+      "ts": "2026-03-18T22:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "Karthik shares the vendor quote comparison sheet",
+      "direction": "blocked_on_them",
+      "counterparty": "Karthik",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 16
+        },
+        "resolved": "2026-03-18",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 29
+      },
+      "resolution": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 31
+      },
+      "state": "closed",
+      "register": "ta-en"
+    }
+  ]
+}

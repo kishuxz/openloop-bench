@@ -1,0 +1,55 @@
+{
+  "thread_id": "en-01",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Priya",
+      "text": "hey! did you get a chance to update the deck with the q1 numbers",
+      "ts": "2026-03-02T11:04:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "not yet sorry, was heads down on the pilot",
+      "ts": "2026-03-02T11:31:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "ill send it by tomorrow evening",
+      "ts": "2026-03-02T11:31:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Priya",
+      "text": "no rush, just want it before i loop in the LP",
+      "ts": "2026-03-02T11:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Priya the deck updated with Q1 numbers",
+      "direction": "blocked_on_you",
+      "counterparty": "Priya",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 12,
+          "end": 31
+        },
+        "resolved": "2026-03-03",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 31
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}
