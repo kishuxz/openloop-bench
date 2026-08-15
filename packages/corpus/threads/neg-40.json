@@ -1,0 +1,27 @@
+{
+  "thread_id": "neg-40",
+  "channel": "email",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Charu (recruiter)",
+      "text": "Closing the loop on the backend search - the candidate signed and starts on the 3rd. Our invoice was raised against the agreed success fee and is already settled by your finance team.",
+      "ts": "2026-07-09T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "Brilliant outcome, thanks for the persistence on that one.",
+      "ts": "2026-07-09T11:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Charu (recruiter)",
+      "text": "Happy to help whenever the next one opens up. Well be in touch nearer the end of the year regardless.",
+      "ts": "2026-07-09T12:02:00+05:30"
+    }
+  ],
+  "loops": []
+}

@@ -1,0 +1,39 @@
+{
+  "thread_id": "neg-38",
+  "channel": "slack",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "user",
+      "text": "deploying the pricing changes at 3pm, rollback is one command",
+      "ts": "2026-07-08T11:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Dinesh",
+      "text": "ack",
+      "ts": "2026-07-08T11:10:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Tanvi",
+      "text": "ack",
+      "ts": "2026-07-08T11:12:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "deployed, error rates flat",
+      "ts": "2026-07-08T15:20:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Dinesh",
+      "text": "confirmed on my side",
+      "ts": "2026-07-08T15:30:00+05:30"
+    }
+  ],
+  "loops": []
+}

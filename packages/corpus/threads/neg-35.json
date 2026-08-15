@@ -1,0 +1,45 @@
+{
+  "thread_id": "neg-35",
+  "channel": "slack",
+  "split": "dev",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Harsha",
+      "text": "postmortem for the friday incident is published, link in the channel topic",
+      "ts": "2026-07-03T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Harsha",
+      "text": "three action items, all assigned and in the sprint",
+      "ts": "2026-07-03T10:03:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "read it. good writeup",
+      "ts": "2026-07-03T10:30:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Harsha",
+      "text": "the retry fix ships with the release on the 9th",
+      "ts": "2026-07-03T10:35:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "someone should probably do a game day on this eventually",
+      "ts": "2026-07-03T10:40:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Harsha",
+      "text": "would be worth it at some point yeah",
+      "ts": "2026-07-03T10:42:00+05:30"
+    }
+  ],
+  "loops": []
+}

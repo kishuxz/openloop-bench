@@ -1,0 +1,27 @@
+{
+  "thread_id": "neg-36",
+  "channel": "email",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Procurement (client)",
+      "text": "Confirming your supplier onboarding is complete. Your first PO will be raised automatically against the framework agreement on the 1st of each month. No action needed from your side.",
+      "ts": "2026-07-06T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "Great, thanks for pushing it through.",
+      "ts": "2026-07-06T14:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Procurement (client)",
+      "text": "Our pleasure. Youll receive the PO by email each month.",
+      "ts": "2026-07-06T15:02:00+05:30"
+    }
+  ],
+  "loops": []
+}

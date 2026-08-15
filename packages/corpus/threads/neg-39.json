@@ -1,0 +1,39 @@
+{
+  "thread_id": "neg-39",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Suresh (office)",
+      "text": "sir naye desks lag gaye, 12 pieces, invoice bhi settle ho gaya",
+      "ts": "2026-07-09T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "badhiya",
+      "ts": "2026-07-09T11:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Suresh (office)",
+      "text": "sir AC servicing ki date 18 july hai, vendor ne confirm kiya",
+      "ts": "2026-07-09T11:35:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "theek hai",
+      "ts": "2026-07-09T11:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Suresh (office)",
+      "text": "us din thoda shor hoga, bas batane ke liye",
+      "ts": "2026-07-09T11:42:00+05:30"
+    }
+  ],
+  "loops": []
+}
