@@ -28,31 +28,31 @@ export const BUCKETS: readonly Bucket[] = [
   {
     prefix: "en",
     label: "English",
-    target: 40,
+    target: 50,
     why: "The easy baseline. If an extractor fails here, nothing else is worth measuring.",
   },
   {
     prefix: "mix",
     label: "Code-mixed (Hinglish/Tanglish)",
-    target: 40,
+    target: 50,
     why: "Deadlines expressed non-numerically — kal tak, parso, naaliki, weekend tak.",
   },
   {
     prefix: "sup",
     label: "Superseded",
-    target: 27,
+    target: 35,
     why: "Committed, then cancelled/delegated/overtaken in-thread. The headline metric.",
   },
   {
     prefix: "neg",
     label: "Negative (zero loops)",
-    target: 32,
+    target: 40,
     why: "Near-miss language that is not a commitment. Without these, precision measures nothing.",
   },
   {
     prefix: "del",
     label: "Delegation / direction flip",
-    target: 21,
+    target: 25,
     why: "The obligation survives but who owes it changes. Direction errors are safety errors.",
   },
 ];
