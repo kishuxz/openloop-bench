@@ -6,7 +6,8 @@
   "description": "The matcher, the metrics, the cost model and the report generator.",
   "license": "MIT",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./scope": "./src/scope.ts"
   },
   "types": "./src/index.ts",
   "scripts": {

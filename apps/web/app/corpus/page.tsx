@@ -1,4 +1,4 @@
-import { formatMetric, gap, results } from "../../lib/results";
+import { formatMetric, gap, results, scope } from "../../lib/results";
 
 export default function CorpusPage() {
   const { corpus } = results;
@@ -10,7 +10,7 @@ export default function CorpusPage() {
         <h1>Corpus Composition</h1>
         <p>Distribution, split balance, and the separability diagnostic rendered from committed results JSON.</p>
       </header>
-      <p className="scope-line">{results.scope}</p>
+      <p className="scope-line">{scope}</p>
 
       <section aria-labelledby="corpus-summary">
         <h2 id="corpus-summary">Summary</h2>

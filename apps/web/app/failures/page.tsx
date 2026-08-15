@@ -1,4 +1,4 @@
-import { results } from "../../lib/results";
+import { results, scope } from "../../lib/results";
 import FailureGallery from "./failure-gallery";
 
 export default function FailuresPage() {
@@ -9,7 +9,7 @@ export default function FailuresPage() {
         <h1>Failure Gallery</h1>
         <p>Generated from committed failure JSON with exact source spans for the true label and prediction.</p>
       </header>
-      <p className="scope-line">{results.scope}</p>
+      <p className="scope-line">{scope}</p>
       <FailureGallery configs={results.configs} failures={results.failures} />
     </div>
   );

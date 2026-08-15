@@ -29,6 +29,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@openloop-bench/eval':
+        specifier: workspace:*
+        version: link:../../packages/eval
       '@openloop-bench/schema':
         specifier: workspace:*
         version: link:../../packages/schema

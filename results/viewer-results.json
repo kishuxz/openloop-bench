@@ -3846,7 +3846,6 @@
       }
     }
   ],
-  "scope": "Results cover the dev split only, with two configurations reported: hosted large and local. A single prompt version was used with no iteration against dev results. The held out test split has not been run. The hosted redacted run was attempted and did not complete.",
   "incomplete_runs": [
     {
       "config": "hosted-redacted",

@@ -40,6 +40,7 @@ import {
 import { costOfError, type CostMatrix } from "./cost.js";
 import { hasOffsets, UNMAPPABLE, type PredictedLoop } from "./prediction.js";
 import { formatRate, type IncompleteRun } from "./quality.js";
+import { SCOPE_TEXT } from "./scope.js";
 
 /** How many failures per category per config get printed. */
 export const GALLERY_CAP = 10;
@@ -151,18 +152,8 @@ function provenance(inputs: ReportInputs): string[] {
   return lines;
 }
 
-function scopeLine(inputs: ReportInputs): string[] {
-  const configs = inputs.runs.map((run) => `\`${run.run.meta.config}\``).join(", ");
-  const incomplete = inputs.incompleteRuns?.some((run) => run.config === "hosted-redacted")
-    ? "; `hosted-redacted` attempted and incomplete"
-    : "";
-
-  return [
-    "**Scope.** Dev split only; two configs reported",
-    `(${configs}); single prompt version with no iteration against dev results;`,
-    `held-out test split not run${incomplete}.`,
-    "",
-  ];
+function scopeLine(): string[] {
+  return [`**Scope.** ${SCOPE_TEXT}`, ""];
 }
 
 function attemptedIncomplete(inputs: ReportInputs): string[] {
@@ -183,7 +174,7 @@ function attemptedIncomplete(inputs: ReportInputs): string[] {
       ? `provider failure rate ${formatRate(run.provider_failure_rate)} exceeded the ${formatRate(run.max_provider_failure_rate)} threshold`
       : "run did not pass the publish guard";
     lines.push(
-      `- \`${run.config}\`: Attempted, incomplete. ${run.attempted_threads} threads attempted, ${run.provider_failures} provider failures, ${run.parse_failures} parse failures, ${run.threads_with_parsed_loops} threads with parsed loops; ${reason}. Run abandoned to free-tier rate limits, to be re-run.`,
+      `- \`${run.config}\`: Attempted, incomplete. ${run.attempted_threads} threads attempted, ${run.provider_failures} provider failures, ${run.parse_failures} parse failures, ${run.threads_with_parsed_loops} threads with parsed loops. The ${reason}. Run abandoned to free-tier rate limits, to be re-run.`,
     );
   }
 
@@ -998,9 +989,7 @@ function limitations(inputs: ReportInputs): string[] {
   const lines = [
     "## What these numbers do not say",
     "",
-    "- **Scope.** Dev split only; two configurations reported (`hosted-large`, `local`);",
-    "  single prompt version with no iteration against dev results; held-out test split",
-    "  not run; `hosted-redacted` attempted and incomplete.",
+    `- **Scope.** ${SCOPE_TEXT}`,
     "- **The matching threshold is a constant somebody chose.** Every table above is",
     "  conditional on it. That is why all three thresholds are reported and why the ranking",
     "  question is asked out loud rather than answered once at 0.5.",
@@ -1047,7 +1036,7 @@ export function renderReport(inputs: ReportInputs): string {
     "The eval refuses to score against a corpus that has not validated, and refuses any",
     "prediction file whose corpus hash does not match the corpus on disk.",
     "",
-    ...scopeLine(inputs),
+    ...scopeLine(),
     ...attemptedIncomplete(inputs),
     ...provenance(inputs),
     ...matching(inputs),

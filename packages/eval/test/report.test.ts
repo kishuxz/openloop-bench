@@ -24,6 +24,7 @@ import { DEFAULT_COST_MATRIX } from "../src/cost.js";
 import { PREDICTIONS_DIR, REPORT_PATH } from "../src/paths.js";
 import { GALLERY_CAP, renderReport } from "../src/report.js";
 import { DEFAULT_MAX_PROVIDER_FAILURE_RATE, incompleteRun } from "../src/quality.js";
+import { SCOPE_REPORTED_CONFIGS, SCOPE_SENTENCES, SCOPE_TEXT } from "../src/scope.js";
 
 const hash = corpusHash();
 const REPORT_CONFIGS = ["hosted-large-dev", "local-dev"];
@@ -159,10 +160,25 @@ describe("the failure gallery", () => {
 });
 
 describe("what the report refuses to claim", () => {
-  test("states the measured scope", () => {
-    expect(report).toMatch(/Dev split only; two configs reported/);
-    expect(report).toMatch(/held-out test split not run/);
-    expect(report).toMatch(/`hosted-redacted` attempted and incomplete/);
+  test("states the measured scope, from the single definition", () => {
+    // Both places the report states scope render SCOPE_TEXT verbatim, so a
+    // reader cannot find two different accounts of what was run.
+    expect(report).toContain(`**Scope.** ${SCOPE_TEXT}`);
+    expect(report).toContain(`- **Scope.** ${SCOPE_TEXT}`);
+    expect(report).toMatch(/The held out test split has not been run\./);
+    expect(report).toMatch(/The hosted redacted run was attempted and did not complete\./);
+  });
+
+  test("the scope sentences still describe the runs actually reported", () => {
+    // SCOPE_TEXT names its configurations by hand, so adding or dropping one
+    // would leave it quietly lying. This fails until the sentences are updated.
+    expect(runs.map((run) => run.run.meta.config).sort()).toEqual([...SCOPE_REPORTED_CONFIGS].sort());
+    expect(incompleteRuns.map((run) => run.config)).toEqual(["hosted-redacted"]);
+  });
+
+  test("the scope statement is plain sentences", () => {
+    expect(SCOPE_TEXT).not.toMatch(/[;—–]/);
+    expect(SCOPE_SENTENCES.every((sentence) => sentence.endsWith("."))).toBe(true);
   });
 
   test("keeps incomplete hosted-redacted as evidence but out of scored tables", () => {

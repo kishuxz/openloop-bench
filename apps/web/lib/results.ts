@@ -1,4 +1,11 @@
+import { SCOPE_TEXT } from "@openloop-bench/eval/scope";
 import rawResults from "../../../results/viewer-results.json";
+
+/**
+ * What these results cover. Imported rather than read from the JSON so the
+ * viewer and REPORT.md render the same sentences from one definition.
+ */
+export const scope: string = SCOPE_TEXT;
 
 export interface MetricDefinition {
   readonly id: string;
@@ -52,7 +59,6 @@ export interface ResultsData {
   readonly report_deck: string;
   /** Orientation paragraphs shown above the headline table. */
   readonly framing: readonly string[];
-  readonly scope: string;
   readonly incomplete_runs?: readonly {
     readonly config: string;
     readonly label: string;
