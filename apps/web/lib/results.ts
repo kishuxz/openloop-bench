@@ -1,4 +1,4 @@
-import rawResults from "../../../fixtures/results/fixture-metrics.json";
+import rawResults from "../../../results/viewer-results.json";
 
 export interface MetricDefinition {
   readonly id: string;

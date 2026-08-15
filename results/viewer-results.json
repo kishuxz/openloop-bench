@@ -1,0 +1,3862 @@
+{
+  "dataSource": "measured",
+  "report_title": "Open Loop Extraction Results",
+  "report_deck": "Measured dev split results for hosted-large, hosted-redacted, and local extractor configs at IoU 0.5.",
+  "metrics": [
+    {
+      "id": "loop_precision",
+      "label": "Loop precision",
+      "format": "percent",
+      "direction": "higher"
+    },
+    {
+      "id": "loop_recall",
+      "label": "Loop recall",
+      "format": "percent",
+      "direction": "higher"
+    },
+    {
+      "id": "superseded_as_open",
+      "label": "Superseded as open",
+      "format": "percent",
+      "direction": "lower"
+    },
+    {
+      "id": "direction_accuracy",
+      "label": "Direction accuracy",
+      "format": "percent",
+      "direction": "higher"
+    },
+    {
+      "id": "span_tightness",
+      "label": "Span tightness",
+      "format": "number",
+      "direction": "higher"
+    },
+    {
+      "id": "deadline_quote_found",
+      "label": "Deadline quote found",
+      "format": "percent",
+      "direction": "higher"
+    },
+    {
+      "id": "deadline_resolution_accuracy",
+      "label": "Resolved date exact",
+      "format": "percent",
+      "direction": "higher"
+    }
+  ],
+  "configs": [
+    {
+      "id": "hosted-large",
+      "label": "Hosted large",
+      "model_id": "llama-3.3-70b-versatile",
+      "description": "Groq llama-3.3-70b-versatile on full text.",
+      "metric_values": {
+        "loop_precision": 0.5145631067961165,
+        "loop_recall": 0.4953271028037383,
+        "superseded_as_open": 0.14285714285714285,
+        "direction_accuracy": 0.8867924528301887,
+        "span_tightness": 0.8542542400666844,
+        "deadline_quote_found": 0.7272727272727273,
+        "deadline_resolution_accuracy": 0.08571428571428572
+      },
+      "cost_weighted_error": 5.0375
+    },
+    {
+      "id": "hosted-redacted",
+      "label": "Hosted redacted",
+      "model_id": "llama-3.3-70b-versatile",
+      "description": "Same hosted model after PII redaction and span remapping.",
+      "metric_values": {
+        "loop_precision": 0.5882352941176471,
+        "loop_recall": 0.09345794392523364,
+        "superseded_as_open": 0.3333333333333333,
+        "direction_accuracy": 0.6,
+        "span_tightness": 0.7532849071832123,
+        "deadline_quote_found": 0.8333333333333334,
+        "deadline_resolution_accuracy": 0
+      },
+      "cost_weighted_error": 2.225
+    },
+    {
+      "id": "local",
+      "label": "Local",
+      "model_id": "qwen2.5:7b",
+      "description": "Local qwen2.5:7b run on full text.",
+      "metric_values": {
+        "loop_precision": 0.5454545454545454,
+        "loop_recall": 0.16822429906542055,
+        "superseded_as_open": 0.75,
+        "direction_accuracy": 0.4444444444444444,
+        "span_tightness": 0.9383759561351026,
+        "deadline_quote_found": 0.25,
+        "deadline_resolution_accuracy": 0
+      },
+      "cost_weighted_error": 3.4875
+    }
+  ],
+  "notable_cells": [
+    {
+      "config_id": "hosted-redacted",
+      "metric_id": "loop_recall",
+      "note": "Redaction/provider failure mode"
+    },
+    {
+      "config_id": "local",
+      "metric_id": "direction_accuracy",
+      "note": "Local failure mode"
+    }
+  ],
+  "headline_callout": {
+    "label": "Superseded reported open, hosted-large",
+    "config_id": "hosted-large",
+    "metric_id": "superseded_as_open",
+    "value": 0.14285714285714285,
+    "text": "The hosted-large run reports 2 of 14 matched superseded commitments as still open."
+  },
+  "deltas": [
+    {
+      "label": "Redaction cost",
+      "comparison": "hosted-redacted minus hosted-large",
+      "statements": [
+        "Precision changes by +7.4 percentage points.",
+        "Recall changes by -40.2 percentage points and F1 by -34.3 percentage points.",
+        "Cost-weighted error changes by -2.81 per thread; the lower cost is driven by silence after provider and parse failures, not a better extractor."
+      ]
+    },
+    {
+      "label": "Model scale cost",
+      "comparison": "hosted-large minus local",
+      "statements": [
+        "Precision changes by -3.1 percentage points.",
+        "Recall changes by +32.7 percentage points and F1 by +24.8 percentage points.",
+        "Cost-weighted error changes by +1.55 per thread."
+      ]
+    }
+  ],
+  "provenance": {
+    "corpus_hash": "d9c347f4f5150b19",
+    "prompt_version": "v2",
+    "model_ids": [
+      "llama-3.3-70b-versatile",
+      "qwen2.5:7b"
+    ],
+    "iou_threshold": 0.5,
+    "date": "2026-08-15",
+    "cost_matrix": [
+      {
+        "error": "false_positive.blocked_on_you",
+        "weight": 3
+      },
+      {
+        "error": "false_positive.blocked_on_them",
+        "weight": 8
+      },
+      {
+        "error": "false_positive.mutual",
+        "weight": 3
+      },
+      {
+        "error": "false_negative",
+        "weight": 1
+      },
+      {
+        "error": "superseded_as_open",
+        "weight": 8
+      },
+      {
+        "error": "direction_inverted",
+        "weight": 8
+      }
+    ]
+  },
+  "corpus": {
+    "summary": [
+      {
+        "label": "Threads",
+        "value": "200"
+      },
+      {
+        "label": "Loops",
+        "value": "273"
+      },
+      {
+        "label": "Zero-loop threads",
+        "value": "40 (20.0% of threads)"
+      },
+      {
+        "label": "Dev / test",
+        "value": "80 / 120 (40.0% / 60.0%)"
+      },
+      {
+        "label": "Loops per thread",
+        "value": "1.36"
+      },
+      {
+        "label": "Loops per non-empty thread",
+        "value": "1.71"
+      }
+    ],
+    "tables": [
+      {
+        "id": "buckets",
+        "title": "Buckets",
+        "columns": [
+          "Bucket",
+          "All",
+          "Dev",
+          "Test",
+          "Target"
+        ],
+        "rows": [
+          [
+            "en English",
+            "50",
+            "20",
+            "30",
+            "50"
+          ],
+          [
+            "mix Code-mixed (Hinglish/Tanglish)",
+            "50",
+            "20",
+            "30",
+            "50"
+          ],
+          [
+            "sup Superseded",
+            "35",
+            "14",
+            "21",
+            "35"
+          ],
+          [
+            "neg Negative (zero loops)",
+            "40",
+            "15",
+            "25",
+            "40"
+          ],
+          [
+            "del Delegation / direction flip",
+            "25",
+            "11",
+            "14",
+            "25"
+          ]
+        ]
+      },
+      {
+        "id": "state",
+        "title": "State",
+        "columns": [
+          "State",
+          "All",
+          "Dev",
+          "Test"
+        ],
+        "rows": [
+          [
+            "open",
+            "175",
+            "74",
+            "101"
+          ],
+          [
+            "closed",
+            "38",
+            "9",
+            "29"
+          ],
+          [
+            "superseded",
+            "60",
+            "24",
+            "36"
+          ]
+        ]
+      },
+      {
+        "id": "direction",
+        "title": "Direction",
+        "columns": [
+          "Direction",
+          "All",
+          "Dev",
+          "Test"
+        ],
+        "rows": [
+          [
+            "blocked_on_them",
+            "84",
+            "33",
+            "51"
+          ],
+          [
+            "blocked_on_you",
+            "174",
+            "67",
+            "107"
+          ],
+          [
+            "mutual",
+            "15",
+            "7",
+            "8"
+          ]
+        ]
+      },
+      {
+        "id": "register",
+        "title": "Register",
+        "columns": [
+          "Register",
+          "All",
+          "Dev",
+          "Test"
+        ],
+        "rows": [
+          [
+            "en",
+            "155",
+            "60",
+            "95"
+          ],
+          [
+            "hi-en",
+            "67",
+            "35",
+            "32"
+          ],
+          [
+            "ta-en",
+            "51",
+            "12",
+            "39"
+          ],
+          [
+            "other",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "id": "certainty",
+        "title": "Deadline certainty",
+        "columns": [
+          "Certainty",
+          "All",
+          "Dev",
+          "Test"
+        ],
+        "rows": [
+          [
+            "explicit",
+            "139",
+            "58",
+            "81"
+          ],
+          [
+            "implied",
+            "45",
+            "12",
+            "33"
+          ],
+          [
+            "none",
+            "89",
+            "37",
+            "52"
+          ]
+        ]
+      },
+      {
+        "id": "splits",
+        "title": "Splits",
+        "columns": [
+          "Split",
+          "Threads",
+          "Loops"
+        ],
+        "rows": [
+          [
+            "dev",
+            "80",
+            "107"
+          ],
+          [
+            "test",
+            "120",
+            "166"
+          ]
+        ]
+      }
+    ],
+    "additional_findings": [
+      "Deadlines resolved to a date: 163/273 (59.7%).",
+      "Off-thread counterparties: 11/273 delegation targets never sent a message."
+    ],
+    "separability": {
+      "score": 0.523,
+      "null_mean": 0.499,
+      "null_p95": 0.551,
+      "p_value": 0.219,
+      "split": "dev",
+      "threads": 80,
+      "positives": 65,
+      "negatives": 15,
+      "residual_features": {
+        "toward_loop": [
+          [
+            "can",
+            1.34
+          ],
+          [
+            "deta",
+            1.11
+          ],
+          [
+            "one",
+            1.11
+          ],
+          [
+            "send",
+            1.03
+          ],
+          [
+            "tha",
+            0.93
+          ],
+          [
+            "ok",
+            0.93
+          ]
+        ],
+        "toward_no_loop": [
+          [
+            "anything",
+            -2.98
+          ],
+          [
+            "been",
+            -2.76
+          ],
+          [
+            "looks",
+            -2.76
+          ],
+          [
+            "if",
+            -2.62
+          ],
+          [
+            "worth",
+            -2.06
+          ],
+          [
+            "saw",
+            -2.06
+          ]
+        ]
+      },
+      "history": [
+        {
+          "leak": "Real organisation names appeared in early threads.",
+          "fix": "Replaced them with roles and added the no-real-organisations rule."
+        },
+        {
+          "leak": "Accepted directives were evidenced inconsistently.",
+          "fix": "Clarified that the acceptor's own commitment wins when it exists."
+        },
+        {
+          "leak": "The negative-thread cue test was English-centric.",
+          "fix": "Moved from literal keywords to construction families across English, Hindi-English, and Tamil-English."
+        },
+        {
+          "leak": "Deadline-certainty distribution shifted between batch 0 and batch 1.",
+          "fix": "Audited sampled loops, corrected 3 labels, and recorded the remaining shift as thread-writing drift."
+        }
+      ]
+    }
+  },
+  "failures": [
+    {
+      "id": "hosted-large-del-01-fp-0",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-01",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Nandini (LP)",
+            "text": "can you share the monthly cohort data before the IC meeting?"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "sure, ill pull it and send"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "actually arjun owns that dashboard now, hes closer to the numbers"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "arjun will send it across today"
+          },
+          {
+            "index": 4,
+            "sender": "Nandini (LP)",
+            "text": "perfect, either way works"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "share the monthly cohort data",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 0,
+          "start": 0,
+          "end": 60,
+          "text": "can you share the monthly cohort data before the IC meeting?"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-del-01-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-01",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Nandini (LP)",
+            "text": "can you share the monthly cohort data before the IC meeting?"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "sure, ill pull it and send"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "actually arjun owns that dashboard now, hes closer to the numbers"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "arjun will send it across today"
+          },
+          {
+            "index": 4,
+            "sender": "Nandini (LP)",
+            "text": "perfect, either way works"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "send Nandini the monthly cohort data",
+        "state": "superseded",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 1,
+          "start": 6,
+          "end": 26,
+          "text": "ill pull it and send"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-del-01-fn-1",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-01",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Nandini (LP)",
+            "text": "can you share the monthly cohort data before the IC meeting?"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "sure, ill pull it and send"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "actually arjun owns that dashboard now, hes closer to the numbers"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "arjun will send it across today"
+          },
+          {
+            "index": 4,
+            "sender": "Nandini (LP)",
+            "text": "perfect, either way works"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Arjun sends Nandini the monthly cohort data",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 3,
+          "start": 0,
+          "end": 31,
+          "text": "arjun will send it across today"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-del-02-fp-0",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-02",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "user",
+            "text": "can you write up the postmortem for the friday outage?"
+          },
+          {
+            "index": 1,
+            "sender": "Tanvi",
+            "text": "yeah ill have it done by wednesday"
+          },
+          {
+            "index": 2,
+            "sender": "Tanvi",
+            "text": "actually im on call all week and the vendor migration is eating me alive"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "fair. dont worry ill write it, you just review"
+          },
+          {
+            "index": 4,
+            "sender": "Tanvi",
+            "text": "deal"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "write the postmortem for the friday outage",
+        "state": "superseded",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 0,
+          "start": 0,
+          "end": 54,
+          "text": "can you write up the postmortem for the friday outage?"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-del-02-label-0",
+      "error_type": "direction_wrong",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-02",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "user",
+            "text": "can you write up the postmortem for the friday outage?"
+          },
+          {
+            "index": 1,
+            "sender": "Tanvi",
+            "text": "yeah ill have it done by wednesday"
+          },
+          {
+            "index": 2,
+            "sender": "Tanvi",
+            "text": "actually im on call all week and the vendor migration is eating me alive"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "fair. dont worry ill write it, you just review"
+          },
+          {
+            "index": 4,
+            "sender": "Tanvi",
+            "text": "deal"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "write the postmortem for the Friday outage",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 3,
+          "start": 17,
+          "end": 46,
+          "text": "ill write it, you just review"
+        }
+      },
+      "prediction": {
+        "statement": "review the postmortem for the friday outage",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 3,
+          "start": 0,
+          "end": 46,
+          "text": "fair. dont worry ill write it, you just review"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-del-02-label-1",
+      "error_type": "direction_wrong",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-02",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "user",
+            "text": "can you write up the postmortem for the friday outage?"
+          },
+          {
+            "index": 1,
+            "sender": "Tanvi",
+            "text": "yeah ill have it done by wednesday"
+          },
+          {
+            "index": 2,
+            "sender": "Tanvi",
+            "text": "actually im on call all week and the vendor migration is eating me alive"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "fair. dont worry ill write it, you just review"
+          },
+          {
+            "index": 4,
+            "sender": "Tanvi",
+            "text": "deal"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Tanvi writes the postmortem for the Friday outage",
+        "state": "superseded",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 1,
+          "start": 5,
+          "end": 34,
+          "text": "ill have it done by wednesday"
+        }
+      },
+      "prediction": {
+        "statement": "write the postmortem for the friday outage",
+        "state": "superseded",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 1,
+          "start": 0,
+          "end": 34,
+          "text": "yeah ill have it done by wednesday"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-del-03-fp-0",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-03",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Procurement (Client)",
+            "text": "Before we can raise the PO we need your ISO 27001 certificate and the signed NDA. Could you send both?"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "Sure - I'll dig them out and send them over."
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "Correction: looping in Fatima from our ops side, she holds the compliance folder and will send both documents by thursday. Fatima - over to you."
+          },
+          {
+            "index": 3,
+            "sender": "Procurement (Client)",
+            "text": "Thanks, appreciated."
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "send ISO 27001 certificate and signed NDA",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 0,
+          "start": 82,
+          "end": 102,
+          "text": "Could you send both?"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-del-03-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-03",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Procurement (Client)",
+            "text": "Before we can raise the PO we need your ISO 27001 certificate and the signed NDA. Could you send both?"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "Sure - I'll dig them out and send them over."
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "Correction: looping in Fatima from our ops side, she holds the compliance folder and will send both documents by thursday. Fatima - over to you."
+          },
+          {
+            "index": 3,
+            "sender": "Procurement (Client)",
+            "text": "Thanks, appreciated."
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "send Procurement the ISO 27001 certificate and signed NDA",
+        "state": "superseded",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 1,
+          "start": 7,
+          "end": 43,
+          "text": "I'll dig them out and send them over"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-del-03-fn-1",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-03",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Procurement (Client)",
+            "text": "Before we can raise the PO we need your ISO 27001 certificate and the signed NDA. Could you send both?"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "Sure - I'll dig them out and send them over."
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "Correction: looping in Fatima from our ops side, she holds the compliance folder and will send both documents by thursday. Fatima - over to you."
+          },
+          {
+            "index": 3,
+            "sender": "Procurement (Client)",
+            "text": "Thanks, appreciated."
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Fatima sends Procurement the ISO 27001 certificate and signed NDA",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 2,
+          "start": 49,
+          "end": 121,
+          "text": "she holds the compliance folder and will send both documents by thursday"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-del-07-fp-0",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-07",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Pooja",
+            "text": "the enterprise trial expires friday and nobody has spoken to them since the demo"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "ill call them today"
+          },
+          {
+            "index": 2,
+            "sender": "Pooja",
+            "text": "youre in interviews till 6 though"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "true"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "you take it, you ran the demo anyway. just dont discount without asking me"
+          },
+          {
+            "index": 5,
+            "sender": "Pooja",
+            "text": "on it"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "Pooja to contact the enterprise trial team",
+        "state": "closed",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 0,
+          "start": 0,
+          "end": 80,
+          "text": "the enterprise trial expires friday and nobody has spoken to them since the demo"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-del-07-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-07",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Pooja",
+            "text": "the enterprise trial expires friday and nobody has spoken to them since the demo"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "ill call them today"
+          },
+          {
+            "index": 2,
+            "sender": "Pooja",
+            "text": "youre in interviews till 6 though"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "true"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "you take it, you ran the demo anyway. just dont discount without asking me"
+          },
+          {
+            "index": 5,
+            "sender": "Pooja",
+            "text": "on it"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "call the enterprise trial account before it expires",
+        "state": "superseded",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 1,
+          "start": 0,
+          "end": 19,
+          "text": "ill call them today"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-del-07-fn-1",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-07",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Pooja",
+            "text": "the enterprise trial expires friday and nobody has spoken to them since the demo"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "ill call them today"
+          },
+          {
+            "index": 2,
+            "sender": "Pooja",
+            "text": "youre in interviews till 6 though"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "true"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "you take it, you ran the demo anyway. just dont discount without asking me"
+          },
+          {
+            "index": 5,
+            "sender": "Pooja",
+            "text": "on it"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Pooja calls the enterprise trial account before it expires",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 4,
+          "start": 0,
+          "end": 36,
+          "text": "you take it, you ran the demo anyway"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-del-08-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-08",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Lakshmi (audit)",
+            "text": "sir stock statement bank ko har month bhejna hota hai, is month ka nahi gaya"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "arre haan. main aaj bhej deta hu"
+          },
+          {
+            "index": 2,
+            "sender": "Lakshmi (audit)",
+            "text": "sir aap har month bhool jaate hai, pichli baar bhi maine hi bheja tha already"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "sach hai"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "aisa karte hai, aap hi har month 5 tarikh ko bhej dijiye, main data share kar dunga"
+          },
+          {
+            "index": 5,
+            "sender": "Lakshmi (audit)",
+            "text": "theek hai sir, main kar dungi"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Lakshmi sends the bank the stock statement each month",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 5,
+          "start": 15,
+          "end": 29,
+          "text": "main kar dungi"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-del-08-label-0",
+      "error_type": "direction_wrong",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-08",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Lakshmi (audit)",
+            "text": "sir stock statement bank ko har month bhejna hota hai, is month ka nahi gaya"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "arre haan. main aaj bhej deta hu"
+          },
+          {
+            "index": 2,
+            "sender": "Lakshmi (audit)",
+            "text": "sir aap har month bhool jaate hai, pichli baar bhi maine hi bheja tha already"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "sach hai"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "aisa karte hai, aap hi har month 5 tarikh ko bhej dijiye, main data share kar dunga"
+          },
+          {
+            "index": 5,
+            "sender": "Lakshmi (audit)",
+            "text": "theek hai sir, main kar dungi"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "send the bank this month's stock statement",
+        "state": "superseded",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 1,
+          "start": 11,
+          "end": 32,
+          "text": "main aaj bhej deta hu"
+        }
+      },
+      "prediction": {
+        "statement": "Send stock statement to the bank every month",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 1,
+          "start": 11,
+          "end": 32,
+          "text": "main aaj bhej deta hu"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-del-12-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-12",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Neha",
+            "text": "the pen test report needs a management response before we can share it"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "ill write it"
+          },
+          {
+            "index": 2,
+            "sender": "Neha",
+            "text": "you wrote the last two and theyre basically boilerplate now"
+          },
+          {
+            "index": 3,
+            "sender": "Neha",
+            "text": "give me the template and ill do this one, you just sign off"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "deal. sending you the template now"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "send Neha the management response template",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 4,
+          "start": 6,
+          "end": 34,
+          "text": "sending you the template now"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-del-12-label-0",
+      "error_type": "direction_wrong",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-12",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Neha",
+            "text": "the pen test report needs a management response before we can share it"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "ill write it"
+          },
+          {
+            "index": 2,
+            "sender": "Neha",
+            "text": "you wrote the last two and theyre basically boilerplate now"
+          },
+          {
+            "index": 3,
+            "sender": "Neha",
+            "text": "give me the template and ill do this one, you just sign off"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "deal. sending you the template now"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "write the management response to the pen test report",
+        "state": "superseded",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 1,
+          "start": 0,
+          "end": 12,
+          "text": "ill write it"
+        }
+      },
+      "prediction": {
+        "statement": "write the management response for the pen test report",
+        "state": "superseded",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 1,
+          "start": 0,
+          "end": 12,
+          "text": "ill write it"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-del-12-label-1",
+      "error_type": "state_wrong",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-12",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Neha",
+            "text": "the pen test report needs a management response before we can share it"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "ill write it"
+          },
+          {
+            "index": 2,
+            "sender": "Neha",
+            "text": "you wrote the last two and theyre basically boilerplate now"
+          },
+          {
+            "index": 3,
+            "sender": "Neha",
+            "text": "give me the template and ill do this one, you just sign off"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "deal. sending you the template now"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "sign off Neha's management response",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 3,
+          "start": 42,
+          "end": 59,
+          "text": "you just sign off"
+        }
+      },
+      "prediction": {
+        "statement": "send the template for the management response",
+        "state": "closed",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 3,
+          "start": 0,
+          "end": 59,
+          "text": "give me the template and ill do this one, you just sign off"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-del-12-label-2",
+      "error_type": "direction_wrong",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-12",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Neha",
+            "text": "the pen test report needs a management response before we can share it"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "ill write it"
+          },
+          {
+            "index": 2,
+            "sender": "Neha",
+            "text": "you wrote the last two and theyre basically boilerplate now"
+          },
+          {
+            "index": 3,
+            "sender": "Neha",
+            "text": "give me the template and ill do this one, you just sign off"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "deal. sending you the template now"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Neha writes the management response to the pen test report",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 3,
+          "start": 25,
+          "end": 40,
+          "text": "ill do this one"
+        }
+      },
+      "prediction": {
+        "statement": "sign off on the management response",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 3,
+          "start": 0,
+          "end": 59,
+          "text": "give me the template and ill do this one, you just sign off"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-del-13-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-13",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Lakshmi (audit)",
+            "text": "sir directors report draft karna hai, board meeting se pehle"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "main draft kar deta hu, pichli baar ka format hai mere paas"
+          },
+          {
+            "index": 2,
+            "sender": "Lakshmi (audit)",
+            "text": "sir is baar related party transactions ka section badal gaya hai"
+          },
+          {
+            "index": 3,
+            "sender": "Lakshmi (audit)",
+            "text": "main kar deti hu, aap sirf review kar dena"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "haan aap hi kar do phir, main review kar dunga"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "draft the directors' report before the board meeting",
+        "state": "superseded",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 1,
+          "start": 0,
+          "end": 22,
+          "text": "main draft kar deta hu"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-del-13-fn-1",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-13",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Lakshmi (audit)",
+            "text": "sir directors report draft karna hai, board meeting se pehle"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "main draft kar deta hu, pichli baar ka format hai mere paas"
+          },
+          {
+            "index": 2,
+            "sender": "Lakshmi (audit)",
+            "text": "sir is baar related party transactions ka section badal gaya hai"
+          },
+          {
+            "index": 3,
+            "sender": "Lakshmi (audit)",
+            "text": "main kar deti hu, aap sirf review kar dena"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "haan aap hi kar do phir, main review kar dunga"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Lakshmi drafts the directors' report",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 3,
+          "start": 0,
+          "end": 16,
+          "text": "main kar deti hu"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-del-13-fn-2",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-13",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Lakshmi (audit)",
+            "text": "sir directors report draft karna hai, board meeting se pehle"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "main draft kar deta hu, pichli baar ka format hai mere paas"
+          },
+          {
+            "index": 2,
+            "sender": "Lakshmi (audit)",
+            "text": "sir is baar related party transactions ka section badal gaya hai"
+          },
+          {
+            "index": 3,
+            "sender": "Lakshmi (audit)",
+            "text": "main kar deti hu, aap sirf review kar dena"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "haan aap hi kar do phir, main review kar dunga"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "review Lakshmi's draft of the directors' report",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 4,
+          "start": 25,
+          "end": 46,
+          "text": "main review kar dunga"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-del-17-fp-0",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-17",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Divya",
+            "text": "the app store screenshots are stale, still showing the old nav"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "ill redo them this week"
+          },
+          {
+            "index": 2,
+            "sender": "Divya",
+            "text": "you dont have the source file though, its in my figma"
+          },
+          {
+            "index": 3,
+            "sender": "Divya",
+            "text": "ill export fresh ones by wednesday, you just upload them"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "yes fine, ill upload as soon as theyre in"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "provide source file for app store screenshots",
+        "state": "closed",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 53,
+          "text": "you dont have the source file though, its in my figma"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-del-17-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-17",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Divya",
+            "text": "the app store screenshots are stale, still showing the old nav"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "ill redo them this week"
+          },
+          {
+            "index": 2,
+            "sender": "Divya",
+            "text": "you dont have the source file though, its in my figma"
+          },
+          {
+            "index": 3,
+            "sender": "Divya",
+            "text": "ill export fresh ones by wednesday, you just upload them"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "yes fine, ill upload as soon as theyre in"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "redo the app store screenshots",
+        "state": "superseded",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 1,
+          "start": 0,
+          "end": 23,
+          "text": "ill redo them this week"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-del-18-fp-0",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-18",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Sneha",
+            "text": "cap table update karna hai, naye ESOP grants add karne hai"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "main kar deta hu, excel mere paas hai"
+          },
+          {
+            "index": 2,
+            "sender": "Sneha",
+            "text": "sir excel purana hai, ab hum cap table software pe hai"
+          },
+          {
+            "index": 3,
+            "sender": "Sneha",
+            "text": "main hi kar deti hu, mujhe access hai"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "haan tum karo. main grant letters sign kar dunga friday tak"
+          },
+          {
+            "index": 5,
+            "sender": "Sneha",
+            "text": "theek hai"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "update cap table and add new ESOP grants",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 0,
+          "start": 0,
+          "end": 58,
+          "text": "cap table update karna hai, naye ESOP grants add karne hai"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-del-18-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-18",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Sneha",
+            "text": "cap table update karna hai, naye ESOP grants add karne hai"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "main kar deta hu, excel mere paas hai"
+          },
+          {
+            "index": 2,
+            "sender": "Sneha",
+            "text": "sir excel purana hai, ab hum cap table software pe hai"
+          },
+          {
+            "index": 3,
+            "sender": "Sneha",
+            "text": "main hi kar deti hu, mujhe access hai"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "haan tum karo. main grant letters sign kar dunga friday tak"
+          },
+          {
+            "index": 5,
+            "sender": "Sneha",
+            "text": "theek hai"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "update the cap table with the new ESOP grants",
+        "state": "superseded",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 1,
+          "start": 0,
+          "end": 37,
+          "text": "main kar deta hu, excel mere paas hai"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-del-18-fn-1",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-18",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Sneha",
+            "text": "cap table update karna hai, naye ESOP grants add karne hai"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "main kar deta hu, excel mere paas hai"
+          },
+          {
+            "index": 2,
+            "sender": "Sneha",
+            "text": "sir excel purana hai, ab hum cap table software pe hai"
+          },
+          {
+            "index": 3,
+            "sender": "Sneha",
+            "text": "main hi kar deti hu, mujhe access hai"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "haan tum karo. main grant letters sign kar dunga friday tak"
+          },
+          {
+            "index": 5,
+            "sender": "Sneha",
+            "text": "theek hai"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Sneha updates the cap table with the new ESOP grants",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 3,
+          "start": 0,
+          "end": 19,
+          "text": "main hi kar deti hu"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-del-22-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-22",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Amma",
+            "text": "beta, chacha ji ka beta ka admission ka kya hua"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "maine call kiya tha, par mujhe engineering colleges ka kuch nahi pata ab"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "mera dost dinesh professor hai wahi, usse baat karwa deta hu"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "wo hi guide kar dega properly"
+          },
+          {
+            "index": 4,
+            "sender": "Amma",
+            "text": "haan wo behtar rahega"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Dinesh guides the cousin on engineering admissions",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 3,
+          "start": 0,
+          "end": 29,
+          "text": "wo hi guide kar dega properly"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-del-22-label-0",
+      "error_type": "direction_wrong",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-22",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Amma",
+            "text": "beta, chacha ji ka beta ka admission ka kya hua"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "maine call kiya tha, par mujhe engineering colleges ka kuch nahi pata ab"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "mera dost dinesh professor hai wahi, usse baat karwa deta hu"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "wo hi guide kar dega properly"
+          },
+          {
+            "index": 4,
+            "sender": "Amma",
+            "text": "haan wo behtar rahega"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "connect the cousin with Dinesh for admissions guidance",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 2,
+          "start": 37,
+          "end": 60,
+          "text": "usse baat karwa deta hu"
+        }
+      },
+      "prediction": {
+        "statement": "get guidance from Dinesh professor",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 60,
+          "text": "mera dost dinesh professor hai wahi, usse baat karwa deta hu"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-del-23-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-23",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Tanvi",
+            "text": "someone needs to answer the security questionnaire, 60 questions"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "ill do it, ive done the last three"
+          },
+          {
+            "index": 2,
+            "sender": "Tanvi",
+            "text": "you have, and each one took you a full day you didnt have"
+          },
+          {
+            "index": 3,
+            "sender": "Tanvi",
+            "text": "neha has the answer bank now, let her do it and you sign off"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "fine. neha, over to you, ill review before it goes"
+          },
+          {
+            "index": 5,
+            "sender": "Neha",
+            "text": "on it, ill have it back by thursday"
+          },
+          {
+            "index": 6,
+            "sender": "Neha",
+            "text": "questionnaire done, all 60, in the shared drive for your review"
+          },
+          {
+            "index": 7,
+            "sender": "user",
+            "text": "reading it now"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "answer the 60-question security questionnaire",
+        "state": "superseded",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 1,
+          "start": 0,
+          "end": 34,
+          "text": "ill do it, ive done the last three"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-del-23-fn-1",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "del-23",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Tanvi",
+            "text": "someone needs to answer the security questionnaire, 60 questions"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "ill do it, ive done the last three"
+          },
+          {
+            "index": 2,
+            "sender": "Tanvi",
+            "text": "you have, and each one took you a full day you didnt have"
+          },
+          {
+            "index": 3,
+            "sender": "Tanvi",
+            "text": "neha has the answer bank now, let her do it and you sign off"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "fine. neha, over to you, ill review before it goes"
+          },
+          {
+            "index": 5,
+            "sender": "Neha",
+            "text": "on it, ill have it back by thursday"
+          },
+          {
+            "index": 6,
+            "sender": "Neha",
+            "text": "questionnaire done, all 60, in the shared drive for your review"
+          },
+          {
+            "index": 7,
+            "sender": "user",
+            "text": "reading it now"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Neha answers the security questionnaire",
+        "state": "closed",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 5,
+          "start": 7,
+          "end": 35,
+          "text": "ill have it back by thursday"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-en-01-fp-0",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-01",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Priya",
+            "text": "hey! did you get a chance to update the deck with the q1 numbers"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "not yet sorry, was heads down on the pilot"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "ill send it by tomorrow evening"
+          },
+          {
+            "index": 3,
+            "sender": "Priya",
+            "text": "no rush, just want it before i loop in the LP"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "update the deck with the q1 numbers",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 0,
+          "start": 5,
+          "end": 64,
+          "text": "did you get a chance to update the deck with the q1 numbers"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-en-01-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-01",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Priya",
+            "text": "hey! did you get a chance to update the deck with the q1 numbers"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "not yet sorry, was heads down on the pilot"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "ill send it by tomorrow evening"
+          },
+          {
+            "index": 3,
+            "sender": "Priya",
+            "text": "no rush, just want it before i loop in the LP"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "send Priya the deck updated with Q1 numbers",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 31,
+          "text": "ill send it by tomorrow evening"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-en-05-fp-0",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-05",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Meera (CA)",
+            "text": "sir the gst filing for feb is on the 20th"
+          },
+          {
+            "index": 1,
+            "sender": "Meera (CA)",
+            "text": "i still dont have the march invoices from your side"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "oh right"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "ill pull them from the billing dashboard and send"
+          },
+          {
+            "index": 4,
+            "sender": "Meera (CA)",
+            "text": "ok please"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "send March invoices",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 1,
+          "start": 0,
+          "end": 51,
+          "text": "i still dont have the march invoices from your side"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-en-05-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-05",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Meera (CA)",
+            "text": "sir the gst filing for feb is on the 20th"
+          },
+          {
+            "index": 1,
+            "sender": "Meera (CA)",
+            "text": "i still dont have the march invoices from your side"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "oh right"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "ill pull them from the billing dashboard and send"
+          },
+          {
+            "index": 4,
+            "sender": "Meera (CA)",
+            "text": "ok please"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "send Meera the March invoices for the GST filing",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 3,
+          "start": 0,
+          "end": 49,
+          "text": "ill pull them from the billing dashboard and send"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-en-12-fp-0",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-12",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Anita",
+            "text": "can someone pull churn numbers for last quarter, board asks tomorrow"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "i already pulled the raw export this morning, ill turn it into a sheet"
+          },
+          {
+            "index": 2,
+            "sender": "Anita",
+            "text": "ty"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "sheet is in the drive under finance/churn-q1"
+          },
+          {
+            "index": 4,
+            "sender": "Anita",
+            "text": "got it"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "provide churn numbers for last quarter",
+        "state": "closed",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 0,
+          "start": 0,
+          "end": 68,
+          "text": "can someone pull churn numbers for last quarter, board asks tomorrow"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-en-12-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-12",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Anita",
+            "text": "can someone pull churn numbers for last quarter, board asks tomorrow"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "i already pulled the raw export this morning, ill turn it into a sheet"
+          },
+          {
+            "index": 2,
+            "sender": "Anita",
+            "text": "ty"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "sheet is in the drive under finance/churn-q1"
+          },
+          {
+            "index": 4,
+            "sender": "Anita",
+            "text": "got it"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "pull last quarter's churn numbers for the board",
+        "state": "closed",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 1,
+          "start": 46,
+          "end": 70,
+          "text": "ill turn it into a sheet"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-en-13-fp-0",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-13",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Sunita (insurance)",
+            "text": "Your group health policy lapses on the 30th. We need the updated employee list before we can issue the renewal quote."
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "noted - ill send the current headcount list by wednesday"
+          },
+          {
+            "index": 2,
+            "sender": "Sunita (insurance)",
+            "text": "Thank you."
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "issue the renewal quote",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 0,
+          "start": 45,
+          "end": 117,
+          "text": "We need the updated employee list before we can issue the renewal quote."
+        }
+      }
+    },
+    {
+      "id": "hosted-large-en-14-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-14",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Rahul",
+            "text": "yaar three things before i forget"
+          },
+          {
+            "index": 1,
+            "sender": "Rahul",
+            "text": "1. the cloud bill is up 40% mom, someone needs to actually look"
+          },
+          {
+            "index": 2,
+            "sender": "Rahul",
+            "text": "2. sameer wants a call this week about the integration"
+          },
+          {
+            "index": 3,
+            "sender": "Rahul",
+            "text": "3. we still havent filed the trademark"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "ok ill look at the cloud thing tonight"
+          },
+          {
+            "index": 5,
+            "sender": "user",
+            "text": "ill also ping sameer and set something up"
+          },
+          {
+            "index": 6,
+            "sender": "user",
+            "text": "trademark - can you take that one? you have the login"
+          },
+          {
+            "index": 7,
+            "sender": "Rahul",
+            "text": "fine ill get it filed this week"
+          },
+          {
+            "index": 8,
+            "sender": "Rahul",
+            "text": "we should also do a proper offsite at some point"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "investigate the 40% month-on-month cloud bill increase",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 4,
+          "start": 3,
+          "end": 38,
+          "text": "ill look at the cloud thing tonight"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-en-14-fn-1",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-14",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Rahul",
+            "text": "yaar three things before i forget"
+          },
+          {
+            "index": 1,
+            "sender": "Rahul",
+            "text": "1. the cloud bill is up 40% mom, someone needs to actually look"
+          },
+          {
+            "index": 2,
+            "sender": "Rahul",
+            "text": "2. sameer wants a call this week about the integration"
+          },
+          {
+            "index": 3,
+            "sender": "Rahul",
+            "text": "3. we still havent filed the trademark"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "ok ill look at the cloud thing tonight"
+          },
+          {
+            "index": 5,
+            "sender": "user",
+            "text": "ill also ping sameer and set something up"
+          },
+          {
+            "index": 6,
+            "sender": "user",
+            "text": "trademark - can you take that one? you have the login"
+          },
+          {
+            "index": 7,
+            "sender": "Rahul",
+            "text": "fine ill get it filed this week"
+          },
+          {
+            "index": 8,
+            "sender": "Rahul",
+            "text": "we should also do a proper offsite at some point"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "set up a call between Sameer and the team about the integration",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 5,
+          "start": 0,
+          "end": 41,
+          "text": "ill also ping sameer and set something up"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-en-14-fn-2",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-14",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Rahul",
+            "text": "yaar three things before i forget"
+          },
+          {
+            "index": 1,
+            "sender": "Rahul",
+            "text": "1. the cloud bill is up 40% mom, someone needs to actually look"
+          },
+          {
+            "index": 2,
+            "sender": "Rahul",
+            "text": "2. sameer wants a call this week about the integration"
+          },
+          {
+            "index": 3,
+            "sender": "Rahul",
+            "text": "3. we still havent filed the trademark"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "ok ill look at the cloud thing tonight"
+          },
+          {
+            "index": 5,
+            "sender": "user",
+            "text": "ill also ping sameer and set something up"
+          },
+          {
+            "index": 6,
+            "sender": "user",
+            "text": "trademark - can you take that one? you have the login"
+          },
+          {
+            "index": 7,
+            "sender": "Rahul",
+            "text": "fine ill get it filed this week"
+          },
+          {
+            "index": 8,
+            "sender": "Rahul",
+            "text": "we should also do a proper offsite at some point"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Rahul files the trademark application",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 7,
+          "start": 5,
+          "end": 31,
+          "text": "ill get it filed this week"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-en-22-fp-0",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-22",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Gopal (auditor)",
+            "text": "Attaching the draft audit observations. Please review and respond to points 3 and 7 in particular."
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "Thanks. We'll respond in writing."
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "Responses to 1 through 5 attached. 6 and 7 need our CTO, who is back monday."
+          },
+          {
+            "index": 3,
+            "sender": "Gopal (auditor)",
+            "text": "Understood, we'll hold the file open."
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "Respond to audit observations points 3 and 7",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 0,
+          "start": 40,
+          "end": 98,
+          "text": "Please review and respond to points 3 and 7 in particular."
+        }
+      }
+    },
+    {
+      "id": "hosted-large-en-22-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-22",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Gopal (auditor)",
+            "text": "Attaching the draft audit observations. Please review and respond to points 3 and 7 in particular."
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "Thanks. We'll respond in writing."
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "Responses to 1 through 5 attached. 6 and 7 need our CTO, who is back monday."
+          },
+          {
+            "index": 3,
+            "sender": "Gopal (auditor)",
+            "text": "Understood, we'll hold the file open."
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "respond in writing to all of the auditor's draft observations",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 1,
+          "start": 8,
+          "end": 32,
+          "text": "We'll respond in writing"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-en-23-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-23",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Charu (recruiter)",
+            "text": "shortlist for the backend role is ready, 6 profiles"
+          },
+          {
+            "index": 1,
+            "sender": "Charu (recruiter)",
+            "text": "ill share the deck by eod today"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "great"
+          },
+          {
+            "index": 3,
+            "sender": "Charu (recruiter)",
+            "text": "shared, check your mail"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "opened it - this is the old shortlist, the one from april"
+          },
+          {
+            "index": 5,
+            "sender": "Charu (recruiter)",
+            "text": "oh no sorry, wrong attachment. ill resend the right one tonight"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Charu shares the backend role shortlist deck",
+        "state": "closed",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 1,
+          "start": 0,
+          "end": 31,
+          "text": "ill share the deck by eod today"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-en-32-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-32",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Yasmin (agency)",
+            "text": "Kicking off the website rebuild. First thing we need is copy for the five core pages."
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "Ill have first-draft copy for all five with you by friday."
+          },
+          {
+            "index": 2,
+            "sender": "Yasmin (agency)",
+            "text": "Great. Well start wireframes in parallel."
+          },
+          {
+            "index": 3,
+            "sender": "Yasmin (agency)",
+            "text": "Wireframes attached for the home and pricing pages."
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "these look good, one comment on pricing - the tier names are wrong"
+          },
+          {
+            "index": 5,
+            "sender": "Yasmin (agency)",
+            "text": "Noted, well fix."
+          },
+          {
+            "index": 6,
+            "sender": "Yasmin (agency)",
+            "text": "Do you have a preference on hero imagery? Stock or a shoot?"
+          },
+          {
+            "index": 7,
+            "sender": "user",
+            "text": "stock for now, we can shoot later"
+          },
+          {
+            "index": 8,
+            "sender": "Yasmin (agency)",
+            "text": "Understood."
+          },
+          {
+            "index": 9,
+            "sender": "Yasmin (agency)",
+            "text": "Remaining three wireframes attached."
+          },
+          {
+            "index": 10,
+            "sender": "user",
+            "text": "will look tomorrow"
+          },
+          {
+            "index": 11,
+            "sender": "Yasmin (agency)",
+            "text": "Any word on the copy? Were blocked on the home page."
+          },
+          {
+            "index": 12,
+            "sender": "user",
+            "text": "copy for all five pages is in the shared doc, just finished it"
+          },
+          {
+            "index": 13,
+            "sender": "Yasmin (agency)",
+            "text": "Perfect, thank you."
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "fix the wrong tier names on the pricing wireframe",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 5,
+          "start": 0,
+          "end": 15,
+          "text": "Noted, well fix"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-en-32-fn-1",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-32",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Yasmin (agency)",
+            "text": "Kicking off the website rebuild. First thing we need is copy for the five core pages."
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "Ill have first-draft copy for all five with you by friday."
+          },
+          {
+            "index": 2,
+            "sender": "Yasmin (agency)",
+            "text": "Great. Well start wireframes in parallel."
+          },
+          {
+            "index": 3,
+            "sender": "Yasmin (agency)",
+            "text": "Wireframes attached for the home and pricing pages."
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "these look good, one comment on pricing - the tier names are wrong"
+          },
+          {
+            "index": 5,
+            "sender": "Yasmin (agency)",
+            "text": "Noted, well fix."
+          },
+          {
+            "index": 6,
+            "sender": "Yasmin (agency)",
+            "text": "Do you have a preference on hero imagery? Stock or a shoot?"
+          },
+          {
+            "index": 7,
+            "sender": "user",
+            "text": "stock for now, we can shoot later"
+          },
+          {
+            "index": 8,
+            "sender": "Yasmin (agency)",
+            "text": "Understood."
+          },
+          {
+            "index": 9,
+            "sender": "Yasmin (agency)",
+            "text": "Remaining three wireframes attached."
+          },
+          {
+            "index": 10,
+            "sender": "user",
+            "text": "will look tomorrow"
+          },
+          {
+            "index": 11,
+            "sender": "Yasmin (agency)",
+            "text": "Any word on the copy? Were blocked on the home page."
+          },
+          {
+            "index": 12,
+            "sender": "user",
+            "text": "copy for all five pages is in the shared doc, just finished it"
+          },
+          {
+            "index": 13,
+            "sender": "Yasmin (agency)",
+            "text": "Perfect, thank you."
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "review the remaining three wireframes",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 10,
+          "start": 0,
+          "end": 18,
+          "text": "will look tomorrow"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-en-34-fp-0",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-34",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Tanvi",
+            "text": "we need to decide whether the mobile app gets its own release train"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "thats a joint call, it affects both our roadmaps"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "lets settle it thursday"
+          },
+          {
+            "index": 3,
+            "sender": "Tanvi",
+            "text": "ok. ill put together the release cadence options before then"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "decide whether the mobile app gets its own release train",
+        "state": "open",
+        "direction": "mutual",
+        "evidence": {
+          "msg_index": 0,
+          "start": 0,
+          "end": 67,
+          "text": "we need to decide whether the mobile app gets its own release train"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-en-34-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-34",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Tanvi",
+            "text": "we need to decide whether the mobile app gets its own release train"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "thats a joint call, it affects both our roadmaps"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "lets settle it thursday"
+          },
+          {
+            "index": 3,
+            "sender": "Tanvi",
+            "text": "ok. ill put together the release cadence options before then"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "user and Tanvi decide whether the mobile app gets its own release train",
+        "state": "open",
+        "direction": "mutual",
+        "evidence": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 23,
+          "text": "lets settle it thursday"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-en-41-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-41",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Ankit",
+            "text": "hey! long time. how did the fundraise end up"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "closed last month finally. how are you"
+          },
+          {
+            "index": 2,
+            "sender": "Ankit",
+            "text": "good, moved to a new place in indiranagar"
+          },
+          {
+            "index": 3,
+            "sender": "Ankit",
+            "text": "listen, my sister is applying to product roles, would you look at her cv?"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "course, send it across"
+          },
+          {
+            "index": 5,
+            "sender": "Ankit",
+            "text": "sending now"
+          },
+          {
+            "index": 6,
+            "sender": "user",
+            "text": "ill go through it this weekend and send comments"
+          },
+          {
+            "index": 7,
+            "sender": "Ankit",
+            "text": "no rush at all, thank you"
+          },
+          {
+            "index": 8,
+            "sender": "Ankit",
+            "text": "sent it, check whatsapp"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Ankit sends his sister's CV",
+        "state": "closed",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 5,
+          "start": 0,
+          "end": 11,
+          "text": "sending now"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-en-42-fp-0",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-42",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Rahul",
+            "text": "my parents are in town next week"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "oh nice, how long"
+          },
+          {
+            "index": 2,
+            "sender": "Rahul",
+            "text": "ten days. which means i am useless after 6pm"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "understood"
+          },
+          {
+            "index": 4,
+            "sender": "Rahul",
+            "text": "can you take the friday investor call? i genuinely cannot do it"
+          },
+          {
+            "index": 5,
+            "sender": "user",
+            "text": "yeah ill take it"
+          },
+          {
+            "index": 6,
+            "sender": "Rahul",
+            "text": "youre a saint"
+          },
+          {
+            "index": 7,
+            "sender": "Rahul",
+            "text": "we should get dinner with them one evening though"
+          },
+          {
+            "index": 8,
+            "sender": "user",
+            "text": "would like that"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "get dinner with Rahul's parents",
+        "state": "open",
+        "direction": "mutual",
+        "evidence": {
+          "msg_index": 7,
+          "start": 0,
+          "end": 49,
+          "text": "we should get dinner with them one evening though"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-en-42-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-42",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Rahul",
+            "text": "my parents are in town next week"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "oh nice, how long"
+          },
+          {
+            "index": 2,
+            "sender": "Rahul",
+            "text": "ten days. which means i am useless after 6pm"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "understood"
+          },
+          {
+            "index": 4,
+            "sender": "Rahul",
+            "text": "can you take the friday investor call? i genuinely cannot do it"
+          },
+          {
+            "index": 5,
+            "sender": "user",
+            "text": "yeah ill take it"
+          },
+          {
+            "index": 6,
+            "sender": "Rahul",
+            "text": "youre a saint"
+          },
+          {
+            "index": 7,
+            "sender": "Rahul",
+            "text": "we should get dinner with them one evening though"
+          },
+          {
+            "index": 8,
+            "sender": "user",
+            "text": "would like that"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "take the Friday investor call in Rahul's place",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 5,
+          "start": 0,
+          "end": 16,
+          "text": "yeah ill take it"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-en-43-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-43",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Rahul",
+            "text": "we are going to have to cut something from the roadmap, we cannot do all four"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "agreed, and i dont think either of us should decide this alone"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "lets sit with the list and cut it together on thursday"
+          },
+          {
+            "index": 3,
+            "sender": "Rahul",
+            "text": "yes. bring the revenue attribution, ill bring the effort estimates"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "deal"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "bring revenue attribution to the roadmap cut",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 3,
+          "start": 5,
+          "end": 34,
+          "text": "bring the revenue attribution"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-en-43-fn-1",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-43",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Rahul",
+            "text": "we are going to have to cut something from the roadmap, we cannot do all four"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "agreed, and i dont think either of us should decide this alone"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "lets sit with the list and cut it together on thursday"
+          },
+          {
+            "index": 3,
+            "sender": "Rahul",
+            "text": "yes. bring the revenue attribution, ill bring the effort estimates"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "deal"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Rahul brings effort estimates to the roadmap cut",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 3,
+          "start": 36,
+          "end": 66,
+          "text": "ill bring the effort estimates"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-en-44-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "en-44",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Aditya (partner)",
+            "text": "We should get the revenue share settled before either side commits engineering time."
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "Agreed. Neither of us can put a number on this unilaterally."
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "Shall we get both sides on a call next week and agree the split?"
+          },
+          {
+            "index": 3,
+            "sender": "Aditya (partner)",
+            "text": "Yes. Ill send times once I have our finance lead's availability."
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "user and Aditya agree the revenue share split together",
+        "state": "open",
+        "direction": "mutual",
+        "evidence": {
+          "msg_index": 2,
+          "start": 9,
+          "end": 63,
+          "text": "get both sides on a call next week and agree the split"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-mix-02-fp-0",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "mix-02",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "user",
+            "text": "bhai woh march ka payment pending hai still"
+          },
+          {
+            "index": 1,
+            "sender": "Vikram",
+            "text": "arre haan sorry, accounts wala chutti pe tha"
+          },
+          {
+            "index": 2,
+            "sender": "Vikram",
+            "text": "parso tak transfer kar dunga"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "theek hai"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "March payment transfer",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 0,
+          "start": 5,
+          "end": 43,
+          "text": "woh march ka payment pending hai still"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-mix-02-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "mix-02",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "user",
+            "text": "bhai woh march ka payment pending hai still"
+          },
+          {
+            "index": 1,
+            "sender": "Vikram",
+            "text": "arre haan sorry, accounts wala chutti pe tha"
+          },
+          {
+            "index": 2,
+            "sender": "Vikram",
+            "text": "parso tak transfer kar dunga"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "theek hai"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Vikram transfers the pending March payment",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 28,
+          "text": "parso tak transfer kar dunga"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-mix-04-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "mix-04",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "user",
+            "text": "sir the SHA draft bheja tha, koi update?"
+          },
+          {
+            "index": 1,
+            "sender": "Adv. Menon",
+            "text": "haan mila hai"
+          },
+          {
+            "index": 2,
+            "sender": "Adv. Menon",
+            "text": "weekend tak review kar ke comments bhej deta hu"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "thank you sir"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Adv. Menon returns review comments on the SHA draft",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 47,
+          "text": "weekend tak review kar ke comments bhej deta hu"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-mix-12-fp-0",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "mix-12",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Bala",
+            "text": "anna, warehouse la stock count pannanum, yaaru varuvanga"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "naan varen"
+          },
+          {
+            "index": 2,
+            "sender": "Bala",
+            "text": "sari anna"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "stock count at warehouse",
+        "state": "closed",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 0,
+          "start": 6,
+          "end": 56,
+          "text": "warehouse la stock count pannanum, yaaru varuvanga"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-mix-12-fn-0",
+      "error_type": "missed_loop",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "mix-12",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Bala",
+            "text": "anna, warehouse la stock count pannanum, yaaru varuvanga"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "naan varen"
+          },
+          {
+            "index": 2,
+            "sender": "Bala",
+            "text": "sari anna"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "attend the warehouse stock count",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 1,
+          "start": 0,
+          "end": 10,
+          "text": "naan varen"
+        }
+      },
+      "prediction": {
+        "statement": "nothing",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      }
+    },
+    {
+      "id": "hosted-large-mix-13-fp-0",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "mix-13",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Vikram",
+            "text": "kal ke meeting ke liye kya kya chahiye mujhe"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "ek min likhta hu"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "pehla, unka last invoice nikal ke rakhna"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "dusra, main deck update kar dunga raat ko"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "teesra, legal se NDA ka status pooch lena"
+          },
+          {
+            "index": 5,
+            "sender": "Vikram",
+            "text": "invoice ready hai mere paas"
+          },
+          {
+            "index": 6,
+            "sender": "Vikram",
+            "text": "NDA wala kal subah pooch ke batata hu"
+          },
+          {
+            "index": 7,
+            "sender": "Vikram",
+            "text": "aur haan kabhi team dinner bhi karna chahiye yaar"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "get the status of NDA from legal",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 4,
+          "start": 0,
+          "end": 41,
+          "text": "teesra, legal se NDA ka status pooch lena"
+        }
+      }
+    },
+    {
+      "id": "hosted-large-mix-13-fp-1",
+      "error_type": "false_positive",
+      "config_id": "hosted-large",
+      "thread": {
+        "thread_id": "mix-13",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Vikram",
+            "text": "kal ke meeting ke liye kya kya chahiye mujhe"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "ek min likhta hu"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "pehla, unka last invoice nikal ke rakhna"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "dusra, main deck update kar dunga raat ko"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "teesra, legal se NDA ka status pooch lena"
+          },
+          {
+            "index": 5,
+            "sender": "Vikram",
+            "text": "invoice ready hai mere paas"
+          },
+          {
+            "index": 6,
+            "sender": "Vikram",
+            "text": "NDA wala kal subah pooch ke batata hu"
+          },
+          {
+            "index": 7,
+            "sender": "Vikram",
+            "text": "aur haan kabhi team dinner bhi karna chahiye yaar"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no matching true loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "get the last invoice",
+        "state": "closed",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 40,
+          "text": "pehla, unka last invoice nikal ke rakhna"
+        }
+      }
+    }
+  ]
+}
