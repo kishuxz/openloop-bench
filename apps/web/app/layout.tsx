@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { results } from "../lib/results";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,6 +23,11 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             <Link href="/failures">Failures</Link>
           </nav>
         </header>
+        {results.dataSource !== "measured" ? (
+          <div className="data-source-banner" role="status">
+            Data source: {results.dataSource}. This viewer is not showing measured benchmark results.
+          </div>
+        ) : null}
         <main>{children}</main>
       </body>
     </html>

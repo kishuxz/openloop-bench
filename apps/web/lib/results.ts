@@ -47,8 +47,15 @@ export interface Failure {
 }
 
 export interface ResultsData {
+  readonly dataSource: string;
   readonly report_title: string;
   readonly report_deck: string;
+  readonly scope: string;
+  readonly incomplete_runs?: readonly {
+    readonly config: string;
+    readonly label: string;
+    readonly note: string;
+  }[];
   readonly metrics: readonly MetricDefinition[];
   readonly configs: readonly ConfigResult[];
   readonly notable_cells: readonly {
@@ -124,6 +131,10 @@ export function formatMetric(value: number | null | undefined, format: MetricDef
   if (value == null) return "gap";
   if (format === "percent") return `${(value * 100).toFixed(1)}%`;
   return value.toFixed(2);
+}
+
+export function gap(label: string): string {
+  return `gap: ${label}`;
 }
 
 export function isNotableCell(configId: string, metricId: string): boolean {
