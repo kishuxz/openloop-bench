@@ -36,35 +36,46 @@ because the re-commitment is the thing you could be held to.
 
 This is the most common error, and it runs in both directions.
 
-### The first-person future-tense test
+### Hedging never disqualifies a commitment
 
-**A first-person future-tense statement of intent directed at a specific,
-named counterparty is a commitment, regardless of hedging** — "I'll try",
-"I'll come back to you", "probably by Friday" all qualify. What distinguishes
-it from a pleasantry is that **the speaker is the actor** AND **the
-counterparty is specific.**
+When a statement is hedged, strip the hedge and apply the four §1 tests to what
+remains. If "I'll send the deck by Friday" is a loop, then "I'll try to send the
+deck by Friday" is the same loop. Hedging is how adults commit to things they
+are not certain of.
 
-"We should catch up sometime" fails both tests: the actor is a vague "we", and
-nobody in particular is owed anything. "I'll send you the deck" passes both.
+**This is a rule about what does NOT rule a loop out.** It never establishes a
+loop on its own — §1 remains the only gate. Read it as a necessary condition
+being cleared, not a sufficient one being met.
 
-Apply this before the four tests in §1. It settles most cases on its own, and
-it settles them in the direction labelers get wrong — hedging reads like
-non-commitment and is not.
+That distinction is the whole point. An earlier draft of this section stated the
+inverse — that a first-person future-tense statement aimed at a named
+counterparty *is* a commitment — and it collided with the availability rule and
+the conditional rule below, because a sufficient condition has to be reconciled
+against every other rule that could also fire. A necessary condition composes
+instead: it removes one wrong reason to reject, and leaves §1 to decide.
 
-**Unresolved interaction with the rules below.** This test does not yet have a
-stated precedence against the conditional-on-an-uncertain-event rule or the
-availability rule, and two negative threads sit in the gap:
+#### Worked cases
 
-| Thread | Text | Tension |
-|---|---|---|
-| `neg-04` | "I'll keep an eye out for the portfolio companies you mentioned" | Passes both tests. Currently labelled as a pleasantry. |
-| `neg-08` | "if the round closes ill definitely try and get you in" | Passes both tests; the hedge is explicitly not disqualifying. Currently unlabelled under the conditional rule. |
+**`sup-04` — "I'll come back to you in July".** Not hedged, so there is nothing
+to strip. Apply §1 directly: there is an act (coming back), a named party
+(Aditya to the user), and it is holdable — the user would reasonably follow up
+in August. It is a commitment, which makes Aditya's message a **deferral rather
+than a cancellation**, and the user's proposal obligation survives it. The loop
+stays `open`.
 
-Both threads keep their existing zero-loop labels until the precedence is
-decided, because changing them would move two threads out of the negatives
-bucket and that is a decision about the benchmark, not a labeling detail.
-Tracked in issue #18; do not resolve it by editing one thread.
+**`neg-04` — "I'll keep an eye out for the portfolio companies you mentioned".**
+Also not hedged. Strip nothing, apply §1, and it fails two tests: there is no
+act with a completion state — "keeping an eye out" is a posture, not a
+deliverable — and nobody can chase it, because there is no moment at which it is
+late. Not a loop. Note that **hedging was never the reason**; the earlier draft
+made it look like the reason, which is precisely the confusion this
+reformulation removes.
 
+**`neg-08` — "if the round closes ill definitely try and get you in".** Strip
+the hedge and you are left with "if the round closes, I'll get you in", which is
+resolved by the conditional-on-an-uncertain-event rule below, independently of
+anything in this section. The round may never close, and neither party treats it
+as owed. Not a loop.
 
 **Not loops.** Social maintenance language. It uses the grammar of commitment
 and carries none of the obligation:
@@ -96,34 +107,36 @@ and carries none of the obligation:
 **Are loops, despite hedged phrasing:** see soft commitments, next.
 
 
-### Previously ambiguous, now resolved: `sup-04`
+### `sup-04`, in full
 
-`sup-04` was labelled `superseded` and listed in §11 as one of the corpus's
-thinnest calls. The first-person future-tense test resolves it.
+The worked case above settles whether Aditya's message defers or cancels. The
+field-level consequences, since this thread was relabelled and the reasoning
+should not have to be reconstructed:
 
-The user commits: "I'll have a draft proposal with you by friday." Aditya then
-writes "Hold off on that actually… I'll come back to you in July," and the user
+The user commits: "I'll have a draft proposal with you by friday." Aditya
+replies "Hold off on that actually… I'll come back to you in July," and the user
 answers "Happy to pick it up whenever."
 
-Under the test, Aditya's line is a commitment and not a polite close, which
-makes his message a **deferral, not a cancellation**. The obligation to send a
-proposal survives the exchange, so the loop is `open`, not `superseded`, and
-carries no `resolution`. The friday deadline does not survive, so `certainty`
-drops from `explicit` to `implied` with a null span. July is a month-long range
-with no endpoint both parties would name identically, so `resolved` stays null
-under §8.
+Because that is a deferral, the obligation to send a proposal survives, so the
+loop is `open` rather than `superseded` and carries no `resolution`. The friday
+deadline does not survive, so `certainty` drops from `explicit` to `implied`
+with a null span. July is a month-long range with no endpoint both parties would
+name identically, so `resolved` stays null under §8. Direction is unchanged —
+the user still owes the proposal, so `blocked_on_you`.
 
-Direction is unchanged: the user still owes the proposal, so `blocked_on_you`.
-
-One question this leaves open: Aditya's "I'll come back to you in July" is
-itself a commitment under the test, and could stand as a second loop,
-`blocked_on_them`. It is not labelled as one here, on the reading that his line
-supplies the timeframe for the obligation that already exists rather than
-creating a separate one. That reading is arguable.
+One question this leaves open: Aditya's "I'll come back to you in July" clears
+§1 on its own and could stand as a second loop, `blocked_on_them`. It is not
+labelled as one, on the reading that his line supplies the timeframe for the
+obligation that already exists rather than creating a separate one. That reading
+is arguable, and a second annotator might add the loop.
 
 ---
 
 ## 3. Soft commitments — "I'll try to"
+
+A worked case of the hedging rule in §2, not a separate assertion. Everything
+here follows from stripping the hedge and applying §1; nothing here can make
+something a loop that §1 would reject.
 
 Hedging changes the *confidence*, not the *existence*, of the obligation.
 
@@ -396,8 +409,7 @@ confirm the composition still matches the targets in `src/buckets.ts`.
 
 Recorded rather than hidden. Each of these could reasonably be labeled the
 other way, and a second annotator may well disagree. A seventh entry, `sup-04`,
-was resolved by the first-person future-tense test in §2 and now sits there as
-a worked rule.
+is worked through in §2 instead, as one of the cases the hedging rule settles.
 
 **1. `sup-05`, the bounced transfer.** The debt survives the failed payment, so
 one could argue for a single `open` loop with a revised deadline rather than a
@@ -424,6 +436,12 @@ labeled, on the conditional-on-uncertain-event rule. The hedge stacking
 ("if… definitely try…") makes it clearer, but a bare "if we close, ill hire
 you" would be genuinely hard. No such case is in the corpus yet; one should be
 added when the corpus grows, because it sits exactly on the boundary.
+
+This thread briefly appeared to collide with §2, when that section stated
+hedging as a sufficient condition for a commitment. The collision was resolved
+by **reformulating §2 as a necessary condition, not by reclassifying this
+thread** — its label never changed, and neither did `neg-04`'s. A rule that
+forces label changes to stay self-consistent is usually the wrong rule.
 
 **5. Weekend semantics.** "weekend tak" resolves to Sunday. In practice many
 Indian founders work Saturdays and mean Saturday. Sunday was chosen because it
