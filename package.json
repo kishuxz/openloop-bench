@@ -15,11 +15,14 @@
     "stats:check": "pnpm --filter @openloop-bench/corpus run stats:check",
     "stats:by-batch": "pnpm --filter @openloop-bench/corpus run stats:by-batch",
     "separability": "pnpm --filter @openloop-bench/corpus run separability",
+    "eval": "pnpm --filter @openloop-bench/eval run eval",
+    "report": "pnpm --filter @openloop-bench/eval run report",
+    "fixtures:gen": "pnpm --filter @openloop-bench/eval run fixtures:gen",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "pnpm -r --if-present run typecheck",
     "lint": "eslint .",
-    "check": "pnpm typecheck && pnpm lint && pnpm test && pnpm validate && pnpm stats:check"
+    "check": "pnpm typecheck && pnpm lint && pnpm test && pnpm validate && pnpm stats:check && pnpm eval && pnpm report"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

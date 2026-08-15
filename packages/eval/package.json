@@ -1,12 +1,28 @@
 {
   "name": "@openloop-bench/eval",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Metrics and report generation. Stub — implemented in Phase 3.",
+  "description": "The matcher, the metrics, the cost model and the report generator.",
   "license": "MIT",
-  "scripts": {},
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "eval": "tsx src/cli/evaluate.ts",
+    "report": "tsx src/cli/report.ts",
+    "fixtures:gen": "tsx src/cli/fixtures.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
   "dependencies": {
-    "@openloop-bench/schema": "workspace:*"
+    "@openloop-bench/corpus": "workspace:*",
+    "@openloop-bench/schema": "workspace:*",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "tsx": "^4.23.0",
+    "typescript": "^5.9.0"
   }
 }
