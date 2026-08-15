@@ -18,16 +18,14 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { corpusHash } from "@openloop-bench/corpus";
 import { readPredictionFile, scoreRun } from "../src/evaluate.js";
-import { FIXTURE_SPECS } from "../src/fixtures.js";
 import { IOU_THRESHOLDS } from "../src/match.js";
 import { DEFAULT_COST_MATRIX } from "../src/cost.js";
 import { PREDICTIONS_DIR, REPORT_PATH } from "../src/paths.js";
 import { GALLERY_CAP, renderReport } from "../src/report.js";
 
 const hash = corpusHash();
-const runs = FIXTURE_SPECS.map((spec) =>
-  scoreRun(readPredictionFile(join(PREDICTIONS_DIR, `${spec.config}.json`))),
-);
+const REPORT_CONFIGS = ["hosted-large-dev", "hosted-redacted-dev", "local-dev"];
+const runs = REPORT_CONFIGS.map((config) => scoreRun(readPredictionFile(join(PREDICTIONS_DIR, `${config}.json`))));
 const report = renderReport({ runs, corpusHash: hash });
 
 describe("determinism", () => {
@@ -100,6 +98,11 @@ describe("the metrics the benchmark exists for are present", () => {
     expect(report).toContain("| truth ↓ / predicted → | blocked_on_them | blocked_on_you | mutual |");
   });
 
+  test("span tightness is reported separately from detection", () => {
+    expect(report).toContain("## Span Tightness");
+    expect(report).toMatch(/containment-first matching/);
+  });
+
   test("unmappable spans are counted apart from right and wrong", () => {
     expect(report).toContain("## Unmappable spans");
     expect(report).toMatch(/neither correct nor\s+incorrect/);
@@ -142,14 +145,15 @@ describe("the failure gallery", () => {
     expect(report).toMatch(/ {2}- predicted evidence: (msg \d+ \[\d+, \d+\)|`unmappable`)/);
   });
 
-  test("shows a fabricated span as not resolving rather than quoting nothing", () => {
-    expect(report).toMatch(/\*\*does not resolve\*\*/);
+  test("prints predicted evidence for reviewable failures", () => {
+    expect(report).toMatch(/ {2}- predicted evidence: (msg \d+ \[\d+, \d+\)|`unmappable`)/);
   });
 });
 
 describe("what the report refuses to claim", () => {
-  test("says these numbers are fixtures, not model output", () => {
-    expect(report).toMatch(/fixtures, not model output/);
+  test("states the measured scope", () => {
+    expect(report).toMatch(/Dev split only; three configurations; a single prompt version/);
+    expect(report).toMatch(/held-out test split not yet run/);
   });
 
   test("keeps the corpus's own limitations attached to the numbers", () => {

@@ -113,6 +113,9 @@ and the report says so on the page rather than in this file.
 - `pnpm report` re-runs the matcher and refuses to render if the committed
   `results/*.json` disagree with it, so REPORT.md can never state a number that no
   committed artifact backs.
+- The committed report is scoped to the dev split only: three configurations, a
+  single prompt version with no iteration against dev results, and no held-out
+  test split run yet.
 
 ## The fixtures
 

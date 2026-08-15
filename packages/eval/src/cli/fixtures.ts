@@ -13,19 +13,19 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { generateAll } from "../fixtures.js";
 import { loadValidatedCorpus, threadsForSplit } from "../evaluate.js";
-import { PREDICTIONS_DIR, writeJson } from "../paths.js";
+import { FIXTURE_PREDICTIONS_DIR, writeJson } from "../paths.js";
 
 function main(): void {
   const corpus = loadValidatedCorpus();
   const dev = threadsForSplit(corpus, "dev");
 
-  mkdirSync(PREDICTIONS_DIR, { recursive: true });
+  mkdirSync(FIXTURE_PREDICTIONS_DIR, { recursive: true });
 
   console.log(`openloop-bench fixtures — ${dev.length} dev threads, ${dev.reduce((n, t) => n + t.loops.length, 0)} loops`);
   console.log("");
 
   for (const { spec, generated } of generateAll(dev)) {
-    const path = join(PREDICTIONS_DIR, `${spec.config}.json`);
+    const path = join(FIXTURE_PREDICTIONS_DIR, `${spec.config}.json`);
     writeFileSync(path, writeJson(generated.file));
 
     const injected = generated.injected;
@@ -39,7 +39,7 @@ function main(): void {
     console.log("");
   }
 
-  console.log(`Written to ${PREDICTIONS_DIR}`);
+  console.log(`Written to ${FIXTURE_PREDICTIONS_DIR}`);
 }
 
 main();
