@@ -25,6 +25,27 @@ Individually:
 | `pnpm validate` | Every span in every thread resolves |
 | `pnpm stats:check` | Bucket targets met, no bucket empty in either split |
 
+## Running it
+
+| Command | Does |
+|---|---|
+| `pnpm validate` | Parses every thread and re-resolves all 510 spans. Non-zero exit with a per-file, per-path listing. |
+| `pnpm stats` | Composition, overall and per split. |
+| `pnpm stats:check` | Asserts bucket targets, both splits populated, dev share in band. |
+| `pnpm stats:by-batch` | Per-batch distributions, flagging any dimension that moved more than 15 points between consecutive batches. |
+| `pnpm separability` | The leakage diagnostic. Never gates. |
+| `pnpm eval` | Scores every prediction file at IoU 0.3, 0.5 and 0.7. Writes per-config metrics and a full match log. |
+| `pnpm report` | Renders `results/REPORT.md` from the committed prediction and metric files. Deterministic; refuses to render against stale results. |
+| `pnpm fixtures:gen` | Regenerates the fixture prediction files from the corpus. |
+| `pnpm test` | 229 tests: malformed fixtures proving each validator invariant still bites, and the matcher on every case where the threshold changes the answer. |
+| `pnpm check` | All of the above, in the order CI runs them. |
+
+`split` is stored in each thread file rather than computed, so it travels with
+the data and cannot be redrawn per run to flatter a result. **Do not read `test`
+while iterating on prompts.** Both halves carry every phenomenon, including
+closed, superseded, mutual, implied deadlines and all three registers, so
+nothing forces you to.
+
 ## Commit messages
 
 Conventional Commits, scoped to the package:
@@ -113,3 +134,26 @@ the file happens to be broken.
 [`CONVENTIONS.md`](CONVENTIONS.md) records which conventions came from the
 gstack reference project and where this repo's brief overrode them. Read it
 before introducing a tool, a config file, or a build step.
+
+## The documents
+
+| Document | Contains |
+|---|---|
+| [`packages/corpus/LABELING.md`](packages/corpus/LABELING.md) | The rulebook. Every labeling rule, worked cases for the hard ones, and §11's list of calls that remain arguable. |
+| [`packages/corpus/DRIFT.md`](packages/corpus/DRIFT.md) | One entry per authoring batch: what was re-audited, what changed, which rule was underspecified. Plus the certainty drift audit and the separability remediation. |
+| [`packages/eval/README.md`](packages/eval/README.md) | The matcher's design and the alternatives it rejected, every metric's denominator, the cost weights, and why the fixtures are generated rather than written. |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Commit standard, branch and PR conventions, and what to run before pushing. |
+| [`CONVENTIONS.md`](CONVENTIONS.md) | Which scaffolding conventions came from where, and the decisions log. |
+
+## Layout
+
+```
+packages/schema      Zod schemas and inferred types. Single source of truth.
+packages/corpus      200 labeled threads, LABELING.md, DRIFT.md, the CLIs.
+packages/extractor   Reference extractor.
+packages/eval        The matcher, the metrics, the cost model, the report.
+apps/web             Static results viewer.
+predictions          Model prediction files committed as eval inputs.
+fixtures/predictions Generated evaluator fixtures used by tests.
+results              Metrics, match logs, REPORT.md. All committed.
+```
