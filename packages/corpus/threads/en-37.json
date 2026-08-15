@@ -1,0 +1,51 @@
+{
+  "thread_id": "en-37",
+  "channel": "email",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Nikhil",
+      "text": "Following up on my expense claim from april - its still not been reimbursed.",
+      "ts": "2026-06-10T09:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "Sorry Nikhil, that slipped. Ill get it into this months payroll run, which goes out on the 25th.",
+      "ts": "2026-06-10T11:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Nikhil",
+      "text": "Thanks, appreciated.",
+      "ts": "2026-06-10T11:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "reimburse Nikhil's April expense claim in the monthly payroll run",
+      "direction": "blocked_on_you",
+      "counterparty": "Nikhil",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 84,
+          "end": 95
+        },
+        "resolved": "2026-06-25",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 28,
+        "end": 67
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "The deadline span sits in the same message but a separate clause — the payroll date is stated as a property of the run, and it is still the date the commitment is bound to."
+    }
+  ]
+}

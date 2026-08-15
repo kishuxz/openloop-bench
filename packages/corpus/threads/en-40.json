@@ -1,0 +1,253 @@
+{
+  "thread_id": "en-40",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Reema (EA)",
+      "text": "monday list",
+      "ts": "2026-06-15T08:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Reema (EA)",
+      "text": "1. investor update is due wednesday",
+      "ts": "2026-06-15T08:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Reema (EA)",
+      "text": "2. two offer letters unsigned",
+      "ts": "2026-06-15T08:31:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Reema (EA)",
+      "text": "3. gst filing on the 20th, meera has asked twice",
+      "ts": "2026-06-15T08:31:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Reema (EA)",
+      "text": "4. your passport renewal appointment is thursday 11am",
+      "ts": "2026-06-15T08:32:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "ok going one by one",
+      "ts": "2026-06-15T09:15:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "investor update - ill write it tuesday night, send wednesday morning",
+      "ts": "2026-06-15T09:16:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "user",
+      "text": "offer letters - send them to me, ill sign today",
+      "ts": "2026-06-15T09:17:00+05:30"
+    },
+    {
+      "index": 8,
+      "sender": "Reema (EA)",
+      "text": "sent both to your mail",
+      "ts": "2026-06-15T09:30:00+05:30"
+    },
+    {
+      "index": 9,
+      "sender": "user",
+      "text": "gst - meera needs the sales register, can you pull it from the dashboard and send by thursday?",
+      "ts": "2026-06-15T09:35:00+05:30"
+    },
+    {
+      "index": 10,
+      "sender": "Reema (EA)",
+      "text": "yes ill do that",
+      "ts": "2026-06-15T09:40:00+05:30"
+    },
+    {
+      "index": 11,
+      "sender": "user",
+      "text": "passport - move it, im at the customer thing thursday",
+      "ts": "2026-06-15T09:42:00+05:30"
+    },
+    {
+      "index": 12,
+      "sender": "Reema (EA)",
+      "text": "ill call and reschedule",
+      "ts": "2026-06-15T09:50:00+05:30"
+    },
+    {
+      "index": 13,
+      "sender": "Reema (EA)",
+      "text": "also the co-working people asked again about extra desks",
+      "ts": "2026-06-15T11:02:00+05:30"
+    },
+    {
+      "index": 14,
+      "sender": "user",
+      "text": "we should figure out the space question properly at some point",
+      "ts": "2026-06-15T11:30:00+05:30"
+    },
+    {
+      "index": 15,
+      "sender": "Reema (EA)",
+      "text": "agreed, its been coming up for months",
+      "ts": "2026-06-15T11:32:00+05:30"
+    },
+    {
+      "index": 16,
+      "sender": "user",
+      "text": "offer letters signed, both back in your inbox",
+      "ts": "2026-06-15T17:40:00+05:30"
+    },
+    {
+      "index": 17,
+      "sender": "Reema (EA)",
+      "text": "got them, sending to the candidates now",
+      "ts": "2026-06-15T17:50:00+05:30"
+    },
+    {
+      "index": 18,
+      "sender": "Reema (EA)",
+      "text": "passport moved to the 25th, same time",
+      "ts": "2026-06-16T10:20:00+05:30"
+    },
+    {
+      "index": 19,
+      "sender": "user",
+      "text": "perfect",
+      "ts": "2026-06-16T10:30:00+05:30"
+    },
+    {
+      "index": 20,
+      "sender": "Reema (EA)",
+      "text": "sales register sent to meera",
+      "ts": "2026-06-17T15:02:00+05:30"
+    },
+    {
+      "index": 21,
+      "sender": "user",
+      "text": "thanks",
+      "ts": "2026-06-17T15:30:00+05:30"
+    },
+    {
+      "index": 22,
+      "sender": "Reema (EA)",
+      "text": "investor update still needs writing, its tomorrow",
+      "ts": "2026-06-17T16:02:00+05:30"
+    },
+    {
+      "index": 23,
+      "sender": "user",
+      "text": "i know, doing it tonight",
+      "ts": "2026-06-17T16:10:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "write and send the investor update",
+      "direction": "blocked_on_you",
+      "counterparty": "Reema (EA)",
+      "deadline": {
+        "span": {
+          "msg_index": 6,
+          "start": 51,
+          "end": 68
+        },
+        "resolved": "2026-06-17",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 6,
+        "start": 18,
+        "end": 68
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "Still open at the end of a 24-message thread, re-affirmed in message 23 without a new loop. The stated deadline has already passed by then, which does not change the label — lateness is not supersession."
+    },
+    {
+      "statement": "sign the two outstanding offer letters",
+      "direction": "blocked_on_you",
+      "counterparty": "Reema (EA)",
+      "deadline": {
+        "span": {
+          "msg_index": 7,
+          "start": 42,
+          "end": 47
+        },
+        "resolved": "2026-06-15",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 7,
+        "start": 33,
+        "end": 47
+      },
+      "resolution": {
+        "msg_index": 16,
+        "start": 0,
+        "end": 45
+      },
+      "state": "closed",
+      "register": "en"
+    },
+    {
+      "statement": "Reema pulls the sales register and sends it to the CA",
+      "direction": "blocked_on_them",
+      "counterparty": "Reema (EA)",
+      "deadline": {
+        "span": {
+          "msg_index": 9,
+          "start": 82,
+          "end": 93
+        },
+        "resolved": "2026-06-18",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 9,
+        "start": 38,
+        "end": 93
+      },
+      "resolution": {
+        "msg_index": 20,
+        "start": 0,
+        "end": 28
+      },
+      "state": "closed",
+      "register": "en",
+      "notes": "Evidence in message 9, resolution in message 20. Directive accepted — Reema's 'yes ill do that' in message 10 carries no deadline of its own, so the span stays on the directive that does."
+    },
+    {
+      "statement": "Reema reschedules the passport renewal appointment",
+      "direction": "blocked_on_them",
+      "counterparty": "Reema (EA)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 12,
+        "start": 0,
+        "end": 23
+      },
+      "resolution": {
+        "msg_index": 18,
+        "start": 0,
+        "end": 26
+      },
+      "state": "closed",
+      "register": "en",
+      "notes": "Message 14, 'we should figure out the space question properly at some point', is the near-miss sitting among four live commitments."
+    }
+  ]
+}

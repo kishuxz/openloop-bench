@@ -1,0 +1,74 @@
+{
+  "thread_id": "en-34",
+  "channel": "slack",
+  "split": "dev",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Tanvi",
+      "text": "we need to decide whether the mobile app gets its own release train",
+      "ts": "2026-06-03T11:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "thats a joint call, it affects both our roadmaps",
+      "ts": "2026-06-03T11:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "lets settle it thursday",
+      "ts": "2026-06-03T11:21:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Tanvi",
+      "text": "ok. ill put together the release cadence options before then",
+      "ts": "2026-06-03T11:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "user and Tanvi decide whether the mobile app gets its own release train",
+      "direction": "mutual",
+      "counterparty": "Tanvi",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 15,
+          "end": 23
+        },
+        "resolved": "2026-06-04",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 23
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "Tanvi prepares release cadence options for the decision",
+      "direction": "blocked_on_them",
+      "counterparty": "Tanvi",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-06-04",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 4,
+        "end": 60
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

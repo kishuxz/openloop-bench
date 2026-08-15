@@ -1,0 +1,146 @@
+{
+  "thread_id": "en-36",
+  "channel": "slack",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Prakash",
+      "text": "starting the migration to the new queue today",
+      "ts": "2026-06-08T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill get you the traffic profile by tuesday so you can size it",
+      "ts": "2026-06-08T09:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Prakash",
+      "text": "great",
+      "ts": "2026-06-08T09:21:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Prakash",
+      "text": "first consumer is ported",
+      "ts": "2026-06-08T15:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Harsha",
+      "text": "is this going to affect the nightly export",
+      "ts": "2026-06-08T16:02:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Prakash",
+      "text": "shouldnt, different topic",
+      "ts": "2026-06-08T16:05:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "Harsha",
+      "text": "ok. ill keep an eye on it anyway",
+      "ts": "2026-06-08T16:10:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "Prakash",
+      "text": "second and third consumers ported",
+      "ts": "2026-06-09T11:30:00+05:30"
+    },
+    {
+      "index": 8,
+      "sender": "user",
+      "text": "nice pace",
+      "ts": "2026-06-09T12:02:00+05:30"
+    },
+    {
+      "index": 9,
+      "sender": "Prakash",
+      "text": "any luck with the traffic profile? sizing is the last unknown",
+      "ts": "2026-06-09T16:20:00+05:30"
+    },
+    {
+      "index": 10,
+      "sender": "user",
+      "text": "doing it now",
+      "ts": "2026-06-09T16:40:00+05:30"
+    },
+    {
+      "index": 11,
+      "sender": "user",
+      "text": "traffic profile is in the doc, peak is 4x what we assumed",
+      "ts": "2026-06-09T18:15:00+05:30"
+    },
+    {
+      "index": 12,
+      "sender": "Prakash",
+      "text": "thats useful, ill resize before the last consumer",
+      "ts": "2026-06-09T18:30:00+05:30"
+    },
+    {
+      "index": 13,
+      "sender": "Harsha",
+      "text": "we should probably document this whole migration at some point",
+      "ts": "2026-06-09T18:40:00+05:30"
+    },
+    {
+      "index": 14,
+      "sender": "user",
+      "text": "yeah at some point",
+      "ts": "2026-06-09T18:45:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "produce the traffic profile so Prakash can size the new queue",
+      "direction": "blocked_on_you",
+      "counterparty": "Prakash",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 32,
+          "end": 42
+        },
+        "resolved": "2026-06-09",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 61
+      },
+      "resolution": {
+        "msg_index": 11,
+        "start": 0,
+        "end": 29
+      },
+      "state": "closed",
+      "register": "en",
+      "notes": "Evidence in message 1, resolution in message 11. Message 10, 'doing it now', is an in-flight re-affirmation of the same loop, not a second one."
+    },
+    {
+      "statement": "Prakash resizes the queue before porting the last consumer",
+      "direction": "blocked_on_them",
+      "counterparty": "Prakash",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 12,
+        "start": 14,
+        "end": 49
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "Message 13, 'we should probably document this whole migration at some point', is not a loop. Two live commitments and a near-miss in the same thread."
+    }
+  ]
+}

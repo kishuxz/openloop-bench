@@ -1,0 +1,87 @@
+{
+  "thread_id": "mix-39",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Lakshmi (audit)",
+      "text": "sir internal audit report draft bhej diya hai",
+      "ts": "2026-06-15T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Lakshmi (audit)",
+      "text": "management comments chahiye har observation pe",
+      "ts": "2026-06-15T10:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "kitne observations hai",
+      "ts": "2026-06-15T11:30:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Lakshmi (audit)",
+      "text": "gyarah sir",
+      "ts": "2026-06-15T11:32:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "theek hai, is hafte ke end tak comments de dunga",
+      "ts": "2026-06-15T12:02:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Lakshmi (audit)",
+      "text": "sir board ko 25 ko jaana hai",
+      "ts": "2026-06-15T12:10:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "haan time hai",
+      "ts": "2026-06-15T12:15:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "user",
+      "text": "sat me se aath ke comments bhej diye, teen pe operations team se pooch raha hu",
+      "ts": "2026-06-19T18:40:00+05:30"
+    },
+    {
+      "index": 8,
+      "sender": "Lakshmi (audit)",
+      "text": "theek hai sir, baaki teen ka wait karti hu",
+      "ts": "2026-06-19T19:02:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "provide management comments on all eleven internal audit observations",
+      "direction": "blocked_on_you",
+      "counterparty": "Lakshmi (audit)",
+      "deadline": {
+        "span": {
+          "msg_index": 4,
+          "start": 11,
+          "end": 30
+        },
+        "resolved": "2026-06-21",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 11,
+        "end": 48
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "Partial delivery: eight of eleven comments arrived in message 7. The loop stays open per §2 — closing it would assert all eleven were provided."
+    }
+  ]
+}

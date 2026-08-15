@@ -1,0 +1,69 @@
+{
+  "thread_id": "en-33",
+  "channel": "whatsapp",
+  "split": "dev",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Kabir",
+      "text": "congrats on the funding! saw it on linkedin",
+      "ts": "2026-06-02T20:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "thank you! long overdue",
+      "ts": "2026-06-02T20:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Kabir",
+      "text": "we should celebrate properly sometime",
+      "ts": "2026-06-02T20:31:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "definitely",
+      "ts": "2026-06-02T20:32:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Kabir",
+      "text": "actually while i have you - can you send me that hiring tracker template?",
+      "ts": "2026-06-02T20:35:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "yeah ill send it over tomorrow morning",
+      "ts": "2026-06-02T20:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Kabir the hiring tracker template",
+      "direction": "blocked_on_you",
+      "counterparty": "Kabir",
+      "deadline": {
+        "span": {
+          "msg_index": 5,
+          "start": 22,
+          "end": 38
+        },
+        "resolved": "2026-06-03",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 5,
+        "end": 38
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "A real loop three messages after 'we should celebrate properly sometime', which is not one. Thread-level keywords cannot separate these."
+    }
+  ]
+}

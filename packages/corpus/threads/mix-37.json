@@ -1,0 +1,113 @@
+{
+  "thread_id": "mix-37",
+  "channel": "slack",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Sridhar",
+      "text": "anna push notification service down, 6 hours aachu",
+      "ts": "2026-06-10T14:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "vendor kitta pesuninga?",
+      "ts": "2026-06-10T14:10:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Sridhar",
+      "text": "ticket raise panniten, reply illa",
+      "ts": "2026-06-10T14:12:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "naan avanga account manager kitta call panren innaiku",
+      "ts": "2026-06-10T14:20:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Sridhar",
+      "text": "naan fallback SMS enable panren adhukulla",
+      "ts": "2026-06-10T14:25:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "pesiten, avanga 2 mani neram la fix pandraanga nu solraanga",
+      "ts": "2026-06-10T15:40:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "Sridhar",
+      "text": "SMS fallback live anna",
+      "ts": "2026-06-10T15:50:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "user",
+      "text": "super",
+      "ts": "2026-06-10T15:55:00+05:30"
+    },
+    {
+      "index": 8,
+      "sender": "Sridhar",
+      "text": "aprom oru naal proper monitoring setup pannanum ithuku",
+      "ts": "2026-06-10T16:02:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "call the vendor's account manager about the outage",
+      "direction": "blocked_on_you",
+      "counterparty": "Sridhar",
+      "deadline": {
+        "span": {
+          "msg_index": 3,
+          "start": 46,
+          "end": 53
+        },
+        "resolved": "2026-06-10",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 53
+      },
+      "resolution": {
+        "msg_index": 5,
+        "start": 0,
+        "end": 7
+      },
+      "state": "closed",
+      "register": "ta-en"
+    },
+    {
+      "statement": "Sridhar enables the SMS fallback",
+      "direction": "blocked_on_them",
+      "counterparty": "Sridhar",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 41
+      },
+      "resolution": {
+        "msg_index": 6,
+        "start": 0,
+        "end": 22
+      },
+      "state": "closed",
+      "register": "ta-en",
+      "notes": "Message 8, 'aprom oru naal proper monitoring setup pannanum', is the Tamil form of 'we should do X one day' and is not a loop."
+    }
+  ]
+}

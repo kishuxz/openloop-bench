@@ -1,0 +1,71 @@
+{
+  "thread_id": "en-38",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Divya",
+      "text": "how did the board meeting go",
+      "ts": "2026-06-11T19:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "fine. they want more detail on cac payback next time",
+      "ts": "2026-06-11T19:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Divya",
+      "text": "we should really build a proper metrics dashboard one of these days",
+      "ts": "2026-06-11T19:32:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "one of these days yes",
+      "ts": "2026-06-11T19:33:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "for now ill just add a cac payback slide to the standing deck before the next one",
+      "ts": "2026-06-11T19:35:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Divya",
+      "text": "when is the next one",
+      "ts": "2026-06-11T19:36:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "august 14th",
+      "ts": "2026-06-11T19:37:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "add a CAC payback slide to the standing board deck",
+      "direction": "blocked_on_you",
+      "counterparty": "Divya",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-08-14",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 8,
+        "end": 81
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "The date arrives two messages after the commitment, in answer to a question, and is never attached to the promise — implied with a null span, resolved from message 6."
+    }
+  ]
+}

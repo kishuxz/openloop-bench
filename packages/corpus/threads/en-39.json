@@ -1,0 +1,52 @@
+{
+  "thread_id": "en-39",
+  "channel": "slack",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Neha",
+      "text": "renewal for the design tool is up on the 20th, 2.4L for the year",
+      "ts": "2026-06-15T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Neha",
+      "text": "do we renew or drop to the cheaper tier",
+      "ts": "2026-06-15T10:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "ill look at who actually uses it and decide",
+      "ts": "2026-06-15T11:30:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Neha",
+      "text": "ok",
+      "ts": "2026-06-15T11:35:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "review design tool usage and decide whether to renew or downgrade",
+      "direction": "blocked_on_you",
+      "counterparty": "Neha",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-06-20",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 43
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

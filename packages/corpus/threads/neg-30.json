@@ -1,0 +1,39 @@
+{
+  "thread_id": "neg-30",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Meghna",
+      "text": "hi! hope youre well. i finished the ops course i mentioned",
+      "ts": "2026-06-09T18:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "congrats! that was quick",
+      "ts": "2026-06-09T18:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Meghna",
+      "text": "thank you. if anything opens up on your side do keep me in mind",
+      "ts": "2026-06-09T18:32:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "will do, and good luck with the search",
+      "ts": "2026-06-09T18:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Meghna",
+      "text": "🙏",
+      "ts": "2026-06-09T18:41:00+05:30"
+    }
+  ],
+  "loops": []
+}

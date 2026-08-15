@@ -1,0 +1,66 @@
+{
+  "thread_id": "mix-34",
+  "channel": "whatsapp",
+  "split": "dev",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Bala",
+      "text": "anna, driver salary advance kekuraan, 15k",
+      "ts": "2026-06-04T08:15:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "kodunga, naan innaiku evening transfer panren",
+      "ts": "2026-06-04T08:40:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Bala",
+      "text": "sari anna",
+      "ts": "2026-06-04T08:41:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "panniten, check pannunga",
+      "ts": "2026-06-04T19:20:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Bala",
+      "text": "vandhuduchu anna",
+      "ts": "2026-06-04T19:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "transfer the driver's 15k salary advance",
+      "direction": "blocked_on_you",
+      "counterparty": "Bala",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 14,
+          "end": 29
+        },
+        "resolved": "2026-06-04",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 9,
+        "end": 45
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 24
+      },
+      "state": "closed",
+      "register": "ta-en"
+    }
+  ]
+}

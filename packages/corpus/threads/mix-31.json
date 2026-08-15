@@ -1,0 +1,50 @@
+{
+  "thread_id": "mix-31",
+  "channel": "whatsapp",
+  "split": "dev",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Sneha",
+      "text": "quarterly investor update ka draft ready hai?",
+      "ts": "2026-06-01T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "kal shaam tak bhej dunga review ke liye",
+      "ts": "2026-06-01T10:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Sneha",
+      "text": "theek hai",
+      "ts": "2026-06-01T10:35:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Sneha the quarterly investor update draft for review",
+      "direction": "blocked_on_you",
+      "counterparty": "Sneha",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 0,
+          "end": 13
+        },
+        "resolved": "2026-06-02",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 39
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    }
+  ]
+}

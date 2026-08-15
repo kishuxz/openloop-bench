@@ -1,0 +1,39 @@
+{
+  "thread_id": "neg-32",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Gopal",
+      "text": "anna, watchman leave ku poraan next week",
+      "ts": "2026-06-15T08:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "yaaru varuvanga replacement",
+      "ts": "2026-06-15T08:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Gopal",
+      "text": "agency la irunthu oruthar varuvanga anna, already arrange panniten",
+      "ts": "2026-06-15T08:32:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "sari nalladhu",
+      "ts": "2026-06-15T08:35:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Gopal",
+      "text": "anna edhavadhu venumna sollunga, naan irukken",
+      "ts": "2026-06-15T08:40:00+05:30"
+    }
+  ],
+  "loops": []
+}

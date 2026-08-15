@@ -289,3 +289,71 @@ ids. The first consumer to derive it — the script written for this audit — g
 `sup-07..09` and `del-07..08` wrong, reading them as Phase 1 by their numbers.
 A wrong batch number silently invalidates the comparison that exists to catch
 silent errors, so it is stored and validated.
+
+---
+
+## Batch 3 — threads 121–160 (`en-31..40`, `mix-31..40`, `sup-21..27`, `neg-25..32`, `del-17..21`)
+
+Audit target: batch 2, threads 81–120. First batch run under the amended
+five-step protocol.
+
+### Step 4 — distribution check
+
+`pnpm stats:by-batch` flags two dimensions moving more than 15 points between
+batch 2 and batch 3:
+
+| | batch 0 | batch 1 | batch 2 | batch 3 |
+|---|---|---|---|---|
+| explicit | 74% | 41% | 32% | 63% |
+| implied | 7% | 23% | 20% | 14% |
+| none | 19% | 36% | 48% | 23% |
+
+**Diagnosis: intended correction, not drift.** Batch 3 was written deadline-rich
+on purpose, as the remedy the certainty audit called for. The flag is the tool
+working — it would have fired the same way had the move been accidental, and the
+diagnosis is what distinguishes them. Recording it here is the point: a future
+reader comparing batch 2 and batch 3 will see a 31-point jump and needs to know
+it was steered.
+
+Nothing else moved. `state`, `direction` and `register` are all within a few
+points of batch 2, and `mutual` remains the thinnest dimension in the corpus at
+2% of this batch's loops.
+
+### Step 5 — backward audit
+
+**No label changes in batch 2.** Batch 3 added no new rules; it exercised the
+three §8 clarifications the certainty audit produced, so the audit re-checked
+batch 2 against those:
+
+- *Immediacy markers.* No batch 2 loop carries one in its evidence and is
+  labelled anything but `explicit`.
+- *Deadline stated in a later message.* One candidate, `del-15` loop 0 — a
+  "today" appearing two messages after the evidence. It belongs to the
+  replacement loop, which is already `explicit`; the superseded loop it was
+  flagged against never had a deadline. False positive.
+- *Earliest-start dates.* No candidates in batch 2.
+
+### Finding: the cue test failed on Tamil for the third time
+
+`neg-27` failed on "yosikalam" and `neg-32` on "edhavadhu venumna sollunga,
+naan irukken". Both are canonical near-misses — the hortative "let's think
+about it", and the availability offer that is the direct Tamil equivalent of
+"let me know if you need anything".
+
+Batch 1 patched literals. Batch 2 generalised the necessitative `-anum`. Batch 3
+had to generalise the hortative `-alam` and add an availability family across
+all three registers. Three batches, same class of gap.
+
+*Cause:* the test was built around English near-miss vocabulary and extended
+reactively. The corpus is now 42% code-mixed by loop, and a cue list that grows
+one word at a time will keep lagging it.
+
+*Fixed:* both Tamil suffix families are matched as families, and availability
+offers are matched as a concept across registers rather than as English
+phrases. If a fourth recurrence happens, the test itself should be replaced
+rather than extended again.
+
+### Counts after batch 3
+
+160 threads, 220 loops, 412 spans, all resolving. `validate`, `stats:check` and
+83 tests pass.

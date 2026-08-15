@@ -1,0 +1,39 @@
+{
+  "thread_id": "neg-27",
+  "channel": "whatsapp",
+  "split": "dev",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Ravi (CS)",
+      "text": "anna indha maasathoda NPS report anuppiten already, mail la irukku",
+      "ts": "2026-06-03T17:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "paathen, nalla iruku",
+      "ts": "2026-06-03T17:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Ravi (CS)",
+      "text": "anna next month oru customer advisory board maadhiri panna mudiyuma nu yosichen",
+      "ts": "2026-06-03T17:35:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "yosikalam, konjam periya vishayam adhu",
+      "ts": "2026-06-03T17:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Ravi (CS)",
+      "text": "aama anna, summa oru idea thaan",
+      "ts": "2026-06-03T17:42:00+05:30"
+    }
+  ],
+  "loops": []
+}

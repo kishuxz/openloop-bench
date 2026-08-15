@@ -1,0 +1,78 @@
+{
+  "thread_id": "sup-25",
+  "channel": "slack",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Harsha",
+      "text": "we owe the customer an RCA for last weeks incident, they asked twice",
+      "ts": "2026-06-09T09:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill write it and send by thursday",
+      "ts": "2026-06-09T09:45:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Harsha",
+      "text": "ok",
+      "ts": "2026-06-09T09:46:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Harsha",
+      "text": "actually their CTO said on the call yesterday that theyre satisfied and dont need it in writing",
+      "ts": "2026-06-10T14:20:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "he said that to you directly?",
+      "ts": "2026-06-10T14:30:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Harsha",
+      "text": "yes, and cc'd their account manager",
+      "ts": "2026-06-10T14:32:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "ok, closing it out then",
+      "ts": "2026-06-10T14:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "write and send the customer an RCA for last week's incident",
+      "direction": "blocked_on_you",
+      "counterparty": "Harsha",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 22,
+          "end": 33
+        },
+        "resolved": "2026-06-11",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 33
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 51,
+        "end": 95
+      },
+      "state": "superseded",
+      "register": "en"
+    }
+  ]
+}

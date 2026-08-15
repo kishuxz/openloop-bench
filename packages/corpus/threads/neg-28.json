@@ -1,0 +1,27 @@
+{
+  "thread_id": "neg-28",
+  "channel": "email",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Recruiter (agency)",
+      "text": "We place senior engineering talent across the country. Happy to send profiles whenever you're hiring - no obligation, and we work on success fee only.",
+      "ts": "2026-06-04T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "Not hiring at that level right now, but noted.",
+      "ts": "2026-06-04T15:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Recruiter (agency)",
+      "text": "Understood. Ill check back in a quarter if that's alright.",
+      "ts": "2026-06-04T16:02:00+05:30"
+    }
+  ],
+  "loops": []
+}

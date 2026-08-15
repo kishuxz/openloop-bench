@@ -1,0 +1,99 @@
+{
+  "thread_id": "del-20",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "user",
+      "text": "kavya, exit interview pannanum resigned employee ku",
+      "ts": "2026-06-09T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Kavya",
+      "text": "anna naan pannalama? neenga pannuveenga nu nenachen",
+      "ts": "2026-06-09T09:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "naan pannuren, but neenga um irunga notes edukka",
+      "ts": "2026-06-09T09:25:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Kavya",
+      "text": "sari anna, naaliki 3 mani ku schedule panren",
+      "ts": "2026-06-09T09:30:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "sari",
+      "ts": "2026-06-09T09:32:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "conduct the exit interview for the resigning employee",
+      "direction": "blocked_on_you",
+      "counterparty": "Kavya",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-06-10",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 13
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en",
+      "notes": "Not a delegation despite the shape — Kavya offers to take it and the user declines, keeping the act and adding her as note-taker. The obligation never moves."
+    },
+    {
+      "statement": "Kavya attends the exit interview and takes notes",
+      "direction": "blocked_on_them",
+      "counterparty": "Kavya",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-06-10",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 19,
+        "end": 48
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en"
+    },
+    {
+      "statement": "Kavya schedules the exit interview",
+      "direction": "blocked_on_them",
+      "counterparty": "Kavya",
+      "deadline": {
+        "span": {
+          "msg_index": 3,
+          "start": 11,
+          "end": 28
+        },
+        "resolved": "2026-06-10",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 11,
+        "end": 44
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en"
+    }
+  ]
+}

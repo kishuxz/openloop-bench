@@ -1,0 +1,50 @@
+{
+  "thread_id": "en-31",
+  "channel": "slack",
+  "split": "dev",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Dinesh",
+      "text": "the SDK docs are three versions behind",
+      "ts": "2026-06-01T09:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Dinesh",
+      "text": "ill regenerate them and push by wednesday",
+      "ts": "2026-06-01T09:31:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "thanks",
+      "ts": "2026-06-01T09:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "Dinesh regenerates and publishes the SDK docs",
+      "direction": "blocked_on_them",
+      "counterparty": "Dinesh",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 29,
+          "end": 41
+        },
+        "resolved": "2026-06-03",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 41
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

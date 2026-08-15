@@ -1,0 +1,45 @@
+{
+  "thread_id": "neg-29",
+  "channel": "slack",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "user",
+      "text": "the support queue is at 40 tickets, highest its been",
+      "ts": "2026-06-08T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Neha",
+      "text": "most of it is the same billing question",
+      "ts": "2026-06-08T09:10:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "someone should write a help article for that",
+      "ts": "2026-06-08T09:12:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Neha",
+      "text": "would save a lot of time",
+      "ts": "2026-06-08T09:15:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Pooja",
+      "text": "worth doing before the next billing cycle really",
+      "ts": "2026-06-08T09:20:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "agreed",
+      "ts": "2026-06-08T09:22:00+05:30"
+    }
+  ],
+  "loops": []
+}

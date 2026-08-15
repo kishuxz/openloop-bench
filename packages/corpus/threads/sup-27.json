@@ -1,0 +1,91 @@
+{
+  "thread_id": "sup-27",
+  "channel": "slack",
+  "split": "test",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Neha",
+      "text": "the analyst wants a briefing before their market report goes out",
+      "ts": "2026-06-15T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill do it, ill prep talking points this week",
+      "ts": "2026-06-15T10:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Neha",
+      "text": "theyve given us a slot on the 22nd",
+      "ts": "2026-06-15T10:25:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "noted",
+      "ts": "2026-06-15T10:30:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Neha",
+      "text": "bad news, theyve pulled the india section entirely, report is US only now",
+      "ts": "2026-06-18T16:02:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Neha",
+      "text": "no briefing",
+      "ts": "2026-06-18T16:02:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "annoying but fine",
+      "ts": "2026-06-18T16:20:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "user",
+      "text": "we should build an analyst relations plan properly at some point rather than reacting",
+      "ts": "2026-06-18T16:25:00+05:30"
+    },
+    {
+      "index": 8,
+      "sender": "Neha",
+      "text": "agreed, one day",
+      "ts": "2026-06-18T16:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "prepare talking points for the analyst briefing",
+      "direction": "blocked_on_you",
+      "counterparty": "Neha",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 35,
+          "end": 44
+        },
+        "resolved": null,
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 11,
+        "end": 44
+      },
+      "resolution": {
+        "msg_index": 5,
+        "start": 0,
+        "end": 11
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "Messages 7 and 8 are near-miss language following a supersession — the thread ends with two people agreeing to do something neither has committed to."
+    }
+  ]
+}

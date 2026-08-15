@@ -1,0 +1,87 @@
+{
+  "thread_id": "mix-33",
+  "channel": "slack",
+  "split": "dev",
+  "batch": 3,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Anjali",
+      "text": "landing page ka hindi translation kisne karna hai",
+      "ts": "2026-06-03T11:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "agency ko de dete hai",
+      "ts": "2026-06-03T11:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Anjali",
+      "text": "unka quality theek nahi tha pichli baar",
+      "ts": "2026-06-03T11:22:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "sach hai. main khud kar deta hu, friday tak",
+      "ts": "2026-06-03T11:30:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Anjali",
+      "text": "main review kar dungi uske baad",
+      "ts": "2026-06-03T11:32:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Anjali",
+      "text": "aur haan kabhi hume proper localisation process banana chahiye",
+      "ts": "2026-06-03T11:35:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "translate the landing page into Hindi",
+      "direction": "blocked_on_you",
+      "counterparty": "Anjali",
+      "deadline": {
+        "span": {
+          "msg_index": 3,
+          "start": 33,
+          "end": 43
+        },
+        "resolved": "2026-06-05",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 10,
+        "end": 43
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    },
+    {
+      "statement": "Anjali reviews the Hindi landing page translation",
+      "direction": "blocked_on_them",
+      "counterparty": "Anjali",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 31
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "Message 5 is near-miss language alongside two live commitments."
+    }
+  ]
+}
