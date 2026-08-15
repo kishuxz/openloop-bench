@@ -36,6 +36,36 @@ because the re-commitment is the thing you could be held to.
 
 This is the most common error, and it runs in both directions.
 
+### The first-person future-tense test
+
+**A first-person future-tense statement of intent directed at a specific,
+named counterparty is a commitment, regardless of hedging** — "I'll try",
+"I'll come back to you", "probably by Friday" all qualify. What distinguishes
+it from a pleasantry is that **the speaker is the actor** AND **the
+counterparty is specific.**
+
+"We should catch up sometime" fails both tests: the actor is a vague "we", and
+nobody in particular is owed anything. "I'll send you the deck" passes both.
+
+Apply this before the four tests in §1. It settles most cases on its own, and
+it settles them in the direction labelers get wrong — hedging reads like
+non-commitment and is not.
+
+**Unresolved interaction with the rules below.** This test does not yet have a
+stated precedence against the conditional-on-an-uncertain-event rule or the
+availability rule, and two negative threads sit in the gap:
+
+| Thread | Text | Tension |
+|---|---|---|
+| `neg-04` | "I'll keep an eye out for the portfolio companies you mentioned" | Passes both tests. Currently labelled as a pleasantry. |
+| `neg-08` | "if the round closes ill definitely try and get you in" | Passes both tests; the hedge is explicitly not disqualifying. Currently unlabelled under the conditional rule. |
+
+Both threads keep their existing zero-loop labels until the precedence is
+decided, because changing them would move two threads out of the negatives
+bucket and that is a decision about the benchmark, not a labeling detail.
+Tracked in issue #18; do not resolve it by editing one thread.
+
+
 **Not loops.** Social maintenance language. It uses the grammar of commitment
 and carries none of the obligation:
 
@@ -62,10 +92,34 @@ and carries none of the obligation:
   — the condition may never occur and neither party treats it as owed. Compare
   a conditional on a *certain* event, which IS a loop: "once the invoice
   arrives ill process it" — the invoice is coming.
-- **Vague future intentions from the other side.** "ill come back to you in
-  July" with no agreed act attached.
 
 **Are loops, despite hedged phrasing:** see soft commitments, next.
+
+
+### Previously ambiguous, now resolved: `sup-04`
+
+`sup-04` was labelled `superseded` and listed in §11 as one of the corpus's
+thinnest calls. The first-person future-tense test resolves it.
+
+The user commits: "I'll have a draft proposal with you by friday." Aditya then
+writes "Hold off on that actually… I'll come back to you in July," and the user
+answers "Happy to pick it up whenever."
+
+Under the test, Aditya's line is a commitment and not a polite close, which
+makes his message a **deferral, not a cancellation**. The obligation to send a
+proposal survives the exchange, so the loop is `open`, not `superseded`, and
+carries no `resolution`. The friday deadline does not survive, so `certainty`
+drops from `explicit` to `implied` with a null span. July is a month-long range
+with no endpoint both parties would name identically, so `resolved` stays null
+under §8.
+
+Direction is unchanged: the user still owes the proposal, so `blocked_on_you`.
+
+One question this leaves open: Aditya's "I'll come back to you in July" is
+itself a commitment under the test, and could stand as a second loop,
+`blocked_on_them`. It is not labelled as one here, on the reading that his line
+supplies the timeframe for the obligation that already exists rather than
+creating a separate one. That reading is arguable.
 
 ---
 
@@ -341,7 +395,9 @@ confirm the composition still matches the targets in `src/buckets.ts`.
 ## 11. Calls that remain arguable
 
 Recorded rather than hidden. Each of these could reasonably be labeled the
-other way, and a second annotator may well disagree.
+other way, and a second annotator may well disagree. A seventh entry, `sup-04`,
+was resolved by the first-person future-tense test in §2 and now sits there as
+a worked rule.
 
 **1. `sup-05`, the bounced transfer.** The debt survives the failed payment, so
 one could argue for a single `open` loop with a revised deadline rather than a
@@ -363,24 +419,18 @@ the thread. The rule adopted: `implied` requires a date the thread makes
 *computable*, not merely a referenced event. Compare `en-09`, where "the mehta
 demo is on the 18th" makes it computable and the label is `implied`.
 
-**4. `sup-04`, "I'll come back to you in July".** Not labeled. It has a party,
-an act and a month — a stricter reading would call it a `blocked_on_them` loop
-with `resolved: null`. It was rejected under the holdable test: nobody in that
-exchange treats it as owed, and it is the standard polite close of a
-deprioritised deal. This is the thinnest call in the corpus.
-
-**5. `neg-08`, "if the round closes ill definitely try and get you in".** Not
+**4. `neg-08`, "if the round closes ill definitely try and get you in".** Not
 labeled, on the conditional-on-uncertain-event rule. The hedge stacking
 ("if… definitely try…") makes it clearer, but a bare "if we close, ill hire
 you" would be genuinely hard. No such case is in the corpus yet; one should be
 added when the corpus grows, because it sits exactly on the boundary.
 
-**6. Weekend semantics.** "weekend tak" resolves to Sunday. In practice many
+**5. Weekend semantics.** "weekend tak" resolves to Sunday. In practice many
 Indian founders work Saturdays and mean Saturday. Sunday was chosen because it
 is the later boundary and a deadline should not be resolved earlier than the
 phrase allows. Arguable, and it affects `mix-04`.
 
-**7. `del-03`, Fatima.** `blocked_on_them` even though Fatima is on the
+**6. `del-03`, Fatima.** `blocked_on_them` even though Fatima is on the
 subject's own team, so from the client's perspective the subject's company
 still owes it. Direction is defined from the *subject as an individual*, which
 is the only reading that keeps the autonomy boundary meaningful — the subject

@@ -20,8 +20,9 @@ pnpm install && pnpm validate && pnpm stats && pnpm test
 later in the same thread. Naive extractors read the promise, never read the
 retraction four messages down, and report a live commitment. It is the most
 common real-world false positive in this product category and nobody has
-published a number on it. 12 of the 42 loops are `superseded`, spread across
-four of the five buckets.
+published a number on it. 11 of the 42 loops are `superseded`, across 11 of the
+40 threads — the `sup-` and `del-` buckets both, since delegation supersedes a
+commitment just as cancellation does.
 
 **Negatives.** 8 threads contain zero loops and heavy near-miss language — "we
 should catch up sometime", "let me know if you need anything", "happy to help
