@@ -8,9 +8,7 @@ Corpus `d9c347f4f5150b19`, validated in the same run that produced these numbers
 The eval refuses to score against a corpus that has not validated, and refuses any
 prediction file whose corpus hash does not match the corpus on disk.
 
-**Scope.** Dev split only; two configs reported
-(`hosted-large`, `local`); single prompt version with no iteration against dev results;
-held-out test split not run; `hosted-redacted` attempted and incomplete.
+**Scope.** Results cover the dev split only, with two configurations reported: hosted large and local. A single prompt version was used with no iteration against dev results. The held out test split has not been run. The hosted redacted run was attempted and did not complete.
 
 ## Attempted, Incomplete
 
@@ -18,7 +16,7 @@ These prediction files remain committed as evidence, but are excluded from every
 computed metric and every comparison table because the provider-failure rate exceeded
 the publish threshold.
 
-- `hosted-redacted`: Attempted, incomplete. 80 threads attempted, 67 provider failures, 70 parse failures, 10 threads with parsed loops; provider failure rate 83.8% exceeded the 20.0% threshold. Run abandoned to free-tier rate limits, to be re-run.
+- `hosted-redacted`: Attempted, incomplete. 80 threads attempted, 67 provider failures, 70 parse failures, 10 threads with parsed loops. The provider failure rate 83.8% exceeded the 20.0% threshold. Run abandoned to free-tier rate limits, to be re-run.
 
 ## Provenance
 
@@ -1119,9 +1117,7 @@ Showing the 10 worst by cost weight of 12.
 
 ## What these numbers do not say
 
-- **Scope.** Dev split only; two configurations reported (`hosted-large`, `local`);
-  single prompt version with no iteration against dev results; held-out test split
-  not run; `hosted-redacted` attempted and incomplete.
+- **Scope.** Results cover the dev split only, with two configurations reported: hosted large and local. A single prompt version was used with no iteration against dev results. The held out test split has not been run. The hosted redacted run was attempted and did not complete.
 - **The matching threshold is a constant somebody chose.** Every table above is
   conditional on it. That is why all three thresholds are reported and why the ranking
   question is asked out loud rather than answered once at 0.5.

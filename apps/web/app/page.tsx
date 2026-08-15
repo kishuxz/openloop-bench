@@ -1,4 +1,4 @@
-import { deadlineLead, formatMetric, gap, isNotableCell, results } from "../lib/results";
+import { deadlineLead, formatMetric, gap, isNotableCell, results, scope } from "../lib/results";
 
 export default function ResultsPage() {
   return (
@@ -8,7 +8,7 @@ export default function ResultsPage() {
         <h1>{results.report_title}</h1>
         <p>{results.report_deck}</p>
       </header>
-      <p className="scope-line">{results.scope}</p>
+      <p className="scope-line">{scope}</p>
 
       {(results.incomplete_runs ?? []).map((run) => (
         <section className="incomplete-note" aria-label={`${run.label} incomplete note`} key={run.config}>
