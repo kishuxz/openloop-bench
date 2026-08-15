@@ -1,0 +1,25 @@
+{
+  "name": "@openloop-bench/corpus",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The labeled threads, plus the validate and stats CLIs.",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "validate": "tsx src/cli/validate.ts",
+    "stats": "tsx src/cli/stats.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@openloop-bench/schema": "workspace:*",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.0",
+    "typescript": "^5.9.0"
+  }
+}

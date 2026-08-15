@@ -1,0 +1,12 @@
+{
+  "name": "@openloop-bench/eval",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Metrics and report generation. Stub — implemented in Phase 3.",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {
+    "@openloop-bench/schema": "workspace:*"
+  }
+}
