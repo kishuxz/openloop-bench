@@ -1,20 +1,60 @@
 # openloop-bench
 
-An open loop is an outstanding commitment between two people. This is a labeled
-benchmark for extracting them from real founder messaging, where the commitment
-is made in passing, the deadline is "kal tak", and the retraction arrives four
-messages later looking exactly like everything else.
+A labeled benchmark measuring whether a model can extract open loops, the
+outstanding commitments between two people, from real founder messaging.
 
-**Status, 15 August 2026.** Corpus complete: 200 threads, 273 loops, 510
-validated character spans. Labeling rulebook, extractor, matcher, metrics, cost
-model and generated report are in place. Current model results are **dev split
-only**: two configs reported (`hosted-large`, `local`), a single prompt version
-with no iteration against dev results, and the held-out test split has not yet
-been run. `hosted-redacted` was attempted and incomplete: 80 threads attempted,
-67 provider failures, 10 threads with parsed loops; run abandoned to free-tier
-rate limits, to be re-run.
+## Findings
+
+Dev split, IoU 0.5. Every number below is reproducible with `pnpm eval`.
+
+- **F1 50.5% for `hosted-large` against 25.7% for `local`, and the gap is
+  entirely recall.** Recall falls from 49.5% to 16.8% while precision holds at
+  51.5% and 54.5%. The on-device model is not a smaller version of the hosted
+  one. It is a model that finds a third as many commitments and is no more
+  careful about the ones it does find. For anything acting on your behalf, this
+  is the bill for keeping messages on the device, and it is paid in commitments
+  you are never told about.
+- **A deadline phrase is located 72.7% of the time and resolved to a calendar
+  date 8.6% of the time.** The model quotes "kal tak" back accurately and then
+  cannot say which day that is. A proactive system ranks by urgency, and urgency
+  means a date, so a loop carrying only a phrase cannot be placed in the queue at
+  all. Locating the deadline is the half that does not matter on its own.
+- **One in seven superseded commitments is reported as still open** (2 of 14
+  matched pairs, 14.3%). The commitment was cancelled, delegated or overtaken
+  later in the same thread, and the model still calls it live. This is the error
+  that sends a message to a counterparty who has already moved on, and it
+  arrives carrying the full confidence of a real loop.
+- **Evidence grounding is 100%** (103 of 103 spans for `hosted-large`, 33 of 33
+  for `local`). Every span either resolves to real characters in the message it
+  names or the prediction is counted against the model, and none failed. The
+  model is wrong about which commitments exist and what state they are in, but
+  it does not fabricate quotes, so a human reviewing its output can trust the
+  evidence and audit the judgement.
+
+Full results, corpus browser and failure gallery:
+<https://openloop-bench.vercel.app>
+
+## Status and scope
+
+**15 August 2026.** Corpus complete: 200 threads, 273 loops, 510 validated
+character spans. Labeling rulebook, extractor, matcher, metrics, cost model and
+generated report are all in place.
+
+Results cover the dev split only, with two configurations reported: hosted large
+and local. A single prompt version was used with no iteration against dev
+results. The held out test split has not been run. The hosted redacted run was
+attempted and did not complete. It reached 80 threads attempted, 67 provider
+failures and 10 threads with parsed loops before being abandoned to free-tier
+rate limits, and it is to be re-run.
 
 ## The corpus
+
+The threads are written the way founders actually message: the commitment is
+made in passing, the deadline is "kal tak", and the retraction arrives four
+messages later looking exactly like everything else.
+
+<details>
+<summary><strong>Corpus composition</strong></summary>
 
 | | | | |
 |---|---|---|---|
@@ -36,7 +76,9 @@ rate limits, to be re-run.
 | superseded | 60 (22%) | blocked_on_them | 84 (31%) | hi-en | 67 (25%) | none | 89 (33%) |
 | closed | 38 (14%) | mutual | 15 (5%) | ta-en | 51 (19%) | implied | 45 (16%) |
 
-118 of 273 loops are code-mixed. 25 threads carry three to five loops each. 11
+</details>
+
+118 of 273 loops are code-mixed. 25 threads carry three or four loops each. 11
 loops are owed by someone who never sends a message in the thread.
 
 ```bash
