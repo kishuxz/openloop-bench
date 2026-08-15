@@ -1,0 +1,102 @@
+{
+  "thread_id": "mix-28",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Sridhar",
+      "text": "anna, app store review reject panniduchanga, privacy policy link missing nu",
+      "ts": "2026-05-13T08:40:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "policy page iruke",
+      "ts": "2026-05-13T09:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Sridhar",
+      "text": "iruku but app la link kudukala",
+      "ts": "2026-05-13T09:05:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "sari, naan link add panren settings screen la",
+      "ts": "2026-05-13T09:20:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Sridhar",
+      "text": "naan resubmit panren adhukapram",
+      "ts": "2026-05-13T09:22:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "add panniten, build ready",
+      "ts": "2026-05-13T14:40:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "Sridhar",
+      "text": "resubmit panniten anna",
+      "ts": "2026-05-13T15:30:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "user",
+      "text": "nalladhu",
+      "ts": "2026-05-13T15:35:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "add the privacy policy link to the app's settings screen",
+      "direction": "blocked_on_you",
+      "counterparty": "Sridhar",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 6,
+        "end": 45
+      },
+      "resolution": {
+        "msg_index": 5,
+        "start": 0,
+        "end": 25
+      },
+      "state": "closed",
+      "register": "ta-en"
+    },
+    {
+      "statement": "Sridhar resubmits the app for review",
+      "direction": "blocked_on_them",
+      "counterparty": "Sridhar",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 31
+      },
+      "resolution": {
+        "msg_index": 6,
+        "start": 0,
+        "end": 22
+      },
+      "state": "closed",
+      "register": "ta-en",
+      "notes": "Two loops opened and closed inside eight messages, in dependency order. An extractor that anchors on the first commitment and stops reports one of these."
+    }
+  ]
+}

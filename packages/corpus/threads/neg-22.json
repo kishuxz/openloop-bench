@@ -1,0 +1,32 @@
+{
+  "thread_id": "neg-22",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Deepak",
+      "text": "sir new office ke liye ek jagah dekhi thi, andheri me",
+      "ts": "2026-05-12T12:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Deepak",
+      "text": "agar aap kabhi expand karna chahe to bata dijiyega, main bhej dunga details",
+      "ts": "2026-05-12T12:03:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "abhi to nahi, lease chal rahi hai next year tak",
+      "ts": "2026-05-12T13:30:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Deepak",
+      "text": "koi baat nahi sir, jab bhi lage",
+      "ts": "2026-05-12T13:35:00+05:30"
+    }
+  ],
+  "loops": []
+}

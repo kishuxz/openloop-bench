@@ -1,0 +1,44 @@
+{
+  "thread_id": "neg-23",
+  "channel": "imessage",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Rahul",
+      "text": "you alive",
+      "ts": "2026-05-13T23:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "barely",
+      "ts": "2026-05-13T23:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Rahul",
+      "text": "go to sleep man",
+      "ts": "2026-05-13T23:31:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "yeah yeah",
+      "ts": "2026-05-13T23:32:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Rahul",
+      "text": "im serious, this is the third week",
+      "ts": "2026-05-13T23:35:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "i know. after the raise closes ill actually take a break",
+      "ts": "2026-05-13T23:40:00+05:30"
+    }
+  ],
+  "loops": []
+}

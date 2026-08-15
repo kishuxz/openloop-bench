@@ -1,0 +1,96 @@
+{
+  "thread_id": "sup-20",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Prakash",
+      "text": "who is presenting at the all hands on friday",
+      "ts": "2026-05-14T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "me, ill do a product update",
+      "ts": "2026-05-14T09:10:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Neha",
+      "text": "i can do a short customer story after that if theres room",
+      "ts": "2026-05-14T09:20:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "yes do it",
+      "ts": "2026-05-14T09:21:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Prakash",
+      "text": "all hands is cancelled, half the team is at the conference friday",
+      "ts": "2026-05-15T11:02:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Prakash",
+      "text": "well fold it into the monthly instead",
+      "ts": "2026-05-15T11:03:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "ok",
+      "ts": "2026-05-15T11:20:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "present a product update at the Friday all hands",
+      "direction": "blocked_on_you",
+      "counterparty": "Prakash",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-05-15",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 4,
+        "end": 27
+      },
+      "resolution": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 22
+      },
+      "state": "superseded",
+      "register": "en"
+    },
+    {
+      "statement": "Neha presents a short customer story at the Friday all hands",
+      "direction": "blocked_on_them",
+      "counterparty": "Neha",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-05-15",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 57
+      },
+      "resolution": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 22
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "Both loops die on the same event, in the same message. The evidence for the second is an offer accepted in message 3 rather than a flat commitment — 'i can do X if theres room' plus 'yes do it' clears §1 once the condition is met."
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "thread_id": "del-14",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "user",
+      "text": "karthik, appraisal letters ellam ready aagiduchaa",
+      "ts": "2026-05-11T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Karthik",
+      "text": "anna naan draft panniten, but numbers HR kitta irunthu varanum",
+      "ts": "2026-05-11T09:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Karthik",
+      "text": "kavya kitta kekanum, avanga thaan maintain pandraanga",
+      "ts": "2026-05-11T09:21:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "kavya, numbers karthik kitta anuppunga",
+      "ts": "2026-05-11T09:30:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Kavya",
+      "text": "innaiku evening ku anuppiduren anna",
+      "ts": "2026-05-11T09:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "Kavya sends the appraisal numbers to Karthik",
+      "direction": "blocked_on_them",
+      "counterparty": "Kavya",
+      "deadline": {
+        "span": {
+          "msg_index": 4,
+          "start": 0,
+          "end": 18
+        },
+        "resolved": "2026-05-11",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 35
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en",
+      "notes": "Three participants. The act is owed to Karthik, who is blocked without it, not to the user who issued the instruction — §2's group rule picks the party who would be blocked."
+    },
+    {
+      "statement": "Karthik finishes the appraisal letters once he has the numbers",
+      "direction": "blocked_on_them",
+      "counterparty": "Karthik",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 5,
+        "end": 62
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en"
+    }
+  ]
+}

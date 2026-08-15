@@ -1,0 +1,80 @@
+{
+  "thread_id": "mix-25",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Imran",
+      "text": "bhai wo warehouse wale ka contact chahiye tha",
+      "ts": "2026-05-08T19:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "haan bhejta hu",
+      "ts": "2026-05-08T19:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "bhej diya",
+      "ts": "2026-05-08T20:15:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Imran",
+      "text": "yaar ye to transport wale ka number hai",
+      "ts": "2026-05-08T20:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "oops. ruko sahi wala dhundta hu",
+      "ts": "2026-05-08T20:45:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Imran the warehouse contact",
+      "direction": "blocked_on_you",
+      "counterparty": "Imran",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 14
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 9
+      },
+      "state": "closed",
+      "register": "hi-en",
+      "notes": "Closed although the wrong number arrived, per the rejection rule in §2. The code-mixed twin of en-23, with the correction loop still unresolved."
+    },
+    {
+      "statement": "find and send Imran the correct warehouse contact",
+      "direction": "blocked_on_you",
+      "counterparty": "Imran",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 11,
+        "end": 31
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    }
+  ]
+}

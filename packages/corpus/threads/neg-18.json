@@ -1,0 +1,38 @@
+{
+  "thread_id": "neg-18",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Nikhil",
+      "text": "bhai ek advice chahiye tha",
+      "ts": "2026-05-05T21:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Nikhil",
+      "text": "should i join a startup or stay in my current job",
+      "ts": "2026-05-05T21:03:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "depends kitna risk le sakte ho",
+      "ts": "2026-05-05T21:30:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "agar kabhi decide karna ho properly to baat karte hai, lambi baat hai",
+      "ts": "2026-05-05T21:31:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Nikhil",
+      "text": "haan sahi, kabhi call karte hai",
+      "ts": "2026-05-05T21:40:00+05:30"
+    }
+  ],
+  "loops": []
+}

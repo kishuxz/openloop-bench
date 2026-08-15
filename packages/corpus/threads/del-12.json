@@ -1,0 +1,116 @@
+{
+  "thread_id": "del-12",
+  "channel": "slack",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Neha",
+      "text": "the pen test report needs a management response before we can share it",
+      "ts": "2026-05-04T09:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill write it",
+      "ts": "2026-05-04T09:40:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Neha",
+      "text": "you wrote the last two and theyre basically boilerplate now",
+      "ts": "2026-05-04T09:45:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Neha",
+      "text": "give me the template and ill do this one, you just sign off",
+      "ts": "2026-05-04T09:46:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "deal. sending you the template now",
+      "ts": "2026-05-04T09:50:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "write the management response to the pen test report",
+      "direction": "blocked_on_you",
+      "counterparty": "Neha",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 12
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 25,
+        "end": 59
+      },
+      "state": "superseded",
+      "register": "en"
+    },
+    {
+      "statement": "Neha writes the management response to the pen test report",
+      "direction": "blocked_on_them",
+      "counterparty": "Neha",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 25,
+        "end": 40
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "send Neha the management response template",
+      "direction": "blocked_on_you",
+      "counterparty": "Neha",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 6,
+        "end": 34
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "In-flight statement per §2 — 'sending you the template now' names the act, and nothing in the thread shows it arriving, so it stays open."
+    },
+    {
+      "statement": "sign off Neha's management response",
+      "direction": "blocked_on_you",
+      "counterparty": "Neha",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 42,
+        "end": 59
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

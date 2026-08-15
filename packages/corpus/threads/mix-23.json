@@ -1,0 +1,104 @@
+{
+  "thread_id": "mix-23",
+  "channel": "slack",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Sneha",
+      "text": "diwali campaign ke creatives kab tak aayenge",
+      "ts": "2026-05-06T11:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Anjali",
+      "text": "main teen versions bana rahi hu, weekend tak bhej dungi",
+      "ts": "2026-05-06T11:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Sneha",
+      "text": "copy kaun likhega",
+      "ts": "2026-05-06T11:22:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "copy main likh dunga",
+      "ts": "2026-05-06T11:30:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Anjali",
+      "text": "ek baar dono milke direction final kar lein? warna main teen alag alag bana dungi bekaar me",
+      "ts": "2026-05-06T11:40:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "haan sahi hai, baith ke decide karte hai",
+      "ts": "2026-05-06T11:45:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "Anjali sends three creative versions for the Diwali campaign",
+      "direction": "blocked_on_them",
+      "counterparty": "Anjali",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 33,
+          "end": 44
+        },
+        "resolved": "2026-05-10",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 33,
+        "end": 55
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    },
+    {
+      "statement": "write the copy for the Diwali campaign",
+      "direction": "blocked_on_you",
+      "counterparty": "Sneha",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 20
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "Sneha asked, so the copy is owed to her, even though Anjali is the one who will use it. Counterparty is who the act is owed to, not who benefits."
+    },
+    {
+      "statement": "user and Anjali agree the creative direction together before she builds versions",
+      "direction": "mutual",
+      "counterparty": "Anjali",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 15,
+        "end": 40
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    }
+  ]
+}

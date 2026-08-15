@@ -1,0 +1,144 @@
+{
+  "thread_id": "en-30",
+  "channel": "email",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Bank (relationship manager)",
+      "text": "Your working capital facility comes up for renewal on 30 June. We'll need audited financials, a 12-month projection and updated KYC.",
+      "ts": "2026-05-13T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "Understood. The audited financials are with our CA, ill chase them.",
+      "ts": "2026-05-13T15:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Bank (relationship manager)",
+      "text": "Also, our credit team may want a call with you.",
+      "ts": "2026-05-14T09:20:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "happy to do that whenever suits them",
+      "ts": "2026-05-14T11:02:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Bank (relationship manager)",
+      "text": "Noted. We'll set that up closer to the date.",
+      "ts": "2026-05-14T11:40:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "ill send the 12-month projection this week",
+      "ts": "2026-05-15T09:15:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "Bank (relationship manager)",
+      "text": "Thank you.",
+      "ts": "2026-05-15T10:02:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "user",
+      "text": "projection sent. KYC forms are signed and going out by courier today.",
+      "ts": "2026-05-18T17:30:00+05:30"
+    },
+    {
+      "index": 8,
+      "sender": "Bank (relationship manager)",
+      "text": "Received the projection, thank you. We'll confirm once KYC reaches us.",
+      "ts": "2026-05-19T09:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "chase the CA for the audited financials and send them to the bank",
+      "direction": "blocked_on_you",
+      "counterparty": "Bank (relationship manager)",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-06-30",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 12,
+        "end": 66
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "send the bank a 12-month projection",
+      "direction": "blocked_on_you",
+      "counterparty": "Bank (relationship manager)",
+      "deadline": {
+        "span": {
+          "msg_index": 5,
+          "start": 33,
+          "end": 42
+        },
+        "resolved": null,
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 0,
+        "end": 42
+      },
+      "resolution": {
+        "msg_index": 7,
+        "start": 0,
+        "end": 15
+      },
+      "state": "closed",
+      "register": "en"
+    },
+    {
+      "statement": "the bank sets up a call with its credit team",
+      "direction": "blocked_on_them",
+      "counterparty": "Bank (relationship manager)",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-06-30",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 7,
+        "end": 43
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "'happy to do that whenever suits them' in message 3 is availability and not a loop; the bank's message 4 is what creates the obligation, and it lands on them."
+    },
+    {
+      "statement": "the bank confirms receipt of the KYC forms",
+      "direction": "blocked_on_them",
+      "counterparty": "Bank (relationship manager)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 8,
+        "start": 36,
+        "end": 69
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

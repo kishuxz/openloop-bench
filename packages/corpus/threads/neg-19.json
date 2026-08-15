@@ -1,0 +1,38 @@
+{
+  "thread_id": "neg-19",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Ravi (CS)",
+      "text": "anna, indha maasam NPS 62 varuthu, last month 58",
+      "ts": "2026-05-06T17:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "nalla improvement",
+      "ts": "2026-05-06T17:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Ravi (CS)",
+      "text": "detractors ellam onboarding pathi thaan solraanga",
+      "ts": "2026-05-06T17:32:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "adhu theriyum, yaaravadhu paakanum adha",
+      "ts": "2026-05-06T17:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Ravi (CS)",
+      "text": "aama anna",
+      "ts": "2026-05-06T17:45:00+05:30"
+    }
+  ],
+  "loops": []
+}

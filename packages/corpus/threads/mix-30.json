@@ -1,0 +1,95 @@
+{
+  "thread_id": "mix-30",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Kavya",
+      "text": "anna, insurance renewal papers sign pannanum",
+      "ts": "2026-05-15T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "innaiku evening la office la irupen, konduvaa",
+      "ts": "2026-05-15T09:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Kavya",
+      "text": "sari anna",
+      "ts": "2026-05-15T09:22:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Kavya",
+      "text": "anna neenga meeting la irundheenga, naan vachitu poitten table la",
+      "ts": "2026-05-15T18:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "paathen, naaliki sign panni tharen",
+      "ts": "2026-05-15T20:02:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Kavya",
+      "text": "sari anna, 20th ku mundhi submit pannanum",
+      "ts": "2026-05-15T20:10:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "sign the insurance renewal papers and return them to Kavya",
+      "direction": "blocked_on_you",
+      "counterparty": "Kavya",
+      "deadline": {
+        "span": {
+          "msg_index": 4,
+          "start": 9,
+          "end": 16
+        },
+        "resolved": "2026-05-16",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 9,
+        "end": 34
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en",
+      "notes": "The commitment in message 1 was to be present, not to sign; it is discharged by message 3 and is not labelled as a loop of its own. The signing loop starts at message 4."
+    },
+    {
+      "statement": "Kavya brings the insurance renewal papers to the office",
+      "direction": "blocked_on_them",
+      "counterparty": "Kavya",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 0,
+          "end": 18
+        },
+        "resolved": "2026-05-15",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 37,
+        "end": 45
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 36,
+        "end": 65
+      },
+      "state": "closed",
+      "register": "ta-en",
+      "notes": "Directive accepted — 'konduvaa' is the imperative, Kavya's 'sari anna' binds it, and she has no first-person commitment of her own to prefer."
+    }
+  ]
+}

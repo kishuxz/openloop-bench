@@ -1,0 +1,76 @@
+{
+  "thread_id": "en-24",
+  "channel": "slack",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Tanvi",
+      "text": "we have two conflicting sources of truth for MRR now",
+      "ts": "2026-05-06T14:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "i know. neither of us can fix this alone, its half billing half analytics",
+      "ts": "2026-05-06T14:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "lets get in a room and agree one definition",
+      "ts": "2026-05-06T14:21:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Tanvi",
+      "text": "yes. and whatever we agree, someone has to write it down",
+      "ts": "2026-05-06T14:25:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "ill write it up after",
+      "ts": "2026-05-06T14:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "user and Tanvi agree a single definition of MRR together",
+      "direction": "mutual",
+      "counterparty": "Tanvi",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 43
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "write up the agreed MRR definition",
+      "direction": "blocked_on_you",
+      "counterparty": "Tanvi",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 21
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "A mutual loop and a one-sided loop in the same thread, the second conditional on the first. Conditional on a certain event, so it is labelled."
+    }
+  ]
+}

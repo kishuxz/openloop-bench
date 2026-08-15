@@ -1,0 +1,65 @@
+{
+  "thread_id": "sup-14",
+  "channel": "slack",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Pooja",
+      "text": "customer wants a custom SSO integration before they sign",
+      "ts": "2026-05-04T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill scope it this week and give them a timeline",
+      "ts": "2026-05-04T10:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Pooja",
+      "text": "they came back, theyll use our existing SAML setup instead",
+      "ts": "2026-05-06T09:15:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Pooja",
+      "text": "their IT lead looked at the docs and said its fine",
+      "ts": "2026-05-06T09:15:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "great, saves us a month",
+      "ts": "2026-05-06T09:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "scope the custom SSO integration and give the customer a timeline",
+      "direction": "blocked_on_you",
+      "counterparty": "Pooja",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 13,
+          "end": 22
+        },
+        "resolved": null,
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 47
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 16,
+        "end": 58
+      },
+      "state": "superseded",
+      "register": "en"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "thread_id": "neg-20",
+  "channel": "email",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Community (organiser)",
+      "text": "You're receiving this because you spoke at one of our events. Our next cohort opens in July - applications will go live on the site closer to the date. Feel free to share with anyone who might benefit.",
+      "ts": "2026-05-07T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "Thanks, will pass it on if anyone comes to mind.",
+      "ts": "2026-05-07T14:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Community (organiser)",
+      "text": "Much appreciated. No action needed from your side.",
+      "ts": "2026-05-08T10:02:00+05:30"
+    }
+  ],
+  "loops": []
+}

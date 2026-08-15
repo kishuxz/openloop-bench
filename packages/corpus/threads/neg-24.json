@@ -1,0 +1,44 @@
+{
+  "thread_id": "neg-24",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Anjali",
+      "text": "anna wishing you and family a very happy new year 🎉",
+      "ts": "2026-05-14T08:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "same to you anjali!",
+      "ts": "2026-05-14T09:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Anjali",
+      "text": "anna office la ellarum eppadi irukanga",
+      "ts": "2026-05-14T09:32:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "ellarum nalla irukanga, konjam busy",
+      "ts": "2026-05-14T09:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Anjali",
+      "text": "epavachum vandhu meet pandren anna",
+      "ts": "2026-05-14T09:45:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "kandippa vaanga",
+      "ts": "2026-05-14T09:50:00+05:30"
+    }
+  ],
+  "loops": []
+}

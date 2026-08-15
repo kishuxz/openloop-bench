@@ -1,0 +1,80 @@
+{
+  "thread_id": "mix-26",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Preethi (CA)",
+      "text": "sir ITR filing ku documents venum",
+      "ts": "2026-05-11T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Preethi (CA)",
+      "text": "form 16, bank statements, aprom investment proofs",
+      "ts": "2026-05-11T09:03:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "form 16 anuppiten already",
+      "ts": "2026-05-11T11:20:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "bank statements naaliki, investment proofs konjam time aagum",
+      "ts": "2026-05-11T11:21:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Preethi (CA)",
+      "text": "sari sir",
+      "ts": "2026-05-11T11:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send the CA bank statements for the ITR filing",
+      "direction": "blocked_on_you",
+      "counterparty": "Preethi (CA)",
+      "deadline": {
+        "span": {
+          "msg_index": 3,
+          "start": 16,
+          "end": 23
+        },
+        "resolved": "2026-05-12",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 23
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en"
+    },
+    {
+      "statement": "send the CA investment proofs for the ITR filing",
+      "direction": "blocked_on_you",
+      "counterparty": "Preethi (CA)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 25,
+        "end": 60
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en",
+      "notes": "One message, two loops with different deadlines, and a third item already delivered before the thread. 'konjam time aagum' hedges the timing without naming one, so certainty is none."
+    }
+  ]
+}
