@@ -13,7 +13,14 @@
  */
 
 import { describe, expect, test } from "vitest";
-import { PREDICTION_FORMAT, PredictedLoopSchema, PredictionFileSchema, UNMAPPABLE, hasOffsets } from "../src/prediction.js";
+import {
+  PREDICTION_FORMAT,
+  PredictedLoopSchema,
+  PredictionFileSchema,
+  UNMAPPABLE,
+  hasOffsets,
+  predictionRunAttempt,
+} from "../src/prediction.js";
 import { predicted } from "./helpers.js";
 
 function file(overrides: Record<string, unknown> = {}): Record<string, unknown> {
@@ -121,5 +128,33 @@ describe("a well-formed file", () => {
   test("round-trips", () => {
     const parsed = PredictionFileSchema.safeParse(file());
     expect(parsed.success).toBe(true);
+  });
+});
+
+describe("extractor attempt counters", () => {
+  test("preserves provider and parse failure counts before normalization", () => {
+    const attempt = predictionRunAttempt({
+      schema_version: 1,
+      run: {
+        config: "hosted-redacted",
+        split: "dev",
+      },
+      predictions: [
+        { thread_id: "en-01", parsed_loops: [predicted()], provider_error: null, parse_failure: null },
+        { thread_id: "en-02", parsed_loops: [], provider_error: { message: "429" }, parse_failure: null },
+        { thread_id: "en-03", parsed_loops: [], provider_error: null, parse_failure: { message: "bad json" } },
+      ],
+    });
+
+    expect(attempt).toMatchObject({
+      config: "hosted-redacted",
+      split: "dev",
+      attempted_threads: 3,
+      provider_failures: 1,
+      parse_failures: 1,
+      threads_with_parsed_loops: 1,
+      parsed_loops: 1,
+    });
+    expect(attempt.provider_failure_rate).toBeCloseTo(1 / 3);
   });
 });

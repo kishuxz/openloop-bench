@@ -16,6 +16,7 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { basename, join } from "node:path";
 import { corpusHash } from "@openloop-bench/corpus";
 import { buildMatchLog, readPredictionFile, scoreRun, type ScoredRun } from "../evaluate.js";
+import { predictionRunAttempt, readPredictionJson } from "../prediction.js";
 import {
   matchesPath,
   metricsPath,
@@ -25,6 +26,37 @@ import {
   writeJson,
 } from "../paths.js";
 import { renderReport } from "../report.js";
+import {
+  PROVIDER_FAILURE_RATE_ENV,
+  formatRate,
+  incompleteRun,
+  parseProviderFailureThreshold,
+  type IncompleteRun,
+} from "../quality.js";
+
+interface Args {
+  readonly maxProviderFailureRate: number;
+}
+
+function parseArgs(args: string[]): Args {
+  let threshold = process.env[PROVIDER_FAILURE_RATE_ENV];
+
+  for (let i = 0; i < args.length; i += 1) {
+    const arg = args[i]!;
+    if (arg === "--max-provider-failure-rate") {
+      threshold = args[i + 1];
+      i += 1;
+      continue;
+    }
+    if (arg.startsWith("--max-provider-failure-rate=")) {
+      threshold = arg.slice("--max-provider-failure-rate=".length);
+      continue;
+    }
+    throw new Error(`unknown argument ${arg}`);
+  }
+
+  return { maxProviderFailureRate: parseProviderFailureThreshold(threshold) };
+}
 
 function predictionFiles(): string[] {
   return readdirSync(PREDICTIONS_DIR)
@@ -40,6 +72,15 @@ function checkArtifact(path: string, expected: string): string | null {
 }
 
 function main(): void {
+  let args: Args;
+  try {
+    args = parseArgs(process.argv.slice(2));
+  } catch (error) {
+    console.log(`report: ${(error as Error).message}`);
+    process.exitCode = 1;
+    return;
+  }
+
   const files = predictionFiles();
   if (files.length === 0) {
     console.log(`report: no prediction files in ${PREDICTIONS_DIR}`);
@@ -48,10 +89,20 @@ function main(): void {
   }
 
   const runs: ScoredRun[] = [];
+  const incompleteRuns: IncompleteRun[] = [];
   const problems: string[] = [];
 
   for (const path of files) {
+    const raw = readPredictionJson(path);
+    const attempt = predictionRunAttempt(raw);
+    const skipped = incompleteRun(attempt, { max_provider_failure_rate: args.maxProviderFailureRate });
     const file = readPredictionFile(path);
+
+    if (skipped) {
+      incompleteRuns.push(skipped);
+      continue;
+    }
+
     const scored = scoreRun(file);
     runs.push(scored);
 
@@ -61,6 +112,15 @@ function main(): void {
       checkArtifact(matchesPath(config, split), writeJson(buildMatchLog(scored))),
     ].filter((problem): problem is string => problem !== null);
     problems.push(...stale);
+  }
+
+  if (runs.length === 0) {
+    console.log("report refuses to render: no publishable prediction runs remain.");
+    for (const run of incompleteRuns) {
+      console.log(`  ${run.config}: provider failure rate ${formatRate(run.provider_failure_rate)} exceeds ${formatRate(run.max_provider_failure_rate)}`);
+    }
+    process.exitCode = 1;
+    return;
   }
 
   if (problems.length > 0) {
@@ -73,13 +133,17 @@ function main(): void {
   }
 
   mkdirSync(RESULTS_DIR, { recursive: true });
-  const markdown = renderReport({ runs, corpusHash: corpusHash() });
+  const markdown = renderReport({ runs, corpusHash: corpusHash(), incompleteRuns });
   writeFileSync(REPORT_PATH, markdown);
 
   console.log(`openloop-bench report — ${runs.length} config(s), corpus ${corpusHash()}`);
+  console.log(`provider failure publish threshold: ${formatRate(args.maxProviderFailureRate)} (override with ${PROVIDER_FAILURE_RATE_ENV} or --max-provider-failure-rate)`);
   console.log("");
   for (const run of runs) {
     console.log(`  ${run.run.meta.config.padEnd(16)} ${run.run.meta.model_id}  (${run.run.meta.generated_at})`);
+  }
+  for (const run of incompleteRuns) {
+    console.log(`  ${run.config.padEnd(16)} attempted, incomplete — provider failure rate ${formatRate(run.provider_failure_rate)}`);
   }
   console.log("");
   console.log(`Written ${REPORT_PATH} (${markdown.split("\n").length} lines).`);

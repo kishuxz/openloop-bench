@@ -18,19 +18,27 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { corpusHash } from "@openloop-bench/corpus";
 import { readPredictionFile, scoreRun } from "../src/evaluate.js";
+import { predictionRunAttempt, readPredictionJson } from "../src/prediction.js";
 import { IOU_THRESHOLDS } from "../src/match.js";
 import { DEFAULT_COST_MATRIX } from "../src/cost.js";
 import { PREDICTIONS_DIR, REPORT_PATH } from "../src/paths.js";
 import { GALLERY_CAP, renderReport } from "../src/report.js";
+import { DEFAULT_MAX_PROVIDER_FAILURE_RATE, incompleteRun } from "../src/quality.js";
 
 const hash = corpusHash();
-const REPORT_CONFIGS = ["hosted-large-dev", "hosted-redacted-dev", "local-dev"];
+const REPORT_CONFIGS = ["hosted-large-dev", "local-dev"];
 const runs = REPORT_CONFIGS.map((config) => scoreRun(readPredictionFile(join(PREDICTIONS_DIR, `${config}.json`))));
-const report = renderReport({ runs, corpusHash: hash });
+const hostedRedactedAttempt = predictionRunAttempt(readPredictionJson(join(PREDICTIONS_DIR, "hosted-redacted-dev.json")));
+const hostedRedactedIncomplete = incompleteRun(hostedRedactedAttempt, {
+  max_provider_failure_rate: DEFAULT_MAX_PROVIDER_FAILURE_RATE,
+});
+if (!hostedRedactedIncomplete) throw new Error("hosted-redacted should be guarded as incomplete");
+const incompleteRuns = [hostedRedactedIncomplete];
+const report = renderReport({ runs, corpusHash: hash, incompleteRuns });
 
 describe("determinism", () => {
   test("rendering twice produces identical bytes", () => {
-    expect(renderReport({ runs, corpusHash: hash })).toBe(report);
+    expect(renderReport({ runs, corpusHash: hash, incompleteRuns })).toBe(report);
   });
 
   test("the committed REPORT.md is what this code generates", () => {
@@ -152,8 +160,14 @@ describe("the failure gallery", () => {
 
 describe("what the report refuses to claim", () => {
   test("states the measured scope", () => {
-    expect(report).toMatch(/Dev split only; three configurations; a single prompt version/);
-    expect(report).toMatch(/held-out test split not yet run/);
+    expect(report).toMatch(/Dev split only; two configs reported/);
+    expect(report).toMatch(/held-out test split not run/);
+    expect(report).toMatch(/`hosted-redacted` attempted and incomplete/);
+  });
+
+  test("keeps incomplete hosted-redacted as evidence but out of scored tables", () => {
+    expect(report).toMatch(/Attempted, incomplete\. 80 threads attempted, 67 provider failures, 70 parse failures, 10 threads with parsed loops/);
+    expect(report).not.toContain("| `hosted-redacted` | 58.8%");
   });
 
   test("keeps the corpus's own limitations attached to the numbers", () => {

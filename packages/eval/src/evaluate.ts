@@ -25,7 +25,6 @@
  * once, and nothing else.
  */
 
-import { readFileSync } from "node:fs";
 import { corpusHash, loadThreads, THREADS_DIR } from "@openloop-bench/corpus";
 import { formatIssues, resolveSpan, type Split, type Thread } from "@openloop-bench/schema";
 import { DEFAULT_COST_MATRIX, type CostMatrix } from "./cost.js";
@@ -43,6 +42,7 @@ import {
   normalizePredictionFile,
   PredictionFileSchema,
   UNMAPPABLE,
+  readPredictionJson,
   type PredictedLoop,
   type PredictedSpan,
   type PredictionFile,
@@ -70,12 +70,7 @@ export interface EvalRun {
 
 /** Parse a prediction file, with the same one-line-per-problem output style. */
 export function readPredictionFile(path: string): PredictionFile {
-  let json: unknown;
-  try {
-    json = JSON.parse(readFileSync(path, "utf-8"));
-  } catch (error) {
-    throw new Error(`${path}: not valid JSON — ${(error as Error).message}`, { cause: error });
-  }
+  const json = readPredictionJson(path);
 
   const parsed = PredictionFileSchema.safeParse(json);
   if (parsed.success) return parsed.data;

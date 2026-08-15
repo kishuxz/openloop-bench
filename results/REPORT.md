@@ -8,6 +8,18 @@ Corpus `d9c347f4f5150b19` — validated in the same run that produced these numb
 The eval refuses to score against a corpus that has not validated, and refuses any
 prediction file whose corpus hash does not match the corpus on disk.
 
+**Scope.** Dev split only; two configs reported
+(`hosted-large`, `local`); single prompt version with no iteration against dev results;
+held-out test split not run; `hosted-redacted` attempted and incomplete.
+
+## Attempted, Incomplete
+
+These prediction files remain committed as evidence, but are excluded from every
+computed metric and every comparison table because the provider-failure rate exceeded
+the publish threshold.
+
+- `hosted-redacted` — Attempted, incomplete. 80 threads attempted, 67 provider failures, 70 parse failures, 10 threads with parsed loops; provider failure rate 83.8% exceeded the 20.0% threshold. Run abandoned to free-tier rate limits, to be re-run.
+
 ## Provenance
 
 Every number below is traceable to these inputs. The eval refuses to score a
@@ -17,7 +29,6 @@ can mix results computed against two versions of the corpus.
 | config | model | prompt | sampling | split | threads | corpus hash | run date |
 |---|---|---|---|---|---|---|---|
 | `hosted-large` | `llama-3.3-70b-versatile` | `v2` | json_mode=true, max_retries=5, request_delay_ms=1500, seed=20260815, temperature=0 | dev | 80 | `d9c347f4f5150b19` | 2026-08-15 |
-| `hosted-redacted` | `llama-3.3-70b-versatile` | `v2` | json_mode=true, max_retries=5, request_delay_ms=1500, seed=20260815, temperature=0 | dev | 80 | `d9c347f4f5150b19` | 2026-08-15 |
 | `local` | `qwen2.5:7b` | `v2` | json_mode=false, max_retries=5, request_delay_ms=1500, seed=20260815, temperature=0 | dev | 80 | `d9c347f4f5150b19` | 2026-08-15 |
 
 ## How a prediction is matched to a true loop
@@ -65,7 +76,6 @@ product, because a false loop is acted on and a missed one merely stays invisibl
 | config | precision | recall | F1 | superseded reported open | cost | cost/thread |
 |---|---|---|---|---|---|---|
 | `hosted-large` | 51.5% | 49.5% | 50.5% | 2/14 (14.3%) | 403 | 5.04 |
-| `hosted-redacted` | 58.8% | 9.3% | 16.1% | 1/3 (33.3%) | 178 | 2.23 |
 | `local` | 54.5% | 16.8% | 25.7% | 3/4 (75.0%) | 279 | 3.49 |
 
 **Superseded reported as open is the number this benchmark exists for.** It is the
@@ -80,7 +90,6 @@ At IoU 0.5. Deltas are second config minus first config.
 
 | comparison | precision | recall | F1 | cost | cost/thread | finding |
 |---|---|---|---|---|---|---|
-| `hosted-large` → `hosted-redacted` | +7.4 pp | -40.2 pp | -34.3 pp | -225 | -2.81 | Redaction did not cost little: recall and F1 collapsed; lower cost comes from silence after provider and parse failures. |
 | `local` → `hosted-large` | -3.1 pp | +32.7 pp | +24.8 pp | +124 | +1.55 | Hosted-large buys recall and F1 over local, while adding false positives and cost-weighted error. |
 
 ## Detection
@@ -92,7 +101,6 @@ threshold rows would only make the table look more precise than the decision is.
 | config | TP | FP | FN | precision | recall | F1 | cost/thread | threshold finding |
 |---|---|---|---|---|---|---|---|---|
 | `hosted-large` | 53 | 50 | 54 | 51.5% | 49.5% | 50.5% | 5.04 | stable across IoU 0.3-0.7 |
-| `hosted-redacted` | 10 | 7 | 97 | 58.8% | 9.3% | 16.1% | 2.23 | stable across IoU 0.3-0.7 |
 | `local` | 18 | 15 | 89 | 54.5% | 16.8% | 25.7% | 3.49 | stable across IoU 0.3-0.7 |
 
 Default threshold: IoU 0.5. Unmappable predictions are in none of TP, FP or FN.
@@ -112,7 +120,6 @@ the boundary-convention agreement visible as its own metric.
 | config | IoU 0.3 | IoU 0.5 | IoU 0.7 |
 |---|---|---|---|
 | `hosted-large` | 0.85 (53) | 0.85 (53) | 0.85 (53) |
-| `hosted-redacted` | 0.75 (10) | 0.75 (10) | 0.75 (10) |
 | `local` | 0.94 (18) | 0.94 (18) | 0.94 (18) |
 
 ### Register Finding
@@ -130,17 +137,6 @@ Finding: `hi-en` has the loosest matched evidence spans at 0.79 mean IoU.
 | ta-en | 0.93 | 7 |
 | other | — | 0 |
 
-**`hosted-redacted`**
-
-Finding: `en` has the loosest matched evidence spans at 0.69 mean IoU.
-
-| register | span tightness | matched pairs |
-|---|---|---|
-| en | 0.69 | 6 |
-| hi-en | 0.79 | 3 |
-| ta-en | 1.00 | 1 |
-| other | — | 0 |
-
 **`local`**
 
 Finding: `hi-en` has the loosest matched evidence spans at 0.90 mean IoU.
@@ -156,9 +152,9 @@ Finding: `hi-en` has the loosest matched evidence spans at 0.90 mean IoU.
 
 | IoU | ranked by F1 (best first) | ranked by cost/thread (best first) |
 |---|---|---|
-| 0.3 | `hosted-large` > `local` > `hosted-redacted` | `hosted-redacted` > `local` > `hosted-large` |
-| 0.5 | `hosted-large` > `local` > `hosted-redacted` | `hosted-redacted` > `local` > `hosted-large` |
-| 0.7 | `hosted-large` > `local` > `hosted-redacted` | `hosted-redacted` > `local` > `hosted-large` |
+| 0.3 | `hosted-large` > `local` | `local` > `hosted-large` |
+| 0.5 | `hosted-large` > `local` | `local` > `hosted-large` |
+| 0.7 | `hosted-large` > `local` | `local` > `hosted-large` |
 
 The ordering is the same at every threshold, under both metrics. The comparison
 between these configurations does not depend on where the matching bar was set.
@@ -172,7 +168,6 @@ product category, and `superseded → open` is the cell that measures it.
 | config | IoU 0.3 | IoU 0.5 | IoU 0.7 |
 |---|---|---|---|
 | `hosted-large` | 2/14 (14.3%) | 2/14 (14.3%) | 2/14 (14.3%) |
-| `hosted-redacted` | 1/3 (33.3%) | 1/3 (33.3%) | 1/3 (33.3%) |
 | `local` | 3/4 (75.0%) | 3/4 (75.0%) | 3/4 (75.0%) |
 
 State confusion at IoU 0.5, matched pairs only:
@@ -184,14 +179,6 @@ State confusion at IoU 0.5, matched pairs only:
 | **open** | **34** | 1 | 0 |
 | **closed** | 0 | **4** | 0 |
 | **superseded** | 2 | 5 | **7** |
-
-**`hosted-redacted`** — state accuracy 70.0% (7/10)
-
-| truth ↓ / predicted → | open | closed | superseded |
-|---|---|---|---|
-| **open** | **6** | 1 | 0 |
-| **closed** | 0 | **0** | 0 |
-| **superseded** | 1 | 1 | **1** |
 
 **`local`** — state accuracy 77.8% (14/18)
 
@@ -218,14 +205,6 @@ Matched pairs only, IoU 0.5:
 | **blocked_on_you** | 4 | **33** | 0 |
 | **mutual** | 0 | 0 | **3** |
 
-**`hosted-redacted`** — direction accuracy 60.0% (6/10), 4 inverted
-
-| truth ↓ / predicted → | blocked_on_them | blocked_on_you | mutual |
-|---|---|---|---|
-| **blocked_on_them** | **3** | 1 | 0 |
-| **blocked_on_you** | 3 | **3** | 0 |
-| **mutual** | 0 | 0 | **0** |
-
 **`local`** — direction accuracy 44.4% (8/18), 7 inverted
 
 | truth ↓ / predicted → | blocked_on_them | blocked_on_you | mutual |
@@ -250,7 +229,6 @@ same as resolving it to `2026-04-08`.
 | config | certainty accuracy | deadline quote found | resolved date exact | date hallucinated | date missing |
 |---|---|---|---|---|---|
 | `hosted-large` | 69.8% (37/53) | 72.7% (24/33) | 8.6% (3/35) | 1 | 31 |
-| `hosted-redacted` | 90.0% (9/10) | 83.3% (5/6) | 0.0% (0/6) | 0 | 5 |
 | `local` | 33.3% (6/18) | 25.0% (3/12) | 0.0% (0/10) | 0 | 10 |
 
 *Hallucinated* is a date produced where the truth resolves to none — "agle hafte" is
@@ -269,14 +247,6 @@ Certainty confusion at IoU 0.5, matched pairs only:
 | **implied** | 3 | **0** | 2 |
 | **none** | 2 | 0 | **13** |
 
-**`hosted-redacted`**
-
-| truth ↓ / predicted → | explicit | implied | none |
-|---|---|---|---|
-| **explicit** | **5** | 0 | 1 |
-| **implied** | 0 | **0** | 0 |
-| **none** | 0 | 0 | **4** |
-
 **`local`**
 
 | truth ↓ / predicted → | explicit | implied | none |
@@ -294,7 +264,6 @@ the right message, and the overlap within it.
 | config | resolution: right message | mean span IoU | missing | spurious | evidence grounded | splits | merges |
 |---|---|---|---|---|---|---|---|
 | `hosted-large` | 100.0% (16/16) | 0.77 | 2 | 1 | 100.0% (103/103) | 2 | 2 |
-| `hosted-redacted` | 50.0% (1/2) | 0.29 | 1 | 1 | 100.0% (17/17) | 3 | 2 |
 | `local` | 100.0% (1/1) | 0.23 | 3 | 0 | 100.0% (33/33) | 0 | 0 |
 
 - **missing** — the truth was resolved in-thread and the prediction offered no span.
@@ -316,7 +285,6 @@ precision, recall and every label metric, and counted here instead.
 | config | unmappable predictions | unmappable deadline spans | unmappable resolution spans | FN ceiling |
 |---|---|---|---|---|
 | `hosted-large` | 0 | 0 | 0 | 0 of 54 |
-| `hosted-redacted` | 0 | 0 | 0 | 0 of 97 |
 | `local` | 0 | 0 | 0 | 0 of 89 |
 
 **FN ceiling** is the honest cost of that decision. Setting a prediction aside means a
@@ -353,7 +321,6 @@ Charged errors at IoU 0.5:
 | config | FN | FP on you | FP on them | FP mutual | superseded→open | inverted | total cost | cost/thread |
 |---|---|---|---|---|---|---|---|---|
 | `hosted-large` | 54 (54) | 16 (48) | 27 (216) | 7 (21) | 2 (16) | 6 (48) | **403** | 5.04 |
-| `hosted-redacted` | 97 (97) | 3 (9) | 4 (32) | 0 (0) | 1 (8) | 4 (32) | **178** | 2.23 |
 | `local` | 89 (89) | 2 (6) | 13 (104) | 0 (0) | 3 (24) | 7 (56) | **279** | 3.49 |
 
 Counts first, cost in brackets. One matched pair can be charged twice — a superseded
@@ -390,15 +357,6 @@ The code-mixed halves of the corpus against the English baseline. 43% of the cor
 | ta-en | 11 | 12 | 16 | 43.8% | 58.3% | 50.0% | 0.93 | 100.0% | 100.0% | — | 28.6% | 1/7 | 1/1 | 100.0% | 0 | 5.18 |
 | other | 0 | 0 | 0 | — | — | — | — | — | — | — | — | — | — | — | 0 | 0.00 |
 
-**`hosted-redacted`**
-
-| group | threads | truth | pred | P | R | F1 | tightness | direction | state | sup→open | certainty | date | resolution msg | grounded | unmappable | cost/thread |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| en | 35 | 60 | 8 | 75.0% | 10.0% | 17.6% | 0.69 | 50.0% | 66.7% | 0/2 | 100.0% | 0/3 | 1/2 | 100.0% | 0 | 2.69 |
-| hi-en | 21 | 35 | 4 | 75.0% | 8.6% | 15.4% | 0.79 | 66.7% | 66.7% | 1/1 | 100.0% | 0/2 | — | 100.0% | 0 | 2.67 |
-| ta-en | 10 | 12 | 5 | 20.0% | 8.3% | 11.8% | 1.00 | 100.0% | 100.0% | — | 0.0% | 0/1 | — | 100.0% | 0 | 2.80 |
-| other | 0 | 0 | 0 | — | — | — | — | — | — | — | — | — | — | — | 0 | 0.00 |
-
 **`local`**
 
 | group | threads | truth | pred | P | R | F1 | tightness | direction | state | sup→open | certainty | date | resolution msg | grounded | unmappable | cost/thread |
@@ -421,16 +379,6 @@ The code-mixed halves of the corpus against the English baseline. 43% of the cor
 | mix | 20 | 29 | 26 | 53.8% | 48.3% | 50.9% | 0.87 | 100.0% | 100.0% | — | 57.1% | 2/13 | 2/2 | 100.0% | 0 | 3.55 |
 | neg | 15 | 0 | 22 | 0.0% | — | — | — | — | — | — | — | — | — | 100.0% | 0 | 9.73 |
 | sup | 14 | 18 | 15 | 80.0% | 66.7% | 72.7% | 0.80 | 100.0% | 50.0% | 1/11 | 66.7% | 0/8 | 10/10 | 100.0% | 0 | 2.00 |
-
-**`hosted-redacted`**
-
-| group | threads | truth | pred | P | R | F1 | tightness | direction | state | sup→open | certainty | date | resolution msg | grounded | unmappable | cost/thread |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| del | 11 | 29 | 11 | 72.7% | 27.6% | 40.0% | 0.69 | 50.0% | 62.5% | 1/3 | 100.0% | 0/4 | 1/2 | 100.0% | 0 | 7.73 |
-| en | 20 | 31 | 1 | 100.0% | 3.2% | 6.3% | 1.00 | 100.0% | 100.0% | — | 100.0% | 0/1 | — | 100.0% | 0 | 1.50 |
-| mix | 20 | 29 | 3 | 33.3% | 3.4% | 6.3% | 1.00 | 100.0% | 100.0% | — | 0.0% | 0/1 | — | 100.0% | 0 | 1.70 |
-| neg | 15 | 0 | 2 | 0.0% | — | — | — | — | — | — | — | — | — | 100.0% | 0 | 0.73 |
-| sup | 14 | 18 | 0 | — | 0.0% | 0.0% | — | — | — | — | — | — | — | — | 0 | 1.29 |
 
 **`local`**
 
@@ -455,15 +403,6 @@ Whether performance holds as there is more to read before the retraction.
 | 7-9 msgs | 6 | 11 | 8 | 37.5% | 27.3% | 31.6% | 0.94 | 100.0% | 100.0% | — | 0.0% | 0/2 | — | 100.0% | 0 | 6.33 |
 | 10+ msgs | 2 | 4 | 1 | 100.0% | 25.0% | 40.0% | 0.98 | 100.0% | 100.0% | — | 100.0% | 1/1 | 1/1 | 100.0% | 0 | 1.50 |
 
-**`hosted-redacted`**
-
-| group | threads | truth | pred | P | R | F1 | tightness | direction | state | sup→open | certainty | date | resolution msg | grounded | unmappable | cost/thread |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1-4 msgs | 20 | 24 | 2 | 50.0% | 4.2% | 7.7% | 1.00 | 100.0% | 100.0% | — | 100.0% | 0/1 | — | 100.0% | 0 | 1.55 |
-| 5-6 msgs | 52 | 68 | 15 | 60.0% | 13.2% | 21.7% | 0.73 | 55.6% | 66.7% | 1/3 | 88.9% | 0/5 | 1/2 | 100.0% | 0 | 2.54 |
-| 7-9 msgs | 6 | 11 | 0 | — | 0.0% | 0.0% | — | — | — | — | — | — | — | — | 0 | 1.83 |
-| 10+ msgs | 2 | 4 | 0 | — | 0.0% | 0.0% | — | — | — | — | — | — | — | — | 0 | 2.00 |
-
 **`local`**
 
 | group | threads | truth | pred | P | R | F1 | tightness | direction | state | sup→open | certainty | date | resolution msg | grounded | unmappable | cost/thread |
@@ -485,15 +424,6 @@ This is within-thread recall: whether the extractor finds every commitment in a 
 | 1 loop | 34 | 34 | 33 | 63.6% | 61.8% | 62.7% | 0.85 | 100.0% | 76.2% | 0/8 | 71.4% | 2/17 | 11/11 | 100.0% | 0 | 1.88 |
 | 2 loops | 21 | 42 | 34 | 58.8% | 47.6% | 52.6% | 0.91 | 85.0% | 95.0% | 1/4 | 60.0% | 0/12 | 3/3 | 100.0% | 0 | 6.00 |
 | 3+ loops | 10 | 31 | 14 | 85.7% | 38.7% | 53.3% | 0.77 | 75.0% | 83.3% | 1/2 | 83.3% | 1/6 | 2/2 | 100.0% | 0 | 6.70 |
-
-**`hosted-redacted`**
-
-| group | threads | truth | pred | P | R | F1 | tightness | direction | state | sup→open | certainty | date | resolution msg | grounded | unmappable | cost/thread |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 0 loops | 15 | 0 | 2 | 0.0% | — | — | — | — | — | — | — | — | — | 100.0% | 0 | 0.73 |
-| 1 loop | 34 | 34 | 1 | 100.0% | 2.9% | 5.7% | 1.00 | 100.0% | 100.0% | — | 100.0% | 0/1 | — | 100.0% | 0 | 0.97 |
-| 2 loops | 21 | 42 | 6 | 50.0% | 7.1% | 12.5% | 0.79 | 66.7% | 66.7% | 0/1 | 66.7% | 0/2 | 0/1 | 100.0% | 0 | 2.90 |
-| 3+ loops | 10 | 31 | 8 | 75.0% | 19.4% | 30.8% | 0.69 | 50.0% | 66.7% | 1/2 | 100.0% | 0/3 | 1/1 | 100.0% | 0 | 7.30 |
 
 **`local`**
 
@@ -886,209 +816,6 @@ Showing the 10 worst by cost weight of 33.
   - predicted evidence: msg 3 [0, 59) "give me the template and ill do this one, you just sign off" — IoU 0.29
   - resolution: truth none → predicted msg 4 [0, 34) "deal. sending you the template now"
 
-### `hosted-redacted` — 126 classified failures
-
-#### False positive claiming `blocked_on_them` — 4
-
-- `del-03` — matched no true loop  *(cost 8)*
-  - predicted: blocked_on_them / open / en — "send ISO 27001 certificate and signed NDA"
-  - predicted evidence: msg 0 [82, 102) "Could you send both?"
-- `del-17` — matched no true loop  *(cost 8)*
-  - predicted: blocked_on_them / open / en — "export fresh app store screenshots"
-  - predicted evidence: msg 3 [0, 56) "ill export fresh ones by wednesday, you just upload them"
-- `del-18` — matched no true loop  *(cost 8)*
-  - predicted: blocked_on_them / open / hi-en — "update cap table and add new ESOP grants"
-  - predicted evidence: msg 0 [0, 58) "cap table update karna hai, naye ESOP grants add karne hai"
-- `neg-32` — matched no true loop  *(cost 8)*
-  - predicted: blocked_on_them / open / ta-en — "watchman replacement arrangement"
-  - predicted evidence: msg 0 [0, 40) "anna, watchman leave ku poraan next week"
-
-#### Superseded commitment reported as open — 1
-
-- `del-08` — truth: blocked_on_you / superseded / hi-en — "send the bank this month's stock statement"  *(cost 16)*
-  - truth evidence: msg 1 [11, 32) "main aaj bhej deta hu"
-  - predicted: blocked_on_them / open / hi-en — "send stock statement to the bank every month"
-  - predicted evidence: msg 1 [11, 32) "main aaj bhej deta hu" — IoU 1.00
-  - deadline: truth explicit/2026-04-08 → predicted explicit/null
-  - resolution: truth msg 4 [16, 56) "aap hi har month 5 tarikh ko bhej dijiye" → predicted none
-
-#### Direction inverted — 4
-
-- `del-08` — truth: blocked_on_you / superseded / hi-en — "send the bank this month's stock statement"  *(cost 16)*
-  - truth evidence: msg 1 [11, 32) "main aaj bhej deta hu"
-  - predicted: blocked_on_them / open / hi-en — "send stock statement to the bank every month"
-  - predicted evidence: msg 1 [11, 32) "main aaj bhej deta hu" — IoU 1.00
-  - deadline: truth explicit/2026-04-08 → predicted explicit/null
-  - resolution: truth msg 4 [16, 56) "aap hi har month 5 tarikh ko bhej dijiye" → predicted none
-- `del-07` — truth: blocked_on_you / superseded / en — "call the enterprise trial account before it expires"  *(cost 8)*
-  - truth evidence: msg 1 [0, 19) "ill call them today"
-  - predicted: blocked_on_them / closed / en — "call the enterprise trial team"
-  - predicted evidence: msg 1 [0, 19) "ill call them today" — IoU 1.00
-  - deadline: truth explicit/2026-04-07 → predicted explicit/2026-04-10
-  - resolution: truth msg 4 [0, 36) "you take it, you ran the demo anyway" → predicted msg 5 [0, 5) "on it"
-- `del-12` — truth: blocked_on_you / superseded / en — "write the management response to the pen test report"  *(cost 8)*
-  - truth evidence: msg 1 [0, 12) "ill write it"
-  - predicted: blocked_on_them / superseded / en — "write the management response for the pen test report"
-  - predicted evidence: msg 1 [0, 12) "ill write it" — IoU 1.00
-  - resolution: truth msg 3 [25, 59) "ill do this one, you just sign off" → predicted msg 3 [0, 59) "give me the template and ill do this one, you just sign off"
-- `del-12` — truth: blocked_on_them / open / en — "Neha writes the management response to the pen test report"  *(cost 8)*
-  - truth evidence: msg 3 [25, 40) "ill do this one"
-  - predicted: blocked_on_you / open / en — "sign off on the management response"
-  - predicted evidence: msg 3 [0, 59) "give me the template and ill do this one, you just sign off" — IoU 0.25
-
-#### False positive claiming `blocked_on_you` — 3
-
-- `mix-32` — matched no true loop  *(cost 3)*
-  - predicted: blocked_on_you / open / ta-en — "factory license renewal application"
-  - predicted evidence: msg 0 [6, 50) "factory license renewal 30th ku expire aagum"
-- `mix-32` — matched no true loop  *(cost 3)*
-  - predicted: blocked_on_you / closed / ta-en — "paying the fees"
-  - predicted evidence: msg 2 [11, 27) "fees um kattanum"
-- `neg-32` — matched no true loop  *(cost 3)*
-  - predicted: blocked_on_you / open / ta-en — "inform about any needs"
-  - predicted evidence: msg 4 [0, 45) "anna edhavadhu venumna sollunga, naan irukken"
-
-#### Missed loop — 97
-
-Showing the 10 worst by cost weight of 97.
-
-- `del-01` — truth: blocked_on_you / superseded / en — "send Nandini the monthly cohort data"  *(cost 1)*
-  - truth evidence: msg 1 [6, 26) "ill pull it and send"
-  - predicted: nothing
-- `del-01` — truth: blocked_on_them / open / en — "Arjun sends Nandini the monthly cohort data"  *(cost 1)*
-  - truth evidence: msg 3 [0, 31) "arjun will send it across today"
-  - predicted: nothing
-- `del-02` — truth: blocked_on_them / superseded / en — "Tanvi writes the postmortem for the Friday outage"  *(cost 1)*
-  - truth evidence: msg 1 [5, 34) "ill have it done by wednesday"
-  - predicted: nothing
-- `del-02` — truth: blocked_on_you / open / en — "write the postmortem for the Friday outage"  *(cost 1)*
-  - truth evidence: msg 3 [17, 46) "ill write it, you just review"
-  - predicted: nothing
-- `del-03` — truth: blocked_on_you / superseded / en — "send Procurement the ISO 27001 certificate and signed NDA"  *(cost 1)*
-  - truth evidence: msg 1 [7, 43) "I'll dig them out and send them over"
-  - predicted: nothing
-- `del-03` — truth: blocked_on_them / open / en — "Fatima sends Procurement the ISO 27001 certificate and signed NDA"  *(cost 1)*
-  - truth evidence: msg 2 [49, 121) "she holds the compliance folder and will send both documents by thursday"
-  - predicted: nothing
-- `del-07` — truth: blocked_on_them / open / en — "Pooja calls the enterprise trial account before it expires"  *(cost 1)*
-  - truth evidence: msg 4 [0, 36) "you take it, you ran the demo anyway"
-  - predicted: nothing
-- `del-08` — truth: blocked_on_them / open / hi-en — "Lakshmi sends the bank the stock statement each month"  *(cost 1)*
-  - truth evidence: msg 5 [15, 29) "main kar dungi"
-  - predicted: nothing
-- `del-08` — truth: blocked_on_you / open / hi-en — "share the stock data with Lakshmi each month"  *(cost 1)*
-  - truth evidence: msg 4 [58, 83) "main data share kar dunga"
-  - predicted: nothing
-- `del-12` — truth: blocked_on_you / open / en — "send Neha the management response template"  *(cost 1)*
-  - truth evidence: msg 4 [6, 34) "sending you the template now"
-  - predicted: nothing
-
-#### State wrong (not superseded→open) — 2
-
-- `del-07` — truth: blocked_on_you / superseded / en — "call the enterprise trial account before it expires"  *(cost 8)*
-  - truth evidence: msg 1 [0, 19) "ill call them today"
-  - predicted: blocked_on_them / closed / en — "call the enterprise trial team"
-  - predicted evidence: msg 1 [0, 19) "ill call them today" — IoU 1.00
-  - deadline: truth explicit/2026-04-07 → predicted explicit/2026-04-10
-  - resolution: truth msg 4 [0, 36) "you take it, you ran the demo anyway" → predicted msg 5 [0, 5) "on it"
-- `del-12` — truth: blocked_on_you / open / en — "sign off Neha's management response"
-  - truth evidence: msg 3 [42, 59) "you just sign off"
-  - predicted: blocked_on_you / closed / en — "send the template for the management response"
-  - predicted evidence: msg 3 [0, 59) "give me the template and ill do this one, you just sign off" — IoU 0.29
-  - resolution: truth none → predicted msg 4 [0, 34) "deal. sending you the template now"
-
-#### One commitment reported as two — 3
-
-- `del-12` — truth: blocked_on_them / open / en — "Neha writes the management response to the pen test report"  *(cost 8)*
-  - truth evidence: msg 3 [25, 40) "ill do this one"
-  - predicted: blocked_on_you / open / en — "sign off on the management response"
-  - predicted evidence: msg 3 [0, 59) "give me the template and ill do this one, you just sign off" — IoU 0.25
-- `del-12` — truth: blocked_on_you / open / en — "sign off Neha's management response"
-  - truth evidence: msg 3 [42, 59) "you just sign off"
-  - predicted: blocked_on_you / closed / en — "send the template for the management response"
-  - predicted evidence: msg 3 [0, 59) "give me the template and ill do this one, you just sign off" — IoU 0.29
-  - resolution: truth none → predicted msg 4 [0, 34) "deal. sending you the template now"
-- `del-17` — truth: blocked_on_them / open / en — "Divya exports fresh app store screenshots"
-  - truth evidence: msg 3 [0, 34) "ill export fresh ones by wednesday"
-  - predicted: blocked_on_them / open / en — "upload fresh app store screenshots"
-  - predicted evidence: msg 3 [0, 56) "ill export fresh ones by wednesday, you just upload them" — IoU 0.61
-  - deadline: truth explicit/2026-06-03 → predicted explicit/null
-
-#### Two commitments reported as one — 2
-
-- `del-12` — truth: blocked_on_them / open / en — "Neha writes the management response to the pen test report"  *(cost 8)*
-  - truth evidence: msg 3 [25, 40) "ill do this one"
-  - predicted: blocked_on_you / open / en — "sign off on the management response"
-  - predicted evidence: msg 3 [0, 59) "give me the template and ill do this one, you just sign off" — IoU 0.25
-- `del-12` — truth: blocked_on_you / open / en — "sign off Neha's management response"
-  - truth evidence: msg 3 [42, 59) "you just sign off"
-  - predicted: blocked_on_you / closed / en — "send the template for the management response"
-  - predicted evidence: msg 3 [0, 59) "give me the template and ill do this one, you just sign off" — IoU 0.29
-  - resolution: truth none → predicted msg 4 [0, 34) "deal. sending you the template now"
-
-#### Deadline certainty wrong — 1
-
-- `mix-32` — truth: blocked_on_them / open / ta-en — "Karthik fills in the factory licence renewal application form"
-  - truth evidence: msg 4 [0, 48) "naan application form fill panni vekkren innaiku"
-  - predicted: blocked_on_them / open / ta-en — "filling the application form"
-  - predicted evidence: msg 4 [0, 48) "naan application form fill panni vekkren innaiku" — IoU 1.00
-  - deadline: truth explicit/2026-06-02 → predicted none/null
-
-#### Resolved date wrong — 6
-
-- `del-08` — truth: blocked_on_you / superseded / hi-en — "send the bank this month's stock statement"  *(cost 16)*
-  - truth evidence: msg 1 [11, 32) "main aaj bhej deta hu"
-  - predicted: blocked_on_them / open / hi-en — "send stock statement to the bank every month"
-  - predicted evidence: msg 1 [11, 32) "main aaj bhej deta hu" — IoU 1.00
-  - deadline: truth explicit/2026-04-08 → predicted explicit/null
-  - resolution: truth msg 4 [16, 56) "aap hi har month 5 tarikh ko bhej dijiye" → predicted none
-- `del-07` — truth: blocked_on_you / superseded / en — "call the enterprise trial account before it expires"  *(cost 8)*
-  - truth evidence: msg 1 [0, 19) "ill call them today"
-  - predicted: blocked_on_them / closed / en — "call the enterprise trial team"
-  - predicted evidence: msg 1 [0, 19) "ill call them today" — IoU 1.00
-  - deadline: truth explicit/2026-04-07 → predicted explicit/2026-04-10
-  - resolution: truth msg 4 [0, 36) "you take it, you ran the demo anyway" → predicted msg 5 [0, 5) "on it"
-- `del-17` — truth: blocked_on_them / open / en — "Divya exports fresh app store screenshots"
-  - truth evidence: msg 3 [0, 34) "ill export fresh ones by wednesday"
-  - predicted: blocked_on_them / open / en — "upload fresh app store screenshots"
-  - predicted evidence: msg 3 [0, 56) "ill export fresh ones by wednesday, you just upload them" — IoU 0.61
-  - deadline: truth explicit/2026-06-03 → predicted explicit/null
-- `del-18` — truth: blocked_on_you / open / hi-en — "sign the ESOP grant letters"
-  - truth evidence: msg 4 [15, 59) "main grant letters sign kar dunga friday tak"
-  - predicted: blocked_on_you / open / hi-en — "sign grant letters"
-  - predicted evidence: msg 4 [15, 59) "main grant letters sign kar dunga friday tak" — IoU 1.00
-  - deadline: truth explicit/2026-06-05 → predicted explicit/null
-- `en-31` — truth: blocked_on_them / open / en — "Dinesh regenerates and publishes the SDK docs"
-  - truth evidence: msg 1 [0, 41) "ill regenerate them and push by wednesday"
-  - predicted: blocked_on_them / open / en — "regenerate SDK docs and push by Wednesday"
-  - predicted evidence: msg 1 [0, 41) "ill regenerate them and push by wednesday" — IoU 1.00
-  - deadline: truth explicit/2026-06-03 → predicted explicit/null
-- `mix-32` — truth: blocked_on_them / open / ta-en — "Karthik fills in the factory licence renewal application form"
-  - truth evidence: msg 4 [0, 48) "naan application form fill panni vekkren innaiku"
-  - predicted: blocked_on_them / open / ta-en — "filling the application form"
-  - predicted evidence: msg 4 [0, 48) "naan application form fill panni vekkren innaiku" — IoU 1.00
-  - deadline: truth explicit/2026-06-02 → predicted none/null
-
-#### Resolution span wrong — 3
-
-- `del-08` — truth: blocked_on_you / superseded / hi-en — "send the bank this month's stock statement"  *(cost 16)*
-  - truth evidence: msg 1 [11, 32) "main aaj bhej deta hu"
-  - predicted: blocked_on_them / open / hi-en — "send stock statement to the bank every month"
-  - predicted evidence: msg 1 [11, 32) "main aaj bhej deta hu" — IoU 1.00
-  - deadline: truth explicit/2026-04-08 → predicted explicit/null
-  - resolution: truth msg 4 [16, 56) "aap hi har month 5 tarikh ko bhej dijiye" → predicted none
-- `del-07` — truth: blocked_on_you / superseded / en — "call the enterprise trial account before it expires"  *(cost 8)*
-  - truth evidence: msg 1 [0, 19) "ill call them today"
-  - predicted: blocked_on_them / closed / en — "call the enterprise trial team"
-  - predicted evidence: msg 1 [0, 19) "ill call them today" — IoU 1.00
-  - deadline: truth explicit/2026-04-07 → predicted explicit/2026-04-10
-  - resolution: truth msg 4 [0, 36) "you take it, you ran the demo anyway" → predicted msg 5 [0, 5) "on it"
-- `del-12` — truth: blocked_on_you / open / en — "sign off Neha's management response"
-  - truth evidence: msg 3 [42, 59) "you just sign off"
-  - predicted: blocked_on_you / closed / en — "send the template for the management response"
-  - predicted evidence: msg 3 [0, 59) "give me the template and ill do this one, you just sign off" — IoU 0.29
-  - resolution: truth none → predicted msg 4 [0, 34) "deal. sending you the template now"
-
 ### `local` — 143 classified failures
 
 #### False positive claiming `blocked_on_them` — 13
@@ -1392,8 +1119,9 @@ Showing the 10 worst by cost weight of 12.
 
 ## What these numbers do not say
 
-- **Scope.** Dev split only; three configurations; a single prompt version with no
-  iteration against dev results; held-out test split not yet run.
+- **Scope.** Dev split only; two configurations reported (`hosted-large`, `local`);
+  single prompt version with no iteration against dev results; held-out test split
+  not run; `hosted-redacted` attempted and incomplete.
 - **The matching threshold is a constant somebody chose.** Every table above is
   conditional on it. That is why all three thresholds are reported and why the ranking
   question is asked out loud rather than answered once at 0.5.

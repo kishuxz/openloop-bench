@@ -98,6 +98,7 @@ nav {
   margin: 0 auto;
   max-width: 1180px;
   padding: clamp(1rem, 4vw, 3rem);
+  width: 100%;
 }
 
 .page-heading {
@@ -118,6 +119,48 @@ nav {
   max-width: 48rem;
 }
 
+.data-source-banner,
+.scope-line,
+.incomplete-note,
+.gap {
+  border: 2px solid var(--rule);
+  font-weight: 700;
+  line-height: 1.45;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  padding: 0.85rem 1rem;
+}
+
+.data-source-banner {
+  background: var(--accent-bg);
+  border-width: 0 0 2px;
+  color: var(--accent);
+}
+
+.scope-line {
+  background: var(--wash);
+  margin: 1rem 0 0;
+}
+
+.incomplete-note {
+  border-color: var(--accent);
+  margin-top: 1rem;
+}
+
+.incomplete-note h2 {
+  border: 0;
+  color: var(--accent);
+  font-size: 1.25rem;
+  margin: 0.25rem 0 0.5rem;
+  padding: 0;
+}
+
+.gap {
+  background: var(--wash);
+  color: var(--muted);
+  margin: 0;
+}
+
 .eyebrow {
   color: var(--muted);
   font-size: 0.78rem;
@@ -126,6 +169,7 @@ nav {
 }
 
 .table-scroll {
+  max-width: 100%;
   overflow-x: auto;
 }
 
@@ -372,5 +416,20 @@ select {
   th,
   td {
     padding: 0.65rem 0.55rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .page {
+    padding: 0.85rem;
+  }
+
+  table {
+    font-size: 0.82rem;
+  }
+
+  th,
+  td {
+    padding: 0.55rem 0.45rem;
   }
 }
