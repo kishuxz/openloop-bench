@@ -1,0 +1,60 @@
+{
+  "thread_id": "sup-30",
+  "channel": "whatsapp",
+  "split": "dev",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Kavya",
+      "text": "anna, offsite ku venue book pannanum, 30 per",
+      "ts": "2026-07-03T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "naan innaiku evening ku shortlist anuppuren",
+      "ts": "2026-07-03T09:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Kavya",
+      "text": "anna HR budget cut aagiduchu, offsite postpone panniraanga next quarter ku",
+      "ts": "2026-07-03T16:20:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "sari, appo venam",
+      "ts": "2026-07-03T16:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Kavya a shortlist of offsite venues",
+      "direction": "blocked_on_you",
+      "counterparty": "Kavya",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 5,
+          "end": 23
+        },
+        "resolved": "2026-07-03",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 43
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 30,
+        "end": 74
+      },
+      "state": "superseded",
+      "register": "ta-en"
+    }
+  ]
+}

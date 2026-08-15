@@ -1,0 +1,67 @@
+{
+  "thread_id": "sup-34",
+  "channel": "slack",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Dinesh",
+      "text": "the flaky integration tests are costing us an hour a day in reruns",
+      "ts": "2026-07-09T09:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill spend tomorrow quarantining the worst ones",
+      "ts": "2026-07-09T09:45:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Dinesh",
+      "text": "i had a look last night, its all one fixture with a shared clock",
+      "ts": "2026-07-09T11:02:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Dinesh",
+      "text": "one line change, ive pushed it, everything is green",
+      "ts": "2026-07-09T11:03:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "well thats a better outcome than my plan",
+      "ts": "2026-07-09T11:20:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "quarantine the worst flaky integration tests",
+      "direction": "blocked_on_you",
+      "counterparty": "Dinesh",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 10,
+          "end": 18
+        },
+        "resolved": "2026-07-10",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 46
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 17,
+        "end": 51
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "Overtaken before it started, as sup-02. The work exists; the subject did not do it."
+    }
+  ]
+}

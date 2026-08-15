@@ -1,0 +1,67 @@
+{
+  "thread_id": "sup-31",
+  "channel": "email",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Nandini (LP)",
+      "text": "Could you send the updated cap table ahead of the annual meeting?",
+      "ts": "2026-07-06T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "Of course. Ill have it over to you by wednesday.",
+      "ts": "2026-07-06T11:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Nandini (LP)",
+      "text": "Thank you.",
+      "ts": "2026-07-06T12:02:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Nandini (LP)",
+      "text": "Ignore that - your company secretary sent it to all LPs this morning, I hadnt seen it.",
+      "ts": "2026-07-07T10:15:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "Ah good, saves us both a step.",
+      "ts": "2026-07-07T11:02:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Nandini the updated cap table",
+      "direction": "blocked_on_you",
+      "counterparty": "Nandini (LP)",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 35,
+          "end": 47
+        },
+        "resolved": "2026-07-08",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 11,
+        "end": 47
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 14,
+        "end": 68
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "Met by another route, so superseded rather than closed — the subject never sent anything, and the label tracks the obligation rather than the outcome."
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "thread_id": "sup-35",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Ravi (CS)",
+      "text": "anna, churn interview panna venum, 5 customers",
+      "ts": "2026-07-09T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "naan pandren, next week schedule pannuren",
+      "ts": "2026-07-09T10:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Ravi (CS)",
+      "text": "anna, research agency oru exit survey already run panniruknaanga",
+      "ts": "2026-07-10T09:15:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Ravi (CS)",
+      "text": "same 5 customers, data iruku",
+      "ts": "2026-07-10T09:16:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "adhu paathutu decide panren interview venuma nu",
+      "ts": "2026-07-10T09:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "run churn interviews with five customers",
+      "direction": "blocked_on_you",
+      "counterparty": "Ravi (CS)",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 14,
+          "end": 23
+        },
+        "resolved": null,
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 41
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 6,
+        "end": 64
+      },
+      "state": "superseded",
+      "register": "ta-en"
+    },
+    {
+      "statement": "review the agency's exit survey and decide whether interviews are still needed",
+      "direction": "blocked_on_you",
+      "counterparty": "Ravi (CS)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 47
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en"
+    }
+  ]
+}

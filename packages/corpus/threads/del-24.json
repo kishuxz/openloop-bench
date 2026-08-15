@@ -1,0 +1,85 @@
+{
+  "thread_id": "del-24",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Lakshmi (audit)",
+      "text": "sir statutory registers update karne hai, board meeting se pehle",
+      "ts": "2026-07-07T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "main karwa deta hu",
+      "ts": "2026-07-07T11:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Lakshmi (audit)",
+      "text": "sir company secretary ka kaam hai wo, unke paas hi registers hai",
+      "ts": "2026-07-07T11:35:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "haan sahi, main unko bol deta hu aaj",
+      "ts": "2026-07-07T11:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Lakshmi (audit)",
+      "text": "theek hai sir",
+      "ts": "2026-07-07T11:45:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "update the statutory registers before the board meeting",
+      "direction": "blocked_on_you",
+      "counterparty": "Lakshmi (audit)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 18
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 4,
+        "end": 36
+      },
+      "state": "superseded",
+      "register": "hi-en"
+    },
+    {
+      "statement": "instruct the company secretary to update the statutory registers",
+      "direction": "blocked_on_you",
+      "counterparty": "Lakshmi (audit)",
+      "deadline": {
+        "span": {
+          "msg_index": 3,
+          "start": 33,
+          "end": 36
+        },
+        "resolved": "2026-07-07",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 11,
+        "end": 36
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "The replacement here is not the act itself but the instruction to whoever owns it. The register update never becomes a labelled loop, because nobody in this thread commits to doing it."
+    }
+  ]
+}

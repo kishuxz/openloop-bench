@@ -1,0 +1,77 @@
+{
+  "thread_id": "del-22",
+  "channel": "whatsapp",
+  "split": "dev",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Amma",
+      "text": "beta, chacha ji ka beta ka admission ka kya hua",
+      "ts": "2026-07-06T19:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "maine call kiya tha, par mujhe engineering colleges ka kuch nahi pata ab",
+      "ts": "2026-07-06T19:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "mera dost dinesh professor hai wahi, usse baat karwa deta hu",
+      "ts": "2026-07-06T19:31:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "wo hi guide kar dega properly",
+      "ts": "2026-07-06T19:32:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Amma",
+      "text": "haan wo behtar rahega",
+      "ts": "2026-07-06T19:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "connect the cousin with Dinesh for admissions guidance",
+      "direction": "blocked_on_you",
+      "counterparty": "Amma",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 37,
+        "end": 60
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    },
+    {
+      "statement": "Dinesh guides the cousin on engineering admissions",
+      "direction": "blocked_on_them",
+      "counterparty": "Dinesh (professor)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 29
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "Delegation in a family thread, with an off-thread counterparty. The obligation to Amma survives as the introduction; the guidance itself is owed by Dinesh."
+    }
+  ]
+}
