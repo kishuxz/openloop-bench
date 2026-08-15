@@ -65,12 +65,15 @@ Conductor workspace scratch directory never gets committed.
 
 ## Decisions this repo made where both were silent
 
-**No linter or formatter config.** gstack ships neither (no ESLint, Prettier,
-Biome, or `.editorconfig` in the tree) and the brief does not ask for one.
-Adding one would mean two more dependencies and a CI step that fails on
-whitespace. `tsc` in strict mode plus the tests are the gate. Style is held by
-consistency, not by a tool: double quotes, semicolons, two-space indent,
-trailing commas, ~100 column comments.
+**ESLint, but no formatter.** gstack ships neither, and this repo initially
+shipped neither on the same reasoning. That was reversed when CI was added: a
+`lint` step is part of the required gate, so there is now a small ESLint config
+covering what `tsc` cannot see — unused expressions, shadowed bindings, `any`
+creeping into a package whose whole job is types.
+
+No formatter, though. A CI step that fails on whitespace costs more attention
+than it saves at this size. Style is held by consistency: double quotes,
+semicolons, two-space indent, trailing commas, ~100 column comments.
 
 **Strict beyond `strict: true`.** `noUncheckedIndexedAccess`,
 `exactOptionalPropertyTypes`, `noImplicitReturns`, `noUnusedLocals` and
@@ -101,3 +104,7 @@ boundaries anyway.
 | 2026-08-14 | Evidence spans validated inside `ThreadSchema`, not in a separate pass | "Parsed" and "grounded" become the same event; no consumer can forget the second check. |
 | 2026-08-14 | Offsets are UTF-16 code units, with a surrogate-pair guard | Matches `String.prototype.slice` exactly for TS consumers; the guard keeps spans convertible to code-point indices for anyone else. |
 | 2026-08-14 | No linter/formatter | gstack ships none; strict `tsc` and tests are the gate. |
+| 2026-08-14 | Reversed: ESLint added, formatter still not | CI requires a lint gate. A formatter would fail builds on whitespace for no benchmark benefit. |
+| 2026-08-14 | Bucket lives in the `thread_id` prefix, not a schema field | Visible in `ls`, greppable, and unable to disagree with the filename. Rejected a `bucket` field as a second source of truth. |
+| 2026-08-14 | `split` stored per thread, not computed at run time | A split redrawn per run can be redrawn to flatter a result. |
+| 2026-08-14 | Corpus authoring goes through quoted substrings, not hand-counted offsets | Hand-counting is how a corpus ends up with spans that resolve to the wrong words. |
