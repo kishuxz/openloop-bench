@@ -1,0 +1,526 @@
+{
+  "report_title": "Open Loop Extraction Results",
+  "report_deck": "Fixture metrics for the static results viewer. Real extractor results are not available yet.",
+  "metrics": [
+    {
+      "id": "loop_precision",
+      "label": "Loop precision",
+      "format": "percent",
+      "direction": "higher"
+    },
+    {
+      "id": "loop_recall",
+      "label": "Loop recall",
+      "format": "percent",
+      "direction": "higher"
+    },
+    {
+      "id": "closed_superseded_confusion",
+      "label": "Closed/superseded confusion",
+      "format": "percent",
+      "direction": "lower"
+    },
+    {
+      "id": "direction_accuracy",
+      "label": "Direction accuracy",
+      "format": "percent",
+      "direction": "higher"
+    },
+    {
+      "id": "negative_thread_fp_rate",
+      "label": "Negative thread FP rate",
+      "format": "percent",
+      "direction": "lower"
+    },
+    {
+      "id": "deadline_resolution_accuracy",
+      "label": "Deadline resolution accuracy",
+      "format": "percent",
+      "direction": "higher"
+    }
+  ],
+  "configs": [
+    {
+      "id": "full_text",
+      "label": "Full text",
+      "model_id": "gpt-5-mini-2026-08-fixture",
+      "description": "Reference extractor over unredacted thread text.",
+      "metric_values": {
+        "loop_precision": 0.87,
+        "loop_recall": 0.81,
+        "closed_superseded_confusion": 0.14,
+        "direction_accuracy": 0.93,
+        "negative_thread_fp_rate": 0.05,
+        "deadline_resolution_accuracy": 0.72
+      },
+      "cost_weighted_error": 0.34
+    },
+    {
+      "id": "pii_redacted",
+      "label": "PII redacted",
+      "model_id": "gpt-5-mini-2026-08-fixture",
+      "description": "Same model after deterministic PII redaction.",
+      "metric_values": {
+        "loop_precision": 0.84,
+        "loop_recall": 0.77,
+        "closed_superseded_confusion": 0.18,
+        "direction_accuracy": 0.9,
+        "negative_thread_fp_rate": 0.07,
+        "deadline_resolution_accuracy": 0.64
+      },
+      "cost_weighted_error": 0.43
+    },
+    {
+      "id": "local_model",
+      "label": "Local model",
+      "model_id": "llama-3.1-8b-instruct-fixture",
+      "description": "Local extractor baseline over unredacted text.",
+      "metric_values": {
+        "loop_precision": 0.76,
+        "loop_recall": 0.69,
+        "closed_superseded_confusion": 0.31,
+        "direction_accuracy": 0.84,
+        "negative_thread_fp_rate": 0.1,
+        "deadline_resolution_accuracy": 0.51
+      },
+      "cost_weighted_error": 0.66
+    }
+  ],
+  "notable_cells": [
+    {
+      "config_id": "local_model",
+      "metric_id": "closed_superseded_confusion",
+      "note": "Headline failure cell"
+    }
+  ],
+  "headline_callout": {
+    "label": "Closed/superseded confusion",
+    "config_id": "local_model",
+    "metric_id": "closed_superseded_confusion",
+    "value": 0.31,
+    "text": "The local fixture run confuses closed and superseded cases most often."
+  },
+  "deltas": [
+    {
+      "label": "PII redaction cost",
+      "comparison": "PII redacted vs full text",
+      "statements": [
+        "Loop recall falls by 4.0 percentage points.",
+        "Deadline resolution accuracy falls by 8.0 percentage points.",
+        "Cost-weighted error rises by 0.09."
+      ]
+    },
+    {
+      "label": "Local model cost",
+      "comparison": "Local model vs full text",
+      "statements": [
+        "Loop recall falls by 12.0 percentage points.",
+        "Closed/superseded confusion rises by 17.0 percentage points.",
+        "Cost-weighted error rises by 0.32."
+      ]
+    }
+  ],
+  "provenance": {
+    "corpus_hash": "d9c347f4f5150b19",
+    "prompt_version": "openloop-extractor-v0.3-fixture",
+    "model_ids": [
+      "gpt-5-mini-2026-08-fixture",
+      "llama-3.1-8b-instruct-fixture"
+    ],
+    "iou_threshold": 0.5,
+    "date": "2026-08-15",
+    "cost_matrix": [
+      {
+        "error": "missed_loop",
+        "weight": 5
+      },
+      {
+        "error": "fabricated_loop",
+        "weight": 4
+      },
+      {
+        "error": "wrong_state",
+        "weight": 3
+      },
+      {
+        "error": "wrong_direction",
+        "weight": 5
+      },
+      {
+        "error": "wrong_deadline",
+        "weight": 2
+      },
+      {
+        "error": "evidence_span_miss",
+        "weight": 4
+      }
+    ]
+  },
+  "corpus": {
+    "summary": [
+      {
+        "label": "Threads",
+        "value": "200"
+      },
+      {
+        "label": "Loops",
+        "value": "273"
+      },
+      {
+        "label": "Zero-loop threads",
+        "value": "40 (20.0% of threads)"
+      },
+      {
+        "label": "Dev / test",
+        "value": "80 / 120 (40.0% / 60.0%)"
+      },
+      {
+        "label": "Loops per thread",
+        "value": "1.36"
+      },
+      {
+        "label": "Loops per non-empty thread",
+        "value": "1.71"
+      }
+    ],
+    "tables": [
+      {
+        "id": "buckets",
+        "title": "Buckets",
+        "columns": ["Bucket", "All", "Dev", "Test", "Target"],
+        "rows": [
+          ["en English", "50", "20", "30", "50"],
+          ["mix Code-mixed (Hinglish/Tanglish)", "50", "20", "30", "50"],
+          ["sup Superseded", "35", "14", "21", "35"],
+          ["neg Negative (zero loops)", "40", "15", "25", "40"],
+          ["del Delegation / direction flip", "25", "11", "14", "25"]
+        ]
+      },
+      {
+        "id": "state",
+        "title": "State",
+        "columns": ["State", "All", "Dev", "Test"],
+        "rows": [
+          ["open", "175", "74", "101"],
+          ["closed", "38", "9", "29"],
+          ["superseded", "60", "24", "36"]
+        ]
+      },
+      {
+        "id": "direction",
+        "title": "Direction",
+        "columns": ["Direction", "All", "Dev", "Test"],
+        "rows": [
+          ["blocked_on_them", "84", "33", "51"],
+          ["blocked_on_you", "174", "67", "107"],
+          ["mutual", "15", "7", "8"]
+        ]
+      },
+      {
+        "id": "register",
+        "title": "Register",
+        "columns": ["Register", "All", "Dev", "Test"],
+        "rows": [
+          ["en", "155", "60", "95"],
+          ["hi-en", "67", "35", "32"],
+          ["ta-en", "51", "12", "39"],
+          ["other", "0", "0", "0"]
+        ]
+      },
+      {
+        "id": "certainty",
+        "title": "Deadline certainty",
+        "columns": ["Certainty", "All", "Dev", "Test"],
+        "rows": [
+          ["explicit", "139", "58", "81"],
+          ["implied", "45", "12", "33"],
+          ["none", "89", "37", "52"]
+        ]
+      },
+      {
+        "id": "splits",
+        "title": "Splits",
+        "columns": ["Split", "Threads", "Loops"],
+        "rows": [
+          ["dev", "80", "107"],
+          ["test", "120", "166"]
+        ]
+      }
+    ],
+    "additional_findings": [
+      "Deadlines resolved to a date: 163/273 (59.7%).",
+      "Off-thread counterparties: 11/273 delegation targets never sent a message."
+    ],
+    "separability": {
+      "score": 0.523,
+      "null_mean": 0.499,
+      "null_p95": 0.551,
+      "p_value": 0.219,
+      "split": "dev",
+      "threads": 80,
+      "positives": 65,
+      "negatives": 15,
+      "residual_features": {
+        "toward_loop": [
+          ["can", 1.34],
+          ["deta", 1.11],
+          ["one", 1.11],
+          ["send", 1.03],
+          ["tha", 0.93],
+          ["ok", 0.93]
+        ],
+        "toward_no_loop": [
+          ["anything", -2.98],
+          ["been", -2.76],
+          ["looks", -2.76],
+          ["if", -2.62],
+          ["worth", -2.06],
+          ["saw", -2.06]
+        ]
+      },
+      "history": [
+        {
+          "leak": "Real organisation names appeared in early threads.",
+          "fix": "Replaced them with roles and added the no-real-organisations rule."
+        },
+        {
+          "leak": "Accepted directives were evidenced inconsistently.",
+          "fix": "Clarified that the acceptor's own commitment wins when it exists."
+        },
+        {
+          "leak": "The negative-thread cue test was English-centric.",
+          "fix": "Moved from literal keywords to construction families across English, Hindi-English, and Tamil-English."
+        },
+        {
+          "leak": "Deadline-certainty distribution shifted between batch 0 and batch 1.",
+          "fix": "Audited sampled loops, corrected 3 labels, and recorded the remaining shift as thread-writing drift."
+        }
+      ]
+    }
+  },
+  "failures": [
+    {
+      "id": "fail-sup-01",
+      "error_type": "supersession_missed",
+      "config_id": "local_model",
+      "thread": {
+        "thread_id": "sup-01",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Priya",
+            "text": "do you have the latest deck? the one in the drive is from jan"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "yeah i have it locally"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "ill send it tonight"
+          },
+          {
+            "index": 3,
+            "sender": "Priya",
+            "text": "oh actually ravi just sent me the march one, ignore this"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "ok cool"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "send Priya the latest deck",
+        "state": "superseded",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 19,
+          "text": "ill send it tonight"
+        }
+      },
+      "prediction": {
+        "statement": "send Priya the latest deck",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 19,
+          "text": "ill send it tonight"
+        }
+      }
+    },
+    {
+      "id": "fail-del-01",
+      "error_type": "direction_flip",
+      "config_id": "pii_redacted",
+      "thread": {
+        "thread_id": "del-01",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Nandini (LP)",
+            "text": "can you share the monthly cohort data before the IC meeting?"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "sure, ill pull it and send"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "actually arjun owns that dashboard now, hes closer to the numbers"
+          },
+          {
+            "index": 3,
+            "sender": "user",
+            "text": "arjun will send it across today"
+          },
+          {
+            "index": 4,
+            "sender": "Nandini (LP)",
+            "text": "perfect, either way works"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "Arjun sends Nandini the monthly cohort data",
+        "state": "open",
+        "direction": "blocked_on_them",
+        "evidence": {
+          "msg_index": 3,
+          "start": 0,
+          "end": 31,
+          "text": "arjun will send it across today"
+        }
+      },
+      "prediction": {
+        "statement": "send Nandini the monthly cohort data",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 1,
+          "start": 6,
+          "end": 26,
+          "text": "ill pull it and send"
+        }
+      }
+    },
+    {
+      "id": "fail-neg-01",
+      "error_type": "negative_false_positive",
+      "config_id": "local_model",
+      "thread": {
+        "thread_id": "neg-01",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Ankit",
+            "text": "saw the launch post, congrats man! looks like its going well"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "thanks! long time. hows the new gig"
+          },
+          {
+            "index": 2,
+            "sender": "Ankit",
+            "text": "good good, busy. im in town till friday if that helps"
+          },
+          {
+            "index": 3,
+            "sender": "Ankit",
+            "text": "we should catch up sometime properly"
+          },
+          {
+            "index": 4,
+            "sender": "user",
+            "text": "yes definitely, its been ages. lets do it soon"
+          },
+          {
+            "index": 5,
+            "sender": "Ankit",
+            "text": "👍"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "no loop",
+        "state": "none",
+        "direction": "none",
+        "evidence": null
+      },
+      "prediction": {
+        "statement": "catch up with Ankit",
+        "state": "open",
+        "direction": "mutual",
+        "evidence": {
+          "msg_index": 4,
+          "start": 31,
+          "end": 46,
+          "text": "lets do it soon"
+        }
+      }
+    },
+    {
+      "id": "fail-mix-01",
+      "error_type": "deadline_resolution",
+      "config_id": "pii_redacted",
+      "thread": {
+        "thread_id": "mix-01",
+        "messages": [
+          {
+            "index": 0,
+            "sender": "Priya",
+            "text": "deck ka kya hua? LP call thursday hai"
+          },
+          {
+            "index": 1,
+            "sender": "user",
+            "text": "haan haan kar raha hu"
+          },
+          {
+            "index": 2,
+            "sender": "user",
+            "text": "kal tak bhej dunga pakka"
+          },
+          {
+            "index": 3,
+            "sender": "Priya",
+            "text": "ok"
+          }
+        ]
+      },
+      "true_label": {
+        "statement": "send Priya the deck",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 24,
+          "text": "kal tak bhej dunga pakka"
+        }
+      },
+      "prediction": {
+        "statement": "send Priya the deck",
+        "state": "open",
+        "direction": "blocked_on_you",
+        "evidence": {
+          "msg_index": 2,
+          "start": 8,
+          "end": 24,
+          "text": "bhej dunga pakka"
+        }
+      }
+    }
+  ]
+}

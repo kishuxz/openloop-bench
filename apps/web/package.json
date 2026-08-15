@@ -3,10 +3,21 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Static results viewer. Stub — implemented in Phase 3.",
+  "description": "Static results viewer for the benchmark report.",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "typecheck": "tsc -p tsconfig.json"
+  },
   "dependencies": {
-    "@openloop-bench/schema": "workspace:*"
+    "@openloop-bench/schema": "workspace:*",
+    "next": "^15.5.23",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4"
   }
 }
