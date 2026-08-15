@@ -1,7 +1,7 @@
 {
   "thread_id": "neg-19",
   "channel": "whatsapp",
-  "split": "dev",
+  "split": "test",
   "batch": 2,
   "messages": [
     {

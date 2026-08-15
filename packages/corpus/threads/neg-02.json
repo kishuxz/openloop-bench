@@ -12,24 +12,30 @@
     },
     {
       "index": 1,
+      "sender": "Divya",
+      "text": "design review is on the 12th so that lands before i go, nothing pending",
+      "ts": "2026-03-05T10:03:00+05:30"
+    },
+    {
+      "index": 2,
       "sender": "user",
       "text": "noted, have fun",
       "ts": "2026-03-05T10:20:00+05:30"
     },
     {
-      "index": 2,
+      "index": 3,
       "sender": "Divya",
       "text": "if anything comes up on the design side just ping me, ill have my phone",
       "ts": "2026-03-05T10:22:00+05:30"
     },
     {
-      "index": 3,
+      "index": 4,
       "sender": "user",
       "text": "wont need to. and let me know if you need anything from my end",
       "ts": "2026-03-05T10:30:00+05:30"
     },
     {
-      "index": 4,
+      "index": 5,
       "sender": "Divya",
       "text": "will do 🙏",
       "ts": "2026-03-05T10:31:00+05:30"

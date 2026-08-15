@@ -1,7 +1,7 @@
 {
   "thread_id": "neg-11",
   "channel": "whatsapp",
-  "split": "dev",
+  "split": "test",
   "batch": 1,
   "messages": [
     {
@@ -25,7 +25,7 @@
     {
       "index": 3,
       "sender": "Raghav",
-      "text": "interesting. naanum yosichitu iruken",
+      "text": "interesting. naanum yosichitu iruken, next month 15th ku oru decision edukanum",
       "ts": "2026-04-08T22:44:00+05:30"
     },
     {

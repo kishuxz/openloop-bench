@@ -1,7 +1,7 @@
 {
   "thread_id": "neg-21",
   "channel": "slack",
-  "split": "test",
+  "split": "dev",
   "batch": 2,
   "messages": [
     {

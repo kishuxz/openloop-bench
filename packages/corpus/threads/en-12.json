@@ -13,7 +13,7 @@
     {
       "index": 1,
       "sender": "user",
-      "text": "ill do it",
+      "text": "i already pulled the raw export this morning, ill turn it into a sheet",
       "ts": "2026-04-06T09:35:00+05:30"
     },
     {
@@ -47,8 +47,8 @@
       },
       "evidence": {
         "msg_index": 1,
-        "start": 0,
-        "end": 9
+        "start": 46,
+        "end": 70
       },
       "resolution": {
         "msg_index": 3,

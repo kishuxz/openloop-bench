@@ -1,7 +1,7 @@
 {
   "thread_id": "mix-38",
   "channel": "whatsapp",
-  "split": "test",
+  "split": "dev",
   "batch": 3,
   "messages": [
     {

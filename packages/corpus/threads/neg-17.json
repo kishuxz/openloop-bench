@@ -1,7 +1,7 @@
 {
   "thread_id": "neg-17",
   "channel": "slack",
-  "split": "dev",
+  "split": "test",
   "batch": 2,
   "messages": [
     {
@@ -13,7 +13,7 @@
     {
       "index": 1,
       "sender": "Divya",
-      "text": "ive already updated the tracking plan and told support",
+      "text": "i updated the tracking plan and told support",
       "ts": "2026-05-04T10:03:00+05:30"
     },
     {
@@ -25,7 +25,7 @@
     {
       "index": 3,
       "sender": "Divya",
-      "text": "well know in about a week whether it moves activation",
+      "text": "well know by the 12th whether it moves activation, thats when the cohort closes",
       "ts": "2026-05-04T10:25:00+05:30"
     }
   ],

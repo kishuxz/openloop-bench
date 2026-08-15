@@ -14,6 +14,7 @@
     "stats": "tsx src/cli/stats.ts",
     "stats:check": "tsx src/cli/stats.ts --check",
     "stats:by-batch": "tsx src/cli/stats.ts --by-batch",
+    "separability": "tsx src/cli/separability.ts",
     "typecheck": "tsc -p tsconfig.json"
   },
   "dependencies": {
