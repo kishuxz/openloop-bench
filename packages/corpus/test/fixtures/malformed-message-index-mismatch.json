@@ -1,0 +1,53 @@
+{
+  "thread_id": "malformed-message-index-mismatch",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Priya",
+      "text": "deck update?",
+      "ts": "2026-03-02T11:04:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill send it by tomorrow evening",
+      "ts": "2026-03-02T11:31:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "Priya",
+      "text": "actually ravi sent it, ignore",
+      "ts": "2026-03-02T16:45:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Priya the deck",
+      "direction": "blocked_on_you",
+      "counterparty": "Priya",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 12,
+          "end": 31
+        },
+        "resolved": "2026-03-03",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 31
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 29
+      },
+      "state": "superseded",
+      "register": "en"
+    }
+  ]
+}
