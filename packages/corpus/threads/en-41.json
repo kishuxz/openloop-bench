@@ -1,0 +1,109 @@
+{
+  "thread_id": "en-41",
+  "channel": "whatsapp",
+  "split": "dev",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Ankit",
+      "text": "hey! long time. how did the fundraise end up",
+      "ts": "2026-07-01T21:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "closed last month finally. how are you",
+      "ts": "2026-07-01T21:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Ankit",
+      "text": "good, moved to a new place in indiranagar",
+      "ts": "2026-07-01T21:32:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Ankit",
+      "text": "listen, my sister is applying to product roles, would you look at her cv?",
+      "ts": "2026-07-01T21:35:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "course, send it across",
+      "ts": "2026-07-01T21:40:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Ankit",
+      "text": "sending now",
+      "ts": "2026-07-01T21:41:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "ill go through it this weekend and send comments",
+      "ts": "2026-07-01T21:45:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "Ankit",
+      "text": "no rush at all, thank you",
+      "ts": "2026-07-01T21:46:00+05:30"
+    },
+    {
+      "index": 8,
+      "sender": "Ankit",
+      "text": "sent it, check whatsapp",
+      "ts": "2026-07-01T21:52:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "review Ankit's sister's CV and send comments",
+      "direction": "blocked_on_you",
+      "counterparty": "Ankit",
+      "deadline": {
+        "span": {
+          "msg_index": 6,
+          "start": 18,
+          "end": 30
+        },
+        "resolved": "2026-07-05",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 6,
+        "start": 0,
+        "end": 48
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "A real obligation inside a catching-up thread. Ankit will follow up if nothing arrives, which is §1 test 4 — the social setting changes nothing."
+    },
+    {
+      "statement": "Ankit sends his sister's CV",
+      "direction": "blocked_on_them",
+      "counterparty": "Ankit",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 0,
+        "end": 11
+      },
+      "resolution": {
+        "msg_index": 8,
+        "start": 0,
+        "end": 23
+      },
+      "state": "closed",
+      "register": "en"
+    }
+  ]
+}

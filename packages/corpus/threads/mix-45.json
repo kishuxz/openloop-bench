@@ -1,0 +1,107 @@
+{
+  "thread_id": "mix-45",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Imran",
+      "text": "bhai gaadi becha kya tumne",
+      "ts": "2026-07-07T20:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "abhi tak nahi, dekh raha hu",
+      "ts": "2026-07-07T20:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Imran",
+      "text": "mere cousin ko chahiye thi, wahi model",
+      "ts": "2026-07-07T20:32:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "achha? usse bol do baat kar le mujhse",
+      "ts": "2026-07-07T20:35:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Imran",
+      "text": "haan main uska number bhejta hu abhi",
+      "ts": "2026-07-07T20:36:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "aur main RC aur service history scan karke bhej dunga kal tak",
+      "ts": "2026-07-07T20:40:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "Imran",
+      "text": "perfect",
+      "ts": "2026-07-07T20:41:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "Imran",
+      "text": "uska number bheja hai, naam rohan hai",
+      "ts": "2026-07-07T20:55:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "Imran sends his cousin's number",
+      "direction": "blocked_on_them",
+      "counterparty": "Imran",
+      "deadline": {
+        "span": {
+          "msg_index": 4,
+          "start": 32,
+          "end": 36
+        },
+        "resolved": "2026-07-07",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 5,
+        "end": 36
+      },
+      "resolution": {
+        "msg_index": 7,
+        "start": 0,
+        "end": 37
+      },
+      "state": "closed",
+      "register": "hi-en"
+    },
+    {
+      "statement": "scan and send the car's RC and service history",
+      "direction": "blocked_on_you",
+      "counterparty": "Imran",
+      "deadline": {
+        "span": {
+          "msg_index": 5,
+          "start": 54,
+          "end": 61
+        },
+        "resolved": "2026-07-08",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 4,
+        "end": 61
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "A private sale between friends, with two dated commitments and no work content anywhere in the thread."
+    }
+  ]
+}
