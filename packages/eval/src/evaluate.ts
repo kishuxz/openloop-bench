@@ -40,6 +40,7 @@ import {
 } from "./metrics.js";
 import {
   hasOffsets,
+  normalizePredictionFile,
   PredictionFileSchema,
   UNMAPPABLE,
   type PredictedLoop,
@@ -77,10 +78,15 @@ export function readPredictionFile(path: string): PredictionFile {
   }
 
   const parsed = PredictionFileSchema.safeParse(json);
-  if (!parsed.success) {
-    throw new Error(`${path}: does not match the prediction format:\n  ${formatIssues(parsed.error).join("\n  ")}`);
+  if (parsed.success) return parsed.data;
+
+  try {
+    return normalizePredictionFile(json);
+  } catch (error) {
+    throw new Error(`${path}: does not match the prediction format:\n  ${formatIssues(parsed.error).join("\n  ")}\n  ${(error as Error).message}`, {
+      cause: error,
+    });
   }
-  return parsed.data;
 }
 
 /**
@@ -408,7 +414,8 @@ export function buildMatchLog(scored: ScoredRun): MatchLog {
     iou_thresholds: scored.run.iou_thresholds,
     note:
       "Every match decision at every threshold. near_misses.reason: below_threshold = overlapped but " +
-      "under the IoU bar; lost_contest = cleared the bar but a higher-IoU pair took one of the two. " +
+      "was neither contained nor over the IoU bar; lost_contest = matched the containment/IoU rule " +
+      "but a higher-IoU pair took one of the two. " +
       "Threads where nothing was predicted and nothing was labeled are counted, not listed.",
     thresholds,
   };
