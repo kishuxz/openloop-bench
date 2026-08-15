@@ -1,5 +1,5 @@
 /**
- * @openloop-bench/corpus — the labeled threads, and the tools that keep them
+ * @openloop-bench/corpus: the labeled threads, and the tools that keep them
  * honest.
  *
  * Consumers want one of two things: every thread (`loadCorpusOrThrow`), or

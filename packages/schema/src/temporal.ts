@@ -1,5 +1,5 @@
 /**
- * temporal — date and timestamp primitives, hand-rolled on purpose.
+ * temporal: date and timestamp primitives, hand-rolled on purpose.
  *
  * Zod's built-in date/datetime helpers have moved between major versions. This
  * corpus is meant to outlive a zod upgrade, so the exact accepted grammar lives

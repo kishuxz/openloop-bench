@@ -1,6 +1,6 @@
 /**
  * Span resolution. `resolveSpan` is the one implementation of "what does this
- * span say" — the validator, the tests and the eval package all go through it,
+ * span say": the validator, the tests and the eval package all go through it,
  * so its edge cases are worth pinning down precisely.
  */
 

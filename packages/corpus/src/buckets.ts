@@ -1,5 +1,5 @@
 /**
- * buckets — the deliberate composition of the corpus.
+ * buckets: the deliberate composition of the corpus.
  *
  * A benchmark whose composition is implicit is a benchmark nobody can audit.
  * The bucket lives in the `thread_id` prefix rather than in a schema field, so
@@ -35,7 +35,7 @@ export const BUCKETS: readonly Bucket[] = [
     prefix: "mix",
     label: "Code-mixed (Hinglish/Tanglish)",
     target: 50,
-    why: "Deadlines expressed non-numerically — kal tak, parso, naaliki, weekend tak.",
+    why: "Deadlines expressed non-numerically: kal tak, parso, naaliki, weekend tak.",
   },
   {
     prefix: "sup",

@@ -7,8 +7,8 @@
  * predictions contesting one true loop, no overlap at all, a span that resolves
  * to nothing, and the unmappable marker.
  *
- * The threshold cases are written as pairs — the same overlap scored at two
- * thresholds — because that is the property that matters: the classification
+ * The threshold cases are written as pairs: the same overlap scored at two
+ * thresholds: because that is the property that matters: the classification
  * changes with the constant, and the constant is a judgment call somebody made.
  */
 

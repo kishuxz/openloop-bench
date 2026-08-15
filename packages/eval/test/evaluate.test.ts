@@ -163,7 +163,7 @@ describe("scoring the shipped fixtures", () => {
     }
   });
 
-  test("recall falls as the threshold rises — the bar is doing something", () => {
+  test("recall falls as the threshold rises; the bar is doing something", () => {
     for (const { run } of scored) {
       const recalls = run.run.thresholds.map((t) => t.overall.detection.recall);
       expect(recalls[0]).toBeGreaterThanOrEqual(recalls[recalls.length - 1] ?? 0);

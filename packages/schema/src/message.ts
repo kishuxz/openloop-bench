@@ -1,5 +1,5 @@
 /**
- * message — one line in a thread.
+ * message: one line in a thread.
  *
  * `index` duplicates the array position on purpose. Evidence spans reference a
  * message by number, and a JSON array offers no way to assert that the number a
@@ -19,7 +19,7 @@ export const MessageSchema = z
 
     /**
      * `"user"` for the benchmark subject; otherwise the counterparty's display
-     * name as it appears in the thread. Placeholder names only — no real
+     * name as it appears in the thread. Placeholder names only, no real
      * contact details anywhere in this corpus.
      */
     sender: z.string().min(1),

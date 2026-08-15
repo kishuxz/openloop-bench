@@ -2,7 +2,7 @@
 
 Every rule here exists because a real thread forced the question. Read it
 before adding or disputing a label. Where a rule was a close call, the call and
-its reasoning are recorded — including the ones that remain arguable, at the
+its reasoning are recorded, including the ones that remain arguable, at the
 bottom.
 
 ---
@@ -16,10 +16,10 @@ Four tests. A candidate is a loop only if it passes all four.
 
 | Test | Passes | Fails |
 |---|---|---|
-| **Obligation** — someone owes an act | "ill send the deck" | "the deck is in the drive" |
-| **Named parties** — a specific person owes a specific person | "ill send it to you" | "someone should fix this" |
-| **Created here** — the conversation is where it was agreed | "ok ill do it" | "as per the contract, we invoice monthly" |
-| **Holdable** — the other party could reasonably chase it | "ill send it tomorrow" | "we should catch up sometime" |
+| **Obligation**: someone owes an act | "ill send the deck" | "the deck is in the drive" |
+| **Named parties**: a specific person owes a specific person | "ill send it to you" | "someone should fix this" |
+| **Created here**: the conversation is where it was agreed | "ok ill do it" | "as per the contract, we invoice monthly" |
+| **Holdable**: the other party could reasonably chase it | "ill send it tomorrow" | "we should catch up sometime" |
 
 The fourth test does the most work. Ask it concretely: *if this never happened,
 would the other person feel entitled to follow up?* If the honest answer is no,
@@ -44,34 +44,34 @@ deck by Friday" is the same loop. Hedging is how adults commit to things they
 are not certain of.
 
 **This is a rule about what does NOT rule a loop out.** It never establishes a
-loop on its own — §1 remains the only gate. Read it as a necessary condition
+loop on its own; §1 remains the only gate. Read it as a necessary condition
 being cleared, not a sufficient one being met.
 
 That distinction is the whole point. An earlier draft of this section stated the
-inverse — that a first-person future-tense statement aimed at a named
-counterparty *is* a commitment — and it collided with the availability rule and
+inverse, that a first-person future-tense statement aimed at a named
+counterparty *is* a commitment, and it collided with the availability rule and
 the conditional rule below, because a sufficient condition has to be reconciled
 against every other rule that could also fire. A necessary condition composes
 instead: it removes one wrong reason to reject, and leaves §1 to decide.
 
 #### Worked cases
 
-**`sup-04` — "I'll come back to you in July".** Not hedged, so there is nothing
+**`sup-04`, "I'll come back to you in July".** Not hedged, so there is nothing
 to strip. Apply §1 directly: there is an act (coming back), a named party
-(Aditya to the user), and it is holdable — the user would reasonably follow up
+(Aditya to the user), and it is holdable, since the user would reasonably follow up
 in August. It is a commitment, which makes Aditya's message a **deferral rather
 than a cancellation**, and the user's proposal obligation survives it. The loop
 stays `open`.
 
-**`neg-04` — "I'll keep an eye out for the portfolio companies you mentioned".**
+**`neg-04`, "I'll keep an eye out for the portfolio companies you mentioned".**
 Also not hedged. Strip nothing, apply §1, and it fails two tests: there is no
-act with a completion state — "keeping an eye out" is a posture, not a
-deliverable — and nobody can chase it, because there is no moment at which it is
+act with a completion state, because "keeping an eye out" is a posture rather
+than a deliverable, and nobody can chase it, because there is no moment at which it is
 late. Not a loop. Note that **hedging was never the reason**; the earlier draft
 made it look like the reason, which is precisely the confusion this
 reformulation removes.
 
-**`neg-08` — "if the round closes ill definitely try and get you in".** Strip
+**`neg-08`, "if the round closes ill definitely try and get you in".** Strip
 the hedge and you are left with "if the round closes, I'll get you in", which is
 resolved by the conditional-on-an-uncertain-event rule below, independently of
 anything in this section. The round may never close, and neither party treats it
@@ -80,35 +80,35 @@ as owed. Not a loop.
 **Not loops.** Social maintenance language. It uses the grammar of commitment
 and carries none of the obligation:
 
-- "we should catch up sometime" — no act, no party owes it, nobody chases it
-- "let me know if you need anything" — an offer of availability, not an act
-- "happy to help whenever" — same
-- "do reach out anytime" — same
-- "lets do it soon" in reply to any of the above — agreement to a non-act
-- "kabhi milte hai" / "epavachum coffee pogalam" — the code-mixed equivalents
+- "we should catch up sometime": no act, no party owes it, nobody chases it
+- "let me know if you need anything": an offer of availability, not an act
+- "happy to help whenever": same
+- "do reach out anytime": same
+- "lets do it soon" in reply to any of the above: agreement to a non-act
+- "kabhi milte hai" / "epavachum coffee pogalam": the code-mixed equivalents
 
 **The discriminator: is there an act, with an owner, that could be late?**
 "Catching up" has no owner and cannot be late. "Sending the deck" has both.
 
 **Also not loops:**
 
-- **Availability.** "collect the parking passes anytime" — nothing is owed;
+- **Availability.** "collect the parking passes anytime". Nothing is owed;
   the counterparty is not waiting.
-- **Completed acts.** "i already updated the runbook this morning" — past
+- **Completed acts.** "i already updated the runbook this morning". Past
   tense, nothing outstanding. Watch for these in negatives; extractors
   routinely turn them into open loops.
-- **Broadcasts.** "deploying at 4pm, shout if anything looks off" — an
+- **Broadcasts.** "deploying at 4pm, shout if anything looks off". An
   invitation to react, addressed to nobody in particular.
 - **Conditionals on an uncertain event.** "if the round closes ill get you in"
-  — the condition may never occur and neither party treats it as owed. Compare
+  The condition may never occur and neither party treats it as owed. Compare
   a conditional on a *certain* event, which IS a loop: "once the invoice
-  arrives ill process it" — the invoice is coming.
+  arrives ill process it", where the invoice is coming.
 
 **Are loops, despite hedged phrasing:** see soft commitments, next.
 
 ### In-flight statements
 
-"on it", "looking", "rolling it back now", "pulling the numbers" — present
+"on it", "looking", "rolling it back now", "pulling the numbers" are present
 tense, already started, no future-tense promise to point at.
 
 **An in-flight statement is a commitment when it names the act the counterparty
@@ -120,7 +120,7 @@ Label it, with the evidence span on the in-flight clause.
 "checking". These say attention has been paid, not that anything is owed. If
 the thread never names the act anywhere, there is nothing to be late on.
 
-The distinction is the same one §1 test 1 makes — is there an act? — applied to
+The distinction is the same one §1 test 1 makes (is there an act?), applied to
 a tense that does not announce one. `en-19` has both: "looking" is not labeled,
 "rolling it back now" two messages later is.
 
@@ -132,8 +132,8 @@ counterparty field.
 **Use the person the act is owed to, not the channel.** If someone asks and the
 subject answers, the asker is the counterparty even if six people watched.
 
-**When it is genuinely owed to the group** — "ill post the numbers here before
-standup" with no one having asked — use the most specific standing party
+**When it is genuinely owed to the group**, as in "ill post the numbers here
+before standup" with no one having asked, use the most specific standing party
 available: the person who raised the topic, or the person who will be blocked
 without it. If nobody fits, use the channel or team as the counterparty string
 ("#launch", "the ops team"). A loop owed to everybody and nobody still has to be
@@ -149,7 +149,7 @@ discharged.
 
 **A partly delivered commitment stays `open`.** `closed` asserts the promised
 act was performed, and half of it was not. Do not close it and open a
-replacement either — that would double-count in recall and imply the original
+replacement either, because that would double-count in recall and imply the original
 commitment ended, which it did not.
 
 Record what arrived in `notes`. If the remainder carries a new deadline, that
@@ -159,24 +159,24 @@ deadline replaces the original on the same loop.
 
 "attached" → "this is the old version, can you resend?"
 
-**Label two loops.** The first is `closed` — the promisor did the thing they
+**Label two loops.** The first is `closed`, because the promisor did the thing they
 said they would do, and the label tracks the obligation rather than whether the
 result was any good. The second is a new loop created by the rejection, owed by
 whoever now owes the corrected version.
 
 This is deliberately not supersession. Nothing was cancelled or handed off; a
 commitment completed and a fresh one replaced it. Getting this wrong in the
-other direction — one perpetually open loop — would hide the delivery that
+other direction, into one perpetually open loop, would hide the delivery that
 demonstrably happened.
 
 ### Recurring and standing commitments
 
-"ill send it every monday", "aap hi har month 5 tarikh ko bhej dijiye" — an
-arrangement rather than an act, with no single occurrence that is the thing
+"ill send it every monday", "aap hi har month 5 tarikh ko bhej dijiye" describe
+an arrangement rather than an act, with no single occurrence that is the thing
 owed.
 
 **Label it once, as one loop, with `certainty: "none"`.** The obligation is
-real and holdable — the counterparty will follow up when a Monday passes — but
+real and holdable, since the counterparty will follow up when a Monday passes, but
 it has no due date, because every date is equally its due date. Do not label
 one loop per expected occurrence; the corpus would fill with loops nobody
 created.
@@ -195,7 +195,7 @@ Most commitments are made by the person who owes them. Some are handed over and
 taken: "can you send both of them the standard rejection?" → "ok".
 
 **A directive plus an acceptance is a commitment**, and the evidence span goes
-on the **directive** — the clause naming the act — not on the bare "ok". The
+on the **directive**, the clause naming the act, not on the bare "ok". The
 acceptance is what makes it binding, but a span pointing at "ok" would tell a
 reader nothing about what was agreed, and §6's test applies here too: could a
 stranger reconstruct the obligation from the span alone?
@@ -207,9 +207,9 @@ counterparty has to take it: "ok", "sure", "will do", "noted", or acting on it.
 you send the sheet?" → "ok anna" → "innaiku night ku share panren" is evidenced
 on the last of those, not on the directive. The directive form is for when
 acceptance is *all* they say. Prefer the span that carries the most of the
-obligation — usually the one naming both the act and the deadline.
+obligation, usually the one naming both the act and the deadline.
 
-Direction follows who ends up owing the act, exactly as in §4 — a directive the
+Direction follows who ends up owing the act, exactly as in §4: a directive the
 subject issues and someone else accepts is `blocked_on_them`.
 
 
@@ -227,7 +227,7 @@ Because that is a deferral, the obligation to send a proposal survives, so the
 loop is `open` rather than `superseded` and carries no `resolution`. The friday
 deadline does not survive, so `certainty` drops from `explicit` to `implied`
 with a null span. July is a month-long range with no endpoint both parties would
-name identically, so `resolved` stays null under §8. Direction is unchanged —
+name identically, so `resolved` stays null under §8. Direction is unchanged, and
 the user still owes the proposal, so `blocked_on_you`.
 
 One question this leaves open: Aditya's "I'll come back to you in July" clears
@@ -238,7 +238,7 @@ is arguable, and a second annotator might add the loop.
 
 ---
 
-## 3. Soft commitments — "I'll try to"
+## 3. Soft commitments: "I'll try to"
 
 A worked case of the hedging rule in §2, not a separate assertion. Everything
 here follows from stripping the hedge and applying §1; nothing here can make
@@ -255,7 +255,7 @@ would delete most real founder messaging from the benchmark.
 The schema has no confidence field, deliberately. Adding one would invite an
 extractor to hide behind "low confidence" instead of committing to a call.
 
-**Where hedging does change the label — the deadline.** A hedge attached to
+**Where hedging does change the label: the deadline.** A hedge attached to
 the *time* rather than the act weakens `certainty`:
 
 - "ill send it friday" → `explicit`, resolved to Friday
@@ -265,7 +265,7 @@ the *time* rather than the act weakens `certainty`:
 - "ill send it sometime next week maybe" → `explicit` span, `resolved: null`.
 
 **The line between a hedge and a refusal.** "ill see what i can do" with no act
-named is not a loop — there is no act to be late on. "ill see if i can get you
+named is not a loop, because there is no act to be late on. "ill see if i can get you
 the q1 numbers by friday" is a loop: the act and the time are both there.
 
 ---
@@ -274,14 +274,14 @@ the q1 numbers by friday" is a loop: the act and the time are both there.
 
 `direction` is read from the subject's point of view:
 
-- `blocked_on_them` — the counterparty owes the subject
-- `blocked_on_you` — the subject owes the counterparty
-- `mutual` — neither can move without the other
+- `blocked_on_them`: the counterparty owes the subject
+- `blocked_on_you`: the subject owes the counterparty
+- `mutual`: neither can move without the other
 
 **`mutual` is narrow.** Use it only when the act genuinely cannot be performed
 by one side: scheduling that needs both calendars, a decision both must be
 present for. "Let's find 30 mins this week" is mutual. "Let me know what times
-work" is not — that is `blocked_on_them`, because one named person owes one
+work" is not; that is `blocked_on_them`, because one named person owes one
 named act.
 
 **Direction is about who owes the act, not which company they work for.** When
@@ -310,7 +310,7 @@ force a wrong label. `pnpm stats` reports how many such loops exist.
 ### Direction flips without delegation
 
 Same rule, two loops: the counterparty's commitment is superseded and the
-subject's replaces it. `del-02` is the model — Tanvi owes a postmortem, then
+subject's replaces it. `del-02` is the model: Tanvi owes a postmortem, then
 cannot, and the subject takes it. An extractor that reports one loop
 `blocked_on_them` at the end of that thread would nudge the wrong person.
 
@@ -321,9 +321,9 @@ cannot, and the subject takes it. An extractor that reports one loop
 The single most consequential distinction in the corpus, and the reason the
 benchmark exists.
 
-> **`closed`** — the promised act was performed, by the person who promised it.
+> **`closed`**: the promised act was performed, by the person who promised it.
 >
-> **`superseded`** — the obligation as stated stopped existing without that
+> **`superseded`**: the obligation as stated stopped existing without that
 > person performing it. Cancelled, delegated, overtaken, or met by another
 > route.
 
@@ -356,7 +356,7 @@ tracks commitments and one that pattern-matches on happy endings.
 can supersede their own commitment by replacing it (`sup-06`).
 
 **A failed attempt supersedes.** In `sup-05` the underlying debt survives, but
-the *commitment* — pay today, by transfer — is dead, and a new one replaced it.
+the *commitment*, pay today by transfer, is dead, and a new one replaced it.
 Two loops, not one edited loop. An extractor that reports one live payment loop
 still gets credit for the live one.
 
@@ -368,7 +368,7 @@ still gets credit for the live one.
 outstanding, and must be strictly later than `evidence`. Pick the **smallest
 span that a reader could use to justify the state change on its own.**
 
-**Explicit closure or cancellation** — point at the performative words:
+**Explicit closure or cancellation.** Point at the performative words:
 
 - "sent, youre both on the thread now" → the whole clause
 - "Hold off on that actually" → the cancellation itself, not the paragraph of
@@ -378,13 +378,13 @@ span that a reader could use to justify the state change on its own.**
 Where a message both cancels and explains, span the cancellation. The
 explanation is context; it is not what changed the state.
 
-**Implicit closure — the deliverable simply arrives.** Nobody announces
+**Implicit closure, where the deliverable simply arrives.** Nobody announces
 anything; the thing shows up, or a reply proves it did.
 
 - Point at the **arrival evidence**, in this order of preference:
-  1. The sender's own statement of delivery — "sheet anuppiten, check
+  1. The sender's own statement of delivery: "sheet anuppiten, check
      pannunga" (`mix-08`), "added you to staging, try now" (`en-09`).
-  2. Failing that, the counterparty's acknowledgement that it arrived — "got
+  2. Failing that, the counterparty's acknowledgement that it arrived: "got
      it", "in, thanks". This is weaker: it proves receipt, and receipt implies
      delivery.
 - Do **not** use a bare "thanks". Gratitude is not proof of arrival; people
@@ -393,8 +393,8 @@ anything; the thing shows up, or a reply proves it did.
 - Do **not** use a message from outside the thread's own text. If the corpus
   cannot see it, it did not happen.
 
-**Delegation.** Point at the handoff clause — "actually arjun owns that
-dashboard now", "priya bhej degi", "looping in Fatima from our ops side" — not
+**Delegation.** Point at the handoff clause, so "actually arjun owns that
+dashboard now", "priya bhej degi", "looping in Fatima from our ops side", not
 at the new commitment that follows it. The handoff is what killed the old loop;
 the new commitment is the evidence for the *new* loop.
 
@@ -409,7 +409,7 @@ If not, the resolution span is in the wrong place.
 All three spans are half-open `[start, end)` character ranges in UTF-16 code
 units, resolving against exactly one message.
 
-**`evidence`** — the clause that creates the obligation. Start at the subject
+**`evidence`**: the clause that creates the obligation. Start at the subject
 or verb that commits ("ill send it…"), end at the end of the committed act.
 Include a deadline phrase when it sits inside the same clause ("ill send it by
 tomorrow evening"); do not reach across a sentence boundary to collect one.
@@ -418,7 +418,7 @@ tomorrow evening"); do not reach across a sentence boundary to collect one.
 bubbles constantly. When that happens, span the message containing the
 commitment itself and let the rest be context.
 
-**`deadline.span`** — the time phrase only. "kal tak", not "kal tak bhej
+**`deadline.span`**: the time phrase only. "kal tak", not "kal tak bhej
 dunga". It frequently lives in a *different* message from the evidence, which
 is legal and expected.
 
@@ -440,12 +440,12 @@ that does not land on real text.
 `certainty` is about whether anyone **said** the deadline, not whether one
 exists.
 
-- **`explicit`** — someone stated a time. Requires a span.
-- **`implied`** — nobody stated a time for this commitment, but the thread
+- **`explicit`**: someone stated a time. Requires a span.
+- **`implied`**: nobody stated a time for this commitment, but the thread
   makes one unavoidable. `en-05`: the GST filing is on the 20th, so the
   invoices are due before it, though nobody attached that date to the promise.
-  Span must be null — if there is a phrase to point at, it is explicit.
-- **`none`** — no deadline at all.
+  Span must be null. If there is a phrase to point at, it is explicit.
+- **`none`**: no deadline at all.
 
 **Resolving to a date.** `resolved` is the last day the commitment could be met
 without being late, computed against the timestamp of the message it was said
@@ -457,12 +457,12 @@ in.
 | "parso" | +2 days | Hindi "parso" is bidirectional; future reading is used, and every corpus instance is unambiguous in context |
 | "today", "innaiku", "shaam tak", "by eod" | same day | |
 | "by friday", "on monday" | the next such weekday | |
-| "weekend tak" | the coming Sunday | Sunday, not Saturday — the last day of the weekend |
+| "weekend tak" | the coming Sunday | Sunday, not Saturday, being the last day of the weekend |
 | "month end kulla" | last day of that month | Both parties would name the same day |
 | "this week", "agle hafte", "next week" | **null** | A seven-day range with no endpoint both parties would name identically |
 
 The last row is a deliberate refusal. Resolving "agle hafte" to a Friday would
-be the labeler inventing a date — the exact failure this benchmark measures in
+be the labeler inventing a date, the exact failure this benchmark measures in
 extractors. `certainty: "explicit"` with `resolved: null` is a valid and
 common combination.
 
@@ -474,8 +474,8 @@ for exactly this reason, and it is easy to mistake for the `en-05` pattern,
 where the filing date genuinely bounds the finish.
 
 **Immediacy markers are explicit, resolved to that day.** "ill mail it to you
-now", "rotate panren ippo", "bhejta hu abhi". These state a time — the
-strongest one available — and labeling them `none` while labeling "today"
+now", "rotate panren ippo", "bhejta hu abhi". These state a time, the
+strongest one available, and labeling them `none` while labeling "today"
 explicit puts the stronger phrasing in the weaker bucket. Span the marker
 itself, not the whole clause.
 
@@ -488,7 +488,7 @@ time and the labeler stops reading there.
 
 **Worked negative: `en-04`.** "would be good to ship before the demo", where
 the demo's date never appears anywhere in the thread. `implied` requires a date
-the thread makes *computable*, not merely an event it references — so this is
+the thread makes *computable*, not merely an event it references, so this is
 `none`. Compare `en-09`, where "the mehta demo is on the 18th" makes the same
 structure computable and the label is `implied`. This was §11's third entry
 until the rule it exercises became explicit enough to promote it.
@@ -500,15 +500,15 @@ until the rule it exercises became explicit enough to promote it.
 **`register`** describes the language of the span the loop came from, not the
 thread. One thread can carry loops of different registers.
 
-- `en` — English, including Indian-English idiom ("do the needful", "revert
+- `en`: English, including Indian-English idiom ("do the needful", "revert
   by EOD")
-- `hi-en` — romanized Hindi/English mixing
-- `ta-en` — romanized Tamil/English mixing
-- `other` — anything else. **Currently unused.** No thread in the seed corpus
+- `hi-en`: romanized Hindi/English mixing
+- `ta-en`: romanized Tamil/English mixing
+- `other`: anything else. **Currently unused.** No thread in the seed corpus
   is in another code-mix, and inventing one to fill an enum slot would be
   worse than leaving it empty.
 
-**`statement`** is a description, not a quote — the quote is `evidence`. Write
+**`statement`** is a description, not a quote; the quote is `evidence`. Write
 it so it stands alone outside the thread: "send the updated cap table to
 Priya", not "he said he'd send it".
 
@@ -529,8 +529,8 @@ paying for: `en-`, `mix-`, `sup-`, `neg-`, `del-`. The filename is the id.
 `pnpm stats:check` fails if a bucket is empty in either split.
 
 `split` is `dev` or `test`, stored in the thread file. **Do not read `test`
-while iterating on prompts.** Both splits carry every phenomenon — closed,
-superseded, mutual, implied deadlines, all three registers — so nothing forces
+while iterating on prompts.** Both splits carry every phenomenon, including
+closed, superseded, mutual, implied deadlines and all three registers, so nothing forces
 you to.
 
 To add a thread: write it, label it, run `pnpm validate`, then `pnpm stats` to
@@ -540,8 +540,9 @@ confirm the composition still matches the targets in `src/buckets.ts`.
 
 Personal names are placeholders, and so is everything else. **Do not name a real
 company, fund, bank, product or institution**, in a message or in a `sender`
-field. Use a role instead — "(client)", "(vendor)", "(insurance)", "(VC)",
-"(prospect)" — or refer to it generically: "their payments team", "the fund".
+field. Use a role instead, such as "(client)", "(vendor)", "(insurance)",
+"(VC)" or "(prospect)", or refer to it generically: "their payments team",
+"the fund".
 
 Two reasons, and the second is the one that bites. A public benchmark should not
 put invented words in a real company's mouth. And a real name is a token an
@@ -549,8 +550,8 @@ extractor can key on: "Accel" reads as investor context in a way that
 "(VC)" does not, so the corpus would be teaching brand recognition rather than
 commitment detection.
 
-Three Phase 1 threads violated this and were corrected during the batch 1 audit
-— see `DRIFT.md`.
+Three Phase 1 threads violated this and were corrected during the batch 1 audit.
+See `DRIFT.md`.
 
 ---
 
@@ -564,13 +565,13 @@ been promoted out of this list once the rules they exercised became explicit:
 **1. `sup-05`, the bounced transfer.** The debt survives the failed payment, so
 one could argue for a single `open` loop with a revised deadline rather than a
 superseded loop plus a new one. Two loops was chosen because the commitment
-that was made — *today, by transfer* — measurably did not happen, and an
+that was made, *today, by transfer*, measurably did not happen, and an
 extractor that cannot see that has missed something real. The cost: an
 extractor reporting one sensible payment loop is penalised on recall.
 
 **2. `en-06`, "lets find 30 mins this week".** Labeled `mutual`. Divya then
 says "ill look at my calendar", which is arguably a `blocked_on_them` loop of
-its own. It was not labeled separately — checking a calendar is a step toward
+its own. It was not labeled separately, because checking a calendar is a step toward
 the mutual act, not an obligation the subject would chase independently. If a
 second annotator split it, the mutual/`blocked_on_them` boundary would need
 tightening.
@@ -584,7 +585,7 @@ added when the corpus grows, because it sits exactly on the boundary.
 This thread briefly appeared to collide with §2, when that section stated
 hedging as a sufficient condition for a commitment. The collision was resolved
 by **reformulating §2 as a necessary condition, not by reclassifying this
-thread** — its label never changed, and neither did `neg-04`'s. A rule that
+thread**. Its label never changed, and neither did `neg-04`'s. A rule that
 forces label changes to stay self-consistent is usually the wrong rule.
 
 **4. Weekend semantics.** "weekend tak" resolves to Sunday. In practice many
@@ -595,5 +596,5 @@ phrase allows. Arguable, and it affects `mix-04`.
 **5. `del-03`, Fatima.** `blocked_on_them` even though Fatima is on the
 subject's own team, so from the client's perspective the subject's company
 still owes it. Direction is defined from the *subject as an individual*, which
-is the only reading that keeps the autonomy boundary meaningful — the subject
+is the only reading that keeps the autonomy boundary meaningful, since the subject
 cannot perform the act, so a system must not act as though they can.

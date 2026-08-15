@@ -4,7 +4,7 @@
  * `tsc` in strict mode already catches most of what a linter would, so this
  * config exists for the things the compiler cannot see: unused expressions,
  * shadowed bindings, `any` creeping into a package whose whole job is types.
- * It is not a style enforcer — there is no formatter in this repo and no rule
+ * It is not a style enforcer. There is no formatter in this repo and no rule
  * here fails on whitespace.
  */
 

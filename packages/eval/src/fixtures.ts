@@ -1,5 +1,5 @@
 /**
- * fixtures — synthetic prediction files, generated from the dev ground truth by
+ * fixtures: synthetic prediction files, generated from the dev ground truth by
  * declared perturbations.
  *
  * Phase 4 has to be finished and trustworthy before Phase 3 produces a single
@@ -8,29 +8,29 @@
  * the first answer and are the wrong one: they go stale the moment a thread is
  * edited, their spans have to be hand-counted (the exact failure the corpus
  * authoring rules exist to prevent), and nobody can say what the "right" score
- * for them is, so they cannot tell you the eval is correct — only that it runs.
+ * for them is, so they cannot tell you the eval is correct, only that it runs.
  *
  * Instead the fixtures are *derived*: take the dev labels and damage them in
  * ways that are declared up front. Every perturbation is a counter rule
  * ("every 7th loop is dropped"), so the file is a pure function of the corpus,
- * regenerable, and — the point — the eval's output can be checked against what
+ * regenerable, and, the point of all of it, the eval's output can be checked against what
  * was injected. If 14 direction flips go in and the confusion matrix reports
  * 11, the matcher is losing pairs, and the fixture is what says so.
  *
  * The three configurations are shaped to be *interestingly* different rather
  * than realistically different:
  *
- *   fixture-dev     — the reference. Moderate errors of every kind, spans a
+ *   fixture-dev:     the reference. Moderate errors of every kind, spans a
  *                     little wide, including the ungrounded and unmappable
  *                     spans that no hand-written fixture would think to add.
- *   fixture-greedy  — over-fires. Evidence spans swallow the whole message and
+ *   fixture-greedy:  over-fires. Evidence spans swallow the whole message and
  *                     it invents loops in threads that have none. It exists to
  *                     make the IoU threshold bite: whole-message spans clear
  *                     0.3 and fail 0.7, so this config's ranking is expected to
  *                     move, which is the thing the report has to be able to
  *                     notice.
- *   fixture-strict  — under-fires. Drops one loop in three and keeps its spans
- *                     tight. High precision, poor recall — the shape the cost
+ *   fixture-strict:  under-fires. Drops one loop in three and keeps its spans
+ *                     tight. High precision, poor recall, the shape the cost
  *                     model deliberately prefers.
  *
  * None of these is a claim about how any model behaves. They are test vectors.

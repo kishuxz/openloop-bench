@@ -1,5 +1,5 @@
 /**
- * evaluate — the run: corpus in, prediction file in, metrics and match log out.
+ * evaluate: the run: corpus in, prediction file in, metrics and match log out.
  *
  * Three refusals live here, and they are the reason this file exists as
  * something other than glue.
@@ -14,7 +14,7 @@
  * **It will not score a prediction file whose corpus hash differs from the
  * corpus on disk.** Predictions are offsets into specific message strings. Move
  * a comma in a thread and every span after it means something slightly
- * different, while still resolving — so the failure is silent, and the number
+ * different, while still resolving, so the failure is silent, and the number
  * it produces is a comparison between two corpora presented as a comparison
  * between two configs.
  *
@@ -233,11 +233,11 @@ export function scoreRun(file: PredictionFile, options: ScoreOptions = {}): Scor
 // ---------------------------------------------------------------------------
 
 /**
- * `results/matches-{config}-{split}.json` — the file that makes hand-review
+ * `results/matches-{config}-{split}.json`, the file that makes hand-review
  * possible, and the reason the matcher can be argued with.
  *
  * Every decision is in it: what matched what and at what IoU, every prediction
- * that matched nothing, every true loop nothing reached, and every near miss —
+ * that matched nothing, every true loop nothing reached, and every near miss,
  * the pairs that overlapped and fell under the threshold, and the pairs that
  * cleared it and lost the one-to-one contest. Both spans are written with the
  * text they resolve to, so checking a disputed decision means reading two

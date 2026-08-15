@@ -4,7 +4,7 @@
  * `test/fixtures/valid-control.json` is the same thread with nothing wrong
  * with it. Every malformed fixture is that control with exactly one fault
  * introduced, so a test that asserts "this fixture is rejected" is asserting
- * that the specific rule fires — not that the fixture happens to be broken in
+ * that the specific rule fires, not that the fixture happens to be broken in
  * some other way too. If the control ever stops parsing, every other
  * assertion in this file becomes meaningless, which is why it is checked
  * first.
@@ -30,7 +30,7 @@ function rejectionReason(name: string): string {
 }
 
 describe("the control fixture", () => {
-  test("parses — without this, every rejection below proves nothing", () => {
+  test("parses; without this, every rejection below proves nothing", () => {
     const result = ThreadSchema.safeParse(fixture("valid-control"));
     expect(result.success ? [] : result.error.issues.map((i) => i.message)).toEqual([]);
   });

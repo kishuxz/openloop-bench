@@ -1,11 +1,11 @@
 /**
- * thread — a conversation plus its ground-truth labels.
+ * thread: a conversation plus its ground-truth labels.
  *
  * This file is where the benchmark's anti-fabrication guarantees are actually
  * enforced, because every one of them is a cross-field check: a Loop on its own
  * cannot see the text it claims to be grounded in.
  *
- * `ThreadSchema` refuses to produce a Thread whose spans do not resolve — all
+ * `ThreadSchema` refuses to produce a Thread whose spans do not resolve. All
  * three of them, evidence, resolution and deadline. That is deliberate: it
  * means "parsed successfully" and "grounded in real text" are the same event,
  * and no downstream consumer has to remember to run a second check.
@@ -18,7 +18,7 @@ import { ChannelSchema, SplitSchema } from "./enums.js";
 import { LoopSchema, type Loop, type Span } from "./loop.js";
 import { MessageSchema, type Message } from "./message.js";
 
-/** `thread_id` must be a lowercase slug — it is also the filename on disk. */
+/** `thread_id` must be a lowercase slug, because it is also the filename on disk. */
 const THREAD_ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 /**
@@ -36,7 +36,7 @@ export const ThreadShapeSchema = z
      * Which half of the benchmark this thread belongs to. Prompt iteration
      * happens against `dev`; `test` is scored and must not be read while
      * tuning. Roughly 40/60 dev/test, with every distribution bucket present
-     * in both — a split that holds all the negatives, or all the code-mixed
+     * in both. A split that holds all the negatives, or all the code-mixed
      * threads, would make the two halves measure different things.
      */
     split: SplitSchema,
@@ -46,7 +46,7 @@ export const ThreadShapeSchema = z
      *
      * Stored rather than derived from the id, because deriving it means
      * hard-coding per-bucket id ranges in every consumer, and the first
-     * consumer that did so got `sup-07..09` and `del-07..08` wrong — they read
+     * consumer that did so got `sup-07..09` and `del-07..08` wrong, because they read
      * as Phase 1 by their numbers and are not. The drift protocol compares
      * distributions between consecutive batches, so a wrong batch number
      * silently invalidates the comparison that exists to catch silent errors.
@@ -55,7 +55,7 @@ export const ThreadShapeSchema = z
 
     messages: z.array(MessageSchema).min(1),
 
-    /** Ground truth. Empty is a valid and important label — see the negatives. */
+    /** Ground truth. Empty is a valid and important label; see the negatives. */
     loops: z.array(LoopSchema),
   })
   .describe("A conversation plus its ground-truth open-loop labels");
@@ -73,7 +73,7 @@ export interface HasMessages {
  *
  * Offsets are UTF-16 code units, so a span boundary can land between the two
  * halves of an astral character (an emoji, most commonly). Such a span still
- * "resolves" — to a lone surrogate that renders as a replacement character.
+ * "resolves", to a lone surrogate that renders as a replacement character.
  * Rejecting it keeps every span in the corpus sliceable into real text.
  */
 export function splitsSurrogatePair(text: string, offset: number): boolean {
@@ -85,7 +85,7 @@ export function splitsSurrogatePair(text: string, offset: number): boolean {
 
 /**
  * Resolve a span to the text it points at, or null if it does not resolve.
- * The single implementation of "what does this span say" — used by the
+ * The single implementation of "what does this span say", used by the
  * validator, the tests, and (later) the eval package's grounding check.
  */
 export function resolveSpan(messages: readonly Message[], span: Span): string | null {
@@ -104,7 +104,7 @@ export function resolveEvidence(messages: readonly Message[], evidence: Span): s
 }
 
 /**
- * The deadline exactly as it was typed — "kal tak", "parso", "by EOD friday" —
+ * The deadline exactly as it was typed, so "kal tak", "parso", "by EOD friday",
  * or null when no deadline was stated. Always use this rather than slicing:
  * the deadline span routinely sits in a different message than the evidence,
  * and hand-slicing against the wrong message is the easiest way to silently
@@ -222,7 +222,7 @@ export const ThreadSchema = ThreadShapeSchema.superRefine((thread, ctx) => {
 export type Thread = z.infer<typeof ThreadSchema>;
 
 /**
- * The whole corpus. Thread ids must be unique — they key every per-thread
+ * The whole corpus. Thread ids must be unique, because they key every per-thread
  * metric the eval package will emit, and a silent collision would average two
  * different threads into one number.
  */

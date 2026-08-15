@@ -1,9 +1,9 @@
 # openloop-bench
 
-A labeled benchmark for extracting open loops — outstanding commitments between
-two people — from real founder messaging, where the commitment is made in
-passing, the deadline is "kal tak", and the retraction arrives four messages
-later looking exactly like everything else.
+An open loop is an outstanding commitment between two people. This is a labeled
+benchmark for extracting them from real founder messaging, where the commitment
+is made in passing, the deadline is "kal tak", and the retraction arrives four
+messages later looking exactly like everything else.
 
 **Status, 15 August 2026.** Corpus complete: 200 threads, 273 loops, 510
 validated character spans. Labeling rulebook, extractor, matcher, metrics, cost
@@ -20,7 +20,7 @@ rate limits, to be re-run.
 |---|---|---|---|
 | Threads | 200 | Loops | 273 |
 | Spans | 510 | Zero-loop threads | 40 (20%) |
-| dev / test | 80 / 120 | Thread length | 3–24 messages |
+| dev / test | 80 / 120 | Thread length | 3 to 24 messages |
 
 | Bucket | Threads | dev / test | Covers |
 |---|---|---|---|
@@ -51,7 +51,7 @@ still in the text, phrased exactly as a real commitment is phrased, because it
 *was* a real commitment when it was made. Only the rest of the thread says
 otherwise. An extractor that reads the promise and stops reports it as open, and
 the person relying on that extractor goes chasing something that no longer
-exists — worse than missing it, because it costs them a message to a
+exists. That is worse than missing it, because it costs them a message to a
 counterparty who has already moved on.
 
 The label tracks the obligation, not the outcome. In `sup-01` the subject
@@ -104,15 +104,15 @@ The first diagnosis was incomplete. `already` carried a weight of −2.27, the
 strongest single feature in the corpus, because I had reached for "already X" as
 the completed-act near-miss in five negatives until it stopped being a near-miss
 and became a tell. Social address terms clustered on the negative side; dates
-appeared only on the positive side. I crossed all three phenomena over —
-completed acts into loop-bearing threads, dates into negatives, informal address
-into threads that carry commitments — across fifteen edits. That moved the score
-to 0.587. Still separable.
+appeared only on the positive side. Across fifteen edits I crossed all three
+phenomena over: completed acts into loop-bearing threads, dates into negatives,
+informal address into threads that carry commitments. That moved the score to
+0.587. Still separable.
 
 The real cause was topic, not vocabulary. Per-thread margins showed every dev
 negative separating with a large margin, which no amount of word substitution
 was going to touch. Dev positives were almost entirely work threads; half the
-dev negatives were social — catching up, career advice, a cold call, flat
+dev negatives were social: catching up, career advice, a cold call, flat
 hunting. The classifier had learned subject matter. I had been writing work as
 positive and social as negative without noticing it, and no hand-authored check
 would have caught that, because the leak sat in a dimension I had not thought to
@@ -130,7 +130,7 @@ The number is too unstable to gate on. Fixing the first leak moved p from 0.030
 to 0.119 through a change that reassigned threads between `dev` and `test` and
 altered no label, no message, and no span. A statistic that swings that far on a
 split reassignment will, given the power to fail a build, eventually be made to
-pass — and the only lever available is the corpus itself. That is the corpus
+pass, and the only lever available is the corpus itself. That is the corpus
 being tuned toward its own checker, a worse defect than the leak it would be
 hiding, and unlike the leak it leaves no trace.
 
@@ -199,8 +199,8 @@ has to decide that this prediction *is* that ground-truth loop. It is the one
 real design decision in the evaluation.
 
 Matching is on **evidence span overlap**, never on how similar the two
-`statement` strings read. The obvious alternative — compare the sentences and
-take the close ones — scores paraphrasing quality: an extractor that finds every
+`statement` strings read. The obvious alternative, comparing the sentences and
+taking the close ones, scores paraphrasing quality: an extractor that finds every
 commitment and describes them tersely loses to one that writes fluent summaries
 of commitments nobody made. Overlap asks whether the extractor pointed at the
 place where the promise was made, which is the thing being measured, and the
@@ -209,7 +209,7 @@ text decides rather than a reviewer.
 A prediction matches when it points into the same message and the two character
 ranges reach an intersection-over-union at or above a threshold. Assignment is
 one-to-one, so two predictions covering one true loop produce one true positive
-and one false positive — an extractor that splits a single commitment into two
+and one false positive. An extractor that splits a single commitment into two
 reported items has produced something spurious, and that is counted as its own
 error mode rather than absorbed.
 
@@ -231,13 +231,13 @@ while F1 says it improved. So one cost number is reported alongside the rates.
 |---|---|---|
 | Missed loop | 1 | You do not get reminded. It was already invisible. |
 | False positive, `blocked_on_you` | 3 | An unnecessary nag to yourself. |
-| False positive, `blocked_on_them` | 8 | This one leaves the building — an outbound chase to someone who may have already delivered. |
+| False positive, `blocked_on_them` | 8 | This one leaves the building: an outbound chase to someone who may have already delivered. |
 | Superseded reported as open | 8 | Sends you after something that no longer exists, with the confidence of a real loop. |
 | Direction inverted | 8 | Says you owe them when they owe you. |
 
 Those weights are a product stance, not a measurement, and the report prints them
 in full every time it says so. [`results/REPORT.md`](results/REPORT.md) is real
-output — of the evaluation, not of any extractor — and its failure gallery is
+output of the evaluation, not of any extractor, and its failure gallery is
 generated rather than curated: every mismatch appears, grouped by error type,
 with both spans and the text they resolve to. Full reasoning in
 [`packages/eval/README.md`](packages/eval/README.md).
@@ -252,14 +252,14 @@ relative to its product importance, and any direction metric should be read with
 that in front of it.
 
 **`mutual` is under-powered at 15 loops, 5.5%.** It was raised from 2.7% with
-genuine cases only — a bank requiring two director signatures at once, an SLA
-neither team can write alone. It stopped there rather than reaching the 6–7%
+genuine cases only: a bank requiring two director signatures at once, an SLA
+neither team can write alone. It stopped there rather than reaching the 6% to 7%
 target, because the remaining way to add mutual loops is to invent situations
 that do not occur at that rate. Treat it as excluded from headline metrics, and
 report the count alongside any figure computed over it.
 
 **Seven threads carry a resolution ten or more messages from its evidence; the
-target was eight.** I previously reported this as met. It was not — I had
+target was eight.** I previously reported this as met. It was not. I had
 counted a thread whose loop has no resolution at all. Within-thread distance is
 the structure that tests whether an extractor reads to the end of a thread, so
 seven is thin.
@@ -289,7 +289,7 @@ moment native-script threads are added.
 **Match assignment is greedy, not optimal.** Candidate pairs are taken in
 descending IoU order rather than solved as a maximum-weight assignment. With a
 handful of loops per thread the two agree except in contrived cases, and greedy
-is explainable in one sentence — which matters more here, because every match
+is explainable in one sentence. That matters more here, because every match
 decision is written to a file a human is expected to be able to check.
 
 **A false positive is attributed to the register it claimed.** Register is a
@@ -332,9 +332,9 @@ silence, which flatters precision and looks identical to a crashed run.
 
 `split` is stored in each thread file rather than computed, so it travels with
 the data and cannot be redrawn per run to flatter a result. **Do not read `test`
-while iterating on prompts.** Both halves carry every phenomenon — closed,
-superseded, mutual, implied deadlines, all three registers — so nothing forces
-you to.
+while iterating on prompts.** Both halves carry every phenomenon, including
+closed, superseded, mutual, implied deadlines and all three registers, so
+nothing forces you to.
 
 | Document | Contains |
 |---|---|

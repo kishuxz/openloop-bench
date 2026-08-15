@@ -1,5 +1,5 @@
 /**
- * stats — what the corpus is actually made of.
+ * stats: what the corpus is actually made of.
  *
  * Every breakdown is reported per split as well as overall, because the split
  * is only meaningful if both halves contain the same kinds of thread. A `test`
@@ -147,7 +147,7 @@ function byBatch(threads: Thread[]): void {
     console.log(`  no dimension moved more than ${DRIFT_THRESHOLD} points between consecutive batches.`);
     return;
   }
-  console.log(`  DRIFT — ${flags.length} dimension(s) moved more than ${DRIFT_THRESHOLD} points:`);
+  console.log(`  DRIFT: ${flags.length} dimension(s) moved more than ${DRIFT_THRESHOLD} points:`);
   for (const flag of flags) console.log(`    ${flag}`);
   console.log("");
   console.log("  Diagnose each before writing more threads: labeling drift (the same");
@@ -180,7 +180,7 @@ function main(): void {
     }
     for (const failure of failures) console.log(`FAIL  ${failure}`);
     console.log("");
-    console.log(`FAIL — ${failures.length} composition problem(s)`);
+    console.log(`FAIL: ${failures.length} composition problem(s)`);
     process.exitCode = 1;
     return;
   }

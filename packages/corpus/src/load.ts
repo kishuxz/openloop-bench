@@ -1,11 +1,11 @@
 /**
- * load — read the thread files off disk and parse them against the schema.
+ * load: read the thread files off disk and parse them against the schema.
  *
  * Tolerant read, in the sense that one broken file does not hide the other
  * thirty-nine: every file is attempted and every failure is collected, so a
  * single `pnpm validate` run reports the whole state of the corpus rather than
  * the first thing it tripped over. Deciding what to do about failures is the
- * caller's job — `validate` prints them all, `stats` refuses to compute.
+ * caller's job: `validate` prints them all, `stats` refuses to compute.
  */
 
 import { readdirSync, readFileSync } from "node:fs";
@@ -38,7 +38,7 @@ export function threadFiles(dir: string = THREADS_DIR): string[] {
 }
 
 /**
- * Parse every thread file. Never throws on bad data — a malformed corpus is a
+ * Parse every thread file. Never throws on bad data, because a malformed corpus is a
  * result to report, not an exception to propagate.
  */
 export function loadThreads(dir: string = THREADS_DIR): LoadResult {
@@ -54,7 +54,7 @@ export function loadThreads(dir: string = THREADS_DIR): LoadResult {
     } catch (error) {
       failures.push({
         file,
-        problems: [`(file): not valid JSON — ${(error as Error).message}`],
+        problems: [`(file): not valid JSON. ${(error as Error).message}`],
       });
       continue;
     }
@@ -84,7 +84,7 @@ export function loadCorpusOrThrow(dir: string = THREADS_DIR): Thread[] {
   return loaded.map((l) => l.thread);
 }
 
-/** `thread_id` must equal the file's basename — the filename is an index. */
+/** `thread_id` must equal the file's basename, because the filename is an index. */
 export function filenameMismatch(file: string, thread: Thread): string | null {
   const expected = basename(file, ".json");
   return thread.thread_id === expected

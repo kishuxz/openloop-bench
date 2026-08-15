@@ -2,7 +2,7 @@
  * Test fixtures for the eval package.
  *
  * Threads are built through `ThreadSchema.parse`, not hand-typed as objects, so
- * a test can never be written against a thread the corpus itself would reject —
+ * a test can never be written against a thread the corpus itself would reject,
  * which would let the matcher be tested on inputs it will never see.
  */
 
@@ -16,7 +16,7 @@ export const MESSAGES = [
   { index: 2, sender: "Priya", text: "no rush, ravi already sent it over", ts: "2026-03-02T16:45:00+05:30" },
 ] as const;
 
-/** [4, 34) — "ill send the cap table tonight", 30 characters. */
+/** [4, 34) is "ill send the cap table tonight", 30 characters. */
 export const EVIDENCE = { msg_index: 1, start: 4, end: 34 } as const;
 
 export function truthLoop(overrides: Partial<Loop> = {}): Loop {

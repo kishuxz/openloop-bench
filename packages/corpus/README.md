@@ -14,7 +14,7 @@ pnpm stats:check   # assert the composition; non-zero exit if it drifted
 threads/*.json   40 labeled threads. The filename is the thread_id.
 LABELING.md      The rulebook. Read before adding or disputing a label.
 src/buckets.ts   The distribution targets, as data.
-src/load.ts      Tolerant read — one broken file never hides the other 39.
+src/load.ts      Tolerant read: one broken file never hides the other 39.
 ```
 
 ## Bucket prefixes
@@ -27,7 +27,7 @@ for. It lives in the filename rather than a schema field so it is visible in
 |---|---|---|
 | `en-` | 10 | Straightforward English loops |
 | `mix-` | 10 | Hinglish/Tanglish, non-numeric deadlines |
-| `sup-` | 6 | Superseded — cancelled, delegated, overtaken |
+| `sup-` | 6 | Superseded: cancelled, delegated, overtaken |
 | `neg-` | 8 | Zero loops, near-miss language |
 | `del-` | 6 | Delegation and direction flips |
 
@@ -36,8 +36,8 @@ for. It lives in the filename rather than a schema field so it is visible in
 1. Write it. Realistic means fragmentary, lowercase, typo-ridden. Placeholder
    names only, no real contact details.
 2. Label it against `LABELING.md`.
-3. `pnpm validate` — every span must resolve to real characters.
-4. `pnpm stats` — confirm the composition still matches `src/buckets.ts`.
+3. `pnpm validate`, where every span must resolve to real characters.
+4. `pnpm stats`, to confirm the composition still matches `src/buckets.ts`.
 
 Spans are character offsets, so check one before trusting it:
 
@@ -54,5 +54,5 @@ be a one-line call to `parse`. It re-resolves every span anyway, through the
 same `resolveSpan` the eval package will use.
 
 The guarantee is then asserted by the tool a human actually runs, not only by a
-refinement they have to trust — and if the two ever disagree, the corpus is
+refinement they have to trust, and if the two ever disagree, the corpus is
 what finds out.

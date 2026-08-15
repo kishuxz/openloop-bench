@@ -1,5 +1,5 @@
 /**
- * match — deciding when a predicted loop IS a ground-truth loop.
+ * match: deciding when a predicted loop IS a ground-truth loop.
  *
  * Everything downstream is arithmetic. This file is the judgment call, so the
  * reasoning lives here rather than in a PR thread.
@@ -10,7 +10,7 @@
  * truth. The obvious lever is `statement`: compare "send the updated cap table
  * to Priya" against what the model wrote and take the close ones. That is the
  * wrong lever. `statement` is prose an extractor composed, so any similarity
- * measure over it scores *paraphrasing quality* — an extractor that finds every
+ * measure over it scores *paraphrasing quality*: an extractor that finds every
  * commitment but describes them tersely would lose to one that hallucinates
  * fluent summaries of commitments nobody made.
  *
@@ -40,7 +40,7 @@
  *
  * Assignment is greedy by descending IoU: the best pair takes each other out of
  * the pool. Two predictions over one true loop therefore produce one true
- * positive and one false positive — correct, because an extractor that splits a
+ * positive and one false positive. That is correct, because an extractor that splits a
  * single commitment into two reported items has produced a spurious item the
  * user will act on. That is a distinct and real error mode, so it is counted
  * (`split_truths`) rather than merely penalised, along with its mirror,
@@ -48,7 +48,7 @@
  *
  * Greedy rather than optimal (Hungarian) assignment: with a handful of loops
  * per thread the two agree except in contrived cases, and greedy is explainable
- * in a sentence — which matters more here, because every match decision is
+ * in a sentence, which matters more here, because every match decision is
  * written to a file a human is expected to be able to check.
  *
  * ## Ungrounded and unmappable predictions
@@ -58,7 +58,7 @@
  * counted in the grounding rate, because fabricating an offset is a different
  * failure from finding the wrong commitment.
  *
- * A prediction whose evidence is `"unmappable"` is set aside entirely — not
+ * A prediction whose evidence is `"unmappable"` is set aside entirely, and not
  * matched, not a false positive. See `prediction.ts` for why, and `metrics.ts`
  * for the ceiling it puts on how much of the false-negative count could be a
  * redaction artifact.

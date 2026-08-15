@@ -1,22 +1,22 @@
 /**
- * metrics — everything the matcher's output is worth, in numbers.
+ * metrics: everything the matcher's output is worth, in numbers.
  *
  * The design here is one idea: after matching, the run is a flat list of
  * **outcomes**, one per predicted loop and one per true loop, each carrying the
- * thread properties it inherited. Every metric in the benchmark — detection,
- * the confusion matrices, deadline accuracy, grounding, cost — is a fold over
+ * thread properties it inherited. Every metric in the benchmark, meaning detection,
+ * the confusion matrices, deadline accuracy, grounding and cost, is a fold over
  * that list, and every breakdown is the same fold over a filtered copy of it.
  *
  * That matters because the brief asks for four cross-cuts of every metric (by
  * register, bucket, thread length and loops-per-thread) and the alternative
- * shape — a bespoke computation per metric, re-implemented per breakdown — is
+ * shape, a bespoke computation per metric re-implemented per breakdown, is
  * where a benchmark grows a subtly different denominator in one cell of one
  * table and nobody notices for a year.
  *
  * ## Denominators, stated once
  *
  *   - Detection (precision/recall/F1) is over all predictions and all truths.
- *   - Every label metric — direction, state, certainty, deadline, resolution —
+ *   - Every label metric, meaning direction, state, certainty, deadline and resolution,
  *     is over MATCHED PAIRS ONLY. Scoring the direction of a loop the extractor
  *     never found would double-count the miss and make recall failures look
  *     like direction failures.
@@ -35,15 +35,15 @@
  * The honest cost of that decision is that a true loop the extractor DID find
  * can still show up as a false negative, because nothing could be aligned to
  * it. That is not left implicit: `unmappable.fn_ceiling` is the largest number
- * of false negatives that could be explained this way — per thread, the smaller
- * of (unmappable predictions, unmatched truths) — so a reader can bound the
+ * of false negatives that could be explained this way, being per thread the smaller
+ * of (unmappable predictions, unmatched truths), so a reader can bound the
  * effect instead of guessing at it.
  *
  * ## Attribution of errors to breakdown groups
  *
  * Bucket, thread length and loops-per-thread are properties of the thread, so
  * every outcome inherits them unambiguously. Register is a property of a loop,
- * and a false positive has no true loop to inherit from — so a false positive
+ * and a false positive has no true loop to inherit from, so a false positive
  * is attributed to the register the PREDICTION claimed, and true positives and
  * false negatives to the register the truth carries. That is the only
  * attribution available, and it is why a register row's precision is "precision
@@ -237,7 +237,7 @@ function confusion<K extends string>(
   return { rows, correct, n: pairs.length, accuracy: rate(correct, pairs.length) };
 }
 
-/** Zero-denominator returns 0 rather than NaN — a NaN poisons every average. */
+/** Zero-denominator returns 0 rather than NaN, because a NaN poisons every average. */
 export function rate(part: number, whole: number): number {
   return whole === 0 ? 0 : part / whole;
 }
@@ -603,7 +603,7 @@ export interface Breakdowns {
  *
  * `threads` maps thread_id → its properties, so a thread with no outcomes at
  * all still lands in its bucket, length and loops-per-thread row. The register
- * breakdown has no such map — register is a loop-level label — so its thread
+ * breakdown has no such map, since register is a loop-level label, so its thread
  * counts are "threads that produced an outcome of this register".
  */
 export function computeBreakdowns(
@@ -642,8 +642,8 @@ export function computeBreakdowns(
 // ---------------------------------------------------------------------------
 
 /**
- * Gallery categories. An outcome can belong to several — a false positive with
- * a fabricated span is both — and appears in each, because the gallery exists
+ * Gallery categories. An outcome can belong to several, since a false positive with
+ * a fabricated span is both, and it appears in each, because the gallery exists
  * to be read one failure mode at a time.
  */
 export const ERROR_CATEGORIES = [

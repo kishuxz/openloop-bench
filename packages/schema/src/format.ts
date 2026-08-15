@@ -1,5 +1,5 @@
 /**
- * format — turn a ZodError into lines a human can act on without opening a
+ * format: turn a ZodError into lines a human can act on without opening a
  * debugger.
  *
  * `pnpm validate` is the gate on every corpus edit, so its failure output is a

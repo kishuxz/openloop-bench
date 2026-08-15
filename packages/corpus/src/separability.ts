@@ -1,5 +1,5 @@
 /**
- * separability — a diagnostic, not a gate.
+ * separability: a diagnostic, not a gate.
  *
  * Trains a bag-of-tokens classifier to predict "does this thread contain at
  * least one loop" from thread text alone. If it succeeds, the corpus leaks:
@@ -17,7 +17,7 @@
  * 0.030 to 0.119 through a change that reassigned threads between `dev` and
  * `test` and altered no label and no message. A statistic that swings that far
  * on a split reassignment will, if it can fail a build, eventually be made to
- * pass — and the only lever available is the corpus itself. That is the corpus
+ * pass, and the only lever available is the corpus itself. That is the corpus
  * being tuned toward its own checker, which is a worse defect than the leak it
  * would be papering over, and an invisible one.
  *
@@ -26,7 +26,7 @@
  * as informative at p = 0.4 as at p = 0.01.
  *
  * **The bar, stated as judgment rather than as a threshold:** keep remediating
- * while the top-weighted features are obviously authorial habit — a word you
+ * while the top-weighted features are obviously authorial habit, a word you
  * reached for whenever you wrote negatives, a topic you only ever gave to one
  * side. Stop when what remains looks like the genuine language of commitment,
  * because at that point the classifier is picking up the phenomenon the corpus
@@ -41,8 +41,8 @@
  * from, because a number without one is a number you cannot trace to a corpus.
  *
  * Deliberately simple: token counts, a Bernoulli naive Bayes, a permutation
- * test. No embeddings, no external models, no vocabulary anyone wrote by hand
- * — the cue list this replaced failed on a different Tamil construction in
+ * test. No embeddings, no external models, no vocabulary anyone wrote by hand.
+ * The cue list this replaced failed on a different Tamil construction in
  * three consecutive batches, every fix authored from English intuition about
  * what other grammars ought to look like.
  */
@@ -101,7 +101,7 @@ export function score(model: Model, tokens: Set<string>): number {
   return total;
 }
 
-/** Deterministic PRNG — CI must not flake, and a seed makes the run reproducible. */
+/** Deterministic PRNG: CI must not flake, and a seed makes the run reproducible. */
 export function rng(seed: number): () => number {
   let state = seed >>> 0;
   return () => {
@@ -205,7 +205,7 @@ export function separability(threads: readonly Thread[], permutations = 200, see
   const null95 = nulls[Math.floor(nulls.length * 0.95)] ?? 1;
   const pValue = (nulls.filter((v) => v >= observed).length + 1) / (nulls.length + 1);
 
-  // Weights from the full sample, for reporting only — these name the leak.
+  // Weights from the full sample, for reporting only. These name the leak.
   const vocabulary = [...new Set(samples.flatMap((s) => [...s.tokens]))];
   const full = train(samples, vocabulary);
   const ranked = [...full.weights]
@@ -244,7 +244,7 @@ export function corpusHash(dir: string = THREADS_DIR): string {
 }
 
 /**
- * The only supported entry point. Validates the corpus, then computes — or
+ * The only supported entry point. Validates the corpus, then computes, or
  * throws. There is no third state.
  *
  * The validation step is not decoration. A broken evidence span once left the
@@ -283,7 +283,7 @@ export function separabilityReport(dir: string = THREADS_DIR, permutations = 200
 /** Human-readable rendering. The feature lists are the point, not the score. */
 export function formatReport(report: SeparabilityReport): string[] {
   return [
-    `corpus ${report.corpusHash}  —  dev split: ${report.threads} threads, ${report.positives} with loops, ${report.negatives} without`,
+    `corpus ${report.corpusHash}   dev split: ${report.threads} threads, ${report.positives} with loops, ${report.negatives} without`,
     "",
     `  balanced accuracy   ${report.observed.toFixed(3)}   (0.500 is chance)`,
     `  permutation null    ${report.nullMean.toFixed(3)} mean, ${report.null95.toFixed(3)} at p95`,
@@ -294,7 +294,7 @@ export function formatReport(report: SeparabilityReport): string[] {
     "  leaks toward NO loop:",
     `    ${report.topNegative.map(([t, w]) => `${t}(${w.toFixed(2)})`).join(" ")}`,
     "",
-    "  Diagnostic only — this never fails a build. Remediate while the features",
+    "  Diagnostic only. This never fails a build. Remediate while the features",
     "  above are obviously authorial habit; stop when what remains reads like the",
     "  genuine language of commitment.",
   ];

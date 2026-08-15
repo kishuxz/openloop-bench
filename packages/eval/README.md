@@ -20,7 +20,7 @@ is this package's one real design choice, and it is documented at length in
 [`src/match.ts`](src/match.ts).
 
 **Matching is on evidence span overlap, never on statement text.** The obvious
-alternative — compare the `statement` strings and take the close ones — measures
+alternative, comparing the `statement` strings and taking the close ones, measures
 paraphrasing quality. An extractor that finds every commitment and describes
 them tersely would lose to one that writes fluent summaries of commitments
 nobody made. Span overlap asks "did you point at the place where this was
@@ -35,7 +35,7 @@ promised", which is the thing being measured and is checkable against the text.
 | Ungrounded span | Never matches; false positive | A span that resolves to no text points nowhere. It cannot prove a commitment. |
 | Unmappable span | Never matches; **not** a false positive | A redaction artifact, not an extractor error. See below. |
 
-Every decision is written to `results/matches-{config}-{split}.json` — matches,
+Every decision is written to `results/matches-{config}-{split}.json`: matches,
 false positives, false negatives, and near misses on both sides of the bar, each
 with the text its spans resolve to. That file exists so a disputed match can be
 checked by reading rather than by counting characters.
@@ -54,7 +54,7 @@ The honest cost of that is that a true loop the extractor may have found still
 counts as a false negative, because nothing could be aligned to it. So the report
 prints an **FN ceiling**: per thread, the smaller of (unmappable predictions,
 unmatched truths), summed. It is an upper bound on how much of the false-negative
-count could be a redaction artifact — printed so it can be bounded rather than
+count could be a redaction artifact, printed so it can be bounded rather than
 silently absorbed.
 
 ## Metrics
@@ -63,8 +63,8 @@ Detection is precision, recall and F1 over all predictions and all truths.
 Precision leads: over-firing is the fatal failure mode, because a false loop gets
 acted on and a missed one merely stays invisible.
 
-Everything else — direction, state, certainty, resolved date, resolution span —
-is computed **on matched pairs only**. Scoring the direction of a loop the
+Everything else, meaning direction, state, certainty, resolved date and
+resolution span, is computed **on matched pairs only**. Scoring the direction of a loop the
 extractor never found would count the miss twice and make a recall failure look
 like a direction failure.
 
@@ -94,7 +94,7 @@ One number, under weights that are printed in the report every time:
 
 A missed loop costs a reminder. A false `blocked_on_you` costs an unnecessary nag
 to yourself. A false `blocked_on_them` would trigger an outbound message to
-somebody who may have already delivered — an error you cannot apologise your way
+somebody who may have already delivered, an error you cannot apologise your way
 out of. Reporting supersession as open sends the user chasing something that no
 longer exists.
 
@@ -108,8 +108,9 @@ and the report says so on the page rather than in this file.
 - A prediction file whose `corpus_hash` differs from the corpus on disk is
   refused, not scored. Spans are offsets into specific message strings; scoring
   across corpus versions compares two benchmarks and calls it one.
-- A file that does not cover the split exactly — every thread, once, nothing else
-  — is refused. A partial file scores as confident silence and flatters precision.
+- A file that does not cover the split exactly, meaning every thread, once and
+  nothing else, is refused. A partial file scores as confident silence and
+  flatters precision.
 - A run whose provider-failure rate exceeds the publish threshold is kept as an
   input artifact but excluded from published metrics. The default threshold is
   20.0%, configurable with `OPENLOOP_MAX_PROVIDER_FAILURE_RATE` or
@@ -124,7 +125,7 @@ and the report says so on the page rather than in this file.
 
 ## The fixtures
 
-`fixtures/predictions/*.json` are **generated**, not hand-written — see
+`fixtures/predictions/*.json` are **generated**, not hand-written. See
 [`src/fixtures.ts`](src/fixtures.ts). Hand-written fixtures go stale when a
 thread is edited, need hand-counted spans, and cannot tell you the eval is
 correct because nobody can say what the right score for them is.
@@ -137,7 +138,7 @@ negatives, the matcher is losing pairs, and the fixture is what says so.
 
 Three configurations ship: a reference, one that over-fires with whole-message
 spans, and one that under-fires with tight spans. They are test vectors, not
-claims about how any model behaves — and the report states that too.
+claims about how any model behaves, and the report states that too.
 
 ## The prediction format
 
@@ -148,7 +149,7 @@ corpus schema:
 - **Spans need not resolve.** A fabricated offset is a measurement, not a parse
   error. Rejecting the file would delete the number.
 - **Cross-field consistency is not enforced.** `certainty: "explicit"` with no
-  span, `state: "closed"` with no resolution — real errors, counted rather than
+  span, `state: "closed"` with no resolution. These are real errors, counted rather than
   rejected.
 - **`notes` is rejected outright.** It exists only in ground truth and it
   frequently states the answer. Its presence in a prediction means the label

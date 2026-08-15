@@ -1,5 +1,5 @@
 /**
- * cost — one number that says how bad a run was, under weights that are stated
+ * cost: one number that says how bad a run was, under weights that are stated
  * rather than assumed.
  *
  * Precision, recall and F1 treat every error as one error. This product does
@@ -18,7 +18,7 @@
  *                                             building. A system acting on
  *                                             blocked_on_them sends an outbound
  *                                             chase to somebody who may have
- *                                             already delivered — an error you
+ *                                             already delivered, an error you
  *                                             cannot apologise your way out of.
  *   superseded reported as open           8   Sends the user chasing something
  *                                             that no longer exists, with the
@@ -33,9 +33,9 @@
  * ## These weights are a judgment call, not a measurement
  *
  * Nobody measured that an outbound false chase is eight times worse than a
- * missed reminder. The ratio encodes a product stance — errors that speak to
+ * missed reminder. The ratio encodes a product stance, that errors which speak to
  * third parties on the user's behalf are categorically worse than errors that
- * cost the user attention — and a different product could justify a different
+ * cost the user attention, and a different product could justify a different
  * one. So the matrix is configurable, it is printed in full in every report,
  * and the report says this paragraph out loud. A weighting that appears only as
  * a single score is a weighting nobody can argue with.
@@ -49,7 +49,7 @@
  * Direction confusions involving `mutual` are NOT charged as inversions. They
  * are in the confusion matrix and they are real errors, but calling
  * `blocked_on_them` where the truth is `mutual` does not reverse who owes whom
- * — and with 15 mutual loops in the corpus, loading an 8x weight onto a cell
+ * With 15 mutual loops in the corpus, loading an 8x weight onto a cell
  * that thin would let a handful of labels swing the headline number.
  */
 
@@ -57,7 +57,7 @@ import type { Direction } from "@openloop-bench/schema";
 
 export interface CostMatrix {
   readonly false_negative: number;
-  /** Keyed by the direction the *prediction* claimed — that is what would act. */
+  /** Keyed by the direction the *prediction* claimed, since that is what would act. */
   readonly false_positive: Readonly<Record<Direction, number>>;
   readonly superseded_as_open: number;
   readonly direction_inverted: number;
@@ -85,7 +85,7 @@ export type CostKind = (typeof COST_KINDS)[number];
 
 /**
  * A single charged error. Direction is carried for false positives because the
- * weight depends on it — and only on the predicted direction, since that is the
+ * weight depends on it, and only on the predicted direction, since that is the
  * claim a downstream system would act on.
  */
 export type CostedError =
@@ -110,7 +110,7 @@ export function costOfError(error: CostedError, matrix: CostMatrix = DEFAULT_COS
 /**
  * True when truth and prediction name opposite sides of the obligation.
  *
- * Only the `blocked_on_you` / `blocked_on_them` swap counts — see the file
+ * Only the `blocked_on_you` / `blocked_on_them` swap counts; see the file
  * header for why `mutual` confusions are excluded.
  */
 export function isInverted(truth: Direction, predicted: Direction): boolean {
@@ -126,7 +126,7 @@ export interface CostBreakdown {
   /** False positives split by the direction they claimed. */
   readonly false_positive_by_direction: Readonly<Record<Direction, { count: number; cost: number }>>;
   readonly total: number;
-  /** Total divided by threads scored — the comparable figure across splits. */
+  /** Total divided by threads scored: the comparable figure across splits. */
   readonly per_thread: number;
 }
 

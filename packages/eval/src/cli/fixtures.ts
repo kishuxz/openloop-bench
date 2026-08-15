@@ -1,10 +1,10 @@
 /**
- * fixtures:gen — regenerate `fixtures/predictions/*.json` from the corpus.
+ * fixtures:gen: regenerate `fixtures/predictions/*.json` from the corpus.
  *
  * The fixtures are derived, not authored (see `src/fixtures.ts`), so this is
  * how they are kept in step with the corpus: edit a thread, run this, and the
  * prediction files carry the new corpus hash and spans that still point at real
- * text. There is deliberately no "restamp the hash" shortcut — the hash gate
+ * text. There is deliberately no "restamp the hash" shortcut, because the hash gate
  * exists to catch predictions that were computed against different message
  * strings, and a tool that only updates the hash would defeat it.
  */
@@ -21,7 +21,7 @@ function main(): void {
 
   mkdirSync(FIXTURE_PREDICTIONS_DIR, { recursive: true });
 
-  console.log(`openloop-bench fixtures — ${dev.length} dev threads, ${dev.reduce((n, t) => n + t.loops.length, 0)} loops`);
+  console.log(`openloop-bench fixtures: ${dev.length} dev threads, ${dev.reduce((n, t) => n + t.loops.length, 0)} loops`);
   console.log("");
 
   for (const { spec, generated } of generateAll(dev)) {
