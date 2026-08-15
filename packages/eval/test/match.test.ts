@@ -13,11 +13,11 @@
  */
 
 import { describe, expect, test } from "vitest";
-import { matchThread, spanIoU } from "../src/match.js";
+import { matchThread, spanContainsEither, spanIoU } from "../src/match.js";
 import { UNMAPPABLE } from "../src/prediction.js";
 import { at, EVIDENCE, makeThread, truthLoop, withEvidence } from "./helpers.js";
 
-describe("spanIoU", () => {
+describe("span overlap primitives", () => {
   test("is 1 for identical spans", () => {
     expect(spanIoU(EVIDENCE, EVIDENCE)).toBe(1);
   });
@@ -35,9 +35,14 @@ describe("spanIoU", () => {
     expect(spanIoU({ msg_index: 1, start: 20, end: 10 }, EVIDENCE)).toBe(0);
   });
 
-  test("is intersection over union, not containment", () => {
+  test("IoU is intersection over union", () => {
     // Prediction covers the truth entirely and twice its width: 30 / 60.
     expect(spanIoU({ msg_index: 1, start: 4, end: 34 }, { msg_index: 1, start: 4, end: 19 })).toBeCloseTo(0.5);
+  });
+
+  test("containment is tracked separately from IoU", () => {
+    expect(spanContainsEither({ msg_index: 1, start: 4, end: 34 }, { msg_index: 1, start: 20, end: 34 })).toBe(true);
+    expect(spanIoU({ msg_index: 1, start: 4, end: 34 }, { msg_index: 1, start: 20, end: 34 })).toBeCloseTo(0.467, 3);
   });
 });
 
@@ -58,13 +63,13 @@ describe("exact match", () => {
 
 describe("partial overlap either side of the threshold", () => {
   const thread = makeThread([truthLoop()]);
-  // Truth is [4, 34). Prediction [4, 24) intersects 20, unions 30: IoU 0.667.
-  const prediction = at(4, 24);
+  // Truth is [4, 34). Prediction [0, 24) intersects 20, unions 34: IoU 0.588.
+  const prediction = at(0, 24);
 
   test("matches when the threshold is below the overlap", () => {
     const match = matchThread(thread, [prediction], 0.5);
     expect(match.matched).toHaveLength(1);
-    expect(match.matched[0]?.iou).toBeCloseTo(0.667, 3);
+    expect(match.matched[0]?.iou).toBeCloseTo(0.588, 3);
     expect(match.unmatched_truths).toEqual([]);
   });
 
@@ -79,7 +84,21 @@ describe("partial overlap either side of the threshold", () => {
     const match = matchThread(thread, [prediction], 0.7);
     expect(match.near_misses).toHaveLength(1);
     expect(match.near_misses[0]?.reason).toBe("below_threshold");
-    expect(match.near_misses[0]?.iou).toBeCloseTo(0.667, 3);
+    expect(match.near_misses[0]?.iou).toBeCloseTo(0.588, 3);
+  });
+});
+
+describe("containment-first matching", () => {
+  const thread = makeThread([truthLoop({ evidence: { msg_index: 1, start: 20, end: 34 } })]);
+  const prediction = at(4, 34);
+
+  test("matches a same-message containing span even below the IoU threshold", () => {
+    const match = matchThread(thread, [prediction], 0.7);
+    expect(match.matched).toHaveLength(1);
+    expect(match.matched[0]?.iou).toBeCloseTo(0.467, 3);
+    expect(match.unmatched_predictions).toEqual([]);
+    expect(match.unmatched_truths).toEqual([]);
+    expect(match.near_misses).toEqual([]);
   });
 });
 

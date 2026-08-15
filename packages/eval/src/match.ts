@@ -14,18 +14,21 @@
  * commitment but describes them tersely would lose to one that hallucinates
  * fluent summaries of commitments nobody made.
  *
- * Matching is therefore on the evidence span: same message, and the character
- * ranges overlapping by at least `iou` (intersection over union). The claim
- * being checked is "you pointed at the place where this commitment was made",
- * which is the thing the benchmark is about, and it is checkable against the
- * text rather than against a reviewer's opinion.
+ * Matching is therefore on the evidence span: same message, and character
+ * ranges that either contain one another or overlap by at least `iou`
+ * (intersection over union). The claim being checked is "you pointed at the
+ * place where this commitment was made", which is the thing the benchmark is
+ * about, and it is checkable against the text rather than against a reviewer's
+ * opinion.
  *
- * ## Why IoU, and why it is configurable
+ * ## Why containment first, then IoU
  *
- * Plain overlap ("do they touch at all") lets a prediction spanning an entire
- * message match every loop inside it. Containment ("is truth inside pred")
- * rewards the same behaviour. IoU punishes both directions — too wide and too
- * narrow — and is symmetric, so neither side is privileged.
+ * LABELING.md's span convention asks labels to point at the tight commitment
+ * phrase. Extractors often include the lead-in clause around the same
+ * commitment. Pure IoU measures that boundary convention, not detection, so a
+ * span that fully contains its partner in the same message is a valid candidate
+ * match. IoU remains the greedy ordering score and is reported separately as
+ * span tightness.
  *
  * The threshold is a judgment call and the eval treats it as one: the whole
  * run happens at 0.3, 0.5 and 0.7, all three are reported, and the number
@@ -88,6 +91,13 @@ export function spanIoU(a: PredictedOffsets | Span, b: PredictedOffsets | Span):
 
   const union = Math.max(a.end, b.end) - Math.min(a.start, b.start);
   return intersection / union;
+}
+
+/** True when both spans are valid, same-message ranges and either contains the other. */
+export function spanContainsEither(a: PredictedOffsets | Span, b: PredictedOffsets | Span): boolean {
+  if (a.msg_index !== b.msg_index) return false;
+  if (a.start >= a.end || b.start >= b.end) return false;
+  return (a.start <= b.start && a.end >= b.end) || (b.start <= a.start && b.end >= a.end);
 }
 
 /** Why a prediction/truth pair overlapped without becoming a match. */
@@ -169,12 +179,14 @@ export function matchThread(
     pred_index: number;
     truth_index: number;
     iou: number;
+    contains: boolean;
   }
   const candidates: Candidate[] = [];
   for (const [pred_index, evidence] of eligible) {
     thread.loops.forEach((truth, truth_index) => {
       const iou = spanIoU(evidence, truth.evidence);
-      if (iou > 0) candidates.push({ pred_index, truth_index, iou });
+      const contains = spanContainsEither(evidence, truth.evidence);
+      if (iou > 0 || contains) candidates.push({ pred_index, truth_index, iou, contains });
     });
   }
 
@@ -188,7 +200,7 @@ export function matchThread(
   const takenTruths = new Set<number>();
 
   for (const candidate of candidates) {
-    if (candidate.iou < iouThreshold) {
+    if (!candidate.contains && candidate.iou < iouThreshold) {
       nearMisses.push({ ...candidate, reason: "below_threshold" });
       continue;
     }
@@ -205,10 +217,10 @@ export function matchThread(
     takenTruths.add(candidate.truth_index);
   }
 
-  // Split / merge counted over every above-threshold candidate, not over the
+  // Split / merge counted over every matchable candidate, not over the
   // assignment: the error is that the extractor produced two overlapping
   // reports of one commitment, which is true regardless of which one won.
-  const above = candidates.filter((c) => c.iou >= iouThreshold);
+  const above = candidates.filter((c) => c.contains || c.iou >= iouThreshold);
 
   const byTruth = new Map<number, number[]>();
   const byPrediction = new Map<number, number[]>();
