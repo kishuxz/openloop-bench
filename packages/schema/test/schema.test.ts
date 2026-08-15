@@ -27,7 +27,7 @@ describe("thread", () => {
     expect(ThreadSchema.safeParse(thread()).success).toBe(true);
   });
 
-  test("rejects unknown keys anywhere — the schema is a contract, not a suggestion", () => {
+  test("rejects unknown keys anywhere; the schema is a contract, not a suggestion", () => {
     const extra = { ...thread(), urgency: "high" };
     expect(ThreadSchema.safeParse(extra).success).toBe(false);
   });
@@ -48,7 +48,7 @@ describe("thread", () => {
     expect(reasons(result)).toContain("chronological");
   });
 
-  test("accepts a thread with zero loops — the negatives are ground truth too", () => {
+  test("accepts a thread with zero loops; the negatives are ground truth too", () => {
     expect(ThreadSchema.safeParse({ ...thread(), loops: [] }).success).toBe(true);
   });
 
@@ -82,7 +82,7 @@ describe("span grounding", () => {
     expect(reasons(result)).toContain("out of range");
   });
 
-  test("rejects a whitespace-only span — evidence must point at words", () => {
+  test("rejects a whitespace-only span; evidence must point at words", () => {
     const t = thread();
     t.loops[0]!.evidence = { msg_index: 1, start: 3, end: 4 };
     const result = ThreadSchema.safeParse(t);
@@ -116,7 +116,7 @@ describe("span grounding", () => {
 
   test("rejects a boundary that splits a surrogate pair", () => {
     const t = thread();
-    // "ok 🙏 thanks" — the emoji occupies two UTF-16 code units at 3 and 4.
+    // "ok 🙏 thanks": the emoji occupies two UTF-16 code units at 3 and 4.
     t.messages[2]!.text = "ok 🙏 thanks";
     t.loops[0]!.resolution = { msg_index: 2, start: 0, end: 4 };
     const result = ThreadSchema.safeParse(t);
@@ -179,13 +179,13 @@ describe("deadline", () => {
       ...over,
     });
 
-  test('"explicit" requires a span — otherwise there is no source phrasing', () => {
+  test('"explicit" requires a span, otherwise there is no source phrasing', () => {
     const result = deadline({ certainty: "explicit" });
     expect(result.success).toBe(false);
     expect(reasons(result)).toContain("requires a span");
   });
 
-  test('"implied" forbids a span — a phrase you can point at makes it explicit', () => {
+  test('"implied" forbids a span; a phrase you can point at makes it explicit', () => {
     const result = deadline({ certainty: "implied", span: { msg_index: 1, start: 12, end: 31 } });
     expect(result.success).toBe(false);
     expect(reasons(result)).toContain("null");
@@ -199,7 +199,7 @@ describe("deadline", () => {
     expect(deadline({ resolved: "2026-03-20" }).success).toBe(false);
   });
 
-  test('"explicit" may resolve to null — "agle hafte" names no day', () => {
+  test('"explicit" may resolve to null, since "agle hafte" names no day', () => {
     expect(deadline({ certainty: "explicit", span: { msg_index: 1, start: 12, end: 31 } }).success).toBe(true);
   });
 
@@ -209,7 +209,7 @@ describe("deadline", () => {
 });
 
 describe("loop fields", () => {
-  test('counterparty must not be "user" — the subject is not their own counterparty', () => {
+  test('counterparty must not be "user"; the subject is not their own counterparty', () => {
     const result = LoopSchema.safeParse({ ...loop(), counterparty: "user" });
     expect(result.success).toBe(false);
     expect(reasons(result)).toContain("reserved");
@@ -233,7 +233,7 @@ describe("loop fields", () => {
 });
 
 describe("message", () => {
-  test("requires a timestamp offset — half this corpus is IST", () => {
+  test("requires a timestamp offset, because half this corpus is IST", () => {
     const base = { index: 0, sender: "user", text: "hi", ts: "2026-03-02T11:04:00" };
     expect(MessageSchema.safeParse(base).success).toBe(false);
     expect(MessageSchema.safeParse({ ...base, ts: "2026-03-02T11:04:00+05:30" }).success).toBe(true);

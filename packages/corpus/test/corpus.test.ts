@@ -2,7 +2,7 @@
  * Corpus tests. Two jobs:
  *
  *   1. Every shipped thread is valid and grounded. This duplicates
- *      `pnpm validate` on purpose — a validator nobody runs in CI is a
+ *      `pnpm validate` on purpose, because a validator nobody runs in CI is a
  *      validator that rots.
  *   2. The composition is what the benchmark claims it is. A distribution
  *      stated only in a README drifts the first time somebody adds a thread.
@@ -75,7 +75,7 @@ describe("every span resolves to real text", () => {
     }
   });
 
-  test("and points at something a reader could use — no single-character evidence", () => {
+  test("and points at something a reader could use: no single-character evidence", () => {
     for (const thread of threads) {
       for (const loop of thread.loops) {
         const text = resolveSpan(thread.messages, loop.evidence) ?? "";
@@ -188,7 +188,7 @@ describe("labels stay honest", () => {
 });
 
 describe("the corpus is not trivially separable", () => {
-  // Reports; does not gate. The threshold assertion was removed, not raised —
+  // Reports; does not gate. The threshold assertion was removed, not raised,
   // p moved 0.030 -> 0.119 on a change that reassigned threads between splits
   // and altered no label, and a number that unstable would end up being made to
   // pass by tuning the corpus toward its own checker. Reasoning in

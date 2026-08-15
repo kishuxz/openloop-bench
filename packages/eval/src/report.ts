@@ -1,5 +1,5 @@
 /**
- * report — REPORT.md, generated from committed files and nothing else.
+ * report: REPORT.md, generated from committed files and nothing else.
  *
  * Two properties this file exists to hold:
  *
@@ -12,7 +12,7 @@
  * **The failure gallery is generated, never curated.** Every mismatch is
  * classified by `categorise()` and printed under each category it belongs to.
  * Nobody chooses which failures appear. Where a category is too long to print
- * in full it is cut to the ten worst by cost weight — and the cut says so, with
+ * in full it is cut to the ten worst by cost weight, and the cut says so, with
  * the total, because a truncated list that does not admit it is a curated list
  * with extra steps.
  *
@@ -20,7 +20,7 @@
  * the committed prediction files and cross-checks its output against the
  * committed `results/metrics-*.json` before printing anything. If they differ,
  * it refuses. That makes it impossible for REPORT.md to state a number that no
- * committed artifact backs — the failure mode where a report is regenerated
+ * committed artifact backs, which is the failure mode where a report is regenerated
  * from stale metrics and quietly disagrees with the match log beside it.
  */
 
@@ -84,7 +84,7 @@ function confusionTable<K extends string>(keys: readonly K[], confusion: Confusi
 function spanQuote(thread: Thread, span: { msg_index: number; start: number; end: number }): string {
   const text = resolveSpan(thread.messages, span);
   const where = `msg ${span.msg_index} [${span.start}, ${span.end})`;
-  return text === null ? `${where} — **does not resolve**` : `${where} "${text.replace(/\|/g, "\\|")}"`;
+  return text === null ? `${where} **does not resolve**` : `${where} "${text.replace(/\|/g, "\\|")}"`;
 }
 
 function predictedSpanQuote(thread: Thread, loop: PredictedLoop): string {
@@ -144,7 +144,7 @@ function provenance(inputs: ReportInputs): string[] {
   const notes = inputs.runs.filter((r) => r.run.meta.notes);
   if (notes.length > 0) {
     lines.push("What each configuration is:", "");
-    for (const { run } of notes) lines.push(`- \`${run.meta.config}\` — ${run.meta.notes}`);
+    for (const { run } of notes) lines.push(`- \`${run.meta.config}\`: ${run.meta.notes}`);
     lines.push("");
   }
 
@@ -183,7 +183,7 @@ function attemptedIncomplete(inputs: ReportInputs): string[] {
       ? `provider failure rate ${formatRate(run.provider_failure_rate)} exceeded the ${formatRate(run.max_provider_failure_rate)} threshold`
       : "run did not pass the publish guard";
     lines.push(
-      `- \`${run.config}\` — Attempted, incomplete. ${run.attempted_threads} threads attempted, ${run.provider_failures} provider failures, ${run.parse_failures} parse failures, ${run.threads_with_parsed_loops} threads with parsed loops; ${reason}. Run abandoned to free-tier rate limits, to be re-run.`,
+      `- \`${run.config}\`: Attempted, incomplete. ${run.attempted_threads} threads attempted, ${run.provider_failures} provider failures, ${run.parse_failures} parse failures, ${run.threads_with_parsed_loops} threads with parsed loops; ${reason}. Run abandoned to free-tier rate limits, to be re-run.`,
     );
   }
 
@@ -206,7 +206,7 @@ function matching(inputs: ReportInputs): string[] {
     "span fully contains the other, or their character ranges reach an",
     "**intersection-over-union** at or above the threshold.",
     "Matching is one-to-one and greedy by descending IoU: where two predictions cover one",
-    "true loop, the higher IoU takes the match and the other is a false positive — an",
+    "true loop, the higher IoU takes the match and the other is a false positive. An",
     "extractor that splits one commitment into two has produced a spurious item, and that",
     "is counted separately as a *split*.",
     "",
@@ -221,9 +221,9 @@ function matching(inputs: ReportInputs): string[] {
     "",
     "Two prediction classes never match anything:",
     "",
-    "- **Ungrounded** — the evidence span does not resolve to real text. It points nowhere,",
+    "- **Ungrounded.** The evidence span does not resolve to real text. It points nowhere,",
     "  so it cannot prove a commitment. Counted as a false positive *and* in the grounding rate.",
-    "- **Unmappable** — the extractor found something but could not express where, which",
+    "- **Unmappable.** The extractor found something but could not express where, which",
     "  happens when redaction changes offsets. Counted in its own column: neither correct",
     "  nor incorrect. The cost of that choice is stated in the unmappable section below.",
     "",
@@ -260,7 +260,7 @@ function headline(inputs: ReportInputs): string[] {
     "",
     "**Superseded reported as open is the number this benchmark exists for.** It is the",
     "share of correctly-detected, genuinely-retracted commitments that the extractor still",
-    "reports as live — the error that sends a user chasing something that no longer exists,",
+    "reports as live. It is the error that sends a user chasing something that no longer exists,",
     "with the full confidence of a real loop. It is reported on matched pairs only, so it",
     "is not diluted by detection failures.",
     "",
@@ -395,7 +395,7 @@ function spanTightness(inputs: ReportInputs): string[] {
         ["register", "span tightness", "matched pairs"],
         threshold.breakdowns.by_register.groups.map(({ key, metrics }) => [
           key,
-          metrics.span_tightness.matched === 0 ? "—" : num(metrics.span_tightness.mean_iou),
+          metrics.span_tightness.matched === 0 ? "n/a" : num(metrics.span_tightness.mean_iou),
           String(metrics.span_tightness.matched),
         ]),
       ),
@@ -503,7 +503,7 @@ function supersession(inputs: ReportInputs): string[] {
   for (const run of inputs.runs) {
     const m = thresholdOf(run, DEFAULT_IOU);
     lines.push(
-      `**\`${run.run.meta.config}\`** — state accuracy ${pct(m.state.accuracy)} (${m.state.correct}/${m.state.n})`,
+      `**\`${run.run.meta.config}\`**: state accuracy ${pct(m.state.accuracy)} (${m.state.correct}/${m.state.n})`,
       "",
       ...confusionTable<State>(STATES, m.state),
       "",
@@ -531,7 +531,7 @@ function direction(inputs: ReportInputs): string[] {
     const inverted =
       m.direction.rows.blocked_on_you.blocked_on_them + m.direction.rows.blocked_on_them.blocked_on_you;
     lines.push(
-      `**\`${run.run.meta.config}\`** — direction accuracy ${pct(m.direction.accuracy)} (${m.direction.correct}/${m.direction.n}), ${inverted} inverted`,
+      `**\`${run.run.meta.config}\`**: direction accuracy ${pct(m.direction.accuracy)} (${m.direction.correct}/${m.direction.n}), ${inverted} inverted`,
       "",
       ...confusionTable<Direction>(DIRECTIONS, m.direction),
       "",
@@ -541,7 +541,7 @@ function direction(inputs: ReportInputs): string[] {
   lines.push(
     "`mutual` is thin in the corpus (15 loops, 5.5%), so its row and column are",
     "under-powered and should be read with the counts attached rather than as rates.",
-    "Confusions involving `mutual` are not charged as inversions — they are errors, but",
+    "Confusions involving `mutual` are not charged as inversions. They are errors, but",
     "they do not reverse who owes whom.",
     "",
   );
@@ -554,8 +554,8 @@ function deadlines(inputs: ReportInputs): string[] {
     "## Deadlines",
     "",
     "Certainty is whether a deadline was stated at all, and how firmly. The resolved date",
-    "is the harder half: it is where non-numeric code-mixed phrasing — *kal tak*, *parso*,",
-    "*naaliki*, *weekend tak* — either survives the trip to a calendar date or does not.",
+    "is the harder half: it is where non-numeric code-mixed phrasing such as *kal tak*,",
+    "*parso*, *naaliki* and *weekend tak* either survives the trip to a calendar date or does not.",
     "Quote detection and date resolution are separate: finding `by wednesday` is not the",
     "same as resolving it to `2026-04-08`.",
     "",
@@ -574,7 +574,7 @@ function deadlines(inputs: ReportInputs): string[] {
       }),
     ),
     "",
-    "*Hallucinated* is a date produced where the truth resolves to none — \"agle hafte\" is",
+    "*Hallucinated* is a date produced where the truth resolves to none. \"agle hafte\" is",
     "real phrasing that names no day, and inventing one is worse than leaving it null.",
     "*Date missing* is the reverse: the truth resolves to a calendar date and the prediction",
     "does not. It does not count truth deadlines whose correct resolved value is null.",
@@ -627,13 +627,13 @@ function spansAndGrounding(inputs: ReportInputs): string[] {
       }),
     ),
     "",
-    "- **missing** — the truth was resolved in-thread and the prediction offered no span.",
-    "- **spurious** — the truth is still open and the prediction claimed a resolution anyway.",
-    "- **evidence grounded** — the share of mappable predicted evidence spans that resolve to",
+    "- **missing.** The truth was resolved in-thread and the prediction offered no span.",
+    "- **spurious.** The truth is still open and the prediction claimed a resolution anyway.",
+    "- **evidence grounded.** The share of mappable predicted evidence spans that resolve to",
     "  real text at all. A span that does not resolve is a fabrication, and it is the one",
     "  error a plausible-sounding quote could otherwise hide.",
-    "- **splits** — one true loop reported as two or more overlapping predictions.",
-    "  **merges** — one prediction covering two or more true loops.",
+    "- **splits.** One true loop reported as two or more overlapping predictions.",
+    "  **merges.** One prediction covering two or more true loops.",
     "",
   ];
 }
@@ -642,7 +642,7 @@ function unmappable(inputs: ReportInputs): string[] {
   return [
     "## Unmappable spans",
     "",
-    "A prediction whose evidence span cannot be expressed in the original message — the",
+    "A prediction whose evidence span cannot be expressed in the original message, which is the",
     "artifact of redacting text before an extractor sees it. These are **neither correct nor",
     "incorrect**: counting them as false positives blames the extractor for the redactor,",
     "and counting them as matches hands out credit nobody verified. They are excluded from",
@@ -665,7 +665,7 @@ function unmappable(inputs: ReportInputs): string[] {
     "**FN ceiling** is the honest cost of that decision. Setting a prediction aside means a",
     "true loop it may have found still counts as a false negative, because nothing could be",
     "aligned to it. The ceiling is the largest number of this run's false negatives that",
-    "could be explained that way — per thread, the smaller of (unmappable predictions,",
+    "could be explained that way: per thread, the smaller of (unmappable predictions,",
     "unmatched truths). It is an upper bound, not an estimate, and it is printed so the",
     "effect can be bounded instead of guessed at.",
     "",
@@ -682,8 +682,8 @@ function costSection(inputs: ReportInputs, matrix: CostMatrix): string[] {
     "",
     "**The weights below are a judgment call, not a measurement.** Nobody measured that an",
     "outbound false chase is eight times worse than a missed reminder. They encode a product",
-    "stance — errors that speak to third parties on the user's behalf are categorically worse",
-    "than errors that cost the user attention — and a different product could justify",
+    "stance, that errors which speak to third parties on the user's behalf are categorically",
+    "worse than errors that cost the user attention, and a different product could justify",
     "different numbers. They are configurable, and they are printed in full here every time",
     "for exactly that reason.",
     "",
@@ -729,7 +729,7 @@ function costSection(inputs: ReportInputs, matrix: CostMatrix): string[] {
       }),
     ),
     "",
-    "Counts first, cost in brackets. One matched pair can be charged twice — a superseded",
+    "Counts first, cost in brackets. One matched pair can be charged twice: a superseded",
     "loop reported as open *and* inverted is two distinct harms to the user.",
     "",
   ];
@@ -749,7 +749,7 @@ function breakdowns(inputs: ReportInputs): string[] {
     "",
     "Attribution: bucket, thread length and loops-per-thread are properties of the thread,",
     "so every outcome inherits them. Register is a property of a *loop*, and a false positive",
-    "has no true loop to inherit from — so false positives are attributed to the register the",
+    "has no true loop to inherit from, so false positives are attributed to the register the",
     "prediction claimed, and true positives and false negatives to the register of the truth.",
     "A register row's precision therefore reads as \"precision among loops this extractor",
     "called hi-en\", which is the only attribution the data supports.",
@@ -800,23 +800,23 @@ function breakdowns(inputs: ReportInputs): string[] {
             String(metrics.threads),
             String(metrics.truth_loops),
             String(metrics.predicted_loops),
-            metrics.detection.tp + metrics.detection.fp === 0 ? "—" : pct(metrics.detection.precision),
-            metrics.truth_loops === 0 ? "—" : pct(metrics.detection.recall),
-            metrics.truth_loops === 0 ? "—" : pct(metrics.detection.f1),
-            metrics.span_tightness.matched === 0 ? "—" : num(metrics.span_tightness.mean_iou),
-            metrics.direction.n === 0 ? "—" : pct(metrics.direction.accuracy),
-            metrics.state.n === 0 ? "—" : pct(metrics.state.accuracy),
+            metrics.detection.tp + metrics.detection.fp === 0 ? "n/a" : pct(metrics.detection.precision),
+            metrics.truth_loops === 0 ? "n/a" : pct(metrics.detection.recall),
+            metrics.truth_loops === 0 ? "n/a" : pct(metrics.detection.f1),
+            metrics.span_tightness.matched === 0 ? "n/a" : num(metrics.span_tightness.mean_iou),
+            metrics.direction.n === 0 ? "n/a" : pct(metrics.direction.accuracy),
+            metrics.state.n === 0 ? "n/a" : pct(metrics.state.accuracy),
             metrics.state.superseded_as_open.of === 0
-              ? "—"
+              ? "n/a"
               : `${metrics.state.superseded_as_open.count}/${metrics.state.superseded_as_open.of}`,
-            metrics.certainty.n === 0 ? "—" : pct(metrics.certainty.accuracy),
+            metrics.certainty.n === 0 ? "n/a" : pct(metrics.certainty.accuracy),
             metrics.deadline_resolved.of === 0
-              ? "—"
+              ? "n/a"
               : `${metrics.deadline_resolved.exact}/${metrics.deadline_resolved.of}`,
             metrics.resolution_span.scored === 0
-              ? "—"
+              ? "n/a"
               : `${metrics.resolution_span.msg_index_correct}/${metrics.resolution_span.scored}`,
-            metrics.grounding.of === 0 ? "—" : pct(metrics.grounding.rate),
+            metrics.grounding.of === 0 ? "n/a" : pct(metrics.grounding.rate),
             String(metrics.unmappable.predictions),
             num(metrics.cost.per_thread),
           ]),
@@ -835,7 +835,7 @@ function breakdowns(inputs: ReportInputs): string[] {
     ),
     ...render(
       "By bucket",
-      "`neg-` threads contain no loops at all, so their only possible outcome is a false positive — that row is the negative-thread false-positive rate, which precision measured on positives cannot see.",
+      "`neg-` threads contain no loops at all, so their only possible outcome is a false positive. That row is the negative-thread false-positive rate, which precision measured on positives cannot see.",
       (run) => at(run).breakdowns.by_bucket.groups,
     ),
     ...render(
@@ -886,7 +886,7 @@ function galleryEntry(thread: Thread, outcome: Outcome, cost: number): string[] 
   if (outcome.truth) {
     const t = outcome.truth;
     lines.push(
-      `- ${where} — truth: ${t.direction} / ${t.state} / ${t.register} — "${t.statement}"` +
+      `- ${where}: truth ${t.direction} / ${t.state} / ${t.register}, "${t.statement}"` +
         (cost > 0 ? `  *(cost ${cost})*` : ""),
       `  - truth evidence: ${spanQuote(thread, t.evidence)}`,
     );
@@ -895,15 +895,15 @@ function galleryEntry(thread: Thread, outcome: Outcome, cost: number): string[] 
       outcome.kind === "unmappable"
         ? "evidence could not be mapped back to the message, so nothing was aligned to it"
         : "matched no true loop";
-    lines.push(`- ${where} — ${why}${cost > 0 ? `  *(cost ${cost})*` : ""}`);
+    lines.push(`- ${where}: ${why}${cost > 0 ? `  *(cost ${cost})*` : ""}`);
   }
 
   if (outcome.pred) {
     const p = outcome.pred;
     lines.push(
-      `  - predicted: ${p.direction} / ${p.state} / ${p.register} — "${p.statement}"`,
+      `  - predicted: ${p.direction} / ${p.state} / ${p.register}, "${p.statement}"`,
       `  - predicted evidence: ${predictedSpanQuote(thread, p)}` +
-        (outcome.iou === null ? "" : ` — IoU ${outcome.iou.toFixed(2)}`),
+        (outcome.iou === null ? "" : `, IoU ${outcome.iou.toFixed(2)}`),
     );
     if (outcome.truth) {
       const t = outcome.truth;
@@ -933,7 +933,7 @@ function gallery(inputs: ReportInputs): string[] {
     "Generated, never curated. Every mismatch at IoU " +
       DEFAULT_IOU.toFixed(1) +
       " is classified automatically and appears under",
-    "each category it belongs to — a false positive with a fabricated span is in both lists.",
+    "each category it belongs to, so a false positive with a fabricated span is in both lists.",
     `Where a category runs long it is cut to the **${GALLERY_CAP} worst by cost weight**, and the cut states`,
     "the total. Nobody chooses which failures are shown.",
     "",
@@ -958,7 +958,7 @@ function gallery(inputs: ReportInputs): string[] {
     }
 
     const total = [...buckets.values()].reduce((n, list) => n + list.length, 0);
-    lines.push(`### \`${run.run.meta.config}\` — ${total} classified failures`, "");
+    lines.push(`### \`${run.run.meta.config}\`: ${total} classified failures`, "");
 
     for (const category of ERROR_CATEGORIES) {
       const list = buckets.get(category) ?? [];
@@ -974,7 +974,7 @@ function gallery(inputs: ReportInputs): string[] {
       const shown = ranked.slice(0, GALLERY_CAP);
 
       lines.push(
-        `#### ${CATEGORY_TITLES[category]} — ${list.length}`,
+        `#### ${CATEGORY_TITLES[category]}: ${list.length}`,
         "",
         ...(shown.length < list.length
           ? [`Showing the ${GALLERY_CAP} worst by cost weight of ${list.length}.`, ""]
@@ -1037,13 +1037,13 @@ export function renderReport(inputs: ReportInputs): string {
   if (!first) throw new Error("no prediction runs to report on");
 
   const lines = [
-    "# openloop-bench — results",
+    "# openloop-bench results",
     "",
     "Generated by `pnpm report` from the committed prediction files in",
     "`predictions/` and the committed metrics in `results/`. Deterministic: the",
     "same inputs produce the same bytes, and CI fails on a diff. Do not edit by hand.",
     "",
-    `Corpus \`${inputs.corpusHash}\` — validated in the same run that produced these numbers.`,
+    `Corpus \`${inputs.corpusHash}\`, validated in the same run that produced these numbers.`,
     "The eval refuses to score against a corpus that has not validated, and refuses any",
     "prediction file whose corpus hash does not match the corpus on disk.",
     "",

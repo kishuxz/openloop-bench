@@ -1,5 +1,5 @@
 /**
- * @openloop-bench/eval — the matcher, the metrics, the cost model, the report.
+ * @openloop-bench/eval: the matcher, the metrics, the cost model, the report.
  *
  * Read `match.ts` first. Everything else in this package is arithmetic over its
  * output; the decision about when a predicted loop IS a ground-truth loop is

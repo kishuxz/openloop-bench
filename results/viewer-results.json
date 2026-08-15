@@ -2,6 +2,10 @@
   "dataSource": "measured",
   "report_title": "Open Loop Extraction Results",
   "report_deck": "Measured dev split results for hosted-large and local extractor configs at IoU 0.5.",
+  "framing": [
+    "An open loop is an outstanding commitment between two people: something one person owes the other, agreed to in passing in the middle of a conversation and filed nowhere. Finding the promise is the easy half. The hard half is deciding whether it is still live, because a commitment that was cancelled, delegated, or overtaken four messages later reads exactly like one that still stands. The promise text does not change when the obligation dies; only the rest of the thread says otherwise. An extractor that reads the commitment and stops there cannot tell a live loop from a dead one, and it will report both with the same confidence.",
+    "Two configurations are reported below. Hosted large is a 70B model reached over a hosted API, so every thread leaves the user's device to be read. Local is a 7B model running on the user's own hardware, where nothing leaves. The gap between those two rows is what a privacy-first deployment costs today, and it is not a uniform discount. The local run is marginally the more precise of the two on the loops it does report, but it recovers about a third as many of them, gets the direction wrong in more than half the pairs it matches, and reports three of every four dead commitments as still live. Reading the columns rather than the averages is the point: keeping the data on the device does not degrade performance evenly, it removes the specific capabilities that make the output safe to act on."
+  ],
   "metrics": [
     {
       "id": "loop_precision",
@@ -93,6 +97,19 @@
     "metric_id": "superseded_as_open",
     "value": 0.14285714285714285,
     "text": "The hosted-large run reports 2 of 14 matched superseded commitments as still open."
+  },
+  "headline_consequence": "In plain terms: roughly one in seven dead commitments is reported as live. The user is handed a task that no longer exists and goes chasing it, which usually means a message to a counterparty who has already moved on. It is measured on matched pairs only, so it is not softened by the loops the model never found at all.",
+  "deadline_finding": {
+    "title": "Locating a Deadline Is Not Resolving One",
+    "config_id": "hosted-large",
+    "quote_metric_id": "deadline_quote_found",
+    "date_metric_id": "deadline_resolution_accuracy",
+    "lead_template": "On the hosted large run the model finds the deadline phrase in the text {quote} of the time and resolves it to a calendar date {date} of the time.",
+    "body": [
+      "The failure concentrates in the code-mixed half of the corpus, where deadlines are not written as dates. Phrases like kal tak, parso, naaliki and weekend tak are ordinary usage that names a day without naming a date. The model quotes them back accurately and resolves almost none of them.",
+      "This matters because a proactive system has to rank. Its whole job is deciding what to surface now and what can wait until Thursday, and that ordering is by urgency, which in practice means by date. A phrase cannot be ranked. Two loops carrying kal tak and weekend tak cannot be ordered against each other, or against a loop due on the 12th, so the model has located the deadline and then discarded the one property that would let anything be done with it.",
+      "Read on its own, the quote rate looks like competence at deadline handling. The distance between the two numbers is the distance between reading a thread and acting on one, which is why deadline quote found and resolved date exact are reported as separate columns rather than as a single deadline score."
+    ]
   },
   "deltas": [
     {

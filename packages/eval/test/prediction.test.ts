@@ -4,11 +4,11 @@
  * The interesting assertions here are the *acceptances*: a span that does not
  * resolve, a `closed` state with no resolution, an "explicit" certainty with no
  * span. The corpus schema rejects all three, and this one must not, because each
- * is an extractor error the benchmark exists to count — rejecting the file would
+ * is an extractor error the benchmark exists to count, and rejecting the file would
  * delete the measurement and replace it with a crash.
  *
  * What is rejected is anything that makes the file un-scoreable: an unknown
- * enum, a missing provenance field, and `notes` — which exists only in ground
+ * enum, a missing provenance field, and `notes`, which exists only in ground
  * truth and whose presence in a prediction means the answer leaked.
  */
 
@@ -41,7 +41,7 @@ function file(overrides: Record<string, unknown> = {}): Record<string, unknown> 
 }
 
 describe("accepts what the eval needs to measure", () => {
-  test("a span that resolves to nothing — fabrication is scored, not rejected", () => {
+  test("a span that resolves to nothing; fabrication is scored, not rejected", () => {
     const parsed = PredictedLoopSchema.safeParse({
       ...predicted(),
       evidence: { msg_index: 0, start: 9000, end: 9100 },
@@ -53,7 +53,7 @@ describe("accepts what the eval needs to measure", () => {
     expect(PredictedLoopSchema.safeParse({ ...predicted(), evidence: { msg_index: 0, start: 5, end: 5 } }).success).toBe(true);
   });
 
-  test('"closed" with no resolution span — the corpus schema refuses this, we count it', () => {
+  test('"closed" with no resolution span; the corpus schema refuses this, we count it', () => {
     expect(PredictedLoopSchema.safeParse({ ...predicted(), state: "closed", resolution: null }).success).toBe(true);
   });
 
@@ -65,7 +65,7 @@ describe("accepts what the eval needs to measure", () => {
     expect(parsed.success).toBe(true);
   });
 
-  test("a resolved date that is not a date — it can never match, which is the point", () => {
+  test("a resolved date that is not a date; it can never match, which is the point", () => {
     const parsed = PredictedLoopSchema.safeParse({
       ...predicted(),
       deadline: { span: null, resolved: "tomorrow", certainty: "implied" },
@@ -84,7 +84,7 @@ describe("rejects what makes a file un-scoreable", () => {
     expect(PredictedLoopSchema.safeParse({ ...predicted(), direction: "blocked_on_someone" }).success).toBe(false);
   });
 
-  test("notes — that field exists only in ground truth, so its presence means a leak", () => {
+  test("notes: that field exists only in ground truth, so its presence means a leak", () => {
     const parsed = PredictedLoopSchema.safeParse({ ...predicted(), notes: "superseded because Ravi sent it" });
     expect(parsed.success).toBe(false);
   });

@@ -168,6 +168,28 @@ nav {
   text-transform: uppercase;
 }
 
+/* Orientation prose: what an open loop is, before any number is shown. */
+.framing {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+  max-width: 46rem;
+}
+
+.framing p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.lead {
+  border-left: 3px solid var(--accent);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.6;
+  max-width: 46rem;
+  padding-left: 1rem;
+}
+
 .table-scroll {
   max-width: 100%;
   overflow-x: auto;
@@ -221,6 +243,13 @@ thead th {
   font-size: clamp(2.5rem, 14vw, 7rem);
   font-variant-numeric: tabular-nums;
   line-height: 0.95;
+}
+
+.consequence {
+  border-top: 1px solid var(--rule);
+  margin-top: 1.25rem;
+  max-width: 46rem;
+  padding-top: 1.25rem;
 }
 
 .stack {

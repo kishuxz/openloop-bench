@@ -26,16 +26,16 @@ rule was clarified. An audit that found nothing is recorded as finding nothing.
 Step 4 was added after the fact, and its absence cost something real. Two
 consecutive audits examined rule interpretation thread by thread, found genuine
 defects, and never noticed that `certainty` had moved 33 points between Phase 1
-and batch 1 — because a shift in *what gets written* is invisible to an audit
+and batch 1, because a shift in *what gets written* is invisible to an audit
 that only asks whether each individual label follows the rules. Cumulative
 totals hide it further: a batch labelled to a different standard is averaged
 into 200 threads and disappears.
 
 ---
 
-## Batch 1 — threads 41–80 (`en-11..20`, `mix-11..20`, `sup-07..13`, `neg-09..16`, `del-07..11`)
+## Batch 1: threads 41 to 80 (`en-11..20`, `mix-11..20`, `sup-07..13`, `neg-09..16`, `del-07..11`)
 
-Audit target: the Phase 1 corpus, threads 1–40.
+Audit target: the Phase 1 corpus, threads 1 to 40.
 
 ### Rules added during this batch
 
@@ -60,7 +60,7 @@ as applying to people only.
 *Fixed:* `en-07`'s message now says "that payments company"; `sup-04`'s
 counterparty is "Aditya (prospect)"; `neg-04`'s is "Shalini (VC)", and its
 reference to a real conference became "the founders dinner last week". No loop
-changed, and no span moved — the harness recomputes offsets from quoted
+changed, and no span moved, because the harness recomputes offsets from quoted
 substrings, so the labels followed the text automatically.
 
 *Rule added:* §10, "No real organisations". The second reason there is the one
@@ -70,19 +70,19 @@ would be teaching brand recognition rather than commitment detection.
 **2. The "directives accepted" rule was underspecified, and four batch 1 loops
 were labeled inconsistently under it.** The rule said the evidence span goes on
 the directive. It did not say what happens when the accepting party *also*
-commits in their own words — which is the common case.
+commits in their own words, which is the common case.
 
 *Found by:* auditing `mix-08` from Phase 1, where the user issues a directive
 and Karthik replies with both "ok anna" and his own dated commitment. That
 thread evidences the loop on Karthik's own words. Four batch 1 loops
 (`mix-20` ×2, `del-08`, `del-09`) evidenced the equivalent structure on the
-directive instead. Same judgment, made two ways, forty threads apart — exactly
+directive instead. Same judgment, made two ways, forty threads apart, which is exactly
 the drift this process exists to catch, and it happened *within* a single batch
 because the rule was written mid-batch.
 
 *Cause:* underspecified rule, not label error.
 
-*Fixed:* §2 now states the precedence — when the acceptor commits in their own
+*Fixed:* §2 now states the precedence. When the acceptor commits in their own
 words, their words win; the directive form is for when acceptance is all they
 say. The four loops were re-pointed to the acceptor's own commitment. `mix-08`,
 `del-07` and `en-20` were already consistent with the clarified rule and did not
@@ -95,7 +95,7 @@ negatives cannot be separated from positives by keyword. Its cue list was
 
 Four negatives failed it: `neg-11` ("pesalam", "kandippa"), `neg-14`
 ("sochunga"), `neg-15` ("dekhta hu"), `neg-16` ("someone should look… at some
-point"). All four are commitment-shaped — in Tamil hortative, Hindi first-person
+point"). All four are commitment-shaped, in Tamil hortative, Hindi first-person
 future, and English modal-obligation respectively. The test could not see any of
 them.
 
@@ -103,20 +103,20 @@ them.
 was 68% English and stopped tracking the register mix.
 
 *Fixed:* the cue pattern now matches construction families rather than a
-keyword list — first-person volitionals in each register, hortatives, and the
+keyword list: first-person volitionals in each register, hortatives, and the
 modal phrasings that carry most English near-misses. The test still bites: a
 negative built from purely factual statements fails it.
 
 **4. `neg-10` was trivially separable and the thread was strengthened.** The
 insurance cold-call originally contained no commitment grammar at all, which
 made it separable by absence rather than by judgment. Added "aap bolenge to main
-comparison chart turant bhej dunga" — strong first-person future, gated on a
+comparison chart turant bhej dunga", a strong first-person future gated on a
 condition that will not occur, so it resolves under the existing
 conditional-on-an-uncertain-event rule without needing a new one.
 
 **5. `del-11` carried a two-character evidence span.** The user answered "who is
 writing the incident report?" with "me". Labeled that way, the span reads "me"
-and fails §6's own test — a stranger could not reconstruct the obligation from
+and fails §6's own test, since a stranger could not reconstruct the obligation from
 it.
 
 *Cause:* label error, caught by the corpus test asserting evidence spans exceed
@@ -139,17 +139,17 @@ re-examined under the clarified directive rule and are consistent as labeled.
 
 ---
 
-## Batch 2 — threads 81–120 (`en-21..30`, `mix-21..30`, `sup-14..20`, `neg-17..24`, `del-12..16`)
+## Batch 2: threads 81 to 120 (`en-21..30`, `mix-21..30`, `sup-14..20`, `neg-17..24`, `del-12..16`)
 
-Audit target: batch 1, threads 41–80.
+Audit target: batch 1, threads 41 to 80.
 
 ### Rules added during this batch
 
 | Rule | Forced by | What it settles |
 |---|---|---|
-| **Group threads: who is the counterparty** (§2) | `en-21`, `en-27`, `del-14` | One counterparty per loop, chosen as the party the act is owed to — the asker, or whoever is blocked without it. Never one loop per person present. |
+| **Group threads: who is the counterparty** (§2) | `en-21`, `en-27`, `del-14` | One counterparty per loop, chosen as the party the act is owed to: the asker, or whoever is blocked without it. Never one loop per person present. |
 | **Partial delivery** (§2) | `en-22`, `mix-26` | Half-delivered stays `open`. Not `closed`, and not closed-plus-replacement, which would double-count recall. |
-| **Delivery rejected, and the loop reopening** (§2) | `en-23`, `mix-25` | The first loop `closed` — the promisor did what they said — and the correction is a new loop. Deliberately not supersession. |
+| **Delivery rejected, and the loop reopening** (§2) | `en-23`, `mix-25` | The first loop is `closed`, because the promisor did what they said, and the correction is a new loop. Deliberately not supersession. |
 
 ### Findings
 
@@ -162,7 +162,7 @@ checked against every batch 1 thread that could touch them:
   the already-delivered item and treating all three as one partly-delivered
   loop give the same label, so the thread stands either way.
 - *Delivery rejected.* One candidate, `en-15` message 0 ("can you resend the
-  invoice?"). Not a rejection — the original was sent before the thread opens,
+  invoice?"). Not a rejection, because the original was sent before the thread opens,
   so this is a fresh request, not a correction of an in-thread delivery.
 - *Group threads.* Three multi-party threads: `en-17`, `del-09`, `neg-13`.
   `en-17` already carries two different counterparties for two loops in one
@@ -173,7 +173,7 @@ This is the first audit that changed nothing, which is the outcome the process
 is supposed to trend toward.
 
 **2. The cue pattern missed Tamil again.** `neg-19` failed the
-not-trivially-separable test on "yaaravadhu paakanum adha" — "someone should
+not-trivially-separable test on "yaaravadhu paakanum adha", meaning "someone should
 look at that", the exact Tamil analogue of the English near-miss the test is
 built around.
 
@@ -193,15 +193,15 @@ checked alongside the composition figures.
 
 ### Counts after batch 2
 
-120 threads, 163 loops, 290 spans, all resolving. Thread lengths span 3–20
-messages. 16 threads carry 3–5 loops, against a target of 15 at 200 — already
+120 threads, 163 loops, 290 spans, all resolving. Thread lengths span 3 to 20
+messages. 16 threads carry 3 to 5 loops, against a target of 15 at 200, already
 met. `validate`, `stats:check` and 83 tests pass.
 
 ---
 
 ## Certainty distribution audit (before batch 3)
 
-Triggered by the mid-phase checkpoint, not by a batch audit — which is the
+Triggered by the mid-phase checkpoint, not by a batch audit, which is the
 finding underneath the finding.
 
 ### What moved
@@ -221,7 +221,7 @@ would accumulate.
 Two blind re-labels against §8 as written, sampled deterministically by hashing
 `thread_id:loop_index` so the selection could not be steered:
 
-- 20 of the 59 `certainty: "none"` loops in batches 1–2.
+- 20 of the 59 `certainty: "none"` loops in batches 1 and 2.
 - 10 of the 31 `certainty: "explicit"` loops in Phase 1.
 
 Disagreement was recorded before anything was changed.
@@ -231,7 +231,7 @@ Disagreement was recorded before anything was changed.
 **Phase 1 `explicit` → 0 of 10 disagree.** Every sampled loop re-labels
 `explicit` with the same span. Phase 1 was not over-labeling.
 
-**Batches 1–2 `none` → 3 of 20 disagree (15%).**
+**Batches 1 and 2 `none` → 3 of 20 disagree (15%).**
 
 | Loop | Labeled | Should be | Why |
 |---|---|---|---|
@@ -242,14 +242,14 @@ Disagreement was recorded before anything was changed.
 ### Diagnosis: (c) both, dominated by thread-writing drift
 
 The 15% labeling-drift component is real and is now fixed. But correcting all
-three moves batch 1–2 `explicit` from 31% to 36% — nowhere near Phase 1's 74%.
+three moves batches 1 and 2 `explicit` from 31% to 36%, nowhere near Phase 1's 74%.
 The rest is thread-writing drift, and its cause is legible in what the batches
 were written *for*:
 
 Phase 1's mix bucket existed to carry non-numeric deadline expressions, so
-nearly every loop in it had a stated time. Batches 1–2 were written to fill the
+nearly every loop in it had a stated time. Batches 1 and 2 were written to fill the
 `closed` deficit and to introduce delegation, multi-loop threads, in-flight
-statements and accepted directives — and those phenomena mostly produce
+statements and accepted directives, and those phenomena mostly produce
 commitments with no stated deadline. "ill review it", "on it", "you take it"
 are all deadline-free by nature.
 
@@ -260,7 +260,7 @@ leans harder on Phase 1's threads than the thread counts suggest.
 ### Also fixed: two rule gaps the audit exposed
 
 **Immediacy markers had no rule and were being labelled `none`.** "ill mail it
-to you now", "rotate panren ippo", "bhejta hu abhi" — five loops. These state a
+to you now", "rotate panren ippo", "bhejta hu abhi", five loops in all. These state a
 time, and the strongest one available; labeling them `none` while "today" is
 `explicit` put the stronger phrasing in the weaker bucket. Now `explicit`,
 spanning the marker, resolved to that day. §8 states it.
@@ -285,19 +285,19 @@ batch audit so a 33-point move cannot go two batches unnoticed again.
 ### Tooling added
 
 `batch` is now a stored schema field rather than something derived from thread
-ids. The first consumer to derive it — the script written for this audit — got
+ids. The first consumer to derive it, the script written for this audit, got
 `sup-07..09` and `del-07..08` wrong, reading them as Phase 1 by their numbers.
 A wrong batch number silently invalidates the comparison that exists to catch
 silent errors, so it is stored and validated.
 
 ---
 
-## Batch 3 — threads 121–160 (`en-31..40`, `mix-31..40`, `sup-21..27`, `neg-25..32`, `del-17..21`)
+## Batch 3: threads 121 to 160 (`en-31..40`, `mix-31..40`, `sup-21..27`, `neg-25..32`, `del-17..21`)
 
-Audit target: batch 2, threads 81–120. First batch run under the amended
+Audit target: batch 2, threads 81 to 120. First batch run under the amended
 five-step protocol.
 
-### Step 4 — distribution check
+### Step 4: distribution check
 
 `pnpm stats:by-batch` flags two dimensions moving more than 15 points between
 batch 2 and batch 3:
@@ -310,7 +310,7 @@ batch 2 and batch 3:
 
 **Diagnosis: intended correction, not drift.** Batch 3 was written deadline-rich
 on purpose, as the remedy the certainty audit called for. The flag is the tool
-working — it would have fired the same way had the move been accidental, and the
+working. It would have fired the same way had the move been accidental, and the
 diagnosis is what distinguishes them. Recording it here is the point: a future
 reader comparing batch 2 and batch 3 will see a 31-point jump and needs to know
 it was steered.
@@ -319,7 +319,7 @@ Nothing else moved. `state`, `direction` and `register` are all within a few
 points of batch 2, and `mutual` remains the thinnest dimension in the corpus at
 2% of this batch's loops.
 
-### Step 5 — backward audit
+### Step 5: backward audit
 
 **No label changes in batch 2.** Batch 3 added no new rules; it exercised the
 three §8 clarifications the certainty audit produced, so the audit re-checked
@@ -327,7 +327,7 @@ batch 2 against those:
 
 - *Immediacy markers.* No batch 2 loop carries one in its evidence and is
   labelled anything but `explicit`.
-- *Deadline stated in a later message.* One candidate, `del-15` loop 0 — a
+- *Deadline stated in a later message.* One candidate, `del-15` loop 0, is a
   "today" appearing two messages after the evidence. It belongs to the
   replacement loop, which is already `explicit`; the superseded loop it was
   flagged against never had a deadline. False positive.
@@ -336,7 +336,7 @@ batch 2 against those:
 ### Finding: the cue test failed on Tamil for the third time
 
 `neg-27` failed on "yosikalam" and `neg-32` on "edhavadhu venumna sollunga,
-naan irukken". Both are canonical near-misses — the hortative "let's think
+naan irukken". Both are canonical near-misses: the hortative "let's think
 about it", and the availability offer that is the direct Tamil equivalent of
 "let me know if you need anything".
 
@@ -360,7 +360,7 @@ rather than extended again.
 
 ---
 
-## Test replacement — the separable-cue check
+## Test replacement: the separable-cue check
 
 Not a batch audit. A tooling change forced by three batch audits in a row
 finding the same class of defect.
@@ -379,7 +379,7 @@ language", checked against a hand-authored list of cues. It failed three times:
 Each fix generalised further than the last and each was still authored from
 English intuition about what other grammars ought to look like. Three failures
 across three grammars is evidence that the *approach* was wrong, not that
-coverage was incomplete — a list written by someone whose first language is not
+coverage was incomplete, being a list written by someone whose first language is not
 Tamil will keep having holes in Tamil, and the corpus is 42% code-mixed by loop
 and rising.
 
@@ -393,7 +393,7 @@ the property the corpus needs to have.
 
 A classifier, in `src/separability.ts`:
 
-- Bag of distinct tokens per thread — a Unicode-aware split on letters and
+- Bag of distinct tokens per thread, taken as a Unicode-aware split on letters and
   digits, so no vocabulary is written by hand and nothing knows what language it
   is reading.
 - Bernoulli naive Bayes with Laplace smoothing.
@@ -408,7 +408,7 @@ A classifier, in `src/separability.ts`:
 
 The corpus passes if observed balanced accuracy sits at or below the null 95th
 percentile. On failure the test prints the top weighted tokens in both
-directions — those features **are** the leak, and they name the threads that
+directions. Those features **are** the leak, and they name the threads that
 need rewriting.
 
 ### First run against 160 threads: FAIL
@@ -426,7 +426,7 @@ good well 40 kabhi`
 Three separate leaks, all of them mine:
 
 1. **`already` at -2.27 is the strongest single feature in the corpus.** I used
-   "already X" as the completed-act near-miss in negative after negative —
+   "already X" as the completed-act near-miss in negative after negative:
    `neg-09`, `neg-17`, `neg-25`, `neg-32`, `neg-07`. It became a tell. Completed
    acts belong in loop-bearing threads too.
 2. **Social register is concentrated in negatives.** `bhai`, `kabhi`, `baat`,
@@ -436,7 +436,7 @@ Three separate leaks, all of them mine:
    are top positive features, which means no negative thread contains a date.
    A thread can state a filing date and contain no commitment.
 
-### Remediation — PASS
+### Remediation: PASS
 
 ```
 before   balanced accuracy 0.606   null p95 0.558   p = 0.010   FAIL
@@ -445,19 +445,19 @@ after    balanced accuracy 0.538   null p95 0.567   p = 0.119   PASS
 
 Two rounds, because the first diagnosis was incomplete.
 
-**Round 1 — vocabulary crossover.** Fifteen edits putting each leaking
+**Round 1: vocabulary crossover.** Fifteen edits putting each leaking
 phenomenon on both sides: `already`-shaped completed acts moved into
 loop-bearing threads, social address terms ("bhai", "yaar") into threads that
 carry commitments, and dates into negatives, where a thread can state a filing
 deadline and still owe nobody anything. Measured before and after by counting
-threads carrying each feature — dates went from 0/12 negatives to several.
+threads carrying each feature: dates went from 0/12 negatives to several.
 
 That took 0.606 to 0.587. Still failing.
 
-**Round 2 — the leak was topic, not vocabulary.** Per-thread margins showed all
+**Round 2: the leak was topic, not vocabulary.** Per-thread margins showed all
 twelve dev negatives separating with large margins, which no amount of word
 substitution was going to fix. The reason: dev positives were ~100% work
-threads, and half the dev negatives were social — catching up, career advice,
+threads, and half the dev negatives were social: catching up, career advice,
 a cold call, flat hunting. The classifier was learning *subject matter*, and a
 vocabulary patch cannot touch that.
 
@@ -479,7 +479,7 @@ The threshold assertion has been **removed**, not raised. The check reports and
 never fails a build on its score.
 
 The remediation above is the argument. Fixing the leak moved p from 0.030 to
-0.119 through a change that reassigned threads between `dev` and `test` — it
+0.119 through a change that reassigned threads between `dev` and `test`, and it
 altered no label, no message, and no span. A statistic that swings that far on
 a split reassignment cannot gate a build honestly: the only lever available for
 making it pass is the corpus, so a failing build would eventually be answered by
@@ -488,11 +488,11 @@ it would be hiding, and unlike the leak it leaves no trace.
 
 The verdict was never the useful part. The ranked feature list and the
 per-thread margins are what named `already`, the social/work topic split, and
-the absence of dates in negatives — and they are exactly as informative at
+the absence of dates in negatives, and they are exactly as informative at
 p = 0.4 as at p = 0.01.
 
 **The bar, as judgment rather than as a number:** keep remediating while the
-top-weighted features are obviously authorial habit — a word reached for
+top-weighted features are obviously authorial habit, a word reached for
 whenever negatives were written, a topic only ever given to one side. Stop when
 what remains reads like the genuine language of commitment, because at that
 point the classifier has found the phenomenon the corpus exists to capture, and
@@ -505,7 +505,7 @@ and a separability number from the previous run stayed on screen and was read as
 current for one round.
 
 `separabilityReport()` is now the only entry point. It validates the corpus in
-the same run, then computes, or throws — there is no cached-score path and no
+the same run, then computes, or throws. There is no cached-score path and no
 third state. Every score it returns carries the corpus content hash it was
 computed from, printed beside the number, because a score you cannot trace to a
 corpus is a score you cannot act on.
@@ -515,11 +515,11 @@ corpus that has not validated in the same run.
 
 ---
 
-## Batch 4 — threads 161–200 (`en-41..50`, `mix-41..50`, `sup-28..35`, `neg-33..40`, `del-22..25`)
+## Batch 4: threads 161 to 200 (`en-41..50`, `mix-41..50`, `sup-28..35`, `neg-33..40`, `del-22..25`)
 
-Audit target: batch 3, threads 121–160. Completes Phase 2.
+Audit target: batch 3, threads 121 to 160. Completes Phase 2.
 
-### Step 4 — distribution check
+### Step 4: distribution check
 
 The check fired once and it was worth firing.
 
@@ -538,7 +538,7 @@ Nothing else moved. The two certainty flags that remain are the batch 0→1 drif
 and the batch 2→3 correction, both diagnosed above and both permanent features
 of the history.
 
-### Step 5 — backward audit
+### Step 5: backward audit
 
 **No label changes in batch 3.** Batch 4 added no new rules; it exercised §2's
 social-register reasoning and §4's `mutual`. Both were checked against batch 3:
@@ -558,11 +558,11 @@ social threads as negatives. That was corrected in the `dev` split by swapping
 split assignments, which fixed the measurement without fixing the habit. Batch 4
 fixes the habit at the source:
 
-- **Nine social-register threads carrying real loops** — a CV review owed to a
+- **Nine social-register threads carrying real loops**: a CV review owed to a
   friend, a call owed to a parent, a mock interview, a car sale between friends.
   Each is a genuine obligation someone would follow up on, sitting in a
   conversation with no work content anywhere.
-- **Eight work-register negatives** — filings done, deploys announced, invoices
+- **Eight work-register negatives**: filings done, deploys announced, invoices
   settled, a postmortem published with its actions already assigned. Threads a
   founder would recognise from their week, containing nothing owed.
 
@@ -578,7 +578,7 @@ add mutual loops is to invent situations that do not occur at that rate in real
 messaging, and a metric computed over manufactured cases measures the author. It
 is recorded in the README as under-powered, with the count attached.
 
-### Separability after batch 4 — reported, not gated
+### Separability after batch 4: reported, not gated
 
 ```
 corpus d9c347f4f5150b19   dev: 80 threads, 65 with loops, 15 without

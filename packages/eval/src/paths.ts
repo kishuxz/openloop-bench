@@ -1,5 +1,5 @@
 /**
- * paths — where the artifacts live, in one place.
+ * paths: where the artifacts live, in one place.
  *
  * Predictions are inputs and live in `predictions/`; results are outputs and
  * live in `results/`. Both are committed: the report is generated from committed

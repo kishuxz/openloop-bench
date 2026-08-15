@@ -13,7 +13,7 @@ deadlineText(thread, thread.loops[0]); // → "kal tak"
 ## The one thing to know
 
 `ThreadSchema.parse()` does not only check types. It also checks that every
-span — evidence, resolution, and deadline — resolves to real characters in the
+span, meaning evidence, resolution and deadline, resolves to real characters in the
 message it references, and that a `closed` / `superseded` loop points at a
 resolution strictly later than its own evidence.
 
@@ -34,7 +34,7 @@ validator can report shape errors and grounding errors as separate classes.
 `deadline` has no `raw` string field on purpose: the phrasing is derived from
 the span, so "kal tak" cannot drift into "by tomorrow" between the message and
 the label. The deadline span frequently sits in a **different message** than
-the evidence — deadlines get negotiated a few turns after the promise — so
+the evidence, because deadlines get negotiated a few turns after the promise, so
 resolve it with `deadlineText()` rather than slicing the evidence message.
 
 ## Exports
@@ -55,7 +55,7 @@ resolve it with `deadlineText()` rather than slicing the evidence message.
 
 ## Character offsets
 
-Spans are half-open `[start, end)` in **UTF-16 code units** — exactly what
+Spans are half-open `[start, end)` in **UTF-16 code units**, exactly what
 `String.prototype.slice` takes, so `text.slice(start, end)` is the span with no
 conversion.
 

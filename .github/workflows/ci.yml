@@ -46,7 +46,7 @@ jobs:
       # The eval is only trustworthy if its committed artifacts are the ones its
       # code produces. Regenerate evaluator fixtures, re-score the committed
       # model predictions, re-render the report, and fail on any diff: that is
-      # what makes "deterministic — same inputs, same bytes out" a checked claim
+      # what makes "deterministic: same inputs, same bytes out" a checked claim
       # rather than a sentence in a README. It also catches a corpus edit that
       # silently invalidates a prediction file's spans, since the hash gate
       # refuses to score it.

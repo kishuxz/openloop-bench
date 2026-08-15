@@ -81,7 +81,7 @@ describe("charging matched pairs", () => {
     });
   });
 
-  test("one pair can be charged twice — they are two distinct harms", () => {
+  test("one pair can be charged twice; they are two distinct harms", () => {
     const m = score(makeThread([superseded]), [
       at(exact.start, exact.end, { state: "open", direction: "blocked_on_them" }),
     ]);

@@ -50,6 +50,8 @@ export interface ResultsData {
   readonly dataSource: string;
   readonly report_title: string;
   readonly report_deck: string;
+  /** Orientation paragraphs shown above the headline table. */
+  readonly framing: readonly string[];
   readonly scope: string;
   readonly incomplete_runs?: readonly {
     readonly config: string;
@@ -69,6 +71,17 @@ export interface ResultsData {
     readonly metric_id: string;
     readonly value: number | null;
     readonly text: string;
+  };
+  /** What the headline number means for the person relying on the output. */
+  readonly headline_consequence: string;
+  readonly deadline_finding: {
+    readonly title: string;
+    readonly config_id: string;
+    readonly quote_metric_id: string;
+    readonly date_metric_id: string;
+    /** Contains `{quote}` and `{date}`, filled from the config's metric values. */
+    readonly lead_template: string;
+    readonly body: readonly string[];
   };
   readonly deltas: readonly {
     readonly label: string;
@@ -135,6 +148,21 @@ export function formatMetric(value: number | null | undefined, format: MetricDef
 
 export function gap(label: string): string {
   return `gap: ${label}`;
+}
+
+export function metricValue(configId: string, metricId: string): number | null | undefined {
+  return results.configs.find((config) => config.id === configId)?.metric_values[metricId];
+}
+
+/**
+ * The deadline lead sentence, with both percentages read from the same
+ * `metric_values` the headline table renders. Prose and table cannot disagree.
+ */
+export function deadlineLead(): string {
+  const finding = results.deadline_finding;
+  return finding.lead_template
+    .replace("{quote}", formatMetric(metricValue(finding.config_id, finding.quote_metric_id), "percent"))
+    .replace("{date}", formatMetric(metricValue(finding.config_id, finding.date_metric_id), "percent"));
 }
 
 export function isNotableCell(configId: string, metricId: string): boolean {

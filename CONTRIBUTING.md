@@ -11,7 +11,7 @@ button.
 pnpm check
 ```
 
-That runs typecheck, lint, tests, corpus validation and the composition check —
+That runs typecheck, lint, tests, corpus validation and the composition check,
 the same five steps CI runs, in the same order. If it passes locally it passes
 in CI, and if it does not, fix it before pushing rather than after.
 
@@ -42,7 +42,7 @@ Scopes are package names without the org prefix: `schema`, `corpus`,
 **Subject.** Imperative mood, at most 72 characters, no trailing period, no
 emoji. "add resolution span", not "added resolution spans" or "Adds…".
 
-**Body.** Required whenever the commit embodies a decision. Explain *why* — the
+**Body.** Required whenever the commit embodies a decision. Explain *why*: the
 diff already shows what. Name the alternative you rejected and the reason you
 rejected it. Wrap at 72 characters.
 
@@ -68,7 +68,7 @@ which approximated this constraint less precisely.
 
 ## Branches and PRs
 
-One branch per phase, one PR per phase, **merged with a merge commit — never
+One branch per phase, one PR per phase, **merged with a merge commit, never
 squashed.** The granular decision commits are the point; squashing them deletes
 the reasoning this repo exists to carry.
 
@@ -81,7 +81,7 @@ the reasoning this repo exists to carry.
 | `phase-5-web` | #5 | Static results viewer |
 
 `main` stays green. Never commit to it directly. Fill in every section of the
-PR template — the Decisions section in particular, with the rejected
+PR template, the Decisions section in particular, with the rejected
 alternative for each.
 
 ## Changing the corpus

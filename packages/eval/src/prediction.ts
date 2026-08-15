@@ -1,5 +1,5 @@
 /**
- * prediction — the file format an extractor must emit to be scored.
+ * prediction: the file format an extractor must emit to be scored.
  *
  * This is the contract between Phase 3 (the extractor) and Phase 4 (this
  * package). It is deliberately NOT the corpus schema, for three reasons that
@@ -53,7 +53,7 @@ export const PREDICTION_FORMAT = 1;
  * The marker an extractor emits when it found a loop but cannot express where.
  *
  * This happens under PII redaction: the model reads redacted text, points at a
- * span in it, and the offsets cannot be carried back to the original message —
+ * span in it, and the offsets cannot be carried back to the original message,
  * the redaction changed the string's length. The span is neither right nor
  * wrong, and `metrics.ts` counts it in its own column rather than letting it
  * quietly become a false positive (which would punish the extractor for the
@@ -130,7 +130,7 @@ export const RunMetaSchema = z.strictObject({
   /**
    * Content hash of the corpus the predictions were generated against, in the
    * form `corpusHash()` returns. Scoring refuses if it differs from the corpus
-   * on disk — see `evaluate.ts`.
+   * on disk; see `evaluate.ts`.
    */
   corpus_hash: z.string().min(8),
   split: SplitSchema,
@@ -140,7 +140,7 @@ export const RunMetaSchema = z.strictObject({
    * that changes every midnight cannot be diffed.
    */
   generated_at: IsoDateSchema,
-  /** Optional free text — what this configuration was trying. */
+  /** Optional free text: what this configuration was trying. */
   notes: z.string().min(1).optional(),
 });
 export type RunMeta = z.infer<typeof RunMetaSchema>;
@@ -204,7 +204,7 @@ export function readPredictionJson(path: string): unknown {
   try {
     return JSON.parse(readFileSync(path, "utf-8"));
   } catch (error) {
-    throw new Error(`${path}: not valid JSON — ${(error as Error).message}`, { cause: error });
+    throw new Error(`${path}: not valid JSON. ${(error as Error).message}`, { cause: error });
   }
 }
 

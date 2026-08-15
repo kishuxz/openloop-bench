@@ -1,5 +1,5 @@
 /**
- * eval — score every prediction file and write the results artifacts.
+ * eval: score every prediction file and write the results artifacts.
  *
  * Reads `predictions/*.json` (or the files named on the command line)
  * and writes, per configuration:
@@ -12,7 +12,7 @@
  * on disk is refused rather than scored. See `src/evaluate.ts`.
  *
  * Exits non-zero if any file fails, and reports all of them rather than the
- * first — the same tolerant-read posture the corpus validator takes.
+ * first: the same tolerant-read posture the corpus validator takes.
  */
 
 import { existsSync, mkdirSync, readdirSync, unlinkSync, writeFileSync } from "node:fs";
@@ -83,7 +83,7 @@ function main(): void {
   const files = predictionFiles(args.files);
   mkdirSync(RESULTS_DIR, { recursive: true });
 
-  console.log(`openloop-bench eval — ${files.length} prediction file(s)`);
+  console.log(`openloop-bench eval: ${files.length} prediction file(s)`);
   console.log(`provider failure publish threshold: ${formatRate(args.maxProviderFailureRate)} (override with ${PROVIDER_FAILURE_RATE_ENV} or --max-provider-failure-rate)`);
   console.log("");
 
@@ -141,7 +141,7 @@ function main(): void {
   console.log("");
 
   if (failures.length > 0) {
-    console.log(`FAIL — ${failures.length} of ${files.length} prediction file(s) could not be scored`);
+    console.log(`FAIL: ${failures.length} of ${files.length} prediction file(s) could not be scored`);
     process.exitCode = 1;
     return;
   }

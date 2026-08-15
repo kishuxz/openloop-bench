@@ -11,7 +11,7 @@ coverage/
 .env.*
 !.env.example
 
-# Conductor workspace scratch — agent-to-agent collaboration, never committed
+# Conductor workspace scratch: agent-to-agent collaboration, never committed
 .context/
 
 .DS_Store

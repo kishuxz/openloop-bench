@@ -1,6 +1,6 @@
 # @openloop-bench/web
 
-**Status: stub. No implementation — Phase 3.**
+**Status: stub. No implementation until Phase 3.**
 
 A static viewer for the results JSON that `@openloop-bench/eval` writes.
 Next.js App Router + Tailwind, statically exported. Reads flat JSON from the

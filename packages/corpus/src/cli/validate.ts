@@ -1,11 +1,11 @@
 /**
- * validate — the gate on every corpus edit.
+ * validate: the gate on every corpus edit.
  *
  * Four checks, reported as separate classes because they fail for different
  * reasons and get fixed in different ways:
  *
  *   1. Schema. Shape, enums, per-loop consistency.
- *   2. Grounding. Every span — evidence, resolution, deadline — re-resolved
+ *   2. Grounding. Every span, meaning evidence, resolution and deadline, re-resolved
  *      against the message it references. `ThreadSchema` already enforces this;
  *      doing it again here, through the same `resolveSpan` the eval package
  *      will use, means the guarantee is asserted by the tool a human runs and
@@ -82,11 +82,11 @@ function main(): void {
 
   const loopCount = loaded.reduce((n, l) => n + l.thread.loops.length, 0);
 
-  console.log(`openloop-bench validate — ${THREADS_DIR}`);
+  console.log(`openloop-bench validate: ${THREADS_DIR}`);
   console.log("");
 
   if (report.size === 0) {
-    console.log(`  ${loaded.length} threads, ${loopCount} loops, ${spanCount} spans — all resolve.`);
+    console.log(`  ${loaded.length} threads, ${loopCount} loops, ${spanCount} spans, all resolve.`);
     console.log("");
     console.log("PASS");
     return;
@@ -99,7 +99,7 @@ function main(): void {
   }
 
   const total = [...report.values()].reduce((n, p) => n + p.length, 0);
-  console.log(`FAIL — ${total} problem(s) across ${report.size} file(s); ${loaded.length} thread(s) parsed cleanly`);
+  console.log(`FAIL: ${total} problem(s) across ${report.size} file(s); ${loaded.length} thread(s) parsed cleanly`);
   process.exitCode = 1;
 }
 

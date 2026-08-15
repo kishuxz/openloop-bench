@@ -3,7 +3,7 @@
 Scaffolding conventions for this repo were taken from `~/ref/gstack-kishore`
 (referred to below as *gstack*), except where the project brief specified
 otherwise. This file records what was adopted, what was deliberately not, and
-why — so a later contributor does not have to re-derive it by reading two
+why, so a later contributor does not have to re-derive it by reading two
 repos.
 
 ## Adopted from gstack
@@ -39,7 +39,7 @@ interface, because it is the gate on every corpus edit.
 
 **Tolerant reads, strict writes.** gstack's JSONL reader skips a corrupt line
 rather than dying; its writer rejects anything malformed up front. Same split
-here — the validator reads every thread file and reports all failures in one
+here: the validator reads every thread file and reports all failures in one
 pass instead of aborting on the first, while the schema itself refuses anything
 questionable.
 
@@ -51,7 +51,7 @@ fixture that fails the build if the validator ever stops catching it.
 lead-ins on bullet lists, a short "things to know" register. Taken from
 `CONTRIBUTING.md` and `DESIGN.md`.
 
-**`.context/` is gitignored.** Straight from gstack's `.gitignore` — the
+**`.context/` is gitignored.** Straight from gstack's `.gitignore`, because the
 Conductor workspace scratch directory never gets committed.
 
 ## Where the brief overrode gstack
@@ -68,7 +68,7 @@ Conductor workspace scratch directory never gets committed.
 **ESLint, but no formatter.** gstack ships neither, and this repo initially
 shipped neither on the same reasoning. That was reversed when CI was added: a
 `lint` step is part of the required gate, so there is now a small ESLint config
-covering what `tsc` cannot see — unused expressions, shadowed bindings, `any`
+covering what `tsc` cannot see: unused expressions, shadowed bindings, `any`
 creeping into a package whose whole job is types.
 
 No formatter, though. A CI step that fails on whitespace costs more attention
@@ -88,7 +88,7 @@ build step between "edit the schema" and "run the validator" would be pure
 friction. It also means `pnpm install && pnpm validate` works on a fresh clone
 with no build.
 
-**`.js` extensions on relative imports** even though the files are `.ts` — the
+**`.js` extensions on relative imports** even though the files are `.ts`, because the
 standard ESM-compatible style, and it keeps the door open to emitting real
 Node ESM later without touching every import.
 
@@ -110,6 +110,6 @@ boundaries anyway.
 | 2026-08-14 | Corpus authoring goes through quoted substrings, not hand-counted offsets | Hand-counting is how a corpus ends up with spans that resolve to the wrong words. |
 | 2026-08-14 | Predictions are matched on evidence span IoU, not statement similarity | Text similarity scores paraphrasing quality, not detection. |
 | 2026-08-14 | Every eval run is scored at three IoU thresholds, not one | The threshold is a judgment call; reporting one number hides it, and a config's ranking can move between them. |
-| 2026-08-14 | The prediction format lives in `packages/eval`, not `packages/schema` | The schema is ground truth. A prediction is deliberately laxer — ungrounded spans and inconsistent fields must parse so they can be *counted* — and putting a second, laxer loop shape in the source of truth would invite the two to be confused. |
+| 2026-08-14 | The prediction format lives in `packages/eval`, not `packages/schema` | The schema is ground truth. A prediction is deliberately laxer, since ungrounded spans and inconsistent fields must parse so they can be *counted*, and putting a second, laxer loop shape in the source of truth would invite the two to be confused. |
 | 2026-08-14 | Fixture predictions are generated from the corpus, not hand-written | Hand-written fixtures go stale on any thread edit and have no known-correct score. Generated ones let the eval be checked against what was injected. |
-| 2026-08-14 | `results/` and `fixtures/` are committed, and CI fails on a regeneration diff | Makes "deterministic — same inputs, same bytes out" a checked claim, and makes every number in REPORT.md traceable without re-running anything. |
+| 2026-08-14 | `results/` and `fixtures/` are committed, and CI fails on a regeneration diff | Makes "deterministic: same inputs, same bytes out" a checked claim, and makes every number in REPORT.md traceable without re-running anything. |

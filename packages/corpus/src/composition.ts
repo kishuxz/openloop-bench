@@ -1,5 +1,5 @@
 /**
- * composition — the corpus distribution, as assertions rather than prose.
+ * composition: the corpus distribution, as assertions rather than prose.
  *
  * Kept out of the CLI so tests can call it without executing a CLI, and so the
  * eval package can re-assert composition before it reports a number computed
@@ -34,7 +34,7 @@ export function checkComposition(threads: readonly Thread[]): string[] {
     for (const split of SPLITS) {
       if (inBucket.filter((t) => t.split === split).length === 0) {
         failures.push(
-          `bucket "${bucket.prefix}" (${bucket.label}) is empty in the ${split} split — every bucket must appear in both`,
+          `bucket "${bucket.prefix}" (${bucket.label}) is empty in the ${split} split; every bucket must appear in both`,
         );
       }
     }

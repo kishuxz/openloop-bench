@@ -1,4 +1,4 @@
-import { formatMetric, gap, isNotableCell, results } from "../lib/results";
+import { deadlineLead, formatMetric, gap, isNotableCell, results } from "../lib/results";
 
 export default function ResultsPage() {
   return (
@@ -17,6 +17,12 @@ export default function ResultsPage() {
           <p>{run.note}</p>
         </section>
       ))}
+
+      <section className="framing" aria-label="What this measures">
+        {results.framing.map((paragraph) => (
+          <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+        ))}
+      </section>
 
       <section aria-labelledby="headline-table">
         <h2 id="headline-table">Headline Table</h2>
@@ -63,6 +69,15 @@ export default function ResultsPage() {
         <h2 id="headline-number">{results.headline_callout.label}</h2>
         <p className="callout-value">{formatMetric(results.headline_callout.value, "percent")}</p>
         <p>{results.headline_callout.text}</p>
+        <p className="consequence">{results.headline_consequence}</p>
+      </section>
+
+      <section aria-labelledby="deadline-finding">
+        <h2 id="deadline-finding">{results.deadline_finding.title}</h2>
+        <p className="lead">{deadlineLead()}</p>
+        {results.deadline_finding.body.map((paragraph) => (
+          <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+        ))}
       </section>
 
       <section aria-labelledby="deltas">

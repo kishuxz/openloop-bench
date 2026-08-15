@@ -2,7 +2,7 @@
  * Report tests.
  *
  * Two things are worth asserting about a generated document. First that it is
- * deterministic — the claim on its own first page — and that the copy committed
+ * deterministic, the claim on its own first page, and that the copy committed
  * to the repo is the copy this code produces, so a reader can trust the file
  * rather than having to re-run the generator to find out.
  *
@@ -45,7 +45,7 @@ describe("determinism", () => {
     expect(readFileSync(REPORT_PATH, "utf-8")).toBe(report);
   });
 
-  test("nothing in it is read from the clock — the run date comes from the inputs", () => {
+  test("nothing in it is read from the clock; the run date comes from the inputs", () => {
     for (const run of runs) expect(report).toContain(run.run.meta.generated_at);
   });
 });
@@ -144,7 +144,7 @@ describe("the failure gallery", () => {
   });
 
   test("prints a per-category count for every category it shows", () => {
-    const headings = report.match(/^#### .* — \d+$/gm) ?? [];
+    const headings = report.match(/^#### .*: \d+$/gm) ?? [];
     expect(headings.length).toBeGreaterThan(0);
   });
 

@@ -1,5 +1,5 @@
 /**
- * @openloop-bench/schema — the single source of truth for the benchmark.
+ * @openloop-bench/schema: the single source of truth for the benchmark.
  *
  * Every package downstream (corpus, extractor, eval, web) imports its types
  * from here and nowhere else. If a shape is redeclared anywhere else in the
