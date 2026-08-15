@@ -279,6 +279,18 @@ export interface MetricSet {
     readonly missing: number;
   };
 
+  readonly deadline_span: {
+    /** Matched pairs whose truth has an explicit deadline span. */
+    readonly of: number;
+    /** ...and the prediction gave usable deadline offsets. */
+    readonly found: number;
+    readonly rate: number;
+    readonly missing: number;
+    readonly unmappable: number;
+    /** Truth has no explicit deadline span; the extractor produced one anyway. */
+    readonly spurious: number;
+  };
+
   readonly resolution_span: {
     /** Matched pairs where the truth is closed or superseded. */
     readonly of: number;
@@ -297,6 +309,13 @@ export interface MetricSet {
     readonly grounded: number;
     readonly of: number;
     readonly rate: number;
+  };
+
+  readonly span_tightness: {
+    /** Matched evidence pairs. */
+    readonly matched: number;
+    /** Mean evidence-span IoU over matched pairs. */
+    readonly mean_iou: number;
   };
 
   readonly unmappable: {
@@ -393,6 +412,20 @@ export function computeMetrics(
     missing: datedPairs.filter(({ pred }) => pred.deadline.resolved === null).length,
   };
 
+  const explicitDeadlinePairs = pairs.filter(({ truth }) => truth.deadline.span !== null);
+  const deadlineFound = explicitDeadlinePairs.filter(
+    ({ pred }) => pred.deadline.span !== null && pred.deadline.span !== UNMAPPABLE,
+  ).length;
+  const deadlineUnmappable = explicitDeadlinePairs.filter(({ pred }) => pred.deadline.span === UNMAPPABLE).length;
+  const deadline_span = {
+    of: explicitDeadlinePairs.length,
+    found: deadlineFound,
+    rate: rate(deadlineFound, explicitDeadlinePairs.length),
+    missing: explicitDeadlinePairs.length - deadlineFound - deadlineUnmappable,
+    unmappable: deadlineUnmappable,
+    spurious: pairs.filter(({ truth, pred }) => truth.deadline.span === null && pred.deadline.span !== null).length,
+  };
+
   const resolvedPairs = pairs.filter(({ truth }) => truth.resolution !== null);
   let msgIndexCorrect = 0;
   let iouTotal = 0;
@@ -429,6 +462,7 @@ export function computeMetrics(
 
   const mappablePredictions = tp.length + fp.length;
   const grounded = mappablePredictions - fp.filter((o) => !o.evidence_grounded).length;
+  const spanTightnessTotal = tp.reduce((total, outcome) => total + (outcome.iou ?? 0), 0);
 
   const errors = outcomes.flatMap(costedErrors);
 
@@ -458,12 +492,18 @@ export function computeMetrics(
     certainty,
 
     deadline_resolved,
+    deadline_span,
     resolution_span,
 
     grounding: {
       grounded,
       of: mappablePredictions,
       rate: rate(grounded, mappablePredictions),
+    },
+
+    span_tightness: {
+      matched: tp.length,
+      mean_iou: rate(spanTightnessTotal, tp.length),
     },
 
     unmappable: {

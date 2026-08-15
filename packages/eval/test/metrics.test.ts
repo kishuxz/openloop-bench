@@ -55,6 +55,14 @@ describe("detection", () => {
     expect(m.detection.f1).toBe(0);
     expect(m.direction.accuracy).toBe(0);
   });
+
+  test("containment is detection, and IoU becomes span tightness", () => {
+    const thread = makeThread([truthLoop({ evidence: { msg_index: 1, start: 20, end: 34 } })]);
+    const m = score(thread, [at(4, 34)], 0.7);
+    expect(m.detection).toMatchObject({ tp: 1, fp: 0, fn: 0 });
+    expect(m.span_tightness).toMatchObject({ matched: 1 });
+    expect(m.span_tightness.mean_iou).toBeCloseTo(0.467, 3);
+  });
 });
 
 describe("label metrics are over matched pairs only", () => {
@@ -148,6 +156,7 @@ describe("deadline metrics", () => {
       }),
     ]);
     expect(m.deadline_resolved).toMatchObject({ exact: 1, of: 1, rate: 1, hallucinated: 0, missing: 0 });
+    expect(m.deadline_span).toMatchObject({ found: 1, of: 1, rate: 1, missing: 0 });
   });
 
   test("a date invented where the truth resolves to none is counted apart from the rate", () => {
@@ -158,6 +167,7 @@ describe("deadline metrics", () => {
     ]);
     expect(m.deadline_resolved.hallucinated).toBe(1);
     expect(m.deadline_resolved.of).toBe(0);
+    expect(m.deadline_span.spurious).toBe(0);
   });
 
   test("a missing date is not the same as a wrong one", () => {
@@ -165,7 +175,18 @@ describe("deadline metrics", () => {
       at(exact.start, exact.end, { deadline: { span: null, resolved: null, certainty: "implied" } }),
     ]);
     expect(m.deadline_resolved).toMatchObject({ exact: 0, of: 1, missing: 1 });
+    expect(m.deadline_span).toMatchObject({ found: 0, of: 1, missing: 1 });
     expect(m.certainty.accuracy).toBe(0);
+  });
+
+  test("finding the deadline quote is separate from resolving the date", () => {
+    const m = score(makeThread([withDeadline]), [
+      at(exact.start, exact.end, {
+        deadline: { span: { msg_index: 1, start: 27, end: 34 }, resolved: null, certainty: "explicit" },
+      }),
+    ]);
+    expect(m.deadline_span).toMatchObject({ found: 1, of: 1, rate: 1 });
+    expect(m.deadline_resolved).toMatchObject({ exact: 0, of: 1, missing: 1 });
   });
 });
 
