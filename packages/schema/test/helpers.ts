@@ -41,6 +41,7 @@ export function thread(): {
   thread_id: string;
   channel: string;
   split: string;
+  batch: number;
   messages: ReturnType<typeof messages>;
   loops: ReturnType<typeof loop>[];
 } {
@@ -48,6 +49,7 @@ export function thread(): {
     thread_id: "fixture-01",
     channel: "whatsapp",
     split: "dev",
+    batch: 0,
     messages: messages(),
     loops: [loop()],
   };

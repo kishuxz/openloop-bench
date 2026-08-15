@@ -2,6 +2,7 @@
   "thread_id": "sup-01",
   "channel": "whatsapp",
   "split": "dev",
+  "batch": 0,
   "messages": [
     {
       "index": 0,

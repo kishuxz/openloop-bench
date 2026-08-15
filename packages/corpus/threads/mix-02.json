@@ -2,6 +2,7 @@
   "thread_id": "mix-02",
   "channel": "whatsapp",
   "split": "dev",
+  "batch": 0,
   "messages": [
     {
       "index": 0,

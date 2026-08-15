@@ -2,6 +2,7 @@
   "thread_id": "mix-23",
   "channel": "slack",
   "split": "dev",
+  "batch": 2,
   "messages": [
     {
       "index": 0,
@@ -88,8 +89,8 @@
       "counterparty": "Anjali",
       "deadline": {
         "span": null,
-        "resolved": null,
-        "certainty": "none"
+        "resolved": "2026-05-10",
+        "certainty": "implied"
       },
       "evidence": {
         "msg_index": 5,

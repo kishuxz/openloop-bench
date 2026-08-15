@@ -2,6 +2,7 @@
   "thread_id": "mix-19",
   "channel": "whatsapp",
   "split": "test",
+  "batch": 1,
   "messages": [
     {
       "index": 0,
@@ -100,9 +101,13 @@
       "direction": "blocked_on_you",
       "counterparty": "Nitin (banker)",
       "deadline": {
-        "span": null,
-        "resolved": null,
-        "certainty": "none"
+        "span": {
+          "msg_index": 12,
+          "start": 0,
+          "end": 3
+        },
+        "resolved": "2026-04-16",
+        "certainty": "explicit"
       },
       "evidence": {
         "msg_index": 3,

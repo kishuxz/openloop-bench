@@ -2,6 +2,7 @@
   "thread_id": "sup-10",
   "channel": "email",
   "split": "test",
+  "batch": 1,
   "messages": [
     {
       "index": 0,

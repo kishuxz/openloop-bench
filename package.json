@@ -13,6 +13,7 @@
     "validate": "pnpm --filter @openloop-bench/corpus run validate",
     "stats": "pnpm --filter @openloop-bench/corpus run stats",
     "stats:check": "pnpm --filter @openloop-bench/corpus run stats:check",
+    "stats:by-batch": "pnpm --filter @openloop-bench/corpus run stats:by-batch",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "pnpm -r --if-present run typecheck",

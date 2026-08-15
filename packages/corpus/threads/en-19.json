@@ -2,6 +2,7 @@
   "thread_id": "en-19",
   "channel": "slack",
   "split": "test",
+  "batch": 1,
   "messages": [
     {
       "index": 0,
@@ -52,9 +53,13 @@
       "direction": "blocked_on_you",
       "counterparty": "Harsha",
       "deadline": {
-        "span": null,
-        "resolved": null,
-        "certainty": "none"
+        "span": {
+          "msg_index": 2,
+          "start": 44,
+          "end": 47
+        },
+        "resolved": "2026-04-14",
+        "certainty": "explicit"
       },
       "evidence": {
         "msg_index": 2,

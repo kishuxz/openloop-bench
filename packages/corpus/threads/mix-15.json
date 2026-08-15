@@ -2,6 +2,7 @@
   "thread_id": "mix-15",
   "channel": "whatsapp",
   "split": "test",
+  "batch": 1,
   "messages": [
     {
       "index": 0,
@@ -34,9 +35,13 @@
       "direction": "blocked_on_you",
       "counterparty": "Imran",
       "deadline": {
-        "span": null,
-        "resolved": null,
-        "certainty": "none"
+        "span": {
+          "msg_index": 2,
+          "start": 10,
+          "end": 14
+        },
+        "resolved": "2026-04-13",
+        "certainty": "explicit"
       },
       "evidence": {
         "msg_index": 2,

@@ -9,6 +9,14 @@
  * `--check` turns the same composition into assertions and exits non-zero:
  * no bucket empty in either split, bucket counts matching their specified
  * targets, and the dev share staying near the intended 40%.
+ *
+ * `--by-batch` reports each authoring batch separately and flags any dimension
+ * that moved more than 15 points against the previous batch. Cumulative totals
+ * cannot show this: a batch labelled to a different standard is averaged into
+ * 200 threads and disappears. The certainty distribution moved 42 points
+ * between Phase 1 and batch 1 and two consecutive audits missed it, because
+ * both compared rule interpretation thread by thread and neither compared
+ * distributions.
  */
 
 import type { Thread } from "@openloop-bench/schema";
@@ -79,9 +87,81 @@ function bucketRows(threads: Thread[]): Row[] {
   });
 }
 
+/** Percentage-point shift that counts as drift worth diagnosing. */
+const DRIFT_THRESHOLD = 15;
+
+/** Per-batch shares of one dimension, with the batch-over-batch delta flagged. */
+function byBatch(threads: Thread[]): void {
+  const batches = [...new Set(threads.map((t) => t.batch))].sort((a, b) => a - b);
+
+  const dimensions: Array<[string, readonly string[], (t: Thread) => string[]]> = [
+    ["certainty", CERTAINTIES, (t) => t.loops.map((l) => l.deadline.certainty)],
+    ["state", STATES, (t) => t.loops.map((l) => l.state)],
+    ["direction", DIRECTIONS, (t) => t.loops.map((l) => l.direction)],
+    ["register", REGISTERS, (t) => t.loops.map((l) => l.register)],
+  ];
+
+  console.log("openloop-bench stats --by-batch");
+  console.log("");
+  console.log("  batch   threads   loops");
+  for (const b of batches) {
+    const inBatch = threads.filter((t) => t.batch === b);
+    const loops = inBatch.reduce((n, t) => n + t.loops.length, 0);
+    console.log(`  ${String(b).padEnd(7)} ${String(inBatch.length).padStart(7)} ${String(loops).padStart(7)}`);
+  }
+  console.log("");
+
+  const flags: string[] = [];
+
+  for (const [name, keys, pluck] of dimensions) {
+    const header = `${name.toUpperCase().padEnd(12)}` + batches.map((b) => `batch ${b}`.padStart(10)).join("");
+    console.log(header);
+    console.log("-".repeat(header.length));
+
+    const shares = new Map<string, number[]>();
+    for (const key of keys) {
+      const row = batches.map((b) => {
+        const values = threads.filter((t) => t.batch === b).flatMap(pluck);
+        return values.length === 0 ? 0 : (values.filter((v) => v === key).length / values.length) * 100;
+      });
+      shares.set(key, row);
+      if (row.some((v) => v > 0)) {
+        console.log(key.padEnd(12) + row.map((v) => `${v.toFixed(0)}%`.padStart(10)).join(""));
+      }
+    }
+    console.log("");
+
+    for (const [key, row] of shares) {
+      for (let i = 1; i < row.length; i++) {
+        const delta = (row[i] ?? 0) - (row[i - 1] ?? 0);
+        if (Math.abs(delta) > DRIFT_THRESHOLD) {
+          flags.push(
+            `${name}=${key}: batch ${batches[i - 1]} -> ${batches[i]} moved ${delta > 0 ? "+" : ""}${delta.toFixed(0)} points`,
+          );
+        }
+      }
+    }
+  }
+
+  if (flags.length === 0) {
+    console.log(`  no dimension moved more than ${DRIFT_THRESHOLD} points between consecutive batches.`);
+    return;
+  }
+  console.log(`  DRIFT — ${flags.length} dimension(s) moved more than ${DRIFT_THRESHOLD} points:`);
+  for (const flag of flags) console.log(`    ${flag}`);
+  console.log("");
+  console.log("  Diagnose each before writing more threads: labeling drift (the same");
+  console.log("  judgment made differently) or thread-writing drift (different threads).");
+}
+
 function main(): void {
   const threads = loadCorpusOrThrow();
   const check = process.argv.includes("--check");
+
+  if (process.argv.includes("--by-batch")) {
+    byBatch(threads);
+    return;
+  }
 
   const loops = threads.flatMap((t) => t.loops);
   const zeroLoop = threads.filter((t) => t.loops.length === 0);

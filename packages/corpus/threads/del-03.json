@@ -2,6 +2,7 @@
   "thread_id": "del-03",
   "channel": "email",
   "split": "dev",
+  "batch": 0,
   "messages": [
     {
       "index": 0,

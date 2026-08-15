@@ -2,6 +2,7 @@
   "thread_id": "del-12",
   "channel": "slack",
   "split": "dev",
+  "batch": 2,
   "messages": [
     {
       "index": 0,
@@ -80,9 +81,13 @@
       "direction": "blocked_on_you",
       "counterparty": "Neha",
       "deadline": {
-        "span": null,
-        "resolved": null,
-        "certainty": "none"
+        "span": {
+          "msg_index": 4,
+          "start": 31,
+          "end": 34
+        },
+        "resolved": "2026-05-04",
+        "certainty": "explicit"
       },
       "evidence": {
         "msg_index": 4,
