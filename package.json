@@ -1,0 +1,27 @@
+{
+  "name": "openloop-bench",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A labeled benchmark for detecting open loops in real founder messaging, including code-mixed Hinglish/Tanglish.",
+  "license": "MIT",
+  "packageManager": "pnpm@10.14.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "validate": "pnpm --filter @openloop-bench/corpus run validate",
+    "stats": "pnpm --filter @openloop-bench/corpus run stats",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "pnpm -r --if-present run typecheck"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  }
+}
