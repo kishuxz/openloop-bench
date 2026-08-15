@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { gap } from "../../lib/results";
 import type { ConfigResult, Failure, LabelResult, SpanRef } from "../../lib/results";
 import { spanMatchesText } from "../../lib/spans";
 
@@ -48,6 +49,10 @@ export default function FailureGallery({ configs, failures }: Props) {
       </div>
 
       <div className="stack">
+        {failures.length === 0 ? <p className="gap">{gap("failure gallery missing from committed JSON")}</p> : null}
+        {failures.length > 0 && visible.length === 0 ? (
+          <p className="gap">{gap("no failures match the selected filters")}</p>
+        ) : null}
         {visible.map((failure) => (
           <article className="failure" key={failure.id}>
             <header>
@@ -90,7 +95,7 @@ function LabelBlock({
       <dl className="label-data">
         <div>
           <dt>Statement</dt>
-          <dd>{label.statement}</dd>
+          <dd>{label.statement || gap("statement missing")}</dd>
         </div>
         <div>
           <dt>State</dt>

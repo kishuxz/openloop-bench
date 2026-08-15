@@ -7,8 +7,9 @@ export default function FailuresPage() {
       <header className="page-heading">
         <p className="eyebrow">Failures</p>
         <h1>Failure Gallery</h1>
-        <p>Generated fixture failures with exact source spans for the true label and prediction.</p>
+        <p>Generated from committed failure JSON with exact source spans for the true label and prediction.</p>
       </header>
+      <p className="scope-line">{results.scope}</p>
       <FailureGallery configs={results.configs} failures={results.failures} />
     </div>
   );
