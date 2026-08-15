@@ -1,7 +1,7 @@
 {
   "dataSource": "measured",
   "report_title": "Open Loop Extraction Results",
-  "report_deck": "Measured dev split results for hosted-large, hosted-redacted, and local extractor configs at IoU 0.5.",
+  "report_deck": "Measured dev split results for hosted-large and local extractor configs at IoU 0.5.",
   "metrics": [
     {
       "id": "loop_precision",
@@ -64,22 +64,6 @@
       "cost_weighted_error": 5.0375
     },
     {
-      "id": "hosted-redacted",
-      "label": "Hosted redacted",
-      "model_id": "llama-3.3-70b-versatile",
-      "description": "Same hosted model after PII redaction and span remapping.",
-      "metric_values": {
-        "loop_precision": 0.5882352941176471,
-        "loop_recall": 0.09345794392523364,
-        "superseded_as_open": 0.3333333333333333,
-        "direction_accuracy": 0.6,
-        "span_tightness": 0.7532849071832123,
-        "deadline_quote_found": 0.8333333333333334,
-        "deadline_resolution_accuracy": 0
-      },
-      "cost_weighted_error": 2.225
-    },
-    {
       "id": "local",
       "label": "Local",
       "model_id": "qwen2.5:7b",
@@ -98,11 +82,6 @@
   ],
   "notable_cells": [
     {
-      "config_id": "hosted-redacted",
-      "metric_id": "loop_recall",
-      "note": "Redaction/provider failure mode"
-    },
-    {
       "config_id": "local",
       "metric_id": "direction_accuracy",
       "note": "Local failure mode"
@@ -116,15 +95,6 @@
     "text": "The hosted-large run reports 2 of 14 matched superseded commitments as still open."
   },
   "deltas": [
-    {
-      "label": "Redaction cost",
-      "comparison": "hosted-redacted minus hosted-large",
-      "statements": [
-        "Precision changes by +7.4 percentage points.",
-        "Recall changes by -40.2 percentage points and F1 by -34.3 percentage points.",
-        "Cost-weighted error changes by -2.81 per thread; the lower cost is driven by silence after provider and parse failures, not a better extractor."
-      ]
-    },
     {
       "label": "Model scale cost",
       "comparison": "hosted-large minus local",
@@ -3857,6 +3827,14 @@
           "text": "pehla, unka last invoice nikal ke rakhna"
         }
       }
+    }
+  ],
+  "scope": "Dev split only; two configs reported (hosted-large, local); single prompt version with no iteration against dev results; held-out test split not run; hosted-redacted attempted and incomplete.",
+  "incomplete_runs": [
+    {
+      "config": "hosted-redacted",
+      "label": "Hosted redacted",
+      "note": "80 threads attempted, 67 provider failures, 70 parse failures, 10 threads with parsed loops. Run abandoned to free-tier rate limits, to be re-run."
     }
   ]
 }
