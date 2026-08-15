@@ -2,6 +2,7 @@
   "thread_id": "en-15",
   "channel": "whatsapp",
   "split": "test",
+  "batch": 1,
   "messages": [
     {
       "index": 0,
@@ -34,9 +35,13 @@
       "direction": "blocked_on_you",
       "counterparty": "Bhavna",
       "deadline": {
-        "span": null,
-        "resolved": null,
-        "certainty": "none"
+        "span": {
+          "msg_index": 2,
+          "start": 19,
+          "end": 22
+        },
+        "resolved": "2026-04-08",
+        "certainty": "explicit"
       },
       "evidence": {
         "msg_index": 2,

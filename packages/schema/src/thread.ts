@@ -41,6 +41,18 @@ export const ThreadShapeSchema = z
      */
     split: SplitSchema,
 
+    /**
+     * Which authoring batch this thread was written in. Phase 1 is batch 0.
+     *
+     * Stored rather than derived from the id, because deriving it means
+     * hard-coding per-bucket id ranges in every consumer, and the first
+     * consumer that did so got `sup-07..09` and `del-07..08` wrong — they read
+     * as Phase 1 by their numbers and are not. The drift protocol compares
+     * distributions between consecutive batches, so a wrong batch number
+     * silently invalidates the comparison that exists to catch silent errors.
+     */
+    batch: z.int().min(0),
+
     messages: z.array(MessageSchema).min(1),
 
     /** Ground truth. Empty is a valid and important label — see the negatives. */

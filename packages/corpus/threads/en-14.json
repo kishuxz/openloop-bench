@@ -2,6 +2,7 @@
   "thread_id": "en-14",
   "channel": "imessage",
   "split": "dev",
+  "batch": 1,
   "messages": [
     {
       "index": 0,

@@ -13,6 +13,7 @@
     "validate": "tsx src/cli/validate.ts",
     "stats": "tsx src/cli/stats.ts",
     "stats:check": "tsx src/cli/stats.ts --check",
+    "stats:by-batch": "tsx src/cli/stats.ts --by-batch",
     "typecheck": "tsc -p tsconfig.json"
   },
   "dependencies": {

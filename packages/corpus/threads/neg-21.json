@@ -2,6 +2,7 @@
   "thread_id": "neg-21",
   "channel": "slack",
   "split": "test",
+  "batch": 2,
   "messages": [
     {
       "index": 0,

@@ -2,6 +2,7 @@
   "thread_id": "mix-18",
   "channel": "slack",
   "split": "test",
+  "batch": 1,
   "messages": [
     {
       "index": 0,
@@ -40,9 +41,13 @@
       "direction": "blocked_on_you",
       "counterparty": "Sridhar",
       "deadline": {
-        "span": null,
-        "resolved": null,
-        "certainty": "none"
+        "span": {
+          "msg_index": 2,
+          "start": 44,
+          "end": 48
+        },
+        "resolved": "2026-04-15",
+        "certainty": "explicit"
       },
       "evidence": {
         "msg_index": 2,

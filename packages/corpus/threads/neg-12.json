@@ -2,6 +2,7 @@
   "thread_id": "neg-12",
   "channel": "email",
   "split": "test",
+  "batch": 1,
   "messages": [
     {
       "index": 0,

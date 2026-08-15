@@ -466,6 +466,33 @@ be the labeler inventing a date — the exact failure this benchmark measures in
 extractors. `certainty: "explicit"` with `resolved: null` is a valid and
 common combination.
 
+**An earliest-start date is not a deadline.** "6 and 7 need our CTO, who is
+back monday" tells you when the work can *begin*, not when it is due. A
+deadline is the last day the commitment could be met without being late; a date
+that bounds the other end supplies nothing. `en-22` keeps `certainty: "none"`
+for exactly this reason, and it is easy to mistake for the `en-05` pattern,
+where the filing date genuinely bounds the finish.
+
+**Immediacy markers are explicit, resolved to that day.** "ill mail it to you
+now", "rotate panren ippo", "bhejta hu abhi". These state a time — the
+strongest one available — and labeling them `none` while labeling "today"
+explicit puts the stronger phrasing in the weaker bucket. Span the marker
+itself, not the whole clause.
+
+**The deadline span may sit in a later message than the evidence.** Under the
+re-affirmation rule, "theek hai bhijwata hu" followed nine messages later by
+"aaj kar deta hu" is one loop whose deadline lives in the later message.
+`mix-19` and `en-17` are the worked cases. Missing this is the most common way
+a loop ends up wrongly labeled `none`, because the first message carries no
+time and the labeler stops reading there.
+
+**Worked negative: `en-04`.** "would be good to ship before the demo", where
+the demo's date never appears anywhere in the thread. `implied` requires a date
+the thread makes *computable*, not merely an event it references — so this is
+`none`. Compare `en-09`, where "the mehta demo is on the 18th" makes the same
+structure computable and the label is `implied`. This was §11's third entry
+until the rule it exercises became explicit enough to promote it.
+
 ---
 
 ## 9. Register, and the rest of the fields
@@ -530,8 +557,9 @@ Three Phase 1 threads violated this and were corrected during the batch 1 audit
 ## 11. Calls that remain arguable
 
 Recorded rather than hidden. Each of these could reasonably be labeled the
-other way, and a second annotator may well disagree. A seventh entry, `sup-04`,
-is worked through in §2 instead, as one of the cases the hedging rule settles.
+other way, and a second annotator may well disagree. Two former entries have
+been promoted out of this list once the rules they exercised became explicit:
+`sup-04` is worked through in §2, and `en-04` in §8.
 
 **1. `sup-05`, the bounced transfer.** The debt survives the failed payment, so
 one could argue for a single `open` loop with a revised deadline rather than a
@@ -547,13 +575,7 @@ the mutual act, not an obligation the subject would chase independently. If a
 second annotator split it, the mutual/`blocked_on_them` boundary would need
 tightening.
 
-**3. `en-04`, "would be good to ship before the demo".** Labeled
-`certainty: "none"`, not `implied`, because the demo's date never appears in
-the thread. The rule adopted: `implied` requires a date the thread makes
-*computable*, not merely a referenced event. Compare `en-09`, where "the mehta
-demo is on the 18th" makes it computable and the label is `implied`.
-
-**4. `neg-08`, "if the round closes ill definitely try and get you in".** Not
+**3. `neg-08`, "if the round closes ill definitely try and get you in".** Not
 labeled, on the conditional-on-uncertain-event rule. The hedge stacking
 ("if… definitely try…") makes it clearer, but a bare "if we close, ill hire
 you" would be genuinely hard. No such case is in the corpus yet; one should be
@@ -565,12 +587,12 @@ by **reformulating §2 as a necessary condition, not by reclassifying this
 thread** — its label never changed, and neither did `neg-04`'s. A rule that
 forces label changes to stay self-consistent is usually the wrong rule.
 
-**5. Weekend semantics.** "weekend tak" resolves to Sunday. In practice many
+**4. Weekend semantics.** "weekend tak" resolves to Sunday. In practice many
 Indian founders work Saturdays and mean Saturday. Sunday was chosen because it
 is the later boundary and a deadline should not be resolved earlier than the
 phrase allows. Arguable, and it affects `mix-04`.
 
-**6. `del-03`, Fatima.** `blocked_on_them` even though Fatima is on the
+**5. `del-03`, Fatima.** `blocked_on_them` even though Fatima is on the
 subject's own team, so from the client's perspective the subject's company
 still owes it. Direction is defined from the *subject as an individual*, which
 is the only reading that keeps the autonomy boundary meaningful — the subject

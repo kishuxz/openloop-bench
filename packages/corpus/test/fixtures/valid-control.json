@@ -2,6 +2,7 @@
   "thread_id": "valid-control",
   "channel": "whatsapp",
   "split": "dev",
+  "batch": 0,
   "messages": [
     {
       "index": 0,

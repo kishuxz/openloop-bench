@@ -8,11 +8,28 @@ This file is the evidence that the corpus was maintained rather than
 accumulated. One entry per batch: what was re-examined, what changed, and which
 rule was clarified. An audit that found nothing is recorded as finding nothing.
 
-**The process.** Write 40 threads. Run the gates. Stop, re-read LABELING.md end
-to end, and re-audit the *previous* batch against the rules as they now read.
-Anything you would label differently is a drift signal with two possible
-causes: the rule is underspecified, or the label is wrong. Fix whichever it is,
-then re-audit everything earlier than the thing you fixed.
+**The process.**
+
+1. Write 40 threads.
+2. Run `validate`, `stats`, `stats:check`, `test`.
+3. Re-read LABELING.md end to end.
+4. **Distribution check.** Run `pnpm stats:by-batch` and compare this batch
+   against the *previous batch*, not against cumulative totals or targets. Flag
+   any dimension that moved more than 15 percentage points, and diagnose it
+   before going further: labeling drift (the same judgment made differently) or
+   thread-writing drift (the threads simply contain different material).
+5. Re-audit the previous batch thread by thread against the rules as they now
+   read. Anything you would label differently is a drift signal with the same
+   two possible causes: underspecified rule, or wrong label. Fix whichever it
+   is, then re-audit everything earlier than the thing you fixed.
+
+Step 4 was added after the fact, and its absence cost something real. Two
+consecutive audits examined rule interpretation thread by thread, found genuine
+defects, and never noticed that `certainty` had moved 33 points between Phase 1
+and batch 1 — because a shift in *what gets written* is invisible to an audit
+that only asks whether each individual label follows the rules. Cumulative
+totals hide it further: a batch labelled to a different standard is averaged
+into 200 threads and disappears.
 
 ---
 
@@ -179,3 +196,96 @@ checked alongside the composition figures.
 120 threads, 163 loops, 290 spans, all resolving. Thread lengths span 3–20
 messages. 16 threads carry 3–5 loops, against a target of 15 at 200 — already
 met. `validate`, `stats:check` and 83 tests pass.
+
+---
+
+## Certainty distribution audit (before batch 3)
+
+Triggered by the mid-phase checkpoint, not by a batch audit — which is the
+finding underneath the finding.
+
+### What moved
+
+| | Phase 1 (batch 0) | batch 1 | batch 2 |
+|---|---|---|---|
+| explicit | 74% | 32% | 31% |
+| implied | 7% | 23% | 17% |
+| none | 19% | 45% | 52% |
+
+The shift is a step, not a slope: 33 points between batch 0 and batch 1, then
+stable. That shape already argues against progressive labeler drift, which
+would accumulate.
+
+### Method
+
+Two blind re-labels against §8 as written, sampled deterministically by hashing
+`thread_id:loop_index` so the selection could not be steered:
+
+- 20 of the 59 `certainty: "none"` loops in batches 1–2.
+- 10 of the 31 `certainty: "explicit"` loops in Phase 1.
+
+Disagreement was recorded before anything was changed.
+
+### Disagreement rates
+
+**Phase 1 `explicit` → 0 of 10 disagree.** Every sampled loop re-labels
+`explicit` with the same span. Phase 1 was not over-labeling.
+
+**Batches 1–2 `none` → 3 of 20 disagree (15%).**
+
+| Loop | Labeled | Should be | Why |
+|---|---|---|---|
+| `mix-19` loop 0 | none | explicit, span on message 12 | "aaj kar deta hu" states the deadline nine messages after the commitment. The re-affirmation rule already covers this and `en-17` applies it correctly. |
+| `mix-23` loop 2 | none | implied, 2026-05-10 | The joint direction call must precede Anjali's stated weekend delivery, which makes a date computable. |
+| `en-30` loop 3 | none | implied, 2026-06-30 | Two other loops in the same thread carry the 30 June renewal bound; this one was left out of it. Internal inconsistency inside one thread. |
+
+### Diagnosis: (c) both, dominated by thread-writing drift
+
+The 15% labeling-drift component is real and is now fixed. But correcting all
+three moves batch 1–2 `explicit` from 31% to 36% — nowhere near Phase 1's 74%.
+The rest is thread-writing drift, and its cause is legible in what the batches
+were written *for*:
+
+Phase 1's mix bucket existed to carry non-numeric deadline expressions, so
+nearly every loop in it had a stated time. Batches 1–2 were written to fill the
+`closed` deficit and to introduce delegation, multi-loop threads, in-flight
+statements and accepted directives — and those phenomena mostly produce
+commitments with no stated deadline. "ill review it", "on it", "you take it"
+are all deadline-free by nature.
+
+This is less serious than labeling drift but it is not nothing: it changes what
+the corpus tests. A deadline-resolution metric computed over this corpus now
+leans harder on Phase 1's threads than the thread counts suggest.
+
+### Also fixed: two rule gaps the audit exposed
+
+**Immediacy markers had no rule and were being labelled `none`.** "ill mail it
+to you now", "rotate panren ippo", "bhejta hu abhi" — five loops. These state a
+time, and the strongest one available; labeling them `none` while "today" is
+`explicit` put the stronger phrasing in the weaker bucket. Now `explicit`,
+spanning the marker, resolved to that day. §8 states it.
+
+**Earliest-start dates were being confused with deadlines.** `en-22`'s "6 and 7
+need our CTO, who is back monday" tells you when work can begin, not when it is
+due. It keeps `certainty: "none"`, and §8 now says why, because it looks almost
+exactly like the `en-05` pattern where the date genuinely bounds the finish.
+
+### After the fixes
+
+| | batch 0 | batch 1 | batch 2 |
+|---|---|---|---|
+| explicit | 74% | 41% | 32% |
+| implied | 7% | 23% | 20% |
+| none | 19% | 36% | 48% |
+
+Batch 3 and 4 are to be written deadline-rich to pull the corpus ratio back
+toward the 55% target, and `pnpm stats:by-batch` now runs as step 4 of every
+batch audit so a 33-point move cannot go two batches unnoticed again.
+
+### Tooling added
+
+`batch` is now a stored schema field rather than something derived from thread
+ids. The first consumer to derive it — the script written for this audit — got
+`sup-07..09` and `del-07..08` wrong, reading them as Phase 1 by their numbers.
+A wrong batch number silently invalidates the comparison that exists to catch
+silent errors, so it is stored and validated.

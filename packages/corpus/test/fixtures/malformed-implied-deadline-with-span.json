@@ -2,6 +2,7 @@
   "thread_id": "malformed-implied-deadline-with-span",
   "channel": "whatsapp",
   "split": "dev",
+  "batch": 0,
   "messages": [
     {
       "index": 0,

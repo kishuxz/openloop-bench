@@ -2,6 +2,7 @@
   "thread_id": "sup-02",
   "channel": "slack",
   "split": "dev",
+  "batch": 0,
   "messages": [
     {
       "index": 0,
