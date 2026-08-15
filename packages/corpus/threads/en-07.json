@@ -6,7 +6,7 @@
     {
       "index": 0,
       "sender": "Kabir",
-      "text": "hey do you know anyone at zeta? trying to get to their payments team",
+      "text": "hey do you know anyone at that payments company? trying to get to their partnerships team",
       "ts": "2026-03-11T17:22:00+05:30"
     },
     {
@@ -42,7 +42,7 @@
   ],
   "loops": [
     {
-      "statement": "introduce Kabir to Sameer at Zeta over email",
+      "statement": "introduce Kabir to Sameer over email",
       "direction": "blocked_on_you",
       "counterparty": "Kabir",
       "deadline": {

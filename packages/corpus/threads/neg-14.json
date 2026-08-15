@@ -1,0 +1,38 @@
+{
+  "thread_id": "neg-14",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Waseem",
+      "text": "bhai ek baat puchni thi",
+      "ts": "2026-04-14T20:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Waseem",
+      "text": "agar main apna startup shuru karu to tum invest karoge kya",
+      "ts": "2026-04-14T20:03:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "haha abhi to khud paisa maang raha hu market se",
+      "ts": "2026-04-14T20:30:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "par agar kabhi position me aaya to zarur sochunga",
+      "ts": "2026-04-14T20:31:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Waseem",
+      "text": "bas itna kaafi hai",
+      "ts": "2026-04-14T20:35:00+05:30"
+    }
+  ],
+  "loops": []
+}

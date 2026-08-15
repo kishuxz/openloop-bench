@@ -1,0 +1,20 @@
+{
+  "thread_id": "neg-12",
+  "channel": "email",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Conference (organiser)",
+      "text": "Thank you for speaking at the summit. Recordings will be published on our channel over the coming weeks. Do stay in touch - we run this twice a year and always welcome returning speakers.",
+      "ts": "2026-04-09T11:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "Thanks for having me, genuinely enjoyed it. Happy to come back anytime, and do send the recording link whenever it's up.",
+      "ts": "2026-04-09T15:30:00+05:30"
+    }
+  ],
+  "loops": []
+}

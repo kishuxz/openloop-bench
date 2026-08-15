@@ -1,0 +1,108 @@
+{
+  "thread_id": "del-08",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Lakshmi (audit)",
+      "text": "sir stock statement bank ko har month bhejna hota hai, is month ka nahi gaya",
+      "ts": "2026-04-08T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "arre haan. main aaj bhej deta hu",
+      "ts": "2026-04-08T11:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Lakshmi (audit)",
+      "text": "sir aap har month bhool jaate hai",
+      "ts": "2026-04-08T11:35:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "sach hai",
+      "ts": "2026-04-08T11:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "aisa karte hai, aap hi har month 5 tarikh ko bhej dijiye, main data share kar dunga",
+      "ts": "2026-04-08T11:41:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Lakshmi (audit)",
+      "text": "theek hai sir, main kar dungi",
+      "ts": "2026-04-08T11:50:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send the bank this month's stock statement",
+      "direction": "blocked_on_you",
+      "counterparty": "Lakshmi (audit)",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 16,
+          "end": 19
+        },
+        "resolved": "2026-04-08",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 11,
+        "end": 32
+      },
+      "resolution": {
+        "msg_index": 4,
+        "start": 16,
+        "end": 56
+      },
+      "state": "superseded",
+      "register": "hi-en"
+    },
+    {
+      "statement": "Lakshmi sends the bank the stock statement each month",
+      "direction": "blocked_on_them",
+      "counterparty": "Lakshmi (audit)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 15,
+        "end": 29
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en",
+      "notes": "A standing arrangement rather than a single act — see the recurring-commitment rule in §2. Labelled once, deadline none, because no individual occurrence is what is owed here."
+    },
+    {
+      "statement": "share the stock data with Lakshmi each month",
+      "direction": "blocked_on_you",
+      "counterparty": "Lakshmi (audit)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 58,
+        "end": 83
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    }
+  ]
+}

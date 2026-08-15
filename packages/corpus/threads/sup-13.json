@@ -1,0 +1,90 @@
+{
+  "thread_id": "sup-13",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Neha",
+      "text": "customer asked for SOC2. do we say anything?",
+      "ts": "2026-04-15T09:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill draft a security page for the site this week, that usually holds them",
+      "ts": "2026-04-15T10:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "also ill answer their questionnaire directly",
+      "ts": "2026-04-15T10:03:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Neha",
+      "text": "they came back - they'll accept our pen test report instead, no page needed",
+      "ts": "2026-04-16T11:20:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Neha",
+      "text": "questionnaire they still want though",
+      "ts": "2026-04-16T11:21:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "ok fine",
+      "ts": "2026-04-16T11:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "draft a security page for the website",
+      "direction": "blocked_on_you",
+      "counterparty": "Neha",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 39,
+          "end": 48
+        },
+        "resolved": null,
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 48
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 61,
+        "end": 75
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "One commitment in this thread is cancelled and the other explicitly survives, in adjacent messages. An extractor that treats supersession as a property of the thread rather than of the loop gets this wrong."
+    },
+    {
+      "statement": "answer the customer's security questionnaire",
+      "direction": "blocked_on_you",
+      "counterparty": "Neha",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 5,
+        "end": 44
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

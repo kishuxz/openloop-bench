@@ -1,0 +1,72 @@
+{
+  "thread_id": "sup-09",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Aarti",
+      "text": "kal ke panel ke liye moderator confirm hua?",
+      "ts": "2026-04-08T18:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "nahi abhi tak, main aaj raat tak kisi ko pakad leta hu",
+      "ts": "2026-04-08T18:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Aarti",
+      "text": "please, warna panel bekaar lagega",
+      "ts": "2026-04-08T18:35:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Aarti",
+      "text": "arre organiser ne khud hi apna moderator arrange kar liya",
+      "ts": "2026-04-08T21:10:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Aarti",
+      "text": "unka community lead karega",
+      "ts": "2026-04-08T21:10:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "achha badhiya, ek kaam kam",
+      "ts": "2026-04-08T21:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "find a moderator for tomorrow's panel",
+      "direction": "blocked_on_you",
+      "counterparty": "Aarti",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 20,
+          "end": 32
+        },
+        "resolved": "2026-04-08",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 15,
+        "end": 54
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 5,
+        "end": 57
+      },
+      "state": "superseded",
+      "register": "hi-en",
+      "notes": "The need was met by a third party, so the obligation stopped existing without the user doing anything. Superseded, not closed — the outcome succeeded and the commitment did not."
+    }
+  ]
+}

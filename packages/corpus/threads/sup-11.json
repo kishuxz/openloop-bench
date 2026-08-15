@@ -1,0 +1,80 @@
+{
+  "thread_id": "sup-11",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Ishaan (candidate)",
+      "text": "hi! looking forward to the call tomorrow at 4",
+      "ts": "2026-04-13T19:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "same. ill send a meet link in the morning",
+      "ts": "2026-04-13T19:40:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "ishaan sorry, something has come up with a customer tomorrow afternoon",
+      "ts": "2026-04-14T09:15:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "can we do thursday same time? ill send the invite for that instead",
+      "ts": "2026-04-14T09:16:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Ishaan (candidate)",
+      "text": "thursday works",
+      "ts": "2026-04-14T09:50:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Ishaan a meeting link for the Tuesday afternoon call",
+      "direction": "blocked_on_you",
+      "counterparty": "Ishaan (candidate)",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-04-14",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 6,
+        "end": 41
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 14,
+        "end": 70
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "The call it served was cancelled, so the link commitment died with it and a different one replaced it. Two loops rather than one edited loop, as in sup-05."
+    },
+    {
+      "statement": "send Ishaan an invite for the rescheduled Thursday call",
+      "direction": "blocked_on_you",
+      "counterparty": "Ishaan (candidate)",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-04-16",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 30,
+        "end": 66
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

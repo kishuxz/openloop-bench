@@ -1,0 +1,104 @@
+{
+  "thread_id": "del-09",
+  "channel": "email",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Trademark (attorney)",
+      "text": "The examiner has raised an objection on the word mark. We need a response filed within 30 days, along with evidence of use.",
+      "ts": "2026-04-13T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "understood. ill pull together the evidence of use - screenshots, invoices, ad spend.",
+      "ts": "2026-04-13T14:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Trademark (attorney)",
+      "text": "That works. We'll draft the legal response.",
+      "ts": "2026-04-13T15:02:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "actually - reema handles our marketing archive and will have all of this cleaner than i would.",
+      "ts": "2026-04-14T09:15:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "reema, can you send the attorney everything we have showing the mark in use since 2024?",
+      "ts": "2026-04-14T09:16:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Reema (EA)",
+      "text": "yes ill compile it",
+      "ts": "2026-04-14T09:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "compile evidence of trademark use for the attorney",
+      "direction": "blocked_on_you",
+      "counterparty": "Trademark (attorney)",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-05-13",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 12,
+        "end": 49
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 11,
+        "end": 46
+      },
+      "state": "superseded",
+      "register": "en"
+    },
+    {
+      "statement": "Reema sends the attorney evidence of the mark in use since 2024",
+      "direction": "blocked_on_them",
+      "counterparty": "Reema (EA)",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-05-13",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 0,
+        "end": 18
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "the attorney drafts the legal response to the examiner's objection",
+      "direction": "blocked_on_them",
+      "counterparty": "Trademark (attorney)",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-05-13",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 12,
+        "end": 42
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "Three loops, one superseded and two live, all sharing a deadline implied by the 30-day window in message 0 and none of them stating it."
+    }
+  ]
+}

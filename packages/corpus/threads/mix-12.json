@@ -1,0 +1,46 @@
+{
+  "thread_id": "mix-12",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Bala",
+      "text": "anna, warehouse la stock count pannanum, yaaru varuvanga",
+      "ts": "2026-04-07T08:15:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "naan varen",
+      "ts": "2026-04-07T08:40:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Bala",
+      "text": "sari anna",
+      "ts": "2026-04-07T08:41:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "attend the warehouse stock count",
+      "direction": "blocked_on_you",
+      "counterparty": "Bala",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 10
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en",
+      "notes": "Two words carry the whole commitment. Nothing in the thread fixes a day, so certainty is none rather than implied."
+    }
+  ]
+}

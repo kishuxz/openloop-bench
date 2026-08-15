@@ -1,0 +1,52 @@
+{
+  "thread_id": "en-16",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Naveen",
+      "text": "do you have the signed vendor contract pdf anywhere",
+      "ts": "2026-04-08T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "somewhere yes",
+      "ts": "2026-04-08T10:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "ill dig it out and send it across",
+      "ts": "2026-04-08T10:30:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Naveen",
+      "text": "thanks!",
+      "ts": "2026-04-08T10:31:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "find and send Naveen the signed vendor contract PDF",
+      "direction": "blocked_on_you",
+      "counterparty": "Naveen",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 33
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "Stays open deliberately. The only candidate resolution is a bare 'thanks!', which §6 rejects — people thank you for promising. Nothing in the thread shows the contract arriving."
+    }
+  ]
+}

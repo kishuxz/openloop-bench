@@ -1,0 +1,62 @@
+{
+  "thread_id": "mix-18",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Sridhar",
+      "text": "payment page la error varuthu, customers complaint pannuranga",
+      "ts": "2026-04-15T11:40:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "paakuren",
+      "ts": "2026-04-15T11:42:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "gateway key expire aagiduchu. rotate panren ippo",
+      "ts": "2026-04-15T12:05:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "sari aayiduchu, try pannunga",
+      "ts": "2026-04-15T12:22:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Sridhar",
+      "text": "vela seiyuthu anna",
+      "ts": "2026-04-15T12:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "rotate the expired payment gateway key",
+      "direction": "blocked_on_you",
+      "counterparty": "Sridhar",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 30,
+        "end": 48
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 28
+      },
+      "state": "closed",
+      "register": "ta-en",
+      "notes": "In-flight statement per §2. 'paakuren' in message 1 names no act and is not labelled; 'rotate panren ippo' names one and is."
+    }
+  ]
+}

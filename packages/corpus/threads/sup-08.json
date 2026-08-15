@@ -1,0 +1,90 @@
+{
+  "thread_id": "sup-08",
+  "channel": "slack",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Tejas",
+      "text": "the onboarding emails are still going out with the old logo",
+      "ts": "2026-04-07T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill swap the asset in the template today",
+      "ts": "2026-04-07T10:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Tejas",
+      "text": "there are six templates fyi",
+      "ts": "2026-04-07T10:25:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "six? ok that changes it",
+      "ts": "2026-04-07T10:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "ill just move all of them to the shared header block instead, one place to change",
+      "ts": "2026-04-07T10:41:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Tejas",
+      "text": "much better",
+      "ts": "2026-04-07T10:45:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "swap the old logo asset in the onboarding email template",
+      "direction": "blocked_on_you",
+      "counterparty": "Tejas",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 35,
+          "end": 40
+        },
+        "resolved": "2026-04-07",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 40
+      },
+      "resolution": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 60
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "Superseded by the promisor's own replacement commitment once new information arrived, as in sup-06. The original act — edit the one template — is no longer what anyone expects."
+    },
+    {
+      "statement": "move all six onboarding email templates onto a shared header block",
+      "direction": "blocked_on_you",
+      "counterparty": "Tejas",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 81
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

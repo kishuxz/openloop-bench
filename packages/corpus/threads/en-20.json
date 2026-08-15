@@ -1,0 +1,219 @@
+{
+  "thread_id": "en-20",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Reema (EA)",
+      "text": "morning. few things pending from last week",
+      "ts": "2026-04-15T08:40:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Reema (EA)",
+      "text": "the visa paperwork for the singapore trip",
+      "ts": "2026-04-15T08:40:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "right",
+      "ts": "2026-04-15T09:02:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Reema (EA)",
+      "text": "also the two candidates from friday are waiting to hear back",
+      "ts": "2026-04-15T09:05:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "ill send you the visa docs today, theyre in my drawer at home",
+      "ts": "2026-04-15T09:20:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "candidates - can you send both of them the standard rejection? neither was a fit",
+      "ts": "2026-04-15T09:21:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "Reema (EA)",
+      "text": "ok. and the one who did the take home?",
+      "ts": "2026-04-15T09:30:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "user",
+      "text": "him i want to speak to myself, ill call him this week",
+      "ts": "2026-04-15T09:35:00+05:30"
+    },
+    {
+      "index": 8,
+      "sender": "Reema (EA)",
+      "text": "noted",
+      "ts": "2026-04-15T09:36:00+05:30"
+    },
+    {
+      "index": 9,
+      "sender": "Reema (EA)",
+      "text": "one more, the co-working invoice is unpaid, theyve mailed twice",
+      "ts": "2026-04-15T11:02:00+05:30"
+    },
+    {
+      "index": 10,
+      "sender": "user",
+      "text": "how much",
+      "ts": "2026-04-15T12:40:00+05:30"
+    },
+    {
+      "index": 11,
+      "sender": "Reema (EA)",
+      "text": "84k",
+      "ts": "2026-04-15T12:41:00+05:30"
+    },
+    {
+      "index": 12,
+      "sender": "user",
+      "text": "ok ill approve it from the bank app tonight",
+      "ts": "2026-04-15T12:50:00+05:30"
+    },
+    {
+      "index": 13,
+      "sender": "Reema (EA)",
+      "text": "thanks",
+      "ts": "2026-04-15T12:51:00+05:30"
+    },
+    {
+      "index": 14,
+      "sender": "Reema (EA)",
+      "text": "also happy to help with the visa forms if you want, i've done them before",
+      "ts": "2026-04-15T12:52:00+05:30"
+    },
+    {
+      "index": 15,
+      "sender": "user",
+      "text": "noted, might take you up on that",
+      "ts": "2026-04-15T13:10:00+05:30"
+    },
+    {
+      "index": 16,
+      "sender": "Reema (EA)",
+      "text": "rejections have gone out to both",
+      "ts": "2026-04-16T10:20:00+05:30"
+    },
+    {
+      "index": 17,
+      "sender": "user",
+      "text": "thanks",
+      "ts": "2026-04-16T10:45:00+05:30"
+    },
+    {
+      "index": 18,
+      "sender": "Reema (EA)",
+      "text": "and the landlord wants to know about the extra desks",
+      "ts": "2026-04-16T15:02:00+05:30"
+    },
+    {
+      "index": 19,
+      "sender": "user",
+      "text": "tell him next month",
+      "ts": "2026-04-16T15:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "give Reema the Singapore visa paperwork",
+      "direction": "blocked_on_you",
+      "counterparty": "Reema (EA)",
+      "deadline": {
+        "span": {
+          "msg_index": 4,
+          "start": 27,
+          "end": 32
+        },
+        "resolved": "2026-04-15",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 32
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "Reema sends standard rejections to the two Friday candidates",
+      "direction": "blocked_on_them",
+      "counterparty": "Reema (EA)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 13,
+        "end": 61
+      },
+      "resolution": {
+        "msg_index": 16,
+        "start": 0,
+        "end": 32
+      },
+      "state": "closed",
+      "register": "en",
+      "notes": "Evidence in message 5, resolution in message 16. The commitment is created by the user's request and Reema's 'ok' in message 6 rather than by a first-person statement from her — a directive accepted is a commitment."
+    },
+    {
+      "statement": "call the take-home candidate personally",
+      "direction": "blocked_on_you",
+      "counterparty": "Reema (EA)",
+      "deadline": {
+        "span": {
+          "msg_index": 7,
+          "start": 44,
+          "end": 53
+        },
+        "resolved": null,
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 7,
+        "start": 31,
+        "end": 53
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "approve payment of the co-working invoice",
+      "direction": "blocked_on_you",
+      "counterparty": "Reema (EA)",
+      "deadline": {
+        "span": {
+          "msg_index": 12,
+          "start": 36,
+          "end": 43
+        },
+        "resolved": "2026-04-15",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 12,
+        "start": 3,
+        "end": 43
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "Message 14, Reema's offer to help with the visa forms, is availability and not a loop. Message 19, 'tell him next month', is an instruction about a future conversation with no act owed between these two."
+    }
+  ]
+}

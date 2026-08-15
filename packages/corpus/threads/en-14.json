@@ -1,0 +1,126 @@
+{
+  "thread_id": "en-14",
+  "channel": "imessage",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Rahul",
+      "text": "three things before i forget",
+      "ts": "2026-04-07T08:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Rahul",
+      "text": "1. the cloud bill is up 40% mom, someone needs to actually look",
+      "ts": "2026-04-07T08:03:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Rahul",
+      "text": "2. sameer wants a call this week about the integration",
+      "ts": "2026-04-07T08:03:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Rahul",
+      "text": "3. we still havent filed the trademark",
+      "ts": "2026-04-07T08:04:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "ok ill look at the cloud thing tonight",
+      "ts": "2026-04-07T09:15:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "ill also ping sameer and set something up",
+      "ts": "2026-04-07T09:16:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "trademark - can you take that one? you have the login",
+      "ts": "2026-04-07T09:16:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "Rahul",
+      "text": "fine ill get it filed this week",
+      "ts": "2026-04-07T09:40:00+05:30"
+    },
+    {
+      "index": 8,
+      "sender": "Rahul",
+      "text": "we should also do a proper offsite at some point",
+      "ts": "2026-04-07T09:41:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "investigate the 40% month-on-month cloud bill increase",
+      "direction": "blocked_on_you",
+      "counterparty": "Rahul",
+      "deadline": {
+        "span": {
+          "msg_index": 4,
+          "start": 31,
+          "end": 38
+        },
+        "resolved": "2026-04-07",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 3,
+        "end": 38
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "set up a call between Sameer and the team about the integration",
+      "direction": "blocked_on_you",
+      "counterparty": "Rahul",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 0,
+        "end": 41
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    },
+    {
+      "statement": "Rahul files the trademark application",
+      "direction": "blocked_on_them",
+      "counterparty": "Rahul",
+      "deadline": {
+        "span": {
+          "msg_index": 7,
+          "start": 22,
+          "end": 31
+        },
+        "resolved": null,
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 7,
+        "start": 5,
+        "end": 31
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "Message 8, 'we should also do a proper offsite at some point', is in the same thread and is not a loop. A busy thread mixes both."
+    }
+  ]
+}

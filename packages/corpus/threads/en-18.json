@@ -1,0 +1,51 @@
+{
+  "thread_id": "en-18",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Preethi",
+      "text": "the pricing page and the deck say different things about the enterprise tier",
+      "ts": "2026-04-13T15:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ugh yeah i know",
+      "ts": "2026-04-13T15:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "lets sit together and fix both at once, otherwise theyll drift again",
+      "ts": "2026-04-13T15:31:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Preethi",
+      "text": "agreed",
+      "ts": "2026-04-13T15:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "user and Preethi reconcile the pricing page and the deck together",
+      "direction": "mutual",
+      "counterparty": "Preethi",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 38
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

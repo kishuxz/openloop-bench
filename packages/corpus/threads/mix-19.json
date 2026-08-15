@@ -1,0 +1,166 @@
+{
+  "thread_id": "mix-19",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Nitin (banker)",
+      "text": "sir current account ke liye KYC documents pending hai",
+      "ts": "2026-04-13T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "kaunse chahiye",
+      "ts": "2026-04-13T11:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Nitin (banker)",
+      "text": "board resolution, incorporation certificate, aur dono directors ka address proof",
+      "ts": "2026-04-13T11:35:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "theek hai bhijwata hu",
+      "ts": "2026-04-13T12:02:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Nitin (banker)",
+      "text": "ji sir",
+      "ts": "2026-04-13T12:10:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "incorporation certificate mil gaya kya",
+      "ts": "2026-04-14T09:15:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "Nitin (banker)",
+      "text": "haan sir wo mil gaya, baaki do pending",
+      "ts": "2026-04-14T09:40:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "Nitin (banker)",
+      "text": "sir board resolution ka format bhej deta hu, usi pe sign karwa dijiye",
+      "ts": "2026-04-14T09:41:00+05:30"
+    },
+    {
+      "index": 8,
+      "sender": "user",
+      "text": "haan bhejo",
+      "ts": "2026-04-14T10:02:00+05:30"
+    },
+    {
+      "index": 9,
+      "sender": "Nitin (banker)",
+      "text": "format bheja hai whatsapp pe",
+      "ts": "2026-04-14T14:20:00+05:30"
+    },
+    {
+      "index": 10,
+      "sender": "user",
+      "text": "dekh liya",
+      "ts": "2026-04-14T18:40:00+05:30"
+    },
+    {
+      "index": 11,
+      "sender": "Nitin (banker)",
+      "text": "sir koi update",
+      "ts": "2026-04-16T10:05:00+05:30"
+    },
+    {
+      "index": 12,
+      "sender": "user",
+      "text": "aaj kar deta hu, dono directors office me hai",
+      "ts": "2026-04-16T10:30:00+05:30"
+    },
+    {
+      "index": 13,
+      "sender": "user",
+      "text": "board resolution signed aur address proofs dono bhej diye hai courier se",
+      "ts": "2026-04-16T17:02:00+05:30"
+    },
+    {
+      "index": 14,
+      "sender": "Nitin (banker)",
+      "text": "received sir, account activate ho jayega kal tak",
+      "ts": "2026-04-17T11:20:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "submit the board resolution and both directors' address proofs for bank KYC",
+      "direction": "blocked_on_you",
+      "counterparty": "Nitin (banker)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 21
+      },
+      "resolution": {
+        "msg_index": 13,
+        "start": 0,
+        "end": 72
+      },
+      "state": "closed",
+      "register": "hi-en",
+      "notes": "Evidence in message 3, resolution in message 13 — ten messages and three days apart. The intervening traffic includes a separate loop of its own."
+    },
+    {
+      "statement": "Nitin sends the board resolution format for signature",
+      "direction": "blocked_on_them",
+      "counterparty": "Nitin (banker)",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 7,
+        "start": 24,
+        "end": 43
+      },
+      "resolution": {
+        "msg_index": 9,
+        "start": 0,
+        "end": 28
+      },
+      "state": "closed",
+      "register": "hi-en"
+    },
+    {
+      "statement": "Nitin activates the current account",
+      "direction": "blocked_on_them",
+      "counterparty": "Nitin (banker)",
+      "deadline": {
+        "span": {
+          "msg_index": 14,
+          "start": 41,
+          "end": 48
+        },
+        "resolved": "2026-04-18",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 14,
+        "start": 14,
+        "end": 48
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    }
+  ]
+}

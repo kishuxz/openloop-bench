@@ -1,0 +1,50 @@
+{
+  "thread_id": "mix-16",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Kavya",
+      "text": "anna, appraisal letters print panniduven nu sonninga",
+      "ts": "2026-04-14T09:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "aama, naaliki kandippa mudichiduven",
+      "ts": "2026-04-14T10:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Kavya",
+      "text": "sari anna, team kekuraanga",
+      "ts": "2026-04-14T10:10:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "finish printing the appraisal letters",
+      "direction": "blocked_on_you",
+      "counterparty": "Kavya",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 6,
+          "end": 13
+        },
+        "resolved": "2026-04-15",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 6,
+        "end": 35
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en",
+      "notes": "Kavya's message references a commitment made before the thread. It is labelled because message 1 re-commits to it, per §1's re-commitment rule."
+    }
+  ]
+}

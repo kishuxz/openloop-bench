@@ -1,0 +1,44 @@
+{
+  "thread_id": "neg-13",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "user",
+      "text": "reminder that the office is shut monday for the holiday",
+      "ts": "2026-04-13T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "if youre on call, the escalation path is unchanged",
+      "ts": "2026-04-13T09:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Pooja",
+      "text": "👍",
+      "ts": "2026-04-13T09:15:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Vinod",
+      "text": "noted",
+      "ts": "2026-04-13T09:20:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Vinod",
+      "text": "ill keep an eye on the alerts channel anyway, i usually do",
+      "ts": "2026-04-13T09:21:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Pooja",
+      "text": "same, im around if anything catches fire",
+      "ts": "2026-04-13T09:30:00+05:30"
+    }
+  ],
+  "loops": []
+}

@@ -1,0 +1,44 @@
+{
+  "thread_id": "neg-11",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Raghav",
+      "text": "machaa oru doubt",
+      "ts": "2026-04-08T22:10:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Raghav",
+      "text": "neenga startup start panna time la, funding illama epdi manage panninga",
+      "ts": "2026-04-08T22:11:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "savings, aprom oru chinna consulting project",
+      "ts": "2026-04-08T22:40:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Raghav",
+      "text": "interesting. naanum yosichitu iruken",
+      "ts": "2026-04-08T22:44:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "seri pannunga, epavachum pesalam pathi",
+      "ts": "2026-04-08T22:50:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Raghav",
+      "text": "kandippa",
+      "ts": "2026-04-08T22:51:00+05:30"
+    }
+  ],
+  "loops": []
+}

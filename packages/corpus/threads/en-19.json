@@ -1,0 +1,74 @@
+{
+  "thread_id": "en-19",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Harsha",
+      "text": "staging is down, everything 502s",
+      "ts": "2026-04-14T14:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "looking",
+      "ts": "2026-04-14T14:04:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "it was the index migration. rolling it back now",
+      "ts": "2026-04-14T14:18:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "staging is back up",
+      "ts": "2026-04-14T14:31:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Harsha",
+      "text": "confirmed, im in",
+      "ts": "2026-04-14T14:35:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Harsha",
+      "text": "we should probably add a smoke test to the deploy at some point",
+      "ts": "2026-04-14T14:36:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "user",
+      "text": "yeah we should",
+      "ts": "2026-04-14T14:40:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "roll back the index migration that took staging down",
+      "direction": "blocked_on_you",
+      "counterparty": "Harsha",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 28,
+        "end": 47
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 18
+      },
+      "state": "closed",
+      "register": "en",
+      "notes": "In-flight statement, not future tense. 'rolling it back now' names the act and Harsha is waiting on it, so it is a commitment. 'looking' in message 1 is not — no act is named there."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "thread_id": "mix-14",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Preethi (CA)",
+      "text": "advance tax due date 15th, ipo varaikkum time iruku",
+      "ts": "2026-04-09T11:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Preethi (CA)",
+      "text": "unga side la projected revenue number venum",
+      "ts": "2026-04-09T11:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "ok naan calculate panni anuppuren",
+      "ts": "2026-04-09T13:20:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Preethi (CA)",
+      "text": "sari",
+      "ts": "2026-04-09T13:25:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send the CA the projected revenue figure for advance tax",
+      "direction": "blocked_on_you",
+      "counterparty": "Preethi (CA)",
+      "deadline": {
+        "span": null,
+        "resolved": "2026-04-15",
+        "certainty": "implied"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 3,
+        "end": 33
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en",
+      "notes": "The 15th is stated as a fact about the due date, not attached to the promise. Implied with a null span, resolved from the filing date, exactly as en-05."
+    }
+  ]
+}
