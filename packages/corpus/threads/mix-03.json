@@ -1,0 +1,55 @@
+{
+  "thread_id": "mix-03",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Lakshmi (audit)",
+      "text": "invoice copies vandhuruchaa? audit team kekkuraanga",
+      "ts": "2026-03-09T10:05:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "innum illa",
+      "ts": "2026-03-09T11:12:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "naaliki anuppuren, drive la upload panren",
+      "ts": "2026-03-09T11:13:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Lakshmi (audit)",
+      "text": "sari",
+      "ts": "2026-03-09T11:20:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "upload the invoice copies to the drive for Lakshmi",
+      "direction": "blocked_on_you",
+      "counterparty": "Lakshmi (audit)",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 7
+        },
+        "resolved": "2026-03-10",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 41
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en"
+    }
+  ]
+}

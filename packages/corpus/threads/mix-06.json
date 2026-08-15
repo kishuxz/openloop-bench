@@ -1,0 +1,55 @@
+{
+  "thread_id": "mix-06",
+  "channel": "imessage",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Rahul",
+      "text": "onboarding numbers mil gaye?",
+      "ts": "2026-03-16T08:44:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "nikal raha hu abhi",
+      "ts": "2026-03-16T09:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "shaam tak bhej deta hu",
+      "ts": "2026-03-16T09:02:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Rahul",
+      "text": "ok bas board deck me daalna hai",
+      "ts": "2026-03-16T09:10:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Rahul the onboarding numbers for the board deck",
+      "direction": "blocked_on_you",
+      "counterparty": "Rahul",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 9
+        },
+        "resolved": "2026-03-16",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 22
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    }
+  ]
+}

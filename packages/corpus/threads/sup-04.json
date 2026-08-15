@@ -1,0 +1,60 @@
+{
+  "thread_id": "sup-04",
+  "channel": "email",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Aditya (Zeta)",
+      "text": "Good speaking today. Could you put together a short proposal covering scope and pricing so I can take it to my head of ops?",
+      "ts": "2026-03-12T17:10:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "Will do - I'll have a draft proposal with you by friday.",
+      "ts": "2026-03-12T19:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Aditya (Zeta)",
+      "text": "Hold off on that actually. Our budget cycle just got pushed, so we're parking all new vendor work until the next quarter. I'll come back to you in July.",
+      "ts": "2026-03-13T11:35:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "Understood - I'll leave it with you. Happy to pick it up whenever.",
+      "ts": "2026-03-13T12:04:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Aditya a draft proposal covering scope and pricing",
+      "direction": "blocked_on_you",
+      "counterparty": "Aditya (Zeta)",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 46,
+          "end": 55
+        },
+        "resolved": "2026-03-13",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 10,
+        "end": 55
+      },
+      "resolution": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 25
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "Aditya's 'I'll come back to you in July' is not labelled as a new loop: it is a vague future intention with no agreed obligation and no date the user could hold him to. See the pleasantry rule."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "thread_id": "neg-07",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "user",
+      "text": "deploying the billing changes at 4pm today, small blast radius",
+      "ts": "2026-03-18T13:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "shout if anything looks off after that",
+      "ts": "2026-03-18T13:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Tanvi",
+      "text": "ack. ill shout if anything looks weird after 4",
+      "ts": "2026-03-18T13:10:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Tanvi",
+      "text": "i already updated the runbook this morning btw, its in the wiki",
+      "ts": "2026-03-18T13:11:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "saw it, thanks",
+      "ts": "2026-03-18T13:20:00+05:30"
+    }
+  ],
+  "loops": []
+}

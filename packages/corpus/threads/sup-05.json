@@ -1,0 +1,94 @@
+{
+  "thread_id": "sup-05",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "user",
+      "text": "hi rohit, the feb invoice is still showing unpaid on our side",
+      "ts": "2026-03-16T11:20:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Rohit (client)",
+      "text": "sorry! ill do the transfer today itself",
+      "ts": "2026-03-16T11:48:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "thanks",
+      "ts": "2026-03-16T11:50:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Rohit (client)",
+      "text": "the transfer bounced, our bank flagged the new beneficiary 🙄",
+      "ts": "2026-03-16T19:30:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Rohit (client)",
+      "text": "ill do a NEFT on monday once its whitelisted",
+      "ts": "2026-03-16T19:31:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "ok no problem",
+      "ts": "2026-03-16T19:44:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "Rohit transfers payment for the February invoice",
+      "direction": "blocked_on_them",
+      "counterparty": "Rohit (client)",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 27,
+          "end": 39
+        },
+        "resolved": "2026-03-16",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 7,
+        "end": 39
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 20
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "The underlying debt survives, but this specific commitment did not: it was attempted, failed, and was replaced by a different one. Labelled as two loops so an extractor that reports one live payment loop still gets credit for the live one."
+    },
+    {
+      "statement": "Rohit pays the February invoice by NEFT",
+      "direction": "blocked_on_them",
+      "counterparty": "Rohit (client)",
+      "deadline": {
+        "span": {
+          "msg_index": 4,
+          "start": 14,
+          "end": 23
+        },
+        "resolved": "2026-03-23",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 44
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

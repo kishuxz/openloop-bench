@@ -1,0 +1,84 @@
+{
+  "thread_id": "sup-06",
+  "channel": "slack",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "user",
+      "text": "we need a JD up for the backend role this week",
+      "ts": "2026-03-17T09:15:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ill draft it tonight",
+      "ts": "2026-03-17T09:15:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Divya",
+      "text": "priya already wrote one for the last cycle, its in notion",
+      "ts": "2026-03-17T09:40:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Divya",
+      "text": "probably just needs the stack updated",
+      "ts": "2026-03-17T09:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "oh nice, ill just edit hers then and put it live",
+      "ts": "2026-03-17T09:44:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "draft a job description for the backend role",
+      "direction": "blocked_on_you",
+      "counterparty": "Divya",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 13,
+          "end": 20
+        },
+        "resolved": "2026-03-17",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 20
+      },
+      "resolution": {
+        "msg_index": 4,
+        "start": 9,
+        "end": 32
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "Superseded by the user's own later commitment, not by the counterparty. Supersession does not require the other side to cancel it."
+    },
+    {
+      "statement": "update the stack in Priya's existing JD and publish it",
+      "direction": "blocked_on_you",
+      "counterparty": "Divya",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 9,
+        "end": 48
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

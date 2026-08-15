@@ -1,0 +1,49 @@
+{
+  "thread_id": "en-03",
+  "channel": "email",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Accounts (Vendor)",
+      "text": "Hi, following up on invoice INV-2261 for the Feb retainer. It's now 12 days past due. Could you confirm when payment will go out?",
+      "ts": "2026-03-04T10:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "apologies for the delay - our finance person was out. i'll get it released by friday.",
+      "ts": "2026-03-04T18:47:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Accounts (Vendor)",
+      "text": "Noted, thank you. Will watch for it.",
+      "ts": "2026-03-05T09:15:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "release payment for invoice INV-2261 to the vendor",
+      "direction": "blocked_on_you",
+      "counterparty": "Accounts (Vendor)",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 75,
+          "end": 84
+        },
+        "resolved": "2026-03-06",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 54,
+        "end": 84
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "thread_id": "en-04",
+  "channel": "imessage",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Rahul",
+      "text": "put up the retries PR, it's small",
+      "ts": "2026-03-05T21:40:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Rahul",
+      "text": "would be good to ship before the demo",
+      "ts": "2026-03-05T21:40:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "ok ill review it",
+      "ts": "2026-03-05T22:03:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Rahul",
+      "text": "🙏",
+      "ts": "2026-03-05T22:04:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "review Rahul's retries PR",
+      "direction": "blocked_on_you",
+      "counterparty": "Rahul",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 3,
+        "end": 16
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "Rahul's 'before the demo' is a preference, not an agreed deadline, and the demo date is never stated in the thread. Certainty none rather than implied."
+    }
+  ]
+}

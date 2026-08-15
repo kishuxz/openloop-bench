@@ -1,0 +1,71 @@
+{
+  "thread_id": "en-07",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Kabir",
+      "text": "hey do you know anyone at zeta? trying to get to their payments team",
+      "ts": "2026-03-11T17:22:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "yeah sameer runs partnerships there",
+      "ts": "2026-03-11T17:45:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "ill ping him today and cc you",
+      "ts": "2026-03-11T17:45:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Kabir",
+      "text": "amazing ty",
+      "ts": "2026-03-11T17:46:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "sent, youre both on the thread now",
+      "ts": "2026-03-11T20:12:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Kabir",
+      "text": "you're the best",
+      "ts": "2026-03-11T20:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "introduce Kabir to Sameer at Zeta over email",
+      "direction": "blocked_on_you",
+      "counterparty": "Kabir",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 13,
+          "end": 18
+        },
+        "resolved": "2026-03-11",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 29
+      },
+      "resolution": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 34
+      },
+      "state": "closed",
+      "register": "en"
+    }
+  ]
+}

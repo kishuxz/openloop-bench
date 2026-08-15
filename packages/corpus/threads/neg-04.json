@@ -1,0 +1,26 @@
+{
+  "thread_id": "neg-04",
+  "channel": "email",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Shalini (Accel)",
+      "text": "Hi - great to meet you at the SaaSBoomi dinner. We're not looking at seed rounds in this space right now, but I enjoyed the conversation. Do reach out anytime if things change on your end.",
+      "ts": "2026-03-09T18:20:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "Thanks Shalini, likewise. Totally understood on stage fit. Always happy to chat, and I'll keep an eye out for the portfolio companies you mentioned.",
+      "ts": "2026-03-09T20:05:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Shalini (Accel)",
+      "text": "Sounds good. Best of luck with the round.",
+      "ts": "2026-03-10T09:12:00+05:30"
+    }
+  ],
+  "loops": []
+}

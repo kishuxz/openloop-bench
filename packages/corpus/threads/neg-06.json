@@ -1,0 +1,38 @@
+{
+  "thread_id": "neg-06",
+  "channel": "imessage",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Rahul",
+      "text": "happy birthday! 🎂",
+      "ts": "2026-03-14T00:04:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "thank you 🙏",
+      "ts": "2026-03-14T08:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Rahul",
+      "text": "we should plan something, its been a mad quarter for both of us",
+      "ts": "2026-03-14T08:32:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "haha yes. once the raise closes im taking a week off, seriously",
+      "ts": "2026-03-14T08:40:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Rahul",
+      "text": "ill believe it when i see it",
+      "ts": "2026-03-14T08:41:00+05:30"
+    }
+  ],
+  "loops": []
+}

@@ -1,0 +1,62 @@
+{
+  "thread_id": "en-10",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Suresh (office)",
+      "text": "sir the new floor agreement needs your signature, landlord is asking",
+      "ts": "2026-03-17T12:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "i have the scan somewhere",
+      "ts": "2026-03-17T13:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "ill sign and send it back to you on monday",
+      "ts": "2026-03-17T13:31:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Suresh (office)",
+      "text": "ok sir",
+      "ts": "2026-03-17T13:33:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Suresh (office)",
+      "text": "also parking passes are done, collect anytime",
+      "ts": "2026-03-17T13:34:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "sign the new floor agreement and return it to Suresh",
+      "direction": "blocked_on_you",
+      "counterparty": "Suresh (office)",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 33,
+          "end": 42
+        },
+        "resolved": "2026-03-23",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 42
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "'collect anytime' for the parking passes is an availability, not a commitment with a counterparty waiting — not labelled."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "thread_id": "mix-10",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Ravi (CS)",
+      "text": "anna, customer testimonial video ku script venum",
+      "ts": "2026-03-23T09:15:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "epdi format venum? bullet points aa full script aa",
+      "ts": "2026-03-23T09:40:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Ravi (CS)",
+      "text": "full script better",
+      "ts": "2026-03-23T09:42:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "ok month end kulla draft anuppuren",
+      "ts": "2026-03-23T09:50:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Ravi (CS)",
+      "text": "thanks anna",
+      "ts": "2026-03-23T09:51:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "send Ravi a full draft script for the customer testimonial video",
+      "direction": "blocked_on_you",
+      "counterparty": "Ravi (CS)",
+      "deadline": {
+        "span": {
+          "msg_index": 3,
+          "start": 3,
+          "end": 18
+        },
+        "resolved": "2026-03-31",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 3,
+        "end": 34
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en",
+      "notes": "'month end' resolves where 'next week' does not: both parties would name the same last day (31 March)."
+    }
+  ]
+}

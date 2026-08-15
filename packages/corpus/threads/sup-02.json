@@ -1,0 +1,90 @@
+{
+  "thread_id": "sup-02",
+  "channel": "slack",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Tanvi",
+      "text": "webhook retries are hammering the vendor again, we got a warning email",
+      "ts": "2026-03-10T09:40:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "ugh. ill put a backoff on it today",
+      "ts": "2026-03-10T09:52:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "also someone needs to reply to their ops team",
+      "ts": "2026-03-10T09:53:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Tanvi",
+      "text": "i already pushed a backoff last night actually, its on staging",
+      "ts": "2026-03-10T10:15:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Tanvi",
+      "text": "ill let you handle the email though, its your relationship",
+      "ts": "2026-03-10T10:15:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "ah perfect. yeah ill write to them",
+      "ts": "2026-03-10T10:20:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "add exponential backoff to the webhook retries",
+      "direction": "blocked_on_you",
+      "counterparty": "Tanvi",
+      "deadline": {
+        "span": {
+          "msg_index": 1,
+          "start": 29,
+          "end": 34
+        },
+        "resolved": "2026-03-10",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 5,
+        "end": 34
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 46
+      },
+      "state": "superseded",
+      "register": "en",
+      "notes": "The work exists but the user's commitment was overtaken before they started. Closed would claim the user delivered it."
+    },
+    {
+      "statement": "email the vendor's ops team about the retry warning",
+      "direction": "blocked_on_you",
+      "counterparty": "Tanvi",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 5,
+        "start": 12,
+        "end": 34
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "thread_id": "en-06",
+  "channel": "slack",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Divya",
+      "text": "we should probably lock the pricing tiers before the website rewrite starts",
+      "ts": "2026-03-10T14:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "agreed. neither of us should be guessing on this",
+      "ts": "2026-03-10T14:09:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "lets find 30 mins this week and just decide",
+      "ts": "2026-03-10T14:09:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "Divya",
+      "text": "yes. ill look at my calendar",
+      "ts": "2026-03-10T14:11:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "user and Divya schedule 30 minutes to decide the pricing tiers",
+      "direction": "mutual",
+      "counterparty": "Divya",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 18,
+          "end": 27
+        },
+        "resolved": null,
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 43
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "'this week' is stated but does not name a day both parties would resolve identically, so resolved stays null. Mutual because neither side can book it alone."
+    }
+  ]
+}

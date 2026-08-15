@@ -1,0 +1,83 @@
+{
+  "thread_id": "del-04",
+  "channel": "whatsapp",
+  "split": "test",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Imran",
+      "text": "bhai woh investor list share karoge? jo tumne banayi thi",
+      "ts": "2026-03-17T20:04:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "haan haan bhejta hu",
+      "ts": "2026-03-17T20:30:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "arre main travel me hu next 3 din",
+      "ts": "2026-03-18T08:12:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "priya bhej degi, usko bola hai maine, kal tak",
+      "ts": "2026-03-18T08:13:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Imran",
+      "text": "cool cool",
+      "ts": "2026-03-18T08:20:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "share the investor list with Imran",
+      "direction": "blocked_on_you",
+      "counterparty": "Imran",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 1,
+        "start": 0,
+        "end": 19
+      },
+      "resolution": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 15
+      },
+      "state": "superseded",
+      "register": "hi-en"
+    },
+    {
+      "statement": "Priya shares the investor list with Imran",
+      "direction": "blocked_on_them",
+      "counterparty": "Priya",
+      "deadline": {
+        "span": {
+          "msg_index": 3,
+          "start": 38,
+          "end": 45
+        },
+        "resolved": "2026-03-19",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 45
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    }
+  ]
+}

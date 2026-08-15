@@ -1,0 +1,55 @@
+{
+  "thread_id": "mix-02",
+  "channel": "whatsapp",
+  "split": "dev",
+  "messages": [
+    {
+      "index": 0,
+      "sender": "user",
+      "text": "bhai woh march ka payment pending hai still",
+      "ts": "2026-03-05T16:20:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "Vikram",
+      "text": "arre haan sorry, accounts wala chutti pe tha",
+      "ts": "2026-03-05T18:02:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Vikram",
+      "text": "parso tak transfer kar dunga",
+      "ts": "2026-03-05T18:02:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "theek hai",
+      "ts": "2026-03-05T18:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "Vikram transfers the pending March payment",
+      "direction": "blocked_on_them",
+      "counterparty": "Vikram",
+      "deadline": {
+        "span": {
+          "msg_index": 2,
+          "start": 0,
+          "end": 9
+        },
+        "resolved": "2026-03-07",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 2,
+        "start": 0,
+        "end": 28
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    }
+  ]
+}
