@@ -1,0 +1,68 @@
+{
+  "thread_id": "en-47",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Divya",
+      "text": "the two of us have completely different numbers for blended CAC",
+      "ts": "2026-07-07T11:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "i know. mine includes salaries, yours doesnt",
+      "ts": "2026-07-07T11:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Divya",
+      "text": "neither is wrong, they answer different questions",
+      "ts": "2026-07-07T11:22:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "which is exactly why we need one definition we both use in front of the board",
+      "ts": "2026-07-07T11:25:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "lets lock it between us before the 20th",
+      "ts": "2026-07-07T11:26:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Divya",
+      "text": "agreed",
+      "ts": "2026-07-07T11:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "user and Divya agree a single blended CAC definition together",
+      "direction": "mutual",
+      "counterparty": "Divya",
+      "deadline": {
+        "span": {
+          "msg_index": 4,
+          "start": 24,
+          "end": 39
+        },
+        "resolved": "2026-07-20",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 39
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en"
+    }
+  ]
+}

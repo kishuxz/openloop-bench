@@ -1,0 +1,81 @@
+{
+  "thread_id": "en-46",
+  "channel": "slack",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Tanvi",
+      "text": "engineering and support keep giving customers different answers on the SLA",
+      "ts": "2026-07-06T09:30:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "because we never wrote one down that both teams agreed to",
+      "ts": "2026-07-06T09:45:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Tanvi",
+      "text": "right. i cant write it alone, half of it is your commitments",
+      "ts": "2026-07-06T09:47:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "and half of it is what you can actually hold. lets draft it together",
+      "ts": "2026-07-06T09:50:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Tanvi",
+      "text": "ok. this week?",
+      "ts": "2026-07-06T09:51:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "user",
+      "text": "this week",
+      "ts": "2026-07-06T09:52:00+05:30"
+    },
+    {
+      "index": 6,
+      "sender": "Tanvi",
+      "text": "we should also revisit the escalation matrix eventually",
+      "ts": "2026-07-06T09:55:00+05:30"
+    },
+    {
+      "index": 7,
+      "sender": "user",
+      "text": "eventually",
+      "ts": "2026-07-06T09:56:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "user and Tanvi draft an agreed SLA together",
+      "direction": "mutual",
+      "counterparty": "Tanvi",
+      "deadline": {
+        "span": {
+          "msg_index": 4,
+          "start": 4,
+          "end": 13
+        },
+        "resolved": null,
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 46,
+        "end": 68
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "en",
+      "notes": "The deadline is negotiated across messages 4 and 5 rather than stated with the commitment. Message 6 is near-miss language closing a thread that contains a real mutual loop."
+    }
+  ]
+}

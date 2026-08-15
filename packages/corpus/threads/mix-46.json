@@ -1,0 +1,80 @@
+{
+  "thread_id": "mix-46",
+  "channel": "whatsapp",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Karthik",
+      "text": "anna, warehouse lease renewal la rent negotiate pannanum",
+      "ts": "2026-07-08T09:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "landlord kitta naan mattum pesina velai aagadhu",
+      "ts": "2026-07-08T09:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "user",
+      "text": "neenga volume numbers vechukonga, naan payment history",
+      "ts": "2026-07-08T09:21:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "rendu perum sernthu pesalam next week",
+      "ts": "2026-07-08T09:22:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "Karthik",
+      "text": "sari anna, naan numbers ready pandren",
+      "ts": "2026-07-08T09:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "user and Karthik negotiate the warehouse rent with the landlord together",
+      "direction": "mutual",
+      "counterparty": "Karthik",
+      "deadline": {
+        "span": {
+          "msg_index": 3,
+          "start": 28,
+          "end": 37
+        },
+        "resolved": null,
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 3,
+        "start": 0,
+        "end": 37
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en"
+    },
+    {
+      "statement": "Karthik prepares the volume numbers for the rent negotiation",
+      "direction": "blocked_on_them",
+      "counterparty": "Karthik",
+      "deadline": {
+        "span": null,
+        "resolved": null,
+        "certainty": "none"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 11,
+        "end": 37
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "ta-en"
+    }
+  ]
+}

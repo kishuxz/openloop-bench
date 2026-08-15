@@ -1,0 +1,68 @@
+{
+  "thread_id": "mix-47",
+  "channel": "slack",
+  "split": "test",
+  "batch": 4,
+  "messages": [
+    {
+      "index": 0,
+      "sender": "Sneha",
+      "text": "investor update aur board deck me alag alag runway number ja raha hai",
+      "ts": "2026-07-08T14:02:00+05:30"
+    },
+    {
+      "index": 1,
+      "sender": "user",
+      "text": "haan maine dekha",
+      "ts": "2026-07-08T14:20:00+05:30"
+    },
+    {
+      "index": 2,
+      "sender": "Sneha",
+      "text": "main apna model theek kar leti hu par assumptions tumhare paas hai",
+      "ts": "2026-07-08T14:22:00+05:30"
+    },
+    {
+      "index": 3,
+      "sender": "user",
+      "text": "aur assumptions ka matlab tumhare model ke bina nahi banta",
+      "ts": "2026-07-08T14:25:00+05:30"
+    },
+    {
+      "index": 4,
+      "sender": "user",
+      "text": "kal baith ke ek hi number pe aa jaate hai",
+      "ts": "2026-07-08T14:26:00+05:30"
+    },
+    {
+      "index": 5,
+      "sender": "Sneha",
+      "text": "haan chalo",
+      "ts": "2026-07-08T14:30:00+05:30"
+    }
+  ],
+  "loops": [
+    {
+      "statement": "user and Sneha reconcile the runway model to a single number together",
+      "direction": "mutual",
+      "counterparty": "Sneha",
+      "deadline": {
+        "span": {
+          "msg_index": 4,
+          "start": 0,
+          "end": 3
+        },
+        "resolved": "2026-07-09",
+        "certainty": "explicit"
+      },
+      "evidence": {
+        "msg_index": 4,
+        "start": 0,
+        "end": 41
+      },
+      "resolution": null,
+      "state": "open",
+      "register": "hi-en"
+    }
+  ]
+}
