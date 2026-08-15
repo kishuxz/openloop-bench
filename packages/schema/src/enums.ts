@@ -77,6 +77,20 @@ export const CertaintySchema = z.enum(CERTAINTIES);
 export type Certainty = z.infer<typeof CertaintySchema>;
 
 /**
+ * Which half of the benchmark a thread belongs to.
+ *
+ *   dev  — prompt iteration, error analysis, anything you want to eyeball.
+ *   test — scored. Reading it while tuning is how a benchmark quietly becomes
+ *          a training set.
+ *
+ * The split is a property of the thread, stored in the thread file, so it
+ * travels with the data and cannot be re-drawn per run to flatter a result.
+ */
+export const SPLITS = ["dev", "test"] as const;
+export const SplitSchema = z.enum(SPLITS);
+export type Split = z.infer<typeof SplitSchema>;
+
+/**
  * The reserved sender id for the benchmark subject — the person whose open
  * loops are being measured. Every other sender string is a counterparty name.
  */

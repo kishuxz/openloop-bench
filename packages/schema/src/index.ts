@@ -12,27 +12,25 @@ export {
   CERTAINTIES,
   DIRECTIONS,
   REGISTERS,
+  SPLITS,
   STATES,
   SUBJECT,
   ChannelSchema,
   CertaintySchema,
   DirectionSchema,
   RegisterSchema,
+  SplitSchema,
   StateSchema,
   isSubject,
   type Certainty,
   type Channel,
   type Direction,
   type Register,
+  type Split,
   type State,
 } from "./enums.js";
 
-export {
-  IsoDateSchema,
-  IsoTimestampSchema,
-  isCalendarDate,
-  isTimestamp,
-} from "./temporal.js";
+export { IsoDateSchema, IsoTimestampSchema, isCalendarDate, isTimestamp } from "./temporal.js";
 
 export { MessageSchema, type Message } from "./message.js";
 
@@ -40,18 +38,23 @@ export {
   DeadlineSchema,
   EvidenceSchema,
   LoopSchema,
+  SpanSchema,
   type Deadline,
   type Evidence,
   type Loop,
+  type Span,
 } from "./loop.js";
 
 export {
   CorpusSchema,
   ThreadSchema,
   ThreadShapeSchema,
+  deadlineText,
   resolveEvidence,
+  resolveSpan,
   splitsSurrogatePair,
   type Corpus,
+  type HasMessages,
   type Thread,
   type ThreadShape,
 } from "./thread.js";
